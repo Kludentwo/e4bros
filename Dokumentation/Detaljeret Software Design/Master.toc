@@ -6,3 +6,6 @@
 \contentsline {chapter}{\chapternumberline {2}Klassediagrammer}{4}{chapter.2}
 \contentsline {subsection}{\numberline {2.0.3}KI}{4}{subsection.2.0.3}
 \contentsline {subsection}{\numberline {2.0.4}SM}{4}{subsection.2.0.4}
+\contentsline {subsection}{\numberline {2.0.5}Databasen}{4}{subsection.2.0.5}
+\contentsline {chapter}{\chapternumberline {3}Design}{5}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.6}Database}{5}{subsection.3.0.6}
