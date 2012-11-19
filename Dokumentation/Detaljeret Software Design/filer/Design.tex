@@ -1,6 +1,6 @@
 \chapter{Design}
-
-\subsection{Database}
+\section{Databasen}
+\subsection{Server}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{billeder/bdd_server}
@@ -14,4 +14,45 @@ TCP er en dataforbindelse (Transmission Control Protocol). Denne protokol er ben
 For TCP-forbindelsen benyttes TCP - protocollen som tilbyder sikker data overførelse fra BROS.
 Databasen er en mySQL database som frit kan downloades og installeres på en linux maskine. Man kan her vælge at installere en server del og en client del. Server delen er den del som i projektet benyttes da denne giver mulighed for at skrive til databasen samtidig med at man fra f.eks. en web-page kan tilgå og aflæse de data som er lageret i den. mySQL kan tilgås direkte fra terminalen og giver mulighed for forskellige opsætninger af databaser og tabeller samt forskellige bruger rettigheder.
 Web-pagen er udviklet i php som giver gode muligheder for kommunikation til og fra mySQL databasen. Web-pagen er implementeret ved hjælp af en apache server som er en web server. Web-pagen har en general information omkring BROS og et login til at tilgå databasen. Den web baserede database loader mySQL databasen og fremviser denne grafisk for brugeren.
+
+\subsection{TCP server}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/bdd_TCP_server}
+	\caption{BDD TCP server(ikke færdig)}
+	\label{fig:bdd_TCP_server}
+\end{figure}
+
+TCP protocollen er en af kerneprotokollerne på nutidens internet. Gennem TCP kan forskellige værstmaskine igennem f.eks. internet ethernet og trådet forbindelse oprette forbindelse til hinanden og udveksle datepakker. Protokollen giver programmelt på værtsmaksine nogle vitale garantier for at disse datapakker afsendes og modtages ved:
+\begin{itemize}
+	\item Stabilitet: En pakke der går tabt bliver forsøgt afsendt igen
+	\item Ordnet levering: En pakke kommer frem til modtageren i samme rækkefølge som de blev afsendt
+\end{itemize}
+Der ud over benytter TCP sig af forskellige port numre. Forskellige portnumrer gør dte muligt etablere flere forskellige datstrømme til og fra samme værtsmaskine.
+
+Selve programmet er kodet op over socket programmering. Under opstart initialiseres socket, ip og porte. Når disse er succesfuldt initialiseret afvendter TCP serveren at KI connecter. Efter connection modtager TCP serveren datapakken fra KI og gemmer denne i en textfil kaldt ship.txt. Denne fil bruges bruges som en midlertidig sikkerhed for at data fra KI sikkert bliver inført i mySQL databasen.
+
+sequuens diagram
+
+\subsection{Web-page}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/bdd_web}
+	\caption{BDD Web-page BROS}
+	\label{fig:bdd_web}
+\end{figure}
+
+For at web siden kan køre kræves der at der på serveren er installeret en web - server. Der er på denne server installeret apche som web - server.\\
+Ved opstart af serveren bliver denne automatisk startet og start siden er \textbf{BROS}. Web siden fungere som bruger interfacet for havne terminalen. Web siden er opbygget som et dynamisk web page og kodet i php. Dette sikre minmal loading time ved hjælp af ajax. Alle styles på siden er styret af css. Siden har 4 forskellige under sider Home, About Us, Ship Data og Contact. Ved klik på Ship Data vil man blive bedt om at taste sit password som sikre at kun autoriserede personer får adgang til systemet.\\
+Siden der håndtere skibs data starter med at connecte til mySQL databasen om ikke der kan connectes til databaseb vil der blvie udskrevet en error og siden vil igen forsøge at conencte til databasen. Efter connection til databasen vil den gemte fil fra TCP-serveren blive loadet ind i mySQL databasen og filen vil blive slettet. efter loading vil siden loade alle data i mySQL databasen og vise denne for brugeren. Data der kan vises for brugeren er:
+\begin{itemize}
+	\item Skibs ID
+	\item Højre tanks vandniveau
+	\item Venstre tanks vandniveau
+	\item Forbindelse til KI
+\end{itemize}
+
+
+
+
 

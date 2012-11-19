@@ -6,4 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.0.4}{SM}{subsection.2.0.3}% 6
 \BOOKMARK [2][-]{subsection.2.0.5}{Databasen}{subsection.2.0.3}% 7
 \BOOKMARK [0][-]{chapter.3}{Design}{}% 8
-\BOOKMARK [1][-]{subsection.3.0.6}{Database}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.1}{Databasen}{chapter.3}% 9
+\BOOKMARK [2][-]{subsection.3.1.1}{Server}{section.3.1}% 10
+\BOOKMARK [2][-]{subsection.3.1.2}{TCP server}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.3}{Web-page}{section.3.1}% 12
