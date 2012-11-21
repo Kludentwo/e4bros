@@ -42,15 +42,19 @@ sequuens diagram
 	\label{fig:bdd_web}
 \end{figure}
 
-For at web siden kan køre kræves der at der på serveren er installeret en web - server. Der er på denne server installeret apche som web - server.\\
+For at web siden kan køre kræves der at der på serveren er installeret en web - server. Der er på denne server installeret apache som web - server.\\
 Ved opstart af serveren bliver denne automatisk startet og start siden er \textbf{BROS}. Web siden fungere som bruger interfacet for havne terminalen. Web siden er opbygget som et dynamisk web page og kodet i php. Dette sikre minmal loading time ved hjælp af ajax. Alle styles på siden er styret af css. Siden har 4 forskellige under sider Home, About Us, Ship Data og Contact. Ved klik på Ship Data vil man blive bedt om at taste sit password som sikre at kun autoriserede personer får adgang til systemet.\\
-Siden der håndtere skibs data starter med at connecte til mySQL databasen om ikke der kan connectes til databaseb vil der blvie udskrevet en error og siden vil igen forsøge at conencte til databasen. Efter connection til databasen vil den gemte fil fra TCP-serveren blive loadet ind i mySQL databasen og filen vil blive slettet. efter loading vil siden loade alle data i mySQL databasen og vise denne for brugeren. Data der kan vises for brugeren er:
+Siden der håndtere skibs data starter med at connecte til mySQL databasen om ikke der kan connectes til databasen vil der blive udskrevet en error og siden vil igen forsøge at conencte til databasen. Efter connection til databasen vil den gemte fil fra TCP-serveren blive loadet ind i mySQL databasen og filen vil blive slettet. efter loading vil siden loade alle data i mySQL databasen og vise denne for brugeren. Data der kan vises for brugeren er:
 \begin{itemize}
 	\item Skibs ID
 	\item Højre tanks vandniveau
 	\item Venstre tanks vandniveau
+	\item Hældningsniveau
 	\item Forbindelse til KI
 \end{itemize}
+Siden checker hvert 5 sekund om der er nu data. Hved ny data vil denne blvie placeret øverst på siden.
+Når brugeren er færdig med at benytte BROS databasen kan brugeren trykke log of i øverste højre hjørne.
+
 
 
 
