@@ -1,0 +1,41 @@
+\chapter{Indledning}
+Dette dokument specificerer enhedsstesten af projektet BROS.
+\subsection*{Versionshistorik}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{l  | c | c | c}
+Ver. &Dato &Initialer &Beskrivelse\\
+1.0 &25-11-2012 &NG &Oprettet\\
+\end{tabular}
+\end{table}
+\subsection{Formål}
+Dokumentet specificerer enhedstests og vil i udfyldt stand udgøre enhedstestdokumentationen\\
+Testdelen af udviklingsprocessen er opdelt i tre faser:\\
+\begin{itemize}
+\item Enhedstest:\\
+Dette omfatter test af de enkelte funktioner implementeret i komponenter og klasserne (modulerne), som produktet bestående af hardware og software er sammenstykket af.
+\item Integrationstest:\\
+Dette omfatter test af grænseflader mellem komponenter og klasser (moduler), der indgår i det samlede system eller produkt. Det er altså samspillet mellem de moduler der er testet i enhedstesten.
+\item Accepttest:\\
+Dette omfatter en samlet test af funktionelle krav fra kravspecifikationen for hele systemets funktionalitet.
+\end{itemize}
+Testtproceduren er udviklet i rækkefølgen accepttest → integrationstest → enhedstest jvf. V-modellen.\\
+Dette dokument omhandler testniveau 1 - enhedstesten.\\
+Væsentlige ændringer i enhedstesten beskrives i dokumentets versionshistorie.\\
+\subsection{Referencer}
+\begin{enumerate}
+\item Detaljeret hardware design
+\item Detaljeret software design
+\end{enumerate}
+\subsection{Omfang}
+Denne enhedstest undersøger de forskellige modulers funktionalitet. Testen ligger forud for integrationstesten da vi sikre at modulet fungere inden vi sætter moduler sammen. Testen laves da det er vigtigt at moduler ikke udsender signaler der kan skade andre moduler eller ødelægge funktionalitet i programmer. 
+\subsection{Godkendelseskriterier}
+Godkendelsen af systemtesten består af to trin:\\
+\begin{itemize}
+\item Godkendelse af enhedstestspecifikationen\\
+Dette gøres på forsiden af dokumentet i “Godkendt af” feltet.
+\item Godkendelse af selve enhedstesten. Dette gøres i afsnit Testresultat
+\end{itemize}
+Enhedstesten er afsluttet, når alle de i afsnit Testprocedure specificerede testcases er gennemført og godkendt.\\
+Hvis der under integrationstesten opstår fejl, der umuliggør fortsat udførsel af de efterfølgende testcases afbrydes denne test.\\
+Såfremt en test afbrydes eller et testcase underkendes, skal problemet undersøges og for så vidt muligt løses. Dette skal dokumenteres i loggen.\\
