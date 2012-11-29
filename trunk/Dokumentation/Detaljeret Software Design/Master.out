@@ -1,29 +1,36 @@
 \BOOKMARK [0][-]{chapter.1}{Indledning}{}% 1
 \BOOKMARK [1][-]{subsection.1.0.1}{Form\345l}{chapter.1}% 2
 \BOOKMARK [2][-]{subsection.1.0.2}{Reference dokumentation}{subsection.1.0.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Database}{}% 4
-\BOOKMARK [1][-]{section.2.1}{Klassediagrammer}{chapter.2}% 5
-\BOOKMARK [2][-]{subsection.2.1.1}{Server}{section.2.1}% 6
-\BOOKMARK [2][-]{subsection.2.1.2}{TCP server}{section.2.1}% 7
-\BOOKMARK [2][-]{subsection.2.1.3}{Wep-side}{section.2.1}% 8
-\BOOKMARK [1][-]{section.2.2}{Design}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.1}{Server}{section.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.2}{TCP server}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.3}{Web-side}{section.2.2}% 12
-\BOOKMARK [1][-]{section.2.3}{Metodebeskrivelse}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.3.1}{TCP KI}{section.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.3.2}{TCP database}{section.2.3}% 15
-\BOOKMARK [0][-]{chapter.3}{VBTE}{}% 16
-\BOOKMARK [1][-]{subsection.3.0.3}{Klassens ansvar}{chapter.3}% 17
-\BOOKMARK [2][-]{subsection.3.0.4}{Klassediagram}{subsection.3.0.3}% 18
-\BOOKMARK [2][-]{subsection.3.0.5}{Funktioner}{subsection.3.0.3}% 19
-\BOOKMARK [2][-]{subsection.3.0.6}{Variabler}{subsection.3.0.3}% 20
-\BOOKMARK [2][-]{subsection.3.0.7}{Funktionsbeskrivelser}{subsection.3.0.3}% 21
-\BOOKMARK [2][-]{subsection.3.0.8}{Eventuelle Sekvensdiagrammer og state machines}{subsection.3.0.3}% 22
+\BOOKMARK [0][-]{chapter.2}{KI}{}% 4
+\BOOKMARK [1][-]{subsection.2.0.3}{Modulets ansvar}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.0.4}{Klassediagram}{subsection.2.0.3}% 6
+\BOOKMARK [2][-]{subsection.2.0.5}{Globale variabler}{subsection.2.0.3}% 7
+\BOOKMARK [2][-]{subsection.2.0.6}{Valve}{subsection.2.0.3}% 8
+\BOOKMARK [2][-]{subsection.2.0.7}{Dist}{subsection.2.0.3}% 9
+\BOOKMARK [2][-]{subsection.2.0.8}{Eventuelle Sekvensdiagrammer og state machines}{subsection.2.0.3}% 10
+\BOOKMARK [0][-]{chapter.3}{Database}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Klassediagrammer}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.1}{Server}{section.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.1.2}{TCP server}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.3}{Wep-side}{section.3.1}% 15
+\BOOKMARK [1][-]{section.3.2}{Design}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.2.1}{Server}{section.3.2}% 17
+\BOOKMARK [2][-]{subsection.3.2.2}{TCP server}{section.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.2.3}{Web-side}{section.3.2}% 19
+\BOOKMARK [1][-]{section.3.3}{Metodebeskrivelse}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.3.1}{TCP KI}{section.3.3}% 21
+\BOOKMARK [2][-]{subsection.3.3.2}{TCP database}{section.3.3}% 22
 \BOOKMARK [0][-]{chapter.4}{SM}{}% 23
-\BOOKMARK [1][-]{subsection.4.0.9}{Klassens ansvar}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.0.10}{Klassediagram}{subsection.4.0.9}% 25
-\BOOKMARK [2][-]{subsection.4.0.11}{Funktioner}{subsection.4.0.9}% 26
-\BOOKMARK [2][-]{subsection.4.0.12}{Variabler}{subsection.4.0.9}% 27
-\BOOKMARK [2][-]{subsection.4.0.13}{Funktionsbeskrivelser}{subsection.4.0.9}% 28
-\BOOKMARK [2][-]{subsection.4.0.14}{Eventuelle Sekvensdiagrammer og state machines}{subsection.4.0.9}% 29
+\BOOKMARK [1][-]{subsection.4.0.3}{Klassens ansvar}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.0.4}{Klassediagram}{subsection.4.0.3}% 25
+\BOOKMARK [2][-]{subsection.4.0.5}{Funktioner}{subsection.4.0.3}% 26
+\BOOKMARK [2][-]{subsection.4.0.6}{Variabler}{subsection.4.0.3}% 27
+\BOOKMARK [2][-]{subsection.4.0.7}{Funktionsbeskrivelser}{subsection.4.0.3}% 28
+\BOOKMARK [2][-]{subsection.4.0.8}{Eventuelle Sekvensdiagrammer og state machines}{subsection.4.0.3}% 29
+\BOOKMARK [0][-]{chapter.5}{VBTE}{}% 30
+\BOOKMARK [1][-]{subsection.5.0.9}{Klassens ansvar}{chapter.5}% 31
+\BOOKMARK [2][-]{subsection.5.0.10}{Klassediagram}{subsection.5.0.9}% 32
+\BOOKMARK [2][-]{subsection.5.0.11}{Globale variabler}{subsection.5.0.9}% 33
+\BOOKMARK [2][-]{subsection.5.0.12}{Valve}{subsection.5.0.9}% 34
+\BOOKMARK [2][-]{subsection.5.0.13}{Dist}{subsection.5.0.9}% 35
+\BOOKMARK [2][-]{subsection.5.0.14}{Eventuelle Sekvensdiagrammer og state machines}{subsection.5.0.9}% 36
