@@ -1,13 +1,21 @@
-\chapter{VBTE}
-Nedenfor følger design af software til VBTE. Dette er lavet på baggrund af kravspecifikation og systemarkitektur. Bemærk der i dette design dokument blandt andet ikke er beskrevet mixer, pga osv. da deres eneste funktion er "Start();".
-\subsection{Klassens ansvar}
-Som beskrevet i systemarkitektur står VBTE'en for at måle vandniveauet i ballasttankene samt at lukke vand ind eller ud af ballasttankene. Hertil er der også en kommunikation med SM modulet indeholende instruktioner.
+\chapter{KI}
+Nedenfor følger design af software til Kontrolinterfacet. Dette er lavet på baggrund af kravspecifikation og systemarkitektur. 
+\subsection{Modulets ansvar}
+Kontrolinterfacet er brugerens primære kontaktflade til systemet. Programmet indeholder en brugergrænseflade der opfylder kravene i Kravspecifikationen. Her kan der også ses en prototype på den grafiske brugergrænseflade.
+Kontrolinterfacet står for at modtage inputs fra brugeren. Disse inputs sendes som kommandoer til Styringsmodulet. Det er også herfra at Kontrolinterfacet modtager de værdier, som sidenhen vises på den grafiske brugergrænseflade. Kontrolinterfacet står også for kommunikationen til den eksterne database. Her sendes en række parametre om skibet og dets status.
 \subsection{Klassediagram}
-Nedenfor ses klassediagrammet for VBTE. Bemærk at koden dog er i C men for overblikket er der lavet klassediagram.
-\begin{figure}
+Nedenfor ses klassediagrammet for Kontrolinterfacet. Bemærk at klassediagrammet er delt op i to. Skæringsstedet er mellem Kontrolinterface-klassen og Styringsmodul-klassen og er markeret med <<extend>>.
+
+\begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{billeder/ClassVBTE}
-\caption{På figuren ses klassediagrammet for VBTE \textbf{Billedet skal opdateres}}
+\includegraphics[width=1\textwidth]{billeder/KI-Class}
+\caption{På figuren ses klassediagrammet for KI - Kontrolinterface-delen}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/SM-Class}
+\caption{På figuren ses klassediagrammet for KI - Styringsmodul-delen}
 \end{figure}
 
 \subsection{Globale variabler}
