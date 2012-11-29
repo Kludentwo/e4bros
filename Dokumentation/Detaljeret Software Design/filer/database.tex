@@ -1,4 +1,10 @@
 \chapter{Database}
+\section{Klassediagrammer}
+\subsection{Server}
+
+\subsection{TCP server}
+
+\subsection{Wep-side}
 \section{Design}
 \subsection{Server}
 \begin{figure}[htbp]
@@ -18,9 +24,16 @@ Web-pagen er udviklet i php som giver gode muligheder for kommunikation til og f
 \subsection{TCP server}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.6\textwidth]{billeder/bdd_TCP_server}
+	\includegraphics[width=0.5\textwidth]{billeder/bdd_TCP_server}
 	\caption{BDD TCP server(ikke færdig)}
 	\label{fig:bdd_TCP_server}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.2\textwidth]{billeder/uml_database}
+	\caption{UML Databaser}
+	\label{fig:uml_database}
 \end{figure}
 
 TCP protocollen er en af kerneprotokollerne på nutidens internet. Gennem TCP kan forskellige værstmaskine igennem f.eks. internet ethernet og trådet forbindelse oprette forbindelse til hinanden og udveksle datepakker. Protokollen giver programmelt på værtsmaksine nogle vitale garantier for at disse datapakker afsendes og modtages ved:
@@ -34,7 +47,7 @@ Selve programmet er kodet op over socket programmering. Under opstart initialise
 
 sequuens diagram
 
-\subsection{Web-page}
+\subsection{Web-side}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{billeder/bdd_web}
@@ -55,9 +68,8 @@ Siden der håndtere skibs data starter med at connecte til mySQL databasen om ik
 Siden checker hvert 5 sekund om der er nu data. Hved ny data vil denne blvie placeret øverst på siden.
 Når brugeren er færdig med at benytte BROS databasen kan brugeren trykke log of i øverste højre hjørne.
 
-
-\subsection{Metodebeskrivelse}
-\section{TCP KI}
+\section{Metodebeskrivelse}
+\subsection{TCP KI}
 \textbf{Void msg(string, string, string, string, string);}\\
 Håndtere data der skal sendes via tcp.\\
 \textbf{Void socket();}\\
@@ -65,8 +77,7 @@ Opretter socket forbindelse for ctp client.\\
 \textbf{Void connection();}\\
 Kalder ip adresse og portnummer for TCP server. Overføre data.\\
 
-
-\section{TCP database}
+\subsection{TCP database}
 \textbf{Void socketConnect();}\\
 \textbf{Void msgServer();}\\
 
