@@ -1,46 +1,56 @@
 \changetocdepth {2}
 \select@language {danish}
-\contentsline {chapter}{\chapternumberline {1}Indledning}{3}{chapter.1}
-\contentsline {subsection}{\numberline {1.0.1}Form\IeC {\r a}l}{3}{subsection.1.0.1}
-\contentsline {subsection}{\numberline {1.0.2}Reference dokumentation}{3}{subsection.1.0.2}
-\contentsline {chapter}{\chapternumberline {2}KI}{4}{chapter.2}
-\contentsline {subsection}{\numberline {2.0.3}Modulets ansvar}{4}{subsection.2.0.3}
-\contentsline {subsection}{\numberline {2.0.4}Klassediagram}{4}{subsection.2.0.4}
-\contentsline {subsection}{\numberline {2.0.5}Globale variabler}{6}{subsection.2.0.5}
-\contentsline {subsection}{\numberline {2.0.6}Valve}{7}{subsection.2.0.6}
-\contentsline {subsubsection}{Ansvar}{7}{section*.1}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{7}{section*.2}
-\contentsline {subsection}{\numberline {2.0.7}Dist}{7}{subsection.2.0.7}
-\contentsline {subsubsection}{Ansvar}{7}{section*.3}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{7}{section*.4}
-\contentsline {subsection}{\numberline {2.0.8}Eventuelle Sekvensdiagrammer og state machines}{7}{subsection.2.0.8}
-\contentsline {chapter}{\chapternumberline {3}Database}{8}{chapter.3}
-\contentsline {section}{\numberline {3.1}Klassediagrammer}{8}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Server}{8}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}TCP server}{8}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Wep-side}{8}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Design}{8}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Server}{8}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}TCP server}{9}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Web-side}{9}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Metodebeskrivelse}{10}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}TCP KI}{10}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}TCP database}{11}{subsection.3.3.2}
-\contentsline {chapter}{\chapternumberline {4}SM}{12}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.3}Klassens ansvar}{12}{subsection.4.0.3}
-\contentsline {subsection}{\numberline {4.0.4}Klassediagram}{12}{subsection.4.0.4}
-\contentsline {subsection}{\numberline {4.0.5}Funktioner}{12}{subsection.4.0.5}
-\contentsline {subsection}{\numberline {4.0.6}Variabler}{12}{subsection.4.0.6}
-\contentsline {subsection}{\numberline {4.0.7}Funktionsbeskrivelser}{12}{subsection.4.0.7}
-\contentsline {subsection}{\numberline {4.0.8}Eventuelle Sekvensdiagrammer og state machines}{12}{subsection.4.0.8}
-\contentsline {chapter}{\chapternumberline {5}VBTE}{13}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.9}Klassens ansvar}{13}{subsection.5.0.9}
-\contentsline {subsection}{\numberline {5.0.10}Klassediagram}{13}{subsection.5.0.10}
-\contentsline {subsection}{\numberline {5.0.11}Globale variabler}{14}{subsection.5.0.11}
-\contentsline {subsection}{\numberline {5.0.12}Valve}{14}{subsection.5.0.12}
+\contentsline {chapter}{\chapternumberline {1}Indledning}{4}{chapter.1}
+\contentsline {subsection}{\numberline {1.0.1}Form\IeC {\r a}l}{4}{subsection.1.0.1}
+\contentsline {subsection}{\numberline {1.0.2}Reference dokumentation}{4}{subsection.1.0.2}
+\contentsline {chapter}{\chapternumberline {2}KI}{5}{chapter.2}
+\contentsline {subsection}{\numberline {2.0.3}Modulets ansvar}{5}{subsection.2.0.3}
+\contentsline {subsection}{\numberline {2.0.4}Klassediagram}{5}{subsection.2.0.4}
+\contentsline {subsection}{\numberline {2.0.5}Globale variabler}{7}{subsection.2.0.5}
+\contentsline {subsection}{\numberline {2.0.6}Valve}{8}{subsection.2.0.6}
+\contentsline {subsubsection}{Ansvar}{8}{section*.1}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{8}{section*.2}
+\contentsline {subsection}{\numberline {2.0.7}Dist}{8}{subsection.2.0.7}
+\contentsline {subsubsection}{Ansvar}{8}{section*.3}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{8}{section*.4}
+\contentsline {subsection}{\numberline {2.0.8}Eventuelle Sekvensdiagrammer og state machines}{8}{subsection.2.0.8}
+\contentsline {chapter}{\chapternumberline {3}Database}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Klassediagrammer}{9}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Server}{9}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}TCP server}{9}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Wep-side}{9}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Design}{9}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Server}{9}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}TCP server}{10}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Web-side}{10}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Metodebeskrivelse}{11}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}TCP KI}{11}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}TCP database}{12}{subsection.3.3.2}
+\contentsline {chapter}{\chapternumberline {4}SM}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Klassens ansvar}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Klassediagram}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Funktioner}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Variabler}{14}{section.4.4}
+\contentsline {section}{\numberline {4.5}Funktionsbeskrivelser}{14}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Init}{14}{subsection.4.5.1}
 \contentsline {subsubsection}{Ansvar}{14}{section*.5}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{14}{section*.6}
-\contentsline {subsection}{\numberline {5.0.13}Dist}{14}{subsection.5.0.13}
+\contentsline {subsection}{\numberline {4.5.2}Levelsensor}{14}{subsection.4.5.2}
+\contentsline {subsubsection}{Ansvar}{14}{section*.6}
+\contentsline {subsection}{\numberline {4.5.3}autoReg}{14}{subsection.4.5.3}
 \contentsline {subsubsection}{Ansvar}{14}{section*.7}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{14}{section*.8}
-\contentsline {subsection}{\numberline {5.0.14}Eventuelle Sekvensdiagrammer og state machines}{14}{subsection.5.0.14}
+\contentsline {subsection}{\numberline {4.5.4}I2C\_Kom}{15}{subsection.4.5.4}
+\contentsline {subsubsection}{Ansvar}{15}{section*.8}
+\contentsline {subsection}{\numberline {4.5.5}KI\_KOM}{15}{subsection.4.5.5}
+\contentsline {subsubsection}{Ansvar}{15}{section*.9}
+\contentsline {section}{\numberline {4.6}Eventuelle Sekvensdiagrammer og state machines}{15}{section.4.6}
+\contentsline {chapter}{\chapternumberline {5}VBTE}{16}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Klassens ansvar}{16}{subsection.5.0.1}
+\contentsline {subsection}{\numberline {5.0.2}Klassediagram}{16}{subsection.5.0.2}
+\contentsline {subsection}{\numberline {5.0.3}Globale variabler}{17}{subsection.5.0.3}
+\contentsline {subsection}{\numberline {5.0.4}Valve}{17}{subsection.5.0.4}
+\contentsline {subsubsection}{Ansvar}{17}{section*.10}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{17}{section*.11}
+\contentsline {subsection}{\numberline {5.0.5}Dist}{17}{subsection.5.0.5}
+\contentsline {subsubsection}{Ansvar}{17}{section*.12}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{17}{section*.13}
+\contentsline {subsection}{\numberline {5.0.6}Eventuelle Sekvensdiagrammer og state machines}{17}{subsection.5.0.6}

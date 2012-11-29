@@ -21,16 +21,21 @@
 \BOOKMARK [2][-]{subsection.3.3.1}{TCP KI}{section.3.3}% 21
 \BOOKMARK [2][-]{subsection.3.3.2}{TCP database}{section.3.3}% 22
 \BOOKMARK [0][-]{chapter.4}{SM}{}% 23
-\BOOKMARK [1][-]{subsection.4.0.3}{Klassens ansvar}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.0.4}{Klassediagram}{subsection.4.0.3}% 25
-\BOOKMARK [2][-]{subsection.4.0.5}{Funktioner}{subsection.4.0.3}% 26
-\BOOKMARK [2][-]{subsection.4.0.6}{Variabler}{subsection.4.0.3}% 27
-\BOOKMARK [2][-]{subsection.4.0.7}{Funktionsbeskrivelser}{subsection.4.0.3}% 28
-\BOOKMARK [2][-]{subsection.4.0.8}{Eventuelle Sekvensdiagrammer og state machines}{subsection.4.0.3}% 29
-\BOOKMARK [0][-]{chapter.5}{VBTE}{}% 30
-\BOOKMARK [1][-]{subsection.5.0.9}{Klassens ansvar}{chapter.5}% 31
-\BOOKMARK [2][-]{subsection.5.0.10}{Klassediagram}{subsection.5.0.9}% 32
-\BOOKMARK [2][-]{subsection.5.0.11}{Globale variabler}{subsection.5.0.9}% 33
-\BOOKMARK [2][-]{subsection.5.0.12}{Valve}{subsection.5.0.9}% 34
-\BOOKMARK [2][-]{subsection.5.0.13}{Dist}{subsection.5.0.9}% 35
-\BOOKMARK [2][-]{subsection.5.0.14}{Eventuelle Sekvensdiagrammer og state machines}{subsection.5.0.9}% 36
+\BOOKMARK [1][-]{section.4.1}{Klassens ansvar}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.2}{Klassediagram}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.3}{Funktioner}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{Variabler}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.5}{Funktionsbeskrivelser}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.5.1}{Init}{section.4.5}% 29
+\BOOKMARK [2][-]{subsection.4.5.2}{Levelsensor}{section.4.5}% 30
+\BOOKMARK [2][-]{subsection.4.5.3}{autoReg}{section.4.5}% 31
+\BOOKMARK [2][-]{subsection.4.5.4}{I2C\137Kom}{section.4.5}% 32
+\BOOKMARK [2][-]{subsection.4.5.5}{KI\137KOM}{section.4.5}% 33
+\BOOKMARK [1][-]{section.4.6}{Eventuelle Sekvensdiagrammer og state machines}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{VBTE}{}% 35
+\BOOKMARK [1][-]{subsection.5.0.1}{Klassens ansvar}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.0.2}{Klassediagram}{subsection.5.0.1}% 37
+\BOOKMARK [2][-]{subsection.5.0.3}{Globale variabler}{subsection.5.0.1}% 38
+\BOOKMARK [2][-]{subsection.5.0.4}{Valve}{subsection.5.0.1}% 39
+\BOOKMARK [2][-]{subsection.5.0.5}{Dist}{subsection.5.0.1}% 40
+\BOOKMARK [2][-]{subsection.5.0.6}{Eventuelle Sekvensdiagrammer og state machines}{subsection.5.0.1}% 41
