@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.4)  29 NOV 2012 15:37
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.4)  29 NOV 2012 18:16
 entering extended mode
 **Master.tex
 
@@ -1617,13 +1617,11 @@ er/forside.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
 er/indledning.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/klassediagrammer.aux")
+er/database.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/design.aux")
+er/VBTE.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/metodebeskrivelse.aux")
-("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/VBTE.aux"))
+er/SM.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -1714,7 +1712,7 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 3.
 \c__siunitx_mathtt_int=\count322
 
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/forside.tex" <billeder/iha-logo.jpg, id=67, 131.7723pt x 39.5076pt>
+er/forside.tex" <billeder/iha-logo.jpg, id=103, 131.7723pt x 39.5076pt>
 File: billeder/iha-logo.jpg Graphic file (type jpg)
 
 <use billeder/iha-logo.jpg>
@@ -1746,71 +1744,91 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
 ]
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/klassediagrammer.tex"
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3.
-
-) [4
-
-
-
-]
-("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/design.tex" <billeder/bdd_server.png, id=119, 434.62375pt x 229.85875pt>
+er/database.tex" <billeder/bdd_server.png, id=160, 434.62375pt x 229.85875pt>
 File: billeder/bdd_server.png Graphic file (type png)
 
 <use billeder/bdd_server.png>
 Package pdftex.def Info: billeder/bdd_server.png used on input line 6.
 (pdftex.def)             Requested size: 255.6026pt x 135.18407pt.
 
-<billeder/bdd_TCP_server.jpg, id=122, 675.52374pt x 290.08376pt>
+<billeder/bdd_TCP_server.jpg, id=163, 675.52374pt x 290.08376pt>
 File: billeder/bdd_TCP_server.jpg Graphic file (type jpg)
 
 <use billeder/bdd_TCP_server.jpg>
 Package pdftex.def Info: billeder/bdd_TCP_server.jpg used on input line 21.
 (pdftex.def)             Requested size: 255.6026pt x 109.75935pt.
- [5
+ [4
 
 
 
  <C:/Users/JohnnyKristensen/e4bros/Dokumentation/Detaljeret Software Design/bil
 leder/bdd_server.png>]
-<billeder/bdd_web.png, id=132, 627.34375pt x 338.26375pt>
+<billeder/bdd_web.png, id=173, 627.34375pt x 338.26375pt>
 File: billeder/bdd_web.png Graphic file (type png)
 
 <use billeder/bdd_web.png>
 Package pdftex.def Info: billeder/bdd_web.png used on input line 40.
 (pdftex.def)             Requested size: 340.8013pt x 183.76425pt.
- [6 <C:/Users/JohnnyKristensen/e4bros/Dokumentation/Detaljeret Software Design/
+ [5 <C:/Users/JohnnyKristensen/e4bros/Dokumentation/Detaljeret Software Design/
 billeder/bdd_TCP_server.jpg> <C:/Users/JohnnyKristensen/e4bros/Dokumentation/De
-taljeret Software Design/billeder/bdd_web.png>])
-[7]
-("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/metodebeskrivelse.tex"
-Underfull \hbox (badness 10000) in paragraph at lines 3--9
+taljeret Software Design/billeder/bdd_web.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 61--67
 
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-[8
-
-
-
-]
+) [6]
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/VBTE.tex") [9
+er/VBTE.tex"
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3.
+
+<billeder/ClassVBTE.png, id=186, 524.07796pt x 280.1667pt>
+File: billeder/ClassVBTE.png Graphic file (type png)
+
+<use billeder/ClassVBTE.png>
+Package pdftex.def Info: billeder/ClassVBTE.png used on input line 9.
+(pdftex.def)             Requested size: 426.0pt x 227.73747pt.
+ [7
+
+
+
+ <C:/Users/JohnnyKristensen/e4bros/Dokumentation/Detaljeret Software Design/bil
+leder/ClassVBTE.png>]
+Overfull \hbox (10.36781pt too wide) in paragraph at lines 31--39
+[][] 
+ []
+
+
+Overfull \hbox (10.36781pt too wide) in paragraph at lines 47--53
+[][] 
+ []
+
+) [8]
+("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
+er/SM.tex"
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
+
+ []
+
+) [9
 
 
 
 ]
 \tf@toc=\write5
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 17.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 16.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 16.
 
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\Mas
 ter.aux"
@@ -1819,49 +1837,48 @@ er/forside.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
 er/indledning.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/klassediagrammer.aux")
+er/database.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/design.aux")
+er/VBTE.aux")
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/metodebeskrivelse.aux")
-("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/VBTE.aux"))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 17.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17.
+er/SM.aux"))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 16.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 16.
 Package rerunfilecheck Info: File `Master.out' has not changed.
-(rerunfilecheck)             Checksum: C4D42A1DA640E9149337B0CF2616BA4B;920.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 17.
+(rerunfilecheck)             Checksum: 370AEEFFB5B39F4289B6F7EF233A57E8;1660.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 16.
  ) 
 Here is how much of TeX's memory you used:
- 22898 strings out of 493921
- 410888 string characters out of 3144843
- 682100 words of memory out of 3000000
- 25740 multiletter control sequences out of 15000+200000
+ 22925 strings out of 493921
+ 410663 string characters out of 3144843
+ 682952 words of memory out of 3000000
+ 25759 multiletter control sequences out of 15000+200000
  25742 words of font info for 63 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
- 44i,12n,78p,567b,869s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:
+ 44i,12n,78p,569b,869s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
+C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:
 /Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbi1000.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/public/cm-super/sfcc1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/public/cm-super/sfcc1728.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/cm-super/sfrm1000.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-public/cm-super/sfrm1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/cm-super/sfrm1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/cm-super/sfti1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookm
-an/ubkd8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a
-.pfb>
-Output written on Master.pdf (9 pages, 324125 bytes).
+86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/cm-super/sfcc1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/public/cm-super/sfcc1728.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/cm-super/sfrm1000.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
+lic/cm-super/sfrm1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/cm-super/sfrm1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm
+-super/sfti1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/
+ubkd8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.pf
+b>
+Output written on Master.pdf (9 pages, 545580 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 276 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 
