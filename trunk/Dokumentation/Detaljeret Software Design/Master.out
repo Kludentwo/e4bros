@@ -33,9 +33,10 @@
 \BOOKMARK [2][-]{subsection.4.5.5}{KI\137KOM}{section.4.5}% 33
 \BOOKMARK [1][-]{section.4.6}{Eventuelle Sekvensdiagrammer og state machines}{chapter.4}% 34
 \BOOKMARK [0][-]{chapter.5}{VBTE}{}% 35
-\BOOKMARK [1][-]{subsection.5.0.1}{Klassens ansvar}{chapter.5}% 36
-\BOOKMARK [2][-]{subsection.5.0.2}{Klassediagram}{subsection.5.0.1}% 37
-\BOOKMARK [2][-]{subsection.5.0.3}{Globale variabler}{subsection.5.0.1}% 38
-\BOOKMARK [2][-]{subsection.5.0.4}{Valve}{subsection.5.0.1}% 39
-\BOOKMARK [2][-]{subsection.5.0.5}{Dist}{subsection.5.0.1}% 40
-\BOOKMARK [2][-]{subsection.5.0.6}{Eventuelle Sekvensdiagrammer og state machines}{subsection.5.0.1}% 41
+\BOOKMARK [1][-]{section.5.1}{Modulets ansvar}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.2}{Klassediagram}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.3}{Globale variabler}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.4}{Metode- og klassebeskrivelser}{chapter.5}% 39
+\BOOKMARK [2][-]{subsection.5.4.1}{Valve}{section.5.4}% 40
+\BOOKMARK [2][-]{subsection.5.4.2}{Dist}{section.5.4}% 41
+\BOOKMARK [2][-]{subsection.5.4.3}{Eventuelle Sekvensdiagrammer og state machines}{section.5.4}% 42

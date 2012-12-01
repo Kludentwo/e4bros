@@ -44,13 +44,14 @@
 \contentsline {subsubsection}{Ansvar}{15}{section*.9}
 \contentsline {section}{\numberline {4.6}Eventuelle Sekvensdiagrammer og state machines}{15}{section.4.6}
 \contentsline {chapter}{\chapternumberline {5}VBTE}{16}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Klassens ansvar}{16}{subsection.5.0.1}
-\contentsline {subsection}{\numberline {5.0.2}Klassediagram}{16}{subsection.5.0.2}
-\contentsline {subsection}{\numberline {5.0.3}Globale variabler}{17}{subsection.5.0.3}
-\contentsline {subsection}{\numberline {5.0.4}Valve}{17}{subsection.5.0.4}
+\contentsline {section}{\numberline {5.1}Modulets ansvar}{16}{section.5.1}
+\contentsline {section}{\numberline {5.2}Klassediagram}{16}{section.5.2}
+\contentsline {section}{\numberline {5.3}Globale variabler}{17}{section.5.3}
+\contentsline {section}{\numberline {5.4}Metode- og klassebeskrivelser}{17}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Valve}{17}{subsection.5.4.1}
 \contentsline {subsubsection}{Ansvar}{17}{section*.10}
 \contentsline {subsubsection}{Funktionsbeskrivelser}{17}{section*.11}
-\contentsline {subsection}{\numberline {5.0.5}Dist}{17}{subsection.5.0.5}
+\contentsline {subsection}{\numberline {5.4.2}Dist}{17}{subsection.5.4.2}
 \contentsline {subsubsection}{Ansvar}{17}{section*.12}
 \contentsline {subsubsection}{Funktionsbeskrivelser}{17}{section*.13}
-\contentsline {subsection}{\numberline {5.0.6}Eventuelle Sekvensdiagrammer og state machines}{17}{subsection.5.0.6}
+\contentsline {subsection}{\numberline {5.4.3}Eventuelle Sekvensdiagrammer og state machines}{18}{subsection.5.4.3}

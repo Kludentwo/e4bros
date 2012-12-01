@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.4)  1 DEC 2012 12:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.4)  1 DEC 2012 14:02
 entering extended mode
 **Master.tex
 
@@ -1609,7 +1609,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip267
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 84.
-)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\courier.sty"
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+))
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\Mas
 ter.aux"
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
@@ -1714,7 +1717,7 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 3.
 \c__siunitx_mathtt_int=\count322
 
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/forside.tex" <billeder/iha-logo.jpg, id=167, 131.7723pt x 39.5076pt>
+er/forside.tex" <billeder/iha-logo.jpg, id=171, 131.7723pt x 39.5076pt>
 File: billeder/iha-logo.jpg Graphic file (type jpg)
 
 <use billeder/iha-logo.jpg>
@@ -1751,7 +1754,7 @@ er/KI.tex"
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 3.
 
-<billeder/KI-Class.jpg, id=244, 755.07094pt x 669.2503pt>
+<billeder/KI-Class.jpg, id=249, 755.07094pt x 669.2503pt>
 File: billeder/KI-Class.jpg Graphic file (type jpg)
 
 <use billeder/KI-Class.jpg>
@@ -1762,7 +1765,7 @@ Package pdftex.def Info: billeder/KI-Class.jpg used on input line 11.
 
 
 ]
-<billeder/SM-Class.jpg, id=249, 678.28406pt x 727.96968pt>
+<billeder/SM-Class.jpg, id=254, 678.28406pt x 727.96968pt>
 File: billeder/SM-Class.jpg Graphic file (type jpg)
 
 <use billeder/SM-Class.jpg>
@@ -1782,7 +1785,7 @@ Overfull \hbox (10.36781pt too wide) in paragraph at lines 55--61
 
 ) [8]
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/database.tex" <billeder/bdd_server.png, id=271, 434.62375pt x 229.85875pt>
+er/database.tex" <billeder/bdd_server.png, id=276, 434.62375pt x 229.85875pt>
 File: billeder/bdd_server.png Graphic file (type png)
 
 <use billeder/bdd_server.png>
@@ -1794,21 +1797,21 @@ Package pdftex.def Info: billeder/bdd_server.png used on input line 12.
 
  <C:/Users/JohnnyKristensen/e4bros/Dokumentation/Detaljeret Software Design/bil
 leder/bdd_server.png>]
-<billeder/bdd_TCP_server.png, id=281, 482.80376pt x 193.72375pt>
+<billeder/bdd_TCP_server.png, id=286, 482.80376pt x 193.72375pt>
 File: billeder/bdd_TCP_server.png Graphic file (type png)
 
 <use billeder/bdd_TCP_server.png>
 Package pdftex.def Info: billeder/bdd_TCP_server.png used on input line 30.
 (pdftex.def)             Requested size: 213.0pt x 85.46631pt.
 
-<billeder/uml_database.jpg, id=282, 226.8475pt x 102.3825pt>
+<billeder/uml_database.jpg, id=287, 226.8475pt x 102.3825pt>
 File: billeder/uml_database.jpg Graphic file (type jpg)
 
 <use billeder/uml_database.jpg>
 Package pdftex.def Info: billeder/uml_database.jpg used on input line 37.
 (pdftex.def)             Requested size: 85.1987pt x 38.4527pt.
 
-<billeder/bdd_web.png, id=283, 627.34375pt x 338.26375pt>
+<billeder/bdd_web.png, id=288, 627.34375pt x 338.26375pt>
 File: billeder/bdd_web.png Graphic file (type png)
 
 <use billeder/bdd_web.png>
@@ -1829,7 +1832,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 [11 <C:/Users/JohnnyKristensen/e4bros/Dokumentation/Detaljeret Software Design/
 billeder/bdd_web.png>]) [12]
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/SM.tex" <billeder/smKlassediagram.png, id=302, 452.4403pt x 217.5628pt>
+er/SM.tex" <billeder/smKlassediagram.png, id=307, 452.4403pt x 217.5628pt>
 File: billeder/smKlassediagram.png Graphic file (type png)
 
 <use billeder/smKlassediagram.png>
@@ -1882,13 +1885,17 @@ Overfull \hbox (10.36781pt too wide) in paragraph at lines 106--112
 
 ) [15]
 ("C:\Users\JohnnyKristensen\e4bros\Dokumentation\Detaljeret Software Design\fil
-er/VBTE.tex" <billeder/ClassVBTE.png, id=322, 524.07796pt x 280.1667pt>
+er/VBTE.tex" <billeder/ClassVBTE.png, id=327, 524.07796pt x 280.1667pt>
 File: billeder/ClassVBTE.png Graphic file (type png)
 
 <use billeder/ClassVBTE.png>
 Package pdftex.def Info: billeder/ClassVBTE.png used on input line 9.
 (pdftex.def)             Requested size: 426.0pt x 227.73747pt.
- [16
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 18.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [16
 
 
 
@@ -1934,65 +1941,41 @@ er/SM.aux")
 er/VBTE.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 15.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 15.
-
-
-Package rerunfilecheck Warning: File `Master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Master.out':
-(rerunfilecheck)             Before: 8F663A7EBA0A9A58AAF6F54B510C9187;2660
-(rerunfilecheck)             After:  965226B0EA52B49DE1517FD9AC24B4DD;2693.
+Package rerunfilecheck Info: File `Master.out' has not changed.
+(rerunfilecheck)             Checksum: 965226B0EA52B49DE1517FD9AC24B4DD;2693.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 15.
  ) 
 Here is how much of TeX's memory you used:
- 23018 strings out of 493921
- 412524 string characters out of 3144843
- 686177 words of memory out of 3000000
- 25796 multiletter control sequences out of 15000+200000
- 25742 words of font info for 63 fonts, out of 3000000 for 9000
+ 23054 strings out of 493921
+ 413104 string characters out of 3144843
+ 686246 words of memory out of 3000000
+ 25830 multiletter control sequences out of 15000+200000
+ 26363 words of font info for 65 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
  44i,12n,78p,569b,922s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{subsection.5.0.6} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.0.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.0.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.0.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.0.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.0.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:
-/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbi1000.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/cm-super/sfcc1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/public/cm-super/sfcc1728.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/cm-super/sfrm1000.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
-blic/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/cm-super/sfrm1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/c
-m-super/sfrm1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-s
-uper/sfti1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ub
-kd8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.pfb>
-Output written on Master.pdf (18 pages, 759631 bytes).
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbi1000.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1000.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/cm-super/sfcc1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/public/cm-super/sfcc1728.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/cm-super/sfrm1000.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
+lic/cm-super/sfrm1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/cm-super/sfrm1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm
+-super/sfti1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/
+ubkd8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on Master.pdf (18 pages, 772383 bytes).
 PDF statistics:
- 427 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 500000)
- 374 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 428 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 382 words of extra memory for PDF output out of 10000 (max. 10000000)
 
