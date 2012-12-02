@@ -39,12 +39,23 @@ Displaykredsen består af et potmeter samt et display af typen WH1602A-YGH-CTK.
 \section{Nedbrydning af blokke}
 Nedenfor følger nedbrydningen af de enkelte blokke for at beskrive deres opbygning samt grænseflader.
 \subsection{PSoC5}
-På \textit{Figur \ref{fig:PSoCtopdesign}} ses HW-designet internt på PSoC'en. De enkelte blokke bliver beskrevet efterfølgende.
+På \textit{Figur \ref{fig:PSoCBlok}} ses HW-designet internt på PSoC'en. De enkelte blokke bliver beskrevet efterfølgende.
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{billeder/PSoCtopdesign}
-\caption{PSoC5 topdesign}
-\label{fig:PSoCtopdesign}
+\includegraphics[width=.75\textwidth]{billeder/PSoCBlock}
+\caption{PSoC5 blokdiagram}
+\label{fig:PSoCBlok}
 \end{figure}
-\subsubsection{PGA}
-PGA'en er sat op til en forstærkning på 8.
+\subsubsection{Timer}
+Beskrivelse af timerblokkens opgave.
+\subsubsection{I2C kreds}
+Beskrivelse af I2C blokkens opgave samt dets interface.
+\subsubsection{LCD Driver}
+Beskrivelse af LCD driverens opgave samt dets interface
+\subsubsection{Receiver Driver}
+Beskrivelse af Receiver driverens opgave samt dets interface
+\subsubsection{Transmitter Driver}
+Beskrivelse af Transmitter driverens opgave samt dets interface
+\subsubsection{Kontrol register}
+Beskrivelse af Kontrol registerets opgave samt dets interface.
+\subsection{Transmitter kreds}
