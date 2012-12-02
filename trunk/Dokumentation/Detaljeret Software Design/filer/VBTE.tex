@@ -20,6 +20,7 @@ Nedenfor ses klassediagrammet for VBTE. Bemærk at koden dog er i C men for over
 \texttt{BurstTimerVal} & Holder på Timerens værdi når et burst er sendt.\\ \hline
 \texttt{DistanceTimerVal} & Holder værdien på timeren når et burst er modtaget. \\ \hline
 \texttt{CalcDistFlag} & Bliver sat når et burst er modtaget så en afstand kan blive beregnet.\\ \hline
+\texttt{BurstFlag} & Bliver sat når et burst bliver sendt og hevet ned når et burst er modtaget. Dette sker for ikke at få flere detektioner på samme signal.\\ \hline
 \end{tabular}
 \end{table}
 \section{Metode- og klassebeskrivelser}
@@ -74,5 +75,18 @@ Parametre:&\texttt{\textcolor{blue}{float} DistanceMM}\\
 Returværdi:&\texttt{\textcolor{blue}{uint8} DistancePercent}\\
 \end{tabular}
 \end{table}
-\subsection{Eventuelle Sekvensdiagrammer og state machines}
-hab hab
+\subsection{State Machine}
+Nedenfor ses statemachine der beskriver det overordnede flow i VBTE programmet.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/STMVBTE}
+\caption{Statemachine for VBTE program}
+\end{figure}
+
+\subsection{Timing Diagram (Hører til hardware)}
+Nedenfor ses timing diagram for en ultralydspuls til afstandsmåling
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/TimingdiagramVBTE}
+\caption{Timing diagram for VBTE ultralydspuls}
+\end{figure}
