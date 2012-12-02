@@ -1,10 +1,41 @@
-\chapter{Database}
-\section{Klassediagrammer}
+\chapter{Databasen}
+Nedenfor følger design af software til databasen og dens interface. Dette er lavet på baggrund af kravspecifikation og systemarkitektur. 
+
+\subsection{Modultes Ansvar}
+Databasen er her hvor havne terminalens personale kan aflæse data fra skibet. Disse data er sendt fra KI. Programmerne indeholder brugergrænseflader der opfylder kravene, beskrevet i kravspecifikationen. Her kan der også ses en prototyper på brugergrænsefladen.
+Database modulet har 3 dele. Severen, Web-siden og en mySQL database. \\
+\textbf{Severen} står for kommunikationen immellem KI og Databasen. Severen modtager data fra KI og lager disse i en tekst fil\\
+\textbf{Web-siden} giver brugeren mulighed for at se info om BROS samt at logge sig ind i BROS database hvorfra at data om skibe der er tilsluttet systemet kan aflæses. Web-sidens 3 vigtigste funktioner er at gemme ny data til mySQL databasen, slette den tekst fil som severen lavede og vise data for brugeren. Til at håndtere web-siden benyttes en apache server.
+\textbf{mySQL databasen} er en database som er  installeret på computeren. Alle data som er sendt fra KI er lageret i mySQL databasen.
+
+\subsection{Klassediagrammer}
+Nedenfor ses klassediagrammerne for databasen. Bemærk database modulet er lavet som en server del og en web del
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/web_klasse}
+	\caption{Klassedigram for databasens severer}
+	\label{fig:serverKlassediagram}
+\end{figure}
+
+tilføj dato()
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.3\textwidth]{billeder/serverKlassediagram}
+	\caption{Klassedigram for databasens severer}
+	\label{fig:serverKlassediagram}
+\end{figure}
+
+\subsection{Globale variabler}
+
+
 \subsection{Server}
 
-\subsection{TCP server}
+
 
 \subsection{Wep-side}
+
+\subsection{TCP-forbindelse}
+
 \section{Design}
 \subsection{Server}
 \begin{figure}[htbp]
@@ -32,12 +63,7 @@ Den web baserede database loader mySQL databasen og fremviser denne grafisk for 
 	\label{fig:bdd_TCP_server}
 \end{figure}
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.2\textwidth]{billeder/uml_database}
-	\caption{UML Databaser}
-	\label{fig:uml_database}
-\end{figure}
+
 
 TCP protocollen er en af kerneprotokollerne på nutidens internet. Gennem TCP kan forskellige værtsmaskine igennem f.eks. internet ethernet og trådet forbindelse oprette forbindelse til hinanden og udveksle datepakker. Protokollen giver programmelt på værtsmaksine nogle vitale garantier for at disse datapakker afsendes og modtages ved:
 \begin{itemize}
