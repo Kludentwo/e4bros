@@ -51,51 +51,51 @@ Parametre:&ingen\\
 Returværdi:&\textcolor{blue}{uint32} levelVal\\
 \end{tabular}
 \end{table}
-
+% spacer %
 \subsection{autoReg}
 \subsubsection{Ansvar}
-Denne header har til ansvar at 
+Denne header har til ansvar at styre automatisk regulering.
 \textcolor{blue}{void} autoReg( \textcolor{blue}{struct} smflags* sm); 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
-Beskrivelse:& ingen\\
+Beskrivelse:& autoReg anvender værdier fra VBTE moduler samt KI til at holde systemet i et bestemt level. Funktionen starter med at checke på automatisk og manuel styrings flagene. Derefter kalder den getLevel agere ud fra niveauet. Funktionen vil altid tømme fra en tank før den begynder at fylde en anden.\\
 Parametre:&\textcolor{blue}{struct} smflags* sm\\
 Returværdi:&ingen\\
 \end{tabular}
 \end{table}
-
+% spacer %
 \subsection{I2C\_Kom}
 \subsubsection{Ansvar}
-Denne header har til ansvar at 
+Denne header har til ansvar at kommunikere med VBTE modulerne.
 \textcolor{blue}{uint8} writeToVbte( \textcolor{blue}{uint8} Adresse, \textcolor{blue}{uint8} besked); 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
-Beskrivelse:& ingen\\
+Beskrivelse:& writeToVbte anvender I2C fra Cypress PSoC 5 API til at skrive til VBTE modulerne. Den tager adressen og beskeden man skal sende og sender til pågældende enhed. Derefter venter den på svar som den så returnere. \\
 Parametre:&\textcolor{blue}{uint8} Adresse\\
  &\textcolor{blue}{uint8} besked\\
 Returværdi:&\textcolor{blue}{uint8} VbteNiveau\\
 \end{tabular}
 \end{table}
-
+% spacer %
 \subsection{KI\_KOM}
 \subsubsection{Ansvar}
-Denne header har til ansvar at .\\
-\textcolor{blue}{void} convertToEnum( \textcolor{blue}{int} value); 
+Denne header har til ansvar at kommunikere med KI enheden.\\
+\textcolor{blue}{int} convertToEnum( \textcolor{blue}{int} value); 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
-Beskrivelse:& ingen\\
+Beskrivelse:& funktionen tager en level værdi ind for så at konvertere den til en Enum(integer) som den returnere.\\
 Parametre:&\textcolor{blue}{int} value\\
-Returværdi:&ingen\\
+Returværdi:&\textcolor{blue}{int} Enum\\
 \end{tabular}
 \end{table}
 \textcolor{blue}{void} convertToValue(\textcolor{blue}{int} Level,   \textcolor{blue}{struct} smflags* sm); 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
-Beskrivelse:& ingen\\
+Beskrivelse:& Funktionen tager en enum og en pointer som den så konvertere til en level værdi og sætter i sm structen.\\
 Parametre:&\textcolor{blue}{int} Level,\\
  &\textcolor{blue}{struct} smflags* sm\\
 Returværdi:&ingen\\
@@ -105,11 +105,11 @@ Returværdi:&ingen\\
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
-Beskrivelse:& ingen\\
+Beskrivelse:& Funktionen anvender UART fra Cypress PSoC 5 API'en til at modtage en besked fra KI modulet som den så vurdere og agere på. Når den har modtaget noget sender den en ack tilbage til KI modulet. Derefter handler den og hvis det er nødvendigt sender data til KI. \\
 Parametre:&\textcolor{blue}{struct} smflags* sm\\
 Returværdi:&ingen\\
 \end{tabular}
 \end{table}
-
+% spacer %
 \section{Eventuelle Sekvensdiagrammer og state machines}
 Måske kommer de senere?
