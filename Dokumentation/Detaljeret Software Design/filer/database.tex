@@ -28,11 +28,53 @@ tilføj dato()
 \subsection{Globale variabler}
 
 
-\subsection{Server}
+\subsection{Funktionsbeskrivelser}
+\subsubsection{Server}
+Denne header har til ansvar at starte GUI og håndtere TCP forbindelse\\
 
+\textcolor{blue}{void} onCloseClicked( \textcolor{blue}{} );
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\hline
+Beskrivelse:&Ved klik forespørges brugeren om denne ønsker at lukke severen\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
 
+\textcolor{blue}{void} acceptConnection( \textcolor{blue}{} );
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\hline
+Beskrivelse:&Står for at acceptere forbindelse fra KI og connecte.\\
+Parametre:&QTcpServer server\\
+				&QTcpSocket* client\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
 
-\subsection{Wep-side}
+\textcolor{blue}{void} startRead( \textcolor{blue}{} );
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\hline
+Beskrivelse:&Læser data fra socket. Data til fil og GUI\\
+Parametre:&QTcpSocket* client\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\subsubsection{Wep-side}
+Web-siden står for at fremvise skibs data grafisk for terminal personalet. Desuden står den for at lager data og loade data fra mySQL databasen.\\
+\subsubsection{mysql}
+setHostName( \textcolor{blue}{} );
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\hline
+Beskrivelse:&Læser data fra socket. Data til fil og GUI\\
+Parametre:&QTcpSocket* client\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
 
 \subsection{TCP-forbindelse}
 
