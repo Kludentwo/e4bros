@@ -1,6 +1,5 @@
 \chapter{VBTE}
-Følgende afsnit beskriver VBTE'ens hardware i de enkelte blokke, grænsefladerne derimellem samt funktionen af blokkene.
-
+Følgende afsnit beskriver VBTE'ens hardware i de enkelte blokke, grænsefladerne derimellem samt funktionen af blokkene. Derudover er der implementeret et testdisplay samt mulighed for manuelt at indstille I2C adressen. Disse er kun ment til test og er derfor ikke dokumenteret.
 \section{Overordnet design}
 Nedenfor ses det overordnede hardware blokdiagram. Herefter følger en beskrivelse af de forskellige blokke samt signaler.
 \begin{figure}[H]
@@ -45,7 +44,9 @@ På \textit{Figur \ref{fig:PSoCBlok}} ses HW-designet internt på PSoC'en. De en
 \caption{PSoC5 blokdiagram}
 \label{fig:PSoCBlok}
 \end{figure}
-\subsubsection{Signalbeskrivelser}
+\subsubsection{Signalbeskrivelser:}
+For signalbeskrivelser se \textit{tabel \ref{table:PSoCSignaler}}.
+\begin{table}[H]
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
 Receiver\_in & Analog (AC = 40kHz) & Ligger fra ca 0.01V til 0.3V & Spænding genereret i ultralydsreceiveren.\\ \hline
@@ -57,23 +58,27 @@ SCL & Digitalt & ~0V til ~5V & Digitalt clocksignal til I2C.\\ \hline
 Add\_set & Digitalt & ~0V til ~5V & Digitalt signal til at sætte I2C adressen. \\ \hline
 Add\_LSB & Digitalt & ~0V til ~5V & Digitalt signal til at sætte LSB i I2C adressen. \\ \hline
 Add\_LSB+1 & Digitalt & ~0V til ~5V & Digitalt signal til at sætte LSB i I2C adressen.\\ \hline
-
-
-
-\end{tabular}\\
-\textit{her skal der være en tabel med signalerne og deres spændingsniveauer og hvad de bærer af data}
+\end{tabular}
+\caption{Tabel over signaler i PSoC blokken}
+\label{table:PSoCSignaler}
+\end{table}
+\subsubsection{Blokbeskrivelser:}
 \subsubsection{Timer}
-Beskrivelse af timerblokkens opgave.
+Timeren skal holde øje med tiden. Dette skal ske ved at timeren skal køre hele tiden. Der bliver læst timerværdien når et burst bliver sendt og når et burst bliver modtaget. Timeren skal derfor have en forholdsvis hurtig clock for at kunne gøre afstandsmålingen hurtig nok.
 \subsubsection{I2C kreds}
-Beskrivelse af I2C blokkens opgave samt dets interface.
-\subsubsection{LCD Driver}
-Beskrivelse af LCD driverens opgave samt dets interface
+I2C kredsen skal stå for I2C interfacet mellem SM og KI. I2C protokollen kører 5V og med pull-up modstande. Denne del håndteres dog på SM. I2C'en benytter standard I2C protokol, og for yderligere info om data henvises der til \textit{Systemarkitektur/protokoller/I2C}.
 \subsubsection{Receiver Driver}
-Beskrivelse af Receiver driverens opgave samt dets interface
+Receiver driveren modtager signalet fra ultralydsrecieveren. Signalet skal, når det modtages, løftes op til 2.5V for at det kan anvendes på PSoC'en samt forstærkes. Det er vigtigt at signalet bliver tydeligt nok til at man kan være sikker på at man har modtaget en detektion. 
 \subsubsection{Transmitter Driver}
-Beskrivelse af Transmitter driverens opgave samt dets interface
-\subsubsection{Kontrol register}
-Beskrivelse af Kontrol registerets opgave samt dets interface.
+Det er vigtigt ved transmitteren at frekvensen ligger ret præcist da den dæmper rigtigt meget ikke ret langt væk fra 40kHz. For at timingen skal virke skal der også laves så der kan stoppes når der er sendt 10 perioder.
+\subsubsection{Ventil Driver}
+Ventil driveren er den mest simple driver. Denne skal blot bære et digitalt signal til ON og OFF på hhv. ventilen til at lukke vand ind og ventilen til at lukke vand ud.
 
 \subsection{Transmitter kreds}
+På \fxnote{Indsæt ref til figuren med transmitter kredsen} ses nedbrydningen af Transmitter kreds-blokken. De enkelte blokke i denne kreds beskrives efterfølgende.
+
+\fxnote{Insæt figuren med transmitterkredsn}
+\subsubsection{Signalbeskrivelser}
+Signalerne internt i transmitter kredsen til i \fxnote{indsæt ref til tabellen med transmitter signaler}
+
 
