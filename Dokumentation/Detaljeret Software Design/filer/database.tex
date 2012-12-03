@@ -32,9 +32,9 @@ tilføj dato()
 \subsubsection{Server}
 Denne header har til ansvar at starte GUI og håndtere TCP forbindelse\\
 
-\textcolor{blue}{void} onCloseClicked( \textcolor{blue}{} );
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} on\_close\_clicked( \textcolor{blue}{void} )}} \\
 \hline
 Beskrivelse:&Ved klik forespørges brugeren om denne ønsker at lukke severen\\
 Parametre:&\\
@@ -42,9 +42,9 @@ Returværdi:&\\
 \end{tabular}
 \end{table}
 
-\textcolor{blue}{void} acceptConnection( \textcolor{blue}{} );
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} acceptConnection( \textcolor{blue}{void} )}} \\
 \hline
 Beskrivelse:&Står for at acceptere forbindelse fra KI og connecte.\\
 Parametre:&QTcpServer server\\
@@ -53,9 +53,9 @@ Returværdi:&\\
 \end{tabular}
 \end{table}
 
-\textcolor{blue}{void} startRead( \textcolor{blue}{} );
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} startRead( \textcolor{blue}{void} )}} \\
 \hline
 Beskrivelse:&Læser data fra socket. Data til fil og GUI\\
 Parametre:&QTcpSocket* client\\
@@ -66,17 +66,95 @@ Returværdi:&\\
 \subsubsection{Wep-side}
 Web-siden står for at fremvise skibs data grafisk for terminal personalet. Desuden står den for at lager data og loade data fra mySQL databasen.\\
 \subsubsection{mysql}
-setHostName( \textcolor{blue}{} );
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} setHostName( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse:&Læser data fra socket. Data til fil og GUI\\
-Parametre:&QTcpSocket* client\\
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
 Returværdi:&\\
 \end{tabular}
 \end{table}
 
-\subsection{TCP-forbindelse}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} setUserName( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Skriver brugernavn til databasen\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} setPassword( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Skriver password til databasen\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} setDatabase( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Fortæller mySQL hvilken database der skal benyttes\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} getDatabase( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:Tager fat i databasen\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} connect( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Står for at samle localhost, username, password, database og connecte til databasen\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} disconnect( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Lukker database forbindelsen\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} query( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Opretter database kø og skriver data til skærm\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} numRows( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Checker hvor mange rækker der findes i databasen bruges desuden til at udskrive om databasen er tom.\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
 
 \section{Design}
 \subsection{Server}
