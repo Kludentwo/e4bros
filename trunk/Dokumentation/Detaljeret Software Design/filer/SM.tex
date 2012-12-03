@@ -16,12 +16,12 @@ bla bla
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \cellcolor[gray]{0.8}\textbf{Variabel} &\cellcolor[gray]{0.8} \textbf{Beskrivelse}\\ \hline
-autoflag & Denne variable er et flag der holder styr på automatisk regulering .\\ \hline
-manuflag & Et flag til at holde styr på manuel regulering.\\ \hline
-levelVal & En variable med vores level værdi.\\ \hline
-VBTE1Niveau og VBTE2Niveau & Holder styr på vandniveauet i ballasttanke i \%. \\ \hline
-VBTE1Status og VBTE2Status & Holder styr op tilgængelighed for VBTE1 og 2.\\ \hline
-vinkelVal & Indeholder værdien for manuel regulering.\\ \hline
+\texttt{autoflag} & Denne variable er et flag der holder styr på automatisk regulering .\\ \hline
+\texttt{manuflag} & Et flag til at holde styr på manuel regulering.\\ \hline
+\texttt{levelVal} & En variable med vores level værdi.\\ \hline
+\texttt{VBTE1Niveau og VBTE2Niveau} & Holder styr på vandniveauet i ballasttanke i \%. \\ \hline
+\texttt{VBTE1Status og VBTE2Status} & Holder styr op tilgængelighed for VBTE1 og 2.\\ \hline
+\texttt{vinkelVal} & Indeholder værdien for manuel regulering.\\ \hline
 \end{tabular}
 \end{table}
 Alle variabler er indkapslet i en struct navngivet "smflags".
@@ -29,7 +29,7 @@ Alle variabler er indkapslet i en struct navngivet "smflags".
 \subsection{Init}
 \subsubsection{Ansvar}
 Denne header har til ansvar at sørge for alle komponenter opretter og initieret.
-\textcolor{blue}{void} init( \textcolor{blue}{void}); 
+\texttt{\textcolor{blue}{void} init( \textcolor{blue}{void});} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
@@ -42,25 +42,25 @@ Returværdi:&ingen\\
 \subsection{Levelsensor}
 \subsubsection{Ansvar}
 Denne header har til ansvar at hente levelværdien ind fra vores accelerometer.
-\textcolor{blue}{uint32} getLevel( \textcolor{blue}{void}); 
+\texttt{\textcolor{blue}{uint32} getLevel( \textcolor{blue}{void});} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
 Beskrivelse:& Funktionen anvender API'et fra Cypress componenter og venter på at vores ADC henter convertere det analoge signal. Funktionskald for ADC ses i PSoC databladet. \\
 Parametre:&ingen\\
-Returværdi:&\textcolor{blue}{uint32} levelVal\\
+Returværdi:&\texttt{\textcolor{blue}{uint32} levelVal}\\
 \end{tabular}
 \end{table}
 % spacer %
 \subsection{autoReg}
 \subsubsection{Ansvar}
 Denne header har til ansvar at styre automatisk regulering.
-\textcolor{blue}{void} autoReg( \textcolor{blue}{struct} smflags* sm); 
+\texttt{\textcolor{blue}{void} autoReg( \textcolor{blue}{struct} smflags* sm);} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
 Beskrivelse:& autoReg anvender værdier fra VBTE moduler samt KI til at holde systemet i et bestemt level. Funktionen starter med at checke på automatisk og manuel styrings flagene. Derefter kalder den getLevel agere ud fra niveauet. Funktionen vil altid tømme fra en tank før den begynder at fylde en anden.\\
-Parametre:&\textcolor{blue}{struct} smflags* sm\\
+Parametre:&\texttt{\textcolor{blue}{struct} smflags* sm}\\
 Returværdi:&ingen\\
 \end{tabular}
 \end{table}
@@ -68,45 +68,45 @@ Returværdi:&ingen\\
 \subsection{I2C\_Kom}
 \subsubsection{Ansvar}
 Denne header har til ansvar at kommunikere med VBTE modulerne.
-\textcolor{blue}{uint8} writeToVbte( \textcolor{blue}{uint8} Adresse, \textcolor{blue}{uint8} besked); 
+\texttt{\textcolor{blue}{uint8} writeToVbte( \textcolor{blue}{uint8} Adresse, \textcolor{blue}{uint8} besked);} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
 Beskrivelse:& writeToVbte anvender I2C fra Cypress PSoC 5 API til at skrive til VBTE modulerne. Den tager adressen og beskeden man skal sende og sender til pågældende enhed. Derefter venter den på svar som den så returnere. \\
-Parametre:&\textcolor{blue}{uint8} Adresse\\
- &\textcolor{blue}{uint8} besked\\
-Returværdi:&\textcolor{blue}{uint8} VbteNiveau\\
+Parametre:&\texttt{\textcolor{blue}{uint8} Adresse}\\
+ &\texttt{\textcolor{blue}{uint8} besked}\\
+Returværdi:&\texttt{\textcolor{blue}{uint8} VbteNiveau}\\
 \end{tabular}
 \end{table}
 % spacer %
 \subsection{KI\_KOM}
 \subsubsection{Ansvar}
 Denne header har til ansvar at kommunikere med KI enheden.\\
-\textcolor{blue}{int} convertToEnum( \textcolor{blue}{int} value); 
+\texttt{\textcolor{blue}{int} convertToEnum( \textcolor{blue}{int} value);} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
 Beskrivelse:& funktionen tager en level værdi ind for så at konvertere den til en Enum(integer) som den returnere.\\
-Parametre:&\textcolor{blue}{int} value\\
-Returværdi:&\textcolor{blue}{int} Enum\\
+Parametre:&\texttt{\textcolor{blue}{int} value}\\
+Returværdi:&\texttt{\textcolor{blue}{int} Enum}\\
 \end{tabular}
 \end{table}
-\textcolor{blue}{void} convertToValue(\textcolor{blue}{int} Level,   \textcolor{blue}{struct} smflags* sm); 
+\texttt{\textcolor{blue}{void} convertToValue(\textcolor{blue}{int} Level,   \textcolor{blue}{struct} smflags* sm);} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
 Beskrivelse:& Funktionen tager en enum og en pointer som den så konvertere til en level værdi og sætter i sm structen.\\
-Parametre:&\textcolor{blue}{int} Level,\\
- &\textcolor{blue}{struct} smflags* sm\\
+Parametre:&\texttt{\textcolor{blue}{int} Level},\\
+ &\texttt{\textcolor{blue}{struct} smflags* sm}\\
 Returværdi:&ingen\\
 \end{tabular}
 \end{table}
-\textcolor{blue}{void} getFromKI( \textcolor{blue}{struct} smflags* sm); 
+\texttt{\textcolor{blue}{void} getFromKI( \textcolor{blue}{struct} smflags* sm);} 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \hline
 Beskrivelse:& Funktionen anvender UART fra Cypress PSoC 5 API'en til at modtage en besked fra KI modulet som den så vurdere og agere på. Når den har modtaget noget sender den en ack tilbage til KI modulet. Derefter handler den og hvis det er nødvendigt sender data til KI. \\
-Parametre:&\textcolor{blue}{struct} smflags* sm\\
+Parametre:&\texttt{\textcolor{blue}{struct} smflags* sm}\\
 Returværdi:&ingen\\
 \end{tabular}
 \end{table}
