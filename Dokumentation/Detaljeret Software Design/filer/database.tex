@@ -1,6 +1,8 @@
 \chapter{Databasen}
 Nedenfor følger design af software til databasen og dens interface. Dette er lavet på baggrund af kravspecifikation og systemarkitektur. 
 
+
+
 \subsection{Modultes Ansvar}
 Databasen er her hvor havne terminalens personale kan aflæse data fra skibet. Disse data er sendt fra KI. Programmerne indeholder brugergrænseflader der opfylder kravene, beskrevet i kravspecifikationen. Her kan der også ses en prototyper på brugergrænsefladen.
 Database modulet har 3 dele. Severen, Web-siden og en mySQL database. \\
@@ -16,6 +18,7 @@ Nedenfor ses klassediagrammerne for databasen. Bemærk database modulet er lavet
 	\caption{Klassedigram for databasens severer}
 	\label{fig:serverKlassediagram}
 \end{figure}
+\fixme{skal laves om, snakket med KIM}
 
 tilføj dato()
 \begin{figure}[htbp]
@@ -65,6 +68,79 @@ Returværdi:&\\
 
 \subsubsection{Wep-side}
 Web-siden står for at fremvise skibs data grafisk for terminal personalet. Desuden står den for at lager data og loade data fra mySQL databasen.\\
+
+\subsubsection{bros}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} file\_handle( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} fgets ( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} explode( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} mysql\_connect( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} mysql\_select\_db( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{} unlink( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{new} mysql( \textcolor{blue}{} )}} \\
+\hline
+Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Parametre:&\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
 \subsubsection{mysql}
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
