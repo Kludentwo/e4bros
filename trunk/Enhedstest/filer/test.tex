@@ -2,6 +2,9 @@
 I dette afsnit følger selve testen.
 \subsection{Testcases}
 Dette afsnit er delt op i  2 dele. Hardware og software:\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HARDWARE                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Hardware}
 I dette afsnit forklares hvordan enhedstest af hardware udføres.
 \begin{table}[htbp]
@@ -13,6 +16,9 @@ Case &Enhed &Formål &Udførelse\\\hline
 2 &Henning &GetHenning &Du ringer til Henning\\\hline
 \end{tabular}
 \end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SOFTWARE                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Software}
 I dette afsnit forklares hvordan enhedstests af hardware udføres.
 \begin{table}[htbp]
@@ -20,13 +26,16 @@ I dette afsnit forklares hvordan enhedstests af hardware udføres.
 \begin{tabular}{| l  | c | c | c |}
 \hline
 Case &Enhed &Formål &Udførelse\\\hline
-1 &SM &GetLevel &GetLevel kaldes som funktionskald.\\\hline
-2 &Henning &GetHenning &Du ringer til Henning\\\hline
+1 &SM &GetLevel &GetLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
+2 &SM &getFromKI &Et program køres hvor getFromKI kaldes i en while løkke. SM modulet sættes sammen med en teststub der sender 6 forskellige cases, 1000 gange.\\\hline
 \end{tabular}
 \end{table}
 % Testresultater
 \subsection{Testresultater}
 Dette afsnit er delt op i  2 dele baseret på ovenstående tests.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HARDWARE RESULTATER        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Hardware}
 I dette afsnit findes forventede resultater samt resultater på testcases fra ovenstående hardware kapitel.\\
 \begin{table}[htbp]
@@ -38,6 +47,9 @@ Case &Forventet resultat &Resultat &Status\\\hline
 2 &H &GetHenning &Du ringer til Henning\\\hline
 \end{tabular}
 \end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SOFTWARE RESULTATER        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Software}
 I dette afsnit findes forventede resultater samt resultater på testcases fra ovenstående software kapitel.\\
 \begin{table}[htbp]
@@ -45,7 +57,7 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \begin{tabular}{| l  | c | c | c |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-1 &SM &Level bliver returneret & \\\hline
-2 &H &GetHenning &Du ringer til Henning\\\hline
+1 &SM &Level bliver returneret og verificeret &Level blev returneret og verificeret &Ok \\\hline
+2 &SM &teststubben printer til skærmen at alle cases er succesfulde &teststubben printede Success: 6000 &Ok\\\hline
 \end{tabular}
 \end{table}
