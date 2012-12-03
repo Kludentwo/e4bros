@@ -1,8 +1,9 @@
-\chapter{KI}
+\chapter{Kontrolinterface}
 Nedenfor følger design af software til Kontrolinterfacet. Dette er lavet på baggrund af kravspecifikation og systemarkitektur. 
 \subsection{Modulets ansvar}
 Kontrolinterfacet er brugerens primære kontaktflade til systemet. Programmet indeholder en brugergrænseflade der opfylder kravene i Kravspecifikationen. Her kan der også ses en prototype på den grafiske brugergrænseflade.
 Kontrolinterfacet står for at modtage inputs fra brugeren. Disse inputs sendes som kommandoer til Styringsmodulet. Det er også herfra at Kontrolinterfacet modtager de værdier, som sidenhen vises på den grafiske brugergrænseflade. Kontrolinterfacet står også for kommunikationen til den eksterne database. Her sendes en række parametre om skibet og dets status.
+
 \subsection{Klassediagram}
 Nedenfor ses klassediagrammet for Kontrolinterfacet. Bemærk at klassediagrammet er delt op i to. Skæringsstedet er mellem Kontrolinterface-klassen og Styringsmodul-klassen og er markeret med <<extend>>.
 
@@ -36,7 +37,7 @@ Returværdi:&\texttt{\textcolor{blue}{int} secondsSinceLastGuiUpdate}\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} updateGuiSlot(status temp);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} updateGuiSlot(\textcolor{blue}{status} temp);}} \\
 \hline
 Beskrivelse:& Bliver kaldt når GUI'en skal opdateres. 
 Den modtager parameterent \textit{temp} som er en struct af typen status. 
@@ -59,7 +60,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} manuChangedHandle(Level samlet, int side, double level);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} manuChangedHandle(\textcolor{blue}{Level} samlet, \textcolor{blue}{int} side, \textcolor{blue}{double} level);}} \\
 \hline
 Beskrivelse:& Kaldes når brugeren har ændret i indstillingen til den manuelle hældning. Som parametre modtages hvilken side man ønsker at skibet skal hælde til (int side), hvor meget det skal hælde (double level) samt de to informationer samlet i en enum, Level samlet.
 Funktionen emitter signalet "manuChanged(Level temp). Det sætter også klasseattributerne manuelSide, manuelLevel samt autoActivated til deres rette værdier.
@@ -74,7 +75,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} showServerUpdateStatus(bool state);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} showServerUpdateStatus(\textcolor{blue}{bool} state);}} \\
 \hline
 Beskrivelse:&Kaldes hver gang signalet DataServer::serverUpdateStatus() udsendes. Funktionen undersøger om forbindelsen har ændret sig ved at sammenligne med attributen serverConnection.
 Hvis forbindelsen har ændret sig udsendes dette som en aktivitet. Lyset ændres også således at det passer ved hjælp af setLight(DATA, serverConnection. Hvis vi modtager "true" vil last\_DATA\_Update opdateres til således til den nuværende værdi af sekunder siden epoch.\\   
@@ -97,7 +98,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} displayManuText(bool show);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} displayManuText(\textcolor{blue}{bool} show);}} \\
 \hline
 Beskrivelse:&Viser eller skjuler teksten med indstillingen af manuel hældning afhængig af parameteret show.\\    
 Parametre:&Ingen\\
@@ -131,7 +132,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} manuChanged(Level grader);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} manuChanged(\textcolor{blue}{Level} grader);}} \\
 \hline
 Beskrivelse:&Udsendes når der er blevet ændret en manuel indstilling.\\
 Parametre:&\texttt{\textcolor{blue}{Level} grader}\\
@@ -184,7 +185,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} setLight(lys id, bool state);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} setLight(\textcolor{blue}{lys} id, \textcolor{blue}{bool} state);}} \\
 \hline
 Beskrivelse:&Sætter lyset i forhold til parametrene. lys er en enum der bestemmer hvilket element lyset skal ændres for. state er om lyset skal være tændt eller ej\\
 Parametre:&\texttt{\textcolor{blue}{lys} id}\\
@@ -197,7 +198,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} alarmChangerCheck(QString sentence, int critical\_point, int value, bool \&earlier\_state);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} alarmChangerCheck(\textcolor{blue}{QString} sentence, \textcolor{blue}{int} critical\_point, \textcolor{blue}{int} value, \textcolor{blue}{bool} \&earlier\_state);}} \\
 \hline
 Beskrivelse: &Tester om alarmerne har ændret sig. Sentence er starten af den sætning der skrives i aktivitetsloggen. critical\_point er det kritiske punkt for det emne der arbejdes på. Value er den værdi den har. Earlier\_state er hvilket stadie alarmen var i tidligere.\\
 Parametre:&\texttt{\textcolor{blue}{QString} sentence}\\
@@ -210,7 +211,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} levelEnumConverterAndSetter(int level);}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} levelEnumConverterAndSetter(\textcolor{blue}{int} level);}} \\
 \hline
 Beskrivelse: &Konverterer en integer baseret på Level-enumeratoren om til en side og en vinkel.\\
 Parametre:&\texttt{\textcolor{blue}{int} level}\\
@@ -224,33 +225,269 @@ Returværdi:&Ingen\\
 Dette er hovedklassen hvori selve programmet lever. Oprettelsen af et objekt af denne klasse er derfor også det eneste der sker i main.
 \subsubsection{Funktionsbeskrivelser}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} update();}} \\
+\hline
+Beskrivelse: &Får en status-struct fra SM-klassen udfyldt med de nuværende værdier for systemet. Tilføjer antal sekunder siden sidste gui-update ved hjælp af getSecondsSinceLastGuiUpdate. Denne struct udsendes med signalet updateSignal(status recentValues)\\
+Parametre:&Ingen\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} updateSignal(\textcolor{blue}{status} recentValues);}} \\
+\hline
+Beskrivelse: &Signalet der sendes når gui og server skal updateres. Indeholder en struct med alle relevante værdier.\\
+Parametre:&\texttt{\textcolor{blue}{status} recentValues}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} terminate();}} \\
+\hline
+Beskrivelse: &Udsendes når brugeren ønsker at terminere programmet.\\
+Parametre:&Ingen\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} destroyMe();}} \\
+\hline
+Beskrivelse: &Muliggør nedlæggelse af klassen med et funktionskald.\\
+Parametre:&Ingen\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
 \subsection{DataServer}
 \subsubsection{Ansvar}
 Klassen står for al kommunikation med serveren via en TCP-forbindelse. Forbindelse oprettes og nedlægges hver gang der tages kontakt. DataServer-objektet opdaterer serveren når den får ordre om det fra Kontrolinterface-klassen.
 \subsubsection{Funktionsbeskrivelser}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} onDelete();}} \\
+\hline
+Beskrivelse: &Kaldes i destruktoren. Sender en besked til serveren om at programmet termineres	.\\
+Parametre:&Ingen\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} updateServerSlot(\textcolor{blue}{status} recentValues);}} \\
+\hline
+Beskrivelse: &Kaldes når signalet updateSignal(status recentValues) udsendes. Funktionen sørger så for at der via TCP-forbindelsen bliver udsendt de relevante værdier til databasen.\\
+Parametre:&\texttt{\textcolor{blue}{status} recentValues}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} serverUpdateStatus(\textcolor{blue}{bool} status);}} \\
+\hline
+Beskrivelse: &Udsendes når databasen er blevet opdateret. Parameteren "status" indikerer hvorvidt overførelsen var succesfuld eller ej. Der ventes ikke noget svar fra databasen.\\
+Parametre:&\texttt{\textcolor{blue}{bool} status}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+
 
 \subsection{manuDialog}
 \subsubsection{Ansvar}
 manuDialog-klassen står for håndtering af det vindue der åbnes ved tryk på \textit{Manuel Hældningsregulering-knappen}.
 \subsubsection{Funktionsbeskrivelser}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} manuSet(\textcolor{blue}{Level} degrees, \textcolor{blue}{int} side, \textcolor{blue}{double} level);}} \\
+\hline
+Beskrivelse: &Udsendes i funktionen accept(). Der medsendes de data som brugeren har valgt på dialogen.\\
+Parametre:&\texttt{\textcolor{blue}{Level} degrees}\\
+&\texttt{\textcolor{blue}{int} side}\\
+&\texttt{\textcolor{blue}{double} level}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} accept();}} \\
+\hline
+Beskrivelse: &Kaldes når der trykkes på "OK"-knappen på dialogen. Det indtastede omdannes til en værdi i forhold til enumeratoren "Level". Dialogen lukkes og signalet manuSet(...) udsendes \\
+Parametre:&\texttt{\textcolor{blue}{Level} degrees}\\
+&\texttt{\textcolor{blue}{int} side}\\
+&\texttt{\textcolor{blue}{double} level}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
 \subsection{Styringsmodul}
 \subsubsection{Ansvar}
 Klassen har samme rolle som det fysiske styringsmodul har i systemet. Det giver kontrolinterfacet adgang til sensor-værdier og vandstandsniveauer igennem sine underklasser, VBTE og Sensor.
 \subsubsection{Funktionsbeskrivelser}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{status} getStatus();}} \\
+\hline
+Beskrivelse: &Indhenter værdierne for systemet fra VBTE'er og Hældningssensor. Disse værdier sættes ind i structen temp som så returneres.\\
+Parametre:&Ingen\\
+Returværdi:&\texttt{\textcolor{blue}{status} recentValues}\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} manuelLeveling(\textcolor{blue}{Level} level);}} \\
+\hline
+Beskrivelse: &Sender kommando og vinkel til PSoC over RS232 vha. objektet m\_pCom.\\
+Parametre:&\texttt{\textcolor{blue}{Level} level}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} activateAutomaticRegulation();}} \\
+\hline
+Beskrivelse: &Sætter hvorvidt automatisk regulering skal være aktiveret eller ej til styringsmodulet.\\
+Parametre:&Ingen\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} SMConnectionChangedTo(\textcolor{blue}{bool} status);}} \\
+\hline
+Beskrivelse: &Udsendes hver gang der har været en overførelse. Status indikerer hvorvidt overførelsen var succesfuld eller ej.\\
+Parametre:&\texttt{\textcolor{blue}{bool} status}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} ManuelLevelingAck(\textcolor{blue}{bool} status);}} \\
+\hline
+Beskrivelse: &Udsendes når der er blevet sendt kommandoen CMD\_MANU til styringsmodulet. Bool status indikerer hvorvidt overførelsen var succesfuld ej.\\
+Parametre:&\texttt{\textcolor{blue}{bool} status}\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
 
 \subsection{VBTE}
 \subsubsection{Ansvar}
 Håndterer værdierne for hver sin vandballasttankenhed. Kommunikerer til det fysiske styringsmodul ved hjælp af RS232-klassen.
 \subsubsection{Funktionsbeskrivelser}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{int} getNiveau();}} \\
+\hline
+Beskrivelse: &Kalder setNiveau og returnerer værdien af niveau\\
+Parametre:&Ingen\\
+Returværdi:&\textcolor{blue}{int} niveau()\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{status} getStatus(\textcolor{blue}{status} temp);}} \\
+\hline
+Beskrivelse: &Skaffer status vha. rs232-objektet og sætter niveau og status i structen temp som herefter returneres.\\
+Parametre:&\textcolor{blue}{status} temp()\\
+Returværdi:&\textcolor{blue}{status} temp()\\
+\end{tabular}
+\end{table}
+
 \subsection{Sensor}
 \subsubsection{Ansvar}
 Håndterer værdierne for hældningssensoreren. Kommunikerer til det fysiske styringsmodul ved hjælp af RS232-klassen.
 \subsubsection{Funktionsbeskrivelser}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{int} getLevel();}} \\
+\hline
+Beskrivelse: &Skaffer værdien af hældningen på skibet vha. rs232-objektet og returnerer det.\\
+Parametre:&Ingen\\
+Returværdi:&\textcolor{blue}{int} level\\
+\end{tabular}
+\end{table}
+
 \subsection{RS232}
 \subsubsection{Ansvar}
 Håndterer kommunikationen til det fysiske styringsmodul ved protokollen der ses i enumeratoren "Kommando". 
 \subsubsection{Funktionsbeskrivelser}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} send(\textcolor{blue}{int} cmd);}} \\
+\hline
+Beskrivelse: &Sendefunktion. Sender den medsendte integer.\\
+Parametre:&\textcolor{blue}{int} cmd\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{int} readValue();}} \\
+\hline
+Beskrivelse: &Modtagerfunktion. Returnerer den læste værdi.\\
+Parametre:&Ingen\\
+Returværdi:&\textcolor{blue}{int} receivedValue\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{bool} readAck(\textcolor{blue}{Kommando} cmd);}} \\
+\hline
+Beskrivelse: &Kalder readValue() og sammenholder dennes returværdi med den værdi der er medsendt som parameter (cmd). Returnerer hvor vidt de to var identiske.\\
+Parametre:&\textcolor{blue}{Kommando} cmd\\
+Returværdi:&\textcolor{blue}{bool} status\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} SMConnectionChangedTo(\textcolor{blue}{bool} status);}} \\
+\hline
+Beskrivelse: &Når der har været en overførelse udsendes dette signal. Status indikerer hvorvidt overførelsen var succesfuld eller ej.\\
+Parametre:&\textcolor{blue}{bool} status\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} SMConnectionChangedTo(\textcolor{blue}{bool} status);}} \\
+\hline
+Beskrivelse: &Når der har været en overførelse udsendes dette signal. Status indikerer hvorvidt overførelsen var succesfuld eller ej.\\
+Parametre:&\textcolor{blue}{bool} status\\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{bool} isConnectionOpen();}} \\
+\hline
+Beskrivelse: &Tester om der er forbindelse til PSoC\\
+Parametre:&Ingen\\
+Returværdi:&\textcolor{blue}{bool} connectionState\\
+\end{tabular}
+\end{table}
