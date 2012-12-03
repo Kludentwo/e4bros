@@ -24,33 +24,50 @@ Nedenfor ses klassediagrammet for VBTE. Bemærk at koden dog er i C men for over
 \end{tabular}
 \end{table}
 \section{Metode- og klassebeskrivelser}
+
+%Init h-fil%%%%%%%%%%%%%%%%%%%
+\subsection{Init}
+\subsubsection{Ansvar}
+Denne header har til ansvar at initiere alle moduler og blokke på PSoC'en. Disse funktioner hentes fra PSoC'ens API.
+\subsubsection{Funktionsbeskrivelser}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} Init(  \texttt{\textcolor{blue}{uint8}* WriteBuffer}, 
+\texttt{\textcolor{blue}{uint8}* ReadBuffer}, \texttt{\textcolor{blue}{uint8} BufferSize} )}} \\
+\hline
+Beskrivelse:& Funktionen anvender API'et fra alle PSoC blokke anvendt i designet og kalder deres start funktion. Derudover initierer den også read- og writebuffer til I2C modulet. \\
+Parametre:&\texttt{\textcolor{blue}{uint8}* WriteBuffer}\\
+&\texttt{\textcolor{blue}{uint8}* ReadBuffer}\\
+&\texttt{\textcolor{blue}{uint8} BufferSize} \\
+Returværdi:&Ingen\\
+\end{tabular}
+\end{table}
+
+%Ventil h-fil%%%%%%%%%%%%%%%%
 \subsection{Valve}
 \subsubsection{Ansvar}
 Denne header har til ansvar at styre ventilerne ud fra "state"-variablen modtaget fra I2C\_handle. Headeren benytter PSoC-API'et til kontrol registre..
 \subsubsection{Funktionsbeskrivelser}
- 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} ChangeState( \textcolor{blue}{uint8} state );}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} ChangeState( \textcolor{blue}{uint8} state )}} \\
 \hline
-Beskrivelse:& Funktionen anvender API'et fra I2C blokken i PSoC miljøet. Med disse tjekker den om der er fyldt nyt i bufferen og aflæse dette. Herfer kalder den funktionen I2C\_decode(); til at afkode beskeden fra SM. Herefter klargøres readbufferen til evt. at sende vandniveau tilbage. \\
-Parametre:&\texttt{\textcolor{blue}{uint8}* WriteBuffer}\\
-&\texttt{\textcolor{blue}{uint8}* ReadBuffer}\\
-&\texttt{\textcolor{blue}{uint8} BufferSize} \\
-Returværdi:&\texttt{\textcolor{blue}{uint8} State}\\
+Beskrivelse:& Funktionen modtager state som indeholder indformationer om ventilerne skal være lukkede eller hvilken ventil der skal være åben. Den benytter PSoC5 API'et for kontrol register.\\
+Parametre:&\texttt{\textcolor{blue}{uint8} state}\\
+Returværdi:&Ingen\\
 \end{tabular}
 \end{table}
 
+%Dist h-fil%%%%%%%%%%%%%%%%
 \subsection{Dist}
 \subsubsection{Ansvar}
 Denne header har til ansvar at sende burst, beregne afstanden samt at omregne afstanden til procent.
 \subsubsection{Funktionsbeskrivelser}
-
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} SendBurst( \textcolor{blue}{void} );}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} SendBurst( \textcolor{blue}{void} )}} \\
 \hline
-Beskrivelse:&Denne metode aktiverer en 40kHz clock og tæller perioderne op til 10, lukker for burstet og ligger timerens værdi ind i den globale variabel BurstTimerVal\\
+Beskrivelse:&Denne metode aktiverer en 40kHz clock og tæller perioderne op til 10, lukker for burstet og ligger timerens værdi ind i den globale variabel BurstTimerVal. Herefter sættes BurstFlag'et.\\
 Parametre:&Ingen\\
 Returværdi:&Ingen\\
 \end{tabular}
@@ -58,7 +75,7 @@ Returværdi:&Ingen\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{float} CalculateDistance( \textcolor{blue}{void} );}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{float} CalculateDistance( \textcolor{blue}{void} )}} \\
 \hline
 Beskrivelse:&Denne metode anvender BurstTimerVal og DistanceTimerVal til at finde ud af hvor mange clocks der er gået fra burstet er blevet sendt til det igen er blevet registreret.\\
 Parametre:&Ingen\\
@@ -68,13 +85,39 @@ Returværdi:&\texttt{\textcolor{blue}{float} DistanceMM}\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{uint8} ConvertMMtoPercent( \textcolor{blue}{float} );}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{uint8} ConvertMMtoPercent( \textcolor{blue}{float} )}} \\
 \hline
 Beskrivelse:&Metoden modtager afstanden i millimeter og returnerer hvor mange \% der er i tanken\\
 Parametre:&\texttt{\textcolor{blue}{float} DistanceMM}\\
 Returværdi:&\texttt{\textcolor{blue}{uint8} DistancePercent}\\
 \end{tabular}
 \end{table}
+
+%I2C h-fil%%%%%%%%%%%%%%%%
+\subsection{I2Chandle}
+\subsubsection{Ansvar}
+Denne header har til ansvar at håndtere I2C. Den kigger om der er kommet noget i writebufferen. Er der kommet noget i bufferen kigger den efter hvilket tilstand det er der skal ændres til og så smider den afstanden i procent i read bufferen.
+\subsubsection{Funktionsbeskrivelser}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm} }
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{uint8} I2C\_handle(  \texttt{\textcolor{blue}{uint8}* WriteBuffer}, 
+\texttt{\textcolor{blue}{uint8}* ReadBuffer}, \texttt{\textcolor{blue}{uint8} BufferSize} )}} \\
+\hline
+Beskrivelse:& Funktionen anvender API'et fra I2C blokken i PSoC miljøet. Med disse tjekker den om der er fyldt nyt i bufferen og aflæse dette. Herfer kalder den funktionen I2C\_decode til at afkode beskeden fra SM. Herefter klargøres readbufferen til at sende vandniveau tilbage. \\
+Parametre:&\texttt{\textcolor{blue}{uint8}* WriteBuffer}\\
+&\texttt{\textcolor{blue}{uint8}* ReadBuffer}\\
+&\texttt{\textcolor{blue}{uint8} BufferSize} \\
+Returværdi:&\texttt{\textcolor{blue}{uint8} State}\\
+\end{tabular}
+\end{table}
+
+%ADC h-fil%%%%%%%%%%%%%%%%
+\subsection{PSoC-API::ADC}
+\subsubsection{Ansvar}
+Denne header er kun beskrevet fordi der er implementeret en funktionalitet i dette API. Der er under ADC
+\subsubsection{Beskrivelse}
+Inde i ADC'ens interrupt header tilføjes funktionalitet så der, hver gang der bliver samplet, bliver valideret på om der er en detektion. Er der en detektion sættes flaget til udregning af afstand samt flaget for burst sættes til 0 igen. For at gøre dette anvendes funktionerne fra API'et for ADC
+
 \subsection{State Machine}
 Nedenfor ses statemachine der beskriver det overordnede flow i VBTE programmet.
 \begin{figure}[H]
@@ -83,7 +126,7 @@ Nedenfor ses statemachine der beskriver det overordnede flow i VBTE programmet.
 \caption{Statemachine for VBTE program}
 \end{figure}
 
-\subsection{Timing Diagram (Hører til hardware)}
+\subsection{Timing Diagram}
 Nedenfor ses timing diagram for en ultralydspuls til afstandsmåling
 \begin{figure}[H]
 \centering
