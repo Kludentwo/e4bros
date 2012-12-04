@@ -133,6 +133,26 @@ Timeren er en indbygget timerblok i PSoC miljøet. Der er påkoblet en bus clock
 \label{fig:timerkreds}
 \end{figure}
 \subsubsection{I2Ckreds}
-I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM modulet kan skrive til den og læse fra den. datahastigheden er sat til at køre 100kbps. Derudover er adressen 
+I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM modulet kan skrive til den og læse fra den. datahastigheden er sat til at køre 100kbps. Blokken har 2 udgange som er direkte forbundet til ben på PSoC'en. Disse er videre forbundet til et minijack hunstik der så den nemt kan kobles sammen med resten af systemet. Derudover er adressen sat i softwaren. Det er dog muligt at sætte LSB og LSB+1 i adressem i testdesignet. I den endelige system er det tænkt at de skal være sat op med en bestemt adresse fra start. På \textit{figur \ref{fig:psoci2ckreds}} ses blokken.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{billeder/psoci2ckreds}
+\caption{PSoC I2Ckreds.}
+\label{fig:psoci2ckreds}
+\end{figure}
 \subsubsection{Receiver Driver}
+Receiverdriveren består af en række indbyggede blokke i PSoC'en. Udover designet opbygget i PSoC miljøet er der en kondensator på 1µF, for at fjerne DC på ultralydsreceiveren, og en modstand der forbinder Opamp'en og PGA'en. Opamp'en er indsat for at løfte signalet op til 2,5V. PGA'en forstærker herefter signalet op. Under teknologiundersøgelsen viste det sig at der blev modtaget en maks p-p værdi på 300mV på ultralydsreceiveren. Derved giver en forstærkning på 8 et maks udsving på\\
+ $U_{maks}=300mV*8=2.4V$.\\
+Dette er dog kun hvis der modtages et meget klart signal og det er derfor en forstærkning på 8 godt kan anvendes. Signalet mixes  herefter sammen med et 40kHz signal for at få en DC ind på filteret i Delta-sigma AD konverteren. Filteret er i delta-sigma AD konverteren er designet i PSoC'en som et 3 ordensfilter hvis første tap ligger ved samplingsfrekvensen. Samplingsfrekvensen er udregnet til at give filteret en opladningstid i 3dB punktet på $1/4ms$. Dette skyldes at de 10 perioder der bliver sendt varer $1/4ms$. Derved må der konstateres en detektion når filteret er opladet til 63\%. \\
+Udregning af samplefrekvens:\\
+$\frac{1}{a}=\tau$, $\tau=250\mu s$ derved er $a=\frac{4000\frac{rad}{s}}{2*\pi}=637\si{Hz}$. \\
+Dette giver en samplefrekvens på: $SPS=3*637\si{Hz}=1910\si{Hz}$.\\
+Nedenfor ses det endelige receiverdriver PSoC design.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{billeder/psocreceiverkreds}
+\caption{PSoC receiverkreds }
+\label{fig:psocreceiverkreds}
+\end{figure}
+
 \subsubsection{Ventil Driver}
