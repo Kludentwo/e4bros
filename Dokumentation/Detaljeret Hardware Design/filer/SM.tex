@@ -3,3 +3,20 @@ Følgende afsnit beskriver SM'ens hardware i de enkelte blokke, grænsefladerne 
 
 \section{Overordnet design}
 Nedenfor ses det overordnede hardware blokdiagram. Herefter følger en beskrivelse af de forskellige blokke samt signaler.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% INDSÆT BLOKDIAGRAM %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Blokke}
+Nedenfor beskrives de enkelte blokke illustreret på \textit{Figur~\ref{fig:HWVBTE}}
+\subsubsection{PSoC5}
+PSoC'en er den centrale del af VBTE'en og står for styringen af hele VBTE'en. Den består af:
+\begin{itemize}
+\item MicroController
+\item I2C
+\item Delta-Sigma ADC
+\item Kontrolregister
+\item UART
+\end{itemize}
+PSoC'en er et færdigkøbt produkt og for detaljer om de enkelte blokke heri henvises der til databladet for PSoC5.
+\subsubsection{DC-DC powersuply 5V}
+Se powersuply afsnittet.
