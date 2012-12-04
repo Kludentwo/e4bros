@@ -17,7 +17,7 @@ PSoC'en er den centrale del af VBTE'en og står for styringen af hele VBTE'en. D
 \item MicroController
 \item I2C
 \item Delta-Sigma ADC
-\item Controlregister
+\item Accelerometer kontrolregister
 \item UART
 \end{itemize}
 PSoC'en er et færdigkøbt produkt og for detaljer om de enkelte blokke heri henvises der til databladet for PSoC5.
@@ -53,10 +53,10 @@ SCL & Digitalt & $\sim$0V til $\sim$5V & Digitalt clocksignal til I2C.\\ \hline
 \subsubsection{Hældningssensor}
 Hældningssensorblokken står for at modtage og konvertere værdier fra hældningssensoren til en integer der er forståelig for vores digitale elektronik. Konverteringen skal se med en A/D konverter med en høj nok opløsning til at måle det udsving angivet i kravspecifikationen.
 \subsubsection{UART}
-naha
-\subsubsection{Accelerometer Controlregister}
+UART kredsen står for at sende og modtage data fra KI. UART operere mellem 0 og 5 volt, og med indstilling sat ud fra \textit{Systemarkitektur/protokoller/UART}. Blocken har 2 signaler der går videre til UART Block, der beskrives senere i dette dokument. 
+\subsubsection{Accelerometer Kontrolregister}
 hest
 \subsubsection{I2C kreds}
-I2C kredsen skal stå for I2C interfacet mellem SM og KI. I2C protokollen kører 5V og med pull-up modstande. I2C'en benytter standard I2C protokol, og for yderligere info om data henvises der til \textit{Systemarkitektur/protokoller/I2C}.
+I2C kredsen skal stå for I2C interfacet mellem SM og VBTE. I2C protokollen kører 5V og med pull-up modstande. I2C'en benytter standard I2C protokol, og for yderligere info om data henvises der til \textit{Systemarkitektur/protokoller/I2C}.
 %%%%%%%%% UART controller %%%%%%%%%%%%%
-\subsection{UART}
+\subsection{UART Block}
