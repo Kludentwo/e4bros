@@ -116,7 +116,7 @@ Returværdi:&\texttt{\textcolor{blue}{uint8} State}\\
 \subsubsection{Ansvar}
 Denne header er kun beskrevet fordi der er implementeret en funktionalitet i dette API. Der er under ADC
 \subsubsection{Beskrivelse}
-Inde i ADC'ens interrupt header tilføjes funktionalitet så der, hver gang der bliver samplet, bliver valideret på om der er en detektion. Er der en detektion sættes flaget til udregning af afstand samt flaget for burst sættes til 0 igen. For at gøre dette anvendes funktionerne fra API'et for ADC
+Inde i ADC'ens interrupt header tilføjes funktionalitet så der, hver gang der bliver samplet, bliver valideret på om der er en detektion. Er der en detektion sættes flaget til udregning af afstand samt flaget for burst sættes til 0 igen. For at gøre dette anvendes funktionerne fra API'et for ADC'en.
 
 \subsection{State Machine}
 Nedenfor ses statemachine der beskriver det overordnede flow i VBTE programmet.
@@ -130,6 +130,13 @@ Nedenfor ses statemachine der beskriver det overordnede flow i VBTE programmet.
 Nedenfor ses timing diagram for en ultralydspuls til afstandsmåling
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{billeder/TimingdiagramVBTE}
+\includegraphics[scale=1]{billeder/TimingdiagramVBTE}
 \caption{Timing diagram for VBTE ultralydspuls}
 \end{figure}
+
+\subsection{Interrupt rutiner}
+I dette afsnit beskrives interrupt rutinerne i VBTE programmet. 
+\subsubsection{isr\_dist}
+Isr\_dist har til ansvar at tælle den globale variabel \texttt{WaitBurstVar} op. Den bliver triggeret af en clock på 1kHz. Hver gang variablen havner over 500 bliver \texttt{SendBurst();} funktionen kaldt og variablen bliver nulstillet.
+\subsubsection{isr\_counter}
+Isr\_counter tæller variablen \texttt{BurstLengthVal} op. Denne anvendes til at styre at der kun bliver sendt 10 peroder i et burst.
