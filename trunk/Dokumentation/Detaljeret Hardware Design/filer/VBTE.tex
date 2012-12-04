@@ -118,3 +118,21 @@ GND & Ground & 0V & Ground i systemet \\ \hline
 \caption{Tabel over signaler i Transmitterblokken}
 \label{table:ventrilkreds}
 \end{table}
+\newpage
+\section{Opbygning af design}
+Nedenfor følger opbygningen af designet for de forskellige kredse. Dette vil blive beskrevet med Multisim designs, PSoC designs og udregninger. Afsnittet vil starte med at beskrive PSoC designet, da dette er den mest centrale del af VBTE modulet.
+
+\subsection{PSoC5 design opbygning}
+I afsnittet om PSoC'en vil følge 5 underpunkter der beskriver hver blok som illustreret på \textit{figur \ref{fig:PSoCBlok}}.
+\subsubsection{Timer}
+Timeren er en indbygget timerblok i PSoC miljøet. Der er påkoblet en bus clock med en frekvens på 24MHz. Dette giver en opløsning på $\frac{1}{24MHz}*344\frac{m}{s}=0.014mm$\footnote{Dette er omtrent ved stuetemperatur ($20^{o}$)}. Timeren er sat op med 32bit som giver en wraparround tid på 3min for at der ikke skal bruges ekstra operationer i timingen på at tjekke efter wraparround. Nedenfor ses timerkredsen.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{billeder/psoctimerkreds}
+\caption{PSoC timerkreds.}
+\label{fig:timerkreds}
+\end{figure}
+\subsubsection{I2Ckreds}
+I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM modulet kan skrive til den og læse fra den. datahastigheden er sat til at køre 100kbps. Derudover er adressen 
+\subsubsection{Receiver Driver}
+\subsubsection{Ventil Driver}
