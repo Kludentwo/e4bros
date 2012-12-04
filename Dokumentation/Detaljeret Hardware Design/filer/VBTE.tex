@@ -141,8 +141,8 @@ I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM 
 \label{fig:psoci2ckreds}
 \end{figure}
 \subsubsection{Receiver Driver}
-Receiverdriveren består af en række indbyggede blokke i PSoC'en. Udover designet opbygget i PSoC miljøet er der en kondensator på 1µF, for at fjerne DC på ultralydsreceiveren, og en modstand der forbinder Opamp'en og PGA'en. Opamp'en er indsat for at løfte signalet op til 2,5V. PGA'en forstærker herefter signalet op. Under teknologiundersøgelsen viste det sig at der blev modtaget en maks p-p værdi på 300mV på ultralydsreceiveren. Derved giver en forstærkning på 8 et maks udsving på\\
- $U_{maks}=300mV*8=2.4V$.\\
+Receiverdriveren består af en række indbyggede blokke i PSoC'en. Udover designet opbygget i PSoC miljøet er der en kondensator på 1µF, for at fjerne DC på ultralydsreceiveren, og en modstand der forbinder Opamp'en og PGA'en. Opamp'en er indsat for at løfte signalet op til 2,5V. PGA'en forstærker herefter signalet op.\fxnote{Det skal forklares bedre at det er for at være fri for negative værdier og at vi skal være inden for det spændingsområde PSoCen kører med} Under teknologiundersøgelsen viste det sig at der blev modtaget en maks p-p værdi på 300mV på ultralydsreceiveren. Derved giver en forstærkning på 8 et maks udsving på\\
+$U_{maks}=300mV*8=2.4V$.\\
 Dette er dog kun hvis der modtages et meget klart signal og det er derfor en forstærkning på 8 godt kan anvendes. Signalet mixes  herefter sammen med et 40kHz signal for at få en DC ind på filteret i Delta-sigma AD konverteren. Filteret er i delta-sigma AD konverteren er designet i PSoC'en som et 3 ordensfilter hvis første tap ligger ved samplingsfrekvensen. Samplingsfrekvensen er udregnet til at give filteret en opladningstid i 3dB punktet på $1/4ms$. Dette skyldes at de 10 perioder der bliver sendt varer $1/4ms$. Derved må der konstateres en detektion når filteret er opladet til 63\%. \\
 Udregning af samplefrekvens:\\
 $\frac{1}{a}=\tau$, $\tau=250\mu s$ derved er $a=\frac{4000\frac{rad}{s}}{2*\pi}=637\si{Hz}$. \\
