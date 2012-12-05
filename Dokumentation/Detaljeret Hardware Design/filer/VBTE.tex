@@ -98,6 +98,7 @@ GND & Ground & 0V & Ground i systemet \\ \hline
 \end{table}
 
 \subsection{Ventil Kreds}
+\label{sec:ventilkreds}
 Ventil kredsen får to kontrolsignaler fra PSoC'en der skal åbne for hver sin ventil. Kredsen skal sørge for at ventilerne kan få lov til at trække den strøm der er nødvendig for at drive dem. På \textit{figur \ref{fig:ventilblok}} ses blokdiagrammet for ventilkredsen. Signalerne på blokdiagrammet er beskrevet i \textit{tabel \ref{table:ventrilkreds}}
 \begin{figure}[H]
 \centering
@@ -141,18 +142,66 @@ I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM 
 \label{fig:psoci2ckreds}
 \end{figure}
 \subsubsection{Receiver Driver}
-Receiverdriveren består af en række indbyggede blokke i PSoC'en. Udover designet opbygget i PSoC miljøet er der en kondensator på 1µF, for at fjerne DC på ultralydsreceiveren, og en modstand der forbinder Opamp'en og PGA'en. Opamp'en er indsat for at løfte signalet op til 2,5V. PGA'en forstærker herefter signalet op.\fxnote{Det skal forklares bedre at det er for at være fri for negative værdier og at vi skal være inden for det spændingsområde PSoCen kører med} Under teknologiundersøgelsen viste det sig at der blev modtaget en maks p-p værdi på 300mV på ultralydsreceiveren. Derved giver en forstærkning på 8 et maks udsving på\\
-$U_{maks}=300mV*8=2.4V$.\\
-Dette er dog kun hvis der modtages et meget klart signal og det er derfor en forstærkning på 8 godt kan anvendes. Signalet mixes  herefter sammen med et 40kHz signal for at få en DC ind på filteret i Delta-sigma AD konverteren. Filteret er i delta-sigma AD konverteren er designet i PSoC'en som et 3 ordensfilter hvis første tap ligger ved samplingsfrekvensen. Samplingsfrekvensen er udregnet til at give filteret en opladningstid i 3dB punktet på $1/4ms$. Dette skyldes at de 10 perioder der bliver sendt varer $1/4ms$. Derved må der konstateres en detektion når filteret er opladet til 63\%. \\
+Receiverdriveren består af en række indbyggede blokke i PSoC'en. Udover designet opbygget i PSoC miljøet er der en kondensator på 1µF, for at fjerne DC på ultralydsreceiveren, og en modstand der forbinder Opamp'en og PGA'en. Opamp'en er indsat for at løfte signalet op til 2,5V da PSoC'en ikke kan arbejde med negative spændinger. PGA'en forstærker herefter signalet op fra receiveren. Under teknologiundersøgelsen viste det sig at der blev modtaget en maks p-p værdi på 300mV på ultralydsreceiveren. Ud fra denne værdi blev en forstærkning beregnet for at være inden for PSoC'ens arbejdsområde\\
+$A_{maks}*300mV+2.5V < 5V$. Anvendes en forstærkning på 8 fås et maks udsving på $300mV*8+2.5V=4.9V$.\\
+Dette er dog kun hvis der modtages et meget klart signal og det er derfor en forstærkning på 8 godt kan anvendes. Signalet mixes  herefter sammen med et 40kHz signal\footnote{Den grønne streg er en forbindelse til den 40kHz clock der også anvendes i transmitterdriveren} for at få en DC ind på filteret i Delta-sigma AD konverteren. Den forventede spænding på ADC'en vil matematisk regnes til:\\
+$U_{mixer}=\frac{1}{2}*A_{signal}*A_{clock}*A_{filter}=2.5V*\frac{1}{2}=1.25V$\footnote{Bemærk at dette er ved maksimalt udsving. Efterfølgende viste det sig at en lavere spænding også var detekteringer og grænset blev sat ved 0.3V}\\
+Filteret i delta-sigma AD konverteren er designet i PSoC'en som et 3 ordens filter hvis første tap ligger ved samplingsfrekvensen. Samplingsfrekvensen er udregnet til at give filteret en opladningstid i 3dB punktet på $1/4ms$. Dette skyldes at de 10 perioder der bliver sendt varer $1/4ms$. Derved må der konstateres en detektion når filteret er opladet til 63\%. Delta-sigmaens dynamikområde er sat til $Vdda/2\pm1.25V$.\\
 Udregning af samplefrekvens:\\
 $\frac{1}{a}=\tau$, $\tau=250\mu s$ derved er $a=\frac{4000\frac{rad}{s}}{2*\pi}=637\si{Hz}$. \\
-Dette giver en samplefrekvens på: $SPS=3*637\si{Hz}=1910\si{Hz}$.\\
-Nedenfor ses det endelige receiverdriver PSoC design.
+Dette giver en samplefrekvens på: $sps=3*637\si{Hz}=1910\si{Hz}$.\\
+Nedenfor ses det endelige receiverdriver PSoC design. De forskellige parametre beregnet ovenfor er indsat i de forskellige blokke.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{billeder/psocreceiverkreds}
+\includegraphics[scale=.75]{billeder/psocreceiverkreds}
 \caption{PSoC receiverkreds }
 \label{fig:psocreceiverkreds}
 \end{figure}
+\newpage
+\subsubsection{Ventildriver}
+Ventil driveren består af to software styrede output pins. Disse anvendes som kontrolsignal til Ventil Kredsen. Pinsne kan maks trække en strøm på 4mA. Nedenfor ses den endelige ventildriver på PSoC'en. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{billeder/psocventildriver}
+\caption{PSoC ventildriver}
+\label{fig:psocventildriver}
+\end{figure}
 
-\subsubsection{Ventil Driver}
+\subsubsection{Transmitterdriver}
+Transmitterdriveren består af en output pin til kontrol af transmitterkredsen, en interruptrutine til at tælle antallet af perioder der bliver sendt, en interruptrutine til at hjælpe med et nonblocking delay, en 40kHz og en 1kHz clock samt en softwarestyret kontrol pin (Burst\_pin). Når kontrolpinden bliver sat ryger clocken igennem ud til interruptrutinen samt kontrolpinden. \\
+Nedenfor ses det endelige PSoC design for transmitterdriveren.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.8]{billeder/psoctransmitterdriver}
+\caption{PSoC transmitterdriver}
+\label{fig:psoctransmitterdriver}
+\end{figure}
+\newpage
+\subsection{Transmitterkreds}
+Transmitterkredsen skal, som beskrevet ovenfor, modtage et kontrol signal og omsætte det signal til en større spænding over den keramiske ultralydstransmitter. Dette er realiseret ved at anvende en transistor (BD139). I databladet aflæses impedansen af transmitteren til $\sim10k\Omega$ ved 40kHz. Med en forsyning på 12V trækker den derved en strøm på:\\
+$I_{transmitter}=\frac{12V}{10k\Omega}=1.2mA$\\
+Derved kan transistoren sagtens trække transmitteren og den er tilgængelig i lab.\\
+På \textit{figur \ref{fig:transmitterkreds}} ses transmitterkredsen opbygget i multisim.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.75]{billeder/transmitterkreds}
+\caption{Transmitterkreds i multisim}
+\label{fig:transmitterkreds}
+\end{figure}
+
+\subsection{Ventilkreds}
+Ventilkredsen skal, som beskrevet i punkt \ref{sec:ventilkreds} Ventilkreds, omsætte 2 kontrolsignaler til 2 outputs med en 12V spænding. Ventilerne er af typen EV210-1.2 og EV210A-4.5 fra danfoss og drives ved 12V 0.4A. Der er anvendt en darlington kobling af to transistorer for at trække en lille strøm fra PSoC'ens udgange. I koblingen er der anvendt en BC547B og en BD139. BD139 har en forstærkning på 40 - 160 (der regnes med 100) ifølge databladet. Derved skal der ligge en strøm på:\\
+$I_{B}=\frac{0.4A}{100}=4mA$. \\
+Ved en forsyning på 12V giver det en modstand på $R3=\frac{12V}{4mA}=3k\Omega$ men for at være sikre på at der bliver åbnet nok vælges en modstand på $1.2k\Omega$.
+Dernæst skal der ligge en strøm på basen af den første transmitter på (forstærkningen i BC547B er på 200):\\
+$I_{B2}=\frac{10m A}{200}=50\mu A$\\
+Dette giver en modstand fra PSoC'en til basen på:\\
+$R1=\frac{5V-1.4V}{50\mu A}=72k\Omega$\\
+Denne afrundes til $70k\Omega$. På \textit{figur \ref{fig:ventilkreds}} ses opbygningen af designet i multisim.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.75]{billeder/ventilkreds}
+\caption{Ventilkreds i multisim}
+\label{fig:ventilkreds}
+\end{figure}
