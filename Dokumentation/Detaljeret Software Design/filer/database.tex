@@ -33,14 +33,61 @@ tilføj dato()
 
 \subsection{Funktionsbeskrivelser}
 \subsubsection{Server}
-Denne header har til ansvar at starte GUI og håndtere TCP forbindelse\\
+Denne header står for at starte serveren og starte GUI for korte informationer til brugeren. Alle informationer om server start, connection o datamodtagelse vil blive udskrevet her. 
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} on\_close\_clicked( \textcolor{blue}{void} )}} \\
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} addLogEntry( \textcolor{blue}{QString} )}} \\
 \hline
-Beskrivelse:&Ved klik forespørges brugeren om denne ønsker at lukke severen\\
-Parametre:&\\
+Står for at udskrive beskeder fra tcp klassen til GUI \\
+Parametre: Ui::Server *ui;\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} on\_closeServer\_clocked( )}} \\
+\hline
+Denne funktion håndtere luk knappen. Ved tryk knappen vil brugeren blive bedt om at svare ja eller nej til at lukke server connectionen \\
+Parametre: Ingen\\
+Returværdi:Ingen\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} on\_webDatabase\_clicked( )}} \\
+\hline
+Denne funktion står for at håndtere den direkte adgang til den web baserede database. Ved tryk vil brugeren få åbnet et nyt vindue med database adgang \\
+Parametre: QWebView* m\_pWebView\\
+Returværdi:Ingen\\
+\end{tabular}
+\end{table}
+
+\subsubsection{update}
+Denne header står for at håndtere de struct's der benyttes til at at save data til log filen. 
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} addLogEntry( \textcolor{blue}{QString} )}} \\
+\hline
+Står for at udskrive beskeder fra tcp klassen til GUI \\
+Parametre: Ui::Server *ui;\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+
+\subsubsection{tcp}
+Denne header står for tcp forbindelsen. Socket oprettes og connection adgang gives. Når data bliver modtaget blvier denne gemt i den eksterne log fil ship.txt
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} addLogEntry( \textcolor{blue}{QString} )}} \\
+\hline
+Står for at udskrive beskeder fra tcp klassen til GUI \\
+Parametre: Ui::Server *ui;\\
 Returværdi:&\\
 \end{tabular}
 \end{table}
@@ -62,6 +109,19 @@ Returværdi:&\\
 \hline
 Beskrivelse:&Læser data fra socket. Data til fil og GUI\\
 Parametre:&QTcpSocket* client\\
+Returværdi:&\\
+\end{tabular}
+\end{table}
+
+\subsubsection{savedata}
+Denne header står for at handtere lagring af data modtaget fra skibet. Den lager dataerne i ship.txt
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{int} save( \textcolor{blue}{save\_data} )}} \\
+\hline
+Står for at udskrive beskeder fra tcp klassen til GUI \\
+Parametre: \\
 Returværdi:&\\
 \end{tabular}
 \end{table}
