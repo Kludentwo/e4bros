@@ -205,3 +205,19 @@ Denne afrundes til $70k\Omega$. På \textit{figur \ref{fig:ventilkreds}} ses opb
 \caption{Ventilkreds i multisim}
 \label{fig:ventilkreds}
 \end{figure}
+\section{Pin forbindelser}
+Nedenfor ses pin forbindelser på PSoCen til VBTE designet.
+\begin{table}[H]
+\begin{tabular}{|p{3cm}|p{2cm}|p{8.5cm}|} \hline
+\cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Pin &\cellcolor[gray]{0.85}\cellcolor[gray]{0.85}Beskrivelse\\ \hline
+SCL & P0\_4 & Clock til I2C \\ \hline
+SDA & P0\_6 & Data til I2C \\ \hline
+Trans\_kontrol & P0\_0 & Kontrolsignal til transmitter\\ \hline
+Receiv\_in & P0\_2 & Receiver inputsignal\\ \hline
+Ventil\_ind & P0\_3 & Kontrolsignal til ventilen der leder vand ind\\ \hline
+Ventil\_ud & P0\_1 & Kontrolsignal til ventilen der leder vand ud\\ \hline
+
+\end{tabular}
+\caption{Tabel over pin forbindelser fra PSoC'en.}
+\label{table:VBTEpinforbindelser}
+\end{table}
