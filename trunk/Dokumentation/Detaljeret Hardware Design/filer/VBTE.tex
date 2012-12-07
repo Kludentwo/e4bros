@@ -13,7 +13,7 @@ Nedenfor beskrives de enkelte blokke illustreret på \textit{Figur~\ref{fig:HWVB
 \subsubsection{PSoC5}
 PSoC'en er den centrale del af VBTE'en og står for styringen af hele VBTE'en. Den består af:
 \begin{itemize}
-\item MicroController
+\item Microcontroller
 \item PGA
 \item Mixer
 \item Timer
@@ -28,11 +28,11 @@ Se powersuply afsnittet.
 \subsubsection{DC-DC powersuply 12V}
 Se powersuply afsnittet.
 \subsubsection{Transmitterkreds}
-Transmitterkredsen består af en MOSFET samt en keramisk ultralyds transmitter(Model: 400ST). Kredsen bliver drevet af 12V powersuply. \fxnote{Skal ligge i opbygningen af blokken i stedet for her}
+Transmitterkredsen består af en BD139 transistor samt en keramisk ultralydstransmitter af model 400ST. Kredsen bliver drevet af 12V powersuply.
 \subsubsection{Reciverkreds}
 Recierkredsen består af en keramisk ultralyds reciver(Model: 400SR).
 \subsubsection{Ventilkreds}
-Ventilkredsen består af en MOSFET samt en ventil(Model: EV210A-1.2 og EV210A-4.5)
+Ventilkredsen består af en to transistorer, BD139 og BC547B, i en darlington kobling samt to ventier af model EV210A-1.2 og EV210A-4.5.
 \newpage
 \section{Nedbrydning af blokke}
 Nedenfor følger nedbrydningen af de enkelte blokke med henblik på at designe de enkelte dele til systemet. Nedbrydningen sker for at gøre designet nemmere og mere overskueligt.
@@ -51,14 +51,11 @@ For signalbeskrivelser se \textit{tabel \ref{table:PSoCSignaler}}.
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
 Receiver\_in & Analog (AC = 40kHz) & Ligger fra ca 0.01V til 0.3V & Spænding genereret i ultralydsreceiveren.\\ \hline
-Transmitter\_out & Analogt (AC = 40kHz) & ~0V til ~5V & Signal der skal styre ultralydstransmitteren \\ \hline
-Vent\_1 & Digitalt & ~0V til ~5V & Signal der skal styre ventilen til at lukke vand ind med.\\ \hline
-Vent\_2 & Digitalt & ~0V til ~5V & Signal der skal styre ventilen til at lukke vand ud med.\\ \hline
+Trans\_kontrol & Analogt (AC = 40kHz) & ~0V til ~5V & Signal der skal styre ultralydstransmitteren \\ \hline
+Ventil\_ind & Digitalt & ~0V til ~5V & Signal der skal styre ventilen til at lukke vand ind med.\\ \hline
+Ventil\_ud & Digitalt & ~0V til ~5V & Signal der skal styre ventilen til at lukke vand ud med.\\ \hline
 SDA & Digitalt & ~0V til ~5V & Et digitalt signal mellem VBTE og SM hvor I2C data læses fra.\\ \hline
 SCL & Digitalt & ~0V til ~5V & Digitalt clocksignal til I2C.\\ \hline
-Add\_set & Digitalt & ~0V til ~5V & Digitalt signal til at sætte I2C adressen. \\ \hline
-Add\_LSB & Digitalt & ~0V til ~5V & Digitalt signal til at sætte LSB i I2C adressen. \\ \hline
-Add\_LSB+1 & Digitalt & ~0V til ~5V & Digitalt signal til at sætte LSB i I2C adressen.\\ \hline
 \end{tabular}
 \caption{Tabel over signaler i PSoC blokken}
 \label{table:PSoCSignaler}
@@ -66,16 +63,16 @@ Add\_LSB+1 & Digitalt & ~0V til ~5V & Digitalt signal til at sætte LSB i I2C ad
 \subsubsection{Blokbeskrivelser:}
 \subsubsection{Timer}
 Timeren skal holde øje med tiden. Dette skal ske ved at timeren skal køre hele tiden. Der bliver læst timerværdien når et burst bliver sendt og når et burst bliver modtaget. Timeren skal derfor have en forholdsvis hurtig clock for at kunne gøre afstandsmålingen hurtig nok.
-\subsubsection{I2C kreds}
-I2C kredsen skal stå for I2C interfacet mellem SM og KI. I2C protokollen kører 5V og med pull-up modstande. Denne del håndteres dog på SM. I2C'en benytter standard I2C protokol, og for yderligere info om data henvises der til \textit{Systemarkitektur/protokoller/I2C}.
-\subsubsection{Receiver Driver}
+\subsubsection{I2Cdriver}
+I2C kredsen skal stå for I2C interfacet mellem SM og VBTE. I2C protokollen kører 5V og med pull-up modstande. Denne del håndteres dog på SM da der kun er en instans af denne. I2C'en benytter standard I2C protokol og for yderligere info om data henvises der til \textit{Systemarkitektur/protokoller/I2C}.
+\subsubsection{Receiverdriver}
 Receiver driveren modtager signalet fra ultralydsrecieveren. Signalet skal, når det modtages, løftes op til 2.5V for at det kan anvendes på PSoC'en samt forstærkes. Det er vigtigt at signalet bliver tydeligt nok til at man kan være sikker på at man har modtaget en detektion. 
-\subsubsection{Transmitter Driver}
-Det er vigtigt ved transmitteren at frekvensen ligger ret præcist da den dæmper rigtigt meget ikke ret langt væk fra 40kHz. For at timingen skal virke skal der også laves så der kan stoppes når der er sendt 10 perioder.
-\subsubsection{Ventil Driver}
+\subsubsection{Transmitterdriver}
+Det er vigtigt for transmitteren at frekvensen ligger ret præcist da den dæmper signalet rigtigt meget ved frekvenser der ikke ligger ret langt væk fra 40kHz. For at timingen skal virke skal der også laves så der kan stoppes når der er sendt 10 perioder.
+\subsubsection{Ventildriver}
 Ventil driveren er den mest simple driver. Denne skal blot bære et digitalt signal til ON og OFF på hhv. ventilen til at lukke vand ind og ventilen til at lukke vand ud.
 
-\subsection{Transmitter kreds}
+\subsection{Transmitterkreds}
 På \textit{figuren \ref{fig:transmitterblok}} ses nedbrydningen af Transmitter kreds-blokken. Transmitterkredsen omsætter et kontrolsignal fra PSoC'en til et ultralyds signal.
 \begin{figure}[H]
 \centering
@@ -89,7 +86,7 @@ Signalerne internt i transmitter kredsen ses i \textit{tabel \ref{table:transmit
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
 Trans\_kontrol & Digitalt & 0V - 5V & Modtages fra PSoC'en og skal omsættes til en større spænding over ultralydstransmitteren.\\ \hline
-Trans\_out & Analogt (lyd) & 120dB & Dette signal er lyden fra ultralydstransmitteren der sendes mod vandet og reflekteres tilbage til receiveren. \\ \hline
+Trans\_out & Analogt (lyd) & 120dB \footnote{Aflæst fra datablad 400SRT 160} & Dette signal er lyden fra ultralydstransmitteren der sendes mod vandet og reflekteres tilbage til receiveren. \\ \hline
 12V forsyning & Analogt DC & 12V$\pm$0.1V & 12V forsyning der leveres for powersupplyen beskrevet under powersupply.\\ \hline
 GND & Ground & 0V & Ground i systemet \\ \hline
 \end{tabular}
@@ -97,7 +94,7 @@ GND & Ground & 0V & Ground i systemet \\ \hline
 \label{table:transmitterblok}
 \end{table}
 
-\subsection{Ventil Kreds}
+\subsection{Ventilkreds}
 \label{sec:ventilkreds}
 Ventil kredsen får to kontrolsignaler fra PSoC'en der skal åbne for hver sin ventil. Kredsen skal sørge for at ventilerne kan få lov til at trække den strøm der er nødvendig for at drive dem. På \textit{figur \ref{fig:ventilblok}} ses blokdiagrammet for ventilkredsen. Signalerne på blokdiagrammet er beskrevet i \textit{tabel \ref{table:ventrilkreds}}
 \begin{figure}[H]
@@ -134,7 +131,7 @@ Timeren er en indbygget timerblok i PSoC miljøet. Der er påkoblet en bus clock
 \label{fig:timerkreds}
 \end{figure}
 \subsubsection{I2Ckreds}
-I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM modulet kan skrive til den og læse fra den. datahastigheden er sat til at køre 100kbps. Blokken har 2 udgange som er direkte forbundet til ben på PSoC'en. Disse er videre forbundet til et minijack hunstik der så den nemt kan kobles sammen med resten af systemet. Derudover er adressen sat i softwaren. Det er dog muligt at sætte LSB og LSB+1 i adressem i testdesignet. I den endelige system er det tænkt at de skal være sat op med en bestemt adresse fra start. På \textit{figur \ref{fig:psoci2ckreds}} ses blokken.
+I2Ckredsen er en indbygget I2Cblok i PSoC miljøet. Den er sat som slave så SM modulet kan skrive til den og læse fra den. datahastigheden er sat til at køre 100kbps. Blokken har 2 udgange som er direkte forbundet til ben på PSoC'en. Disse er videre forbundet til et minijack hunstik der så den nemt kan kobles sammen med resten af systemet. Derudover er adressen sat i softwaren. Det er dog muligt at sætte LSB og LSB+1 i adressem i testdesignet. I det endelige system er det tænkt at de skal være sat op med en bestemt adresse fra start. På \textit{figur \ref{fig:psoci2ckreds}} ses blokken.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.5]{billeder/psoci2ckreds}
@@ -168,7 +165,7 @@ Ventil driveren består af to software styrede output pins. Disse anvendes som k
 \end{figure}
 
 \subsubsection{Transmitterdriver}
-Transmitterdriveren består af en output pin til kontrol af transmitterkredsen, en interruptrutine til at tælle antallet af perioder der bliver sendt, en interruptrutine til at hjælpe med et nonblocking delay, en 40kHz og en 1kHz clock samt en softwarestyret kontrol pin (Burst\_pin). Når kontrolpinden bliver sat ryger clocken igennem ud til interruptrutinen samt kontrolpinden. \\
+Transmitterdriveren består af en output pin til kontrol af transmitterkredsen, en interruptrutine til at tælle antallet af perioder der bliver sendt, en interruptrutine til at hjælpe med et nonblocking delay, en 40kHz og en 1kHz clock samt en softwarestyret kontrol pin (Burst\_pin). Når kontrolpinden bliver sat bliver clocken and'et igennem ud til interruptrutinen samt kontrolpinden. \\
 Nedenfor ses det endelige PSoC design for transmitterdriveren.
 \begin{figure}[H]
 \centering
