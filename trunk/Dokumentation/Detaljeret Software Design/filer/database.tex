@@ -5,13 +5,14 @@ Nedenfor følger design af software til databasen og dens interface. Dette er la
 
 \subsection{Modultes Ansvar}
 Databasen er her hvor havne terminalens personale kan aflæse data fra skibet. Disse data er sendt fra KI. Programmerne indeholder brugergrænseflader der opfylder kravene, beskrevet i kravspecifikationen. Her kan der også ses en prototyper på brugergrænsefladen.
-Database modulet har 3 dele. Severen, Web-siden og en mySQL database. \\
+Databasemodulet har tre dele; severen, websiden og en mySQL database. \\
 \textbf{Severen} står for kommunikationen immellem KI og Databasen. Severen modtager data fra KI og lager disse i en tekst fil\\
 \textbf{Web-siden} giver brugeren mulighed for at se info om BROS samt at logge sig ind i BROS database hvorfra at data om skibe der er tilsluttet systemet kan aflæses. Web-sidens 3 vigtigste funktioner er at gemme ny data til mySQL databasen, slette den tekst fil som severen lavede og vise data for brugeren. For at håndtere web-sider der benytter sig af php (web-programmering) kræves der en web server som er i stand til at håndtere dette. En af de mest udbredte er apache serveren som også benyttes for denne webside.
 \textbf{mySQL databasen} er en database som er  installeret på computeren. Alle data som er sendt fra KI er lageret i mySQL databasen.
 
 \subsection{Klassediagrammer}
-Nedenfor ses klassediagrammerne for databasen. Bemærk database modulet er lavet som en server del og en web del
+Nedenfor ses klassediagrammerne for databasen. Bemærk database modulet er lavet som en serverdel og en webdel\\
+Severedelen er opskrevet som et normalt klassediagram og websiden er opskrevet som et modificeret klassediagram. Dette skyldes at websiden er opbygget som en blanding imellem html og php. HTML kan man ikke lave et desideret klassediagram for da der ikke findes funktions kald i denne men blot includes. PHP har derimod funktionskald og er lavet traditionelt. For at lette læsningen af diagrammet har alle blokke i webside klassediagrammet skrevet i toppen om dte er html eller php.
 
 \begin{figure}[htbp]
 	\centering
@@ -303,14 +304,32 @@ Returværdi:&\\
 \end{tabular}
 \end{table}
 
-\section{Design}
-\subsection{Server}
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.6\textwidth]{billeder/bdd_server}
-	\caption{BDD server}
-	\label{fig:bdd_server}
-\end{figure}
+\subsection{Tilpasning}
+Der er mulighed for at opsætte server delen sådan at denne lagre direkte i mySQL databsen hvis man har et ønske om at mindske ansvaret for websiden. for at gøre dette kan man i tcp klassens funktion startRead(void) erstate funktionskaldet til klassen savedata() med funktionen save(tmp) og i stedet benytte klassen SQL med funktionskaldet saveSQL(tmp). funktionen saveSQL(tmp) har save(tmp) som i tilfælde af at der opstår fejl med at gemme data til databasen vil sikre at data bliver lagret i en backup fil som så kan håndteres af websiden.
+
+\subsection{TCP}
+TCP/IP (Transmission Control Protocol) og UDP/IP (User Datagram Protocol) har et begreb som er Port. Alt data udstyr der skal kommunikere via en IP indenfor et netværk skal have en unik IP adresse. En klient har derfor et IP nummer og port nummer og en server har en anden ip og anden port nummer. Dette kaldes for en socket og den identificere derfor TCP.\\
+
+Man kan sige at TCP er en af kerne protocollerne for  den nutidige Internet og data kommunikation.
+Igennem TCP kan forskellige vertsmaskiner på f.eks. internettet oprette forbindelse imellem hinanden og man har mulighed for at udveksle datapakker. TCP giver nogle vitale garantier for at datapakken afsendes og modtages
+\begin{itemize}
+\item Stabilitet: en pakke der går tabt bliver automatisk forsøgt sendt igen
+\item Ordnet levering: Pakken ankommer til modtageren i samme rækkefølge som den blev afsendt.
+\end{itemize}
+TCP benytter portnumre til muliggøre etablering af forskellige datastrømme til/fra værtsmaskinen. 
+\fxnote{diagram}
+
+\subsection{Apache}
+Apache HTTP Server er en webserver fra Apache Software Foundation. Apache er en ofte benytte webserver og er en open source-serverprogram. Serveren installeres på en computer og kan herefter benytte ved at benytte den lokale ip adresse 127.0.0.1 eller localhost. Om computeren med Apache serveren er placeret i et større netværk og skal benyttes fra andre computere kan denne tilgås fra disse ved at indtaste computerens oprindelige ip adresse på netværket. Dette giver også mulighed for at benytte serveren fra internettet ved at koble den op via DNS. Om dette gøres skal man specielt være opmærksom på at lukke port numrerne 20 og 21 da disse ofte er portene som bliver hacket desuden bør man ligge password på serveren for udefra kommende. I BROS er Apache serveren placeret i internt netværk og derfor er det ikke nødvendigt at lukke portene eller benytte sig af password tilladelse for at arbejde til serveren.
+Generalt står apache serverene for ca 60\% af alle webserere i verden.
+fxnote{kilde: IKN bog og wikipedia} 
+
+\subsection{mySQL}
+MySQL er en flertrådet SQL-databaseserver som understøtter mange samtidige brugere. SQL(Structured Query Language) er det mest populere databasesprog i dag. MySQLer et klient/server-program der består af en server (mysqld) og mange forskellige klientprogrammer.\\
+MySQL er bygget op omkring forskellige databaser på en server, ofte har hver enkelt bruger en speciel adgang til en databse med en overordnet root bruger der har adgang til alle databaser.\\
+MySQL er en relationel dabase hvori man kan oprette flere taballer til at håndtere flere ting. I BROS Databasen benyttes der en database med navnet bros. I denne database kan der oprettes taballer til de skibe der skal kunne gemems data for. C++ og php er istand til at se på om en tabel er oprettet, hvis den ikke er det kan sprogene selv oprette disse(dette er ikke indkodet da vi kun arbejder emd et skib). \\
+Til at tilgå mySQL kan man benytte sig af terminalen \footnote{beskrevet i apendix} eller grafisk brugergrænseflade som f.eks. phpMyAdmin (benyttet under udviklingen).
+MySQL kan benytte flere forskellige datatyper som vil blive beskrevet i apandix for mySQL. 
 
 
 
