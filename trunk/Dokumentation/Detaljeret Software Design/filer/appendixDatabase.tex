@@ -1,7 +1,21 @@
 \chapter*{Appendix B: Database}
+\section{Hovedvindue fro severen}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{billeder/database/server}
+	\caption{Server billed}
+	\label{fig:server}
+\end{figure}
 
 
-\section{Hovedvindue}
+\subsection{Luk Severen}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{billeder/database/databaseLogOff}
+	\caption{Luk server}
+	\label{fig:databselLogOff}
+\end{figure}
+Ved tryk på "Luk server" vil billedet \ref{fig:databselLogOff} fremkomme og man kan trykke "Yes" for for at lukke severen og "No" for at lade severen fortsætte med at køre.
 
 \section{Webside}
 
@@ -31,9 +45,27 @@ For at kunne benytte mySQL med password og username skal dette opsættes. Dette 
 mysql> use mysql;\\
 mysql> update user set password=PASSWOD("NEWPASSWORD") where User='root';\\
 mysql> flush privileges;\\
-mysql> quit\\
+mysql> quit
 
 root er nu sat med password. For at logge på med root benyttes:
 mysql -u root -p'password'\\
 herfra er følgende kommandoer muligt:
+\begin{table}[H]
+\begin{tabular}{|p{5cm}|p{10cm}|} \hline
+\cellcolor[gray]{0.85}Kommandoer& \cellcolor[gray]{0.85}Beskrivelse  \\ \hline
+show databases; & Hviser alle databaser der er tilgængelige for den brugeren der er logget på databasen(f.eks. her ship)   \\ \hline
+create database 'navn på database' & Opretter en database   \\ \hline
+use 'database'; & For at vælge en bestemt database, f.eks.: use ship;    \\ \hline
+show tables; & Hviser tabeller i databasen   \\ \hline
+create table 'navn på tabel'('row name' char(20), 'row name' char(20));  & Opretter en tabel med et valgt navn('navn på tabel') tabellen skal vide hvor mange kolonner der skal oprettes, her en med Name og en char længde på 20   \\ \hline
+DESCRIBE 'tabel navn' & Hviser den oprettede tabel   \\ \hline
+select * from 'tabel' & Hviser indholdet af en tabel   \\ \hline
+INSERT INTO 'tabel navn'('Indhold første row', 'indhold anden row');  & Indsætter data i den oprettede tabel under de to kolonner   \\ \hline
+drop table 'tabel navn'; & Sletter tabellen\\ \hline
+drop database 'navn'; & Sletter databasen\\ \hline
+quit & Logger af mySQL\\ \hline
+\end{tabular}
+\caption{Tabel over basale kommandoer i mySQL}
+\label{table:mysqlKommandoer}
+\end{table}
 
