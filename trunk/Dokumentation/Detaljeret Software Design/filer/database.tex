@@ -4,15 +4,15 @@ Nedenfor følger design af software til databasen og dens interface. Dette er la
 
 
 \subsection{Modultes Ansvar}
-Databasen er her hvor havne terminalens personale kan aflæse data fra skibet. Disse data er sendt fra KI. Programmerne indeholder brugergrænseflader der opfylder kravene, beskrevet i kravspecifikationen. Her kan der også ses en prototyper på brugergrænsefladen.
+Databasen er her hvor havne terminalens personale kan aflæse data fra skibet. Disse data er sendt fra KI. Programmerne indeholder brugergrænseflader der opfylder kravene, beskrevet i kravspecifikationen. Her kan der også ses en prototype på brugergrænsefladen.
 Databasemodulet har tre dele; severen, websiden og en mySQL database. \\
-\textbf{Severen} står for kommunikationen immellem KI og Databasen. Severen modtager data fra KI og lager disse i en tekst fil\\
+\textbf{Severen} står for kommunikationen immellem KI og Databasen. Severen modtager data fra KI og lagrer disse i en tekst fil.\\
 \textbf{Web-siden} giver brugeren mulighed for at se info om BROS samt at logge sig ind i BROS database hvorfra at data om skibe der er tilsluttet systemet kan aflæses. Web-sidens 3 vigtigste funktioner er at gemme ny data til mySQL databasen, slette den tekst fil som severen lavede og vise data for brugeren. For at håndtere web-sider der benytter sig af php (web-programmering) kræves der en web server som er i stand til at håndtere dette. En af de mest udbredte er apache serveren som også benyttes for denne webside.
 \textbf{mySQL databasen} er en database som er  installeret på computeren. Alle data som er sendt fra KI er lageret i mySQL databasen.
 
 \subsection{Klassediagrammer}
 Nedenfor ses klassediagrammerne for databasen. Bemærk database modulet er lavet som en serverdel og en webdel\\
-Severedelen er opskrevet som et normalt klassediagram og websiden er opskrevet som et modificeret klassediagram. Dette skyldes at websiden er opbygget som en blanding imellem html og php. HTML kan man ikke lave et desideret klassediagram for da der ikke findes funktions kald i denne men blot includes. PHP har derimod funktionskald og er lavet traditionelt. For at lette læsningen af diagrammet har alle blokke i webside klassediagrammet skrevet i toppen om dte er html eller php.
+Severedelen er opskrevet som et normalt klassediagram og websiden er opskrevet som et modificeret klassediagram. Dette skyldes at websiden er opbygget som en blanding imellem html og php. HTML kan man ikke lave et desideret klassediagram for da der ikke findes funktions kald i denne men blot includes. PHP har derimod funktionskald og er lavet traditionelt. For at lette læsningen af diagrammet har alle blokke i webside klassediagrammet skrevet i toppen om det er html eller php.
 
 \begin{figure}[htbp]
 	\centering
@@ -30,20 +30,17 @@ Severedelen er opskrevet som et normalt klassediagram og websiden er opskrevet s
 \fxnote{check med kim, beskriv <<html>> og <<php>>}
 
 
-\subsection{Globale variabler}
-
-
 \subsection{Funktionsbeskrivelser}
 \subsubsection{Server}
-Denne header står for at starte serveren og starte GUI for korte informationer til brugeren. Alle informationer om server start, connection o datamodtagelse vil blive udskrevet her. 
+Denne header står for at starte serveren og starte GUI for korte informationer til brugeren. Alle informationer om server start, connection og datamodtagelse vil blive udskrevet her. 
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} addLogEntry( \textcolor{blue}{QString} )}} \\
 \hline
-Står for at udskrive beskeder fra tcp klassen til GUI \\
-Parametre: Ui::Server *ui;\\
-Returværdi:&\\
+Beskrivelse & Står for at udskrive beskeder fra tcp klassen til GUI \\
+Parametre: & Ui::Server *ui;\\
+Returværdi:& Ingen\\
 \end{tabular}
 \end{table}
 
@@ -74,8 +71,8 @@ Denne header står for at håndtere de struct's der benyttes til at at save data
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} addLogEntry( \textcolor{blue}{QString} )}} \\
 \hline
-Står for at udskrive beskeder fra tcp klassen til GUI \\
-Parametre: Ui::Server *ui;\\
+Beskrivelse&Står for at udskrive beskeder fra tcp klassen til GUI \\
+Parametre:& Ui::Server *ui;\\
 Returværdi:&\\
 \end{tabular}
 \end{table}
