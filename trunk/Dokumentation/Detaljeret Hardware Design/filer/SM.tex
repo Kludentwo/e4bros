@@ -121,3 +121,11 @@ Accelerometerets kontrolregister sættes ud fra databladet. Fra databladet finde
 I2C realiseres med PSoC'ens indbyggede "Fixed Function" blok hvor vi kører med 100 kbps. Pins sættes via PSoC Creator og resterende funktionalitet styres med software. I softwaren anvendes MasterWriteBuf og MasterReadBuf hvori der anvendes adressen på slaveenheden og arrayet man vil sende. Samtidig er der et indbygget delay så modtageren har tid til at agere på signalet. 
 \subsection{UART Block design opbygning}
 \textit{Se RS232 Afsnittet}
+\section{Pin forbindelser}
+Nedenfor ses pin assignments for PSoC'en til SM modulet.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{billeder/pinassignments}
+\caption{Pin assignments for SM}
+\label{fig:SMpin}
+\end{figure}
