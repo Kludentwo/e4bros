@@ -1,15 +1,38 @@
 \chapter*{Appendix B: Database}
-\section*{Hovedvindue fro severen}
+\section*{Hovedvindue for serveren}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.4\textwidth]{billeder/database/server}
-	\caption{Server billed}
+	\caption{Billed af serverens hovedvindue}
 	\label{fig:server}
+\end{figure}
+Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den den web baserede database og lukke severen.
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{Hovedvinduets elementer} \\
+\hline
+\textcolor{green}{\textbf{1: Info}}
+&Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server_on}\\
+
+\textcolor{blue}{\textbf{2: Database}}
+&Anvendes til at lade brugeren tilgå den web baserede database som ses i \ref{fig:web_pass}\\
+
+\textcolor{red}{\textbf{2: Luk serveren}}
+&Anvendes til at lukke programmet. Programmet åbner dialogen som ses i \ref{fig:databselLogOff}\\
+
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{billeder/database/server_on}
+	\caption{Billed af serverens hovedvindue}
+	\label{fig:server_on}
 \end{figure}
 
 
 \subsection*{Luk Severen}
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{billeder/database/databaseLogOff}
 	\caption{Luk server}
@@ -17,7 +40,30 @@
 \end{figure}
 Ved tryk på "Luk server" vil billedet \ref{fig:databselLogOff} fremkomme og man kan trykke "Yes" for for at lukke severen og "No" for at lade severen fortsætte med at køre.
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{Lukke sekvens} \\
+\hline
+\textcolor{green}{\textbf{1: Info}}
+&VEd tryk på "No" vil brugeren retunere til \ref{fig:hovedvindue} og fortsætte med at modtage data fra KI\\
+
+\textcolor{red}{\textbf{2: Luk serveren}}
+&Ved tryk på "Yes" vil serveren blive lukket og brugeren kan ikke længere modtage data fra KI.\\
+
+\end{tabular}
+\end{table}
+
+
 \section*{Webside}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/database/web_pass}
+	\caption{Billed af log in på den web baserede database}
+	\label{fig:web_pass}
+\end{figure}
+
+
+
 
 \section*{MySQL}
 MySQL er en flertrådet SQL-database som understøtter mange samtidige brugere. MySQL er en open-source program som kan downloades på mysql.com og kan benyttes med mange forskellige operativ systemer som f.eks. WIndows, Linux og MAC OS X Lion.
