@@ -45,7 +45,7 @@ Ved tryk på "Luk server" vil billedet \ref{fig:databselLogOff} fremkomme og man
 \multicolumn{2}{l}{Lukke sekvens} \\
 \hline
 \textcolor{green}{\textbf{1: Info}}
-&VEd tryk på "No" vil brugeren retunere til \ref{fig:hovedvindue} og fortsætte med at modtage data fra KI\\
+&Ved tryk på "No" vil brugeren retunere til \ref{fig:hovedvindue} og fortsætte med at modtage data fra KI\\
 
 \textcolor{red}{\textbf{2: Luk serveren}}
 &Ved tryk på "Yes" vil serveren blive lukket og brugeren kan ikke længere modtage data fra KI.\\
@@ -55,6 +55,8 @@ Ved tryk på "Luk server" vil billedet \ref{fig:databselLogOff} fremkomme og man
 
 
 \section*{Webside}
+\subsection*{Log on}
+Den web baserede adgang til databasen
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{billeder/database/web_pass}
@@ -62,7 +64,80 @@ Ved tryk på "Luk server" vil billedet \ref{fig:databselLogOff} fremkomme og man
 	\label{fig:web_pass}
 \end{figure}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{Password check for adgang til den web baserede database } \\
+\hline
+\textcolor{green}{\textbf{1: Password check}}
+&Når brugeren åbner databasen fra serveren vil denne komme til den web baserede database. For at få adgang til databasen skal brugeren taste det password som er blevet opgivet til denne\\
+\end{tabular}
+\end{table}
 
+\subsection*{Skibs valg}
+Efter log in kan brugeren vælge imellem de skibe der er i dennes database. I dette tilfælde findes der kun et skib "Martha".
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/database/web_ship_choice}
+	\caption{Billed efter log in på databasen. Her kan brugeren vælge skib}
+	\label{fig:web_ship_choice}
+\end{figure}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{Valg af skib der vil tilgås } \\
+\hline
+\textcolor{green}{\textbf{1: Valg af skib}}
+&Efter at brugeren er logget på som på \ref{fig:web_pass} kan brugeren vælge imellem de skibe som denne har adgang til fra sin database del. Fo havne kontoret ville dette normalt være alle skibe. I denne test version er der kun et skib "Martha"\\
+\textcolor{red}{\textbf{2: Log af}}
+&Efter at brugeren er logget ind vil denne på alle sider have mulighed for at logge af, dette sker ved at trykke på Log af.\\
+\end{tabular}
+\end{table}
+
+\subsection*{Skibs data i database}
+Efter at brugeren har valgt skib kan denne følge med i tilstanden på skibet. Denen side opdateres hver 5 secund hvis der er ny data.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/database/web_database}
+	\caption{Billed databasen BROS for skibet Martha}
+	\label{fig:web_database}
+\end{figure}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+
+\multicolumn{2}{l}{Data fra skib i databasen } \\
+\hline
+\textcolor{Turquoise}{\textbf{1: Skib og sidst opdateret}}
+&Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er opdateret.\\
+\textcolor{green}{\textbf{2: ID på skib}}
+&Skibets ID bliver vidst. Hvis at KI lukker tcp forbindelsen vil skibts ID skifte til "TERMINATED".\\
+\textcolor{blue}{\textbf{3: Styrbord vandtanksniveau}}
+&Der vises hvor meget vand der er i styrbord ballasttank.\\
+\textcolor{yellow}{\textbf{4: Bagbord vandtanksniveau}}
+&Der vises hvor meget vand der er i bagbord ballasttank.\\
+\textcolor{red}{\textbf{5: Hældning i grader}}
+&Der vises hvor mange grader sibet hælder i forhold til styrbord.\\
+\textcolor{RoyalPurple}{\textbf{6: Skib tilsluttet}}
+&Der vise hvor lang tid i secunder der er gået fra overførelsen før til denne.\\
+\end{tabular}
+\end{table}
+
+\subsection*{BROS forside}
+Om ikke at brugeren tilgår BROS databasen fra serveren vil forsiden fremkomme, denne kan også tilgås fra databasen.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/database/web_forside}
+	\caption{Billed BROS forside}
+	\label{fig:web_forside}
+\end{figure}
+
+\subsection*{Om BROS}
+Efter at brugeren har valgt skib kan denne følge med i tilstanden på skibet. Denen side opdateres hver 5 secund hvis der er ny data.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/database/web_about}
+	\caption{Billed af om os på web siden}
+	\label{fig:web_about}
+\end{figure}
 
 
 \section*{MySQL}
