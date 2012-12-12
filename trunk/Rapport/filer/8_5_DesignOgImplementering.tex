@@ -1,0 +1,58 @@
+\section{Design og Implementering}
+\label{ch:DesignImplementering}
+\subsection{VBTE}
+I dette afsnit beskrives design og implementering af VBTE for både software og hardware. 
+\subsubsection{Hardware}
+Til VBTE'en er der blevet designet hardware til at styre de to ventiler samt den keramiske ultralydstransmitter og receiver. Hardware er blevet udfærdiget i to dele. Den ene er programeret hardware på PSoC'en, den anden er hardware uden for PSoC'en. Hardware designprocessen til VBTE'en gik igennem 3 faser:
+\begin{enumerate}
+\item Overordnet design
+\item Nedbrydning af blokke
+\item Opbygning af design
+\end{enumerate}
+Gennem disse faser er designet blevet udfærdiget. Fremgangsmåden er anvendt for at overskueligtgøre systemet og lette arbejdet ved at dele systemet op i små dele. På \textit{figur \ref{fig:HWVBTE}} ses det overordnede design af VBTE'en. Der vil i rapporten tages udgangspunkt i ventilkredsen samt receiverdriveren på PSoC'en.
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.9\textwidth]{billeder/HWVBTE}
+\caption{Illustrering af overordnet design af hardware på VBTE.}
+\label{fig:HWVBTE}
+\end{figure}
+
+\subsubsection{Software}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% SM %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{SM}
+I dette afsnit beskrives design og implementering af SM modulet. SM modulet består af både software og hardware.
+\subsubsection{Hardware}
+SM modulets hardware består af en konverteringskreds og en PSoC. På PSoC'en er monteret et Kionix KXSC7-2050 accelerometer. Konverteringskredsen anvendes til at sende UART signaler fra PSoC til en KI modulet. Accelerometerets x-akse anvendes til hældningsmålinger for hældningssensorblokken. Designfasen til SM er delt op i 3 faser:
+\begin{enumerate}
+\item Overordnet design
+\item Nedbrydning af blokke
+\item Opbygning af design
+\end{enumerate}
+Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i processen og at kunne implementere modulet så det overholder de krav der er stillet. Ligeledes gør fremgangsmåden det lettere at overskue flere løsninger til hvert problem. på \textit{Figur~\ref{fig:SMHW1}} ses det Overordnede design og på \textit{Figur~\ref{fig:SMPSOC1}} ses PSoC blokken i SM. Der bliver efterfølgende taget udgangspunkt i Hældningssensoren. \\
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.50\textwidth]{billeder/SMHardware}
+	\end{minipage}
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.50\textwidth]{billeder/SMPSoCblock}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Hardware blok for SM}
+	\label{fig:SMHW1}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{PSoC blok for sm}
+	\label{fig:SMPSOC1}
+	\end{minipage}
+\end{figure}
+Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt en DelSig ADC internt i PSoC'en. Dette er illustret på \textit{Figur~\ref{fig:levelsensor}}. ADC konverterer det analoge signal fra accelerometer til en digital værdi der så senere bliver anvendt i softwaren. For ADC og accelerometerets opsætning se da afsnit \ref{ch:DetajlDesign}\textit{Detaljeret hardware design} i Bilag.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.50\textwidth]{billeder/levelsensor}
+	\caption{Hældningssensorens implementering}
+	\label{fig:levelsensor}
+\end{figure}
+\subsubsection{Software}
