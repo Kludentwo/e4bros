@@ -2,23 +2,10 @@
 Dette afsnit beskriver systemarkitekturen for for projektet ”BROS" som formuleret i projektbeskrivelsen og specificeret i kravspecifikationen.
 Afsnittet indeholder beskrivelse af systemkomponenter, systemarkitektur, SW-komponenter, HW-komponenter og interfaces, i den givende rækkefølge.
 
-\subsection{Formål}
-Formålet med dokumentet er:
-\begin{itemize}
-\item At nedbryde systemet i overordnede HW- og SW-komponenter, baseret på kravene specificeret i kravspecifikationen.
-\item At fastlægge grænsefladen mellem systemets overordnede komponenter.
-\item At identificere arbejdsopgaver for projektets design- og implementeringsfase
-\end{itemize}
-
-\subsection{Referancer til andre dokumenter}
-\begin{itemize}
-\item Kravspecifikation for projektet.
-\item Designspecifikation for projektet
-\end{itemize}
-
 \subsection{Systemkomponenter}
 Ud fra kravspecifikationen er der udvalgt disse beslutninger om komponenter til systemet og deres placering. Der refereres derfor til kravspecifikationens, ikke-funktionelle krav og krav generelt.
 
 Brugeren integrere med systemetet igennem KI. KI er styringsmodulet for hele systemet. På KI har brugeren mulighed for at til- og frakoble systemet, justere den ønskede hældning på skibet. KI giver mulighed for at brugeren kan aflæse handlinger foretaget i systemet samtidig med at denne modtager advarsler i tilfælde at hældningen bliver for stor eller vandbalast tanke bliver overfyldte.\\
-KI kommunikere til SM modulet igennem en uart. for at denne kommunikation kan foregå er der lavet en protocol for denne kommunikation. KOmmunikationsformen er ved I$_2$C.\\
-SM står for  
+KI kommunikere til SM modulet igennem en uart. for at denne kommunikation kan foregå er der lavet en protocol for denne kommunikation. Kommunikationsformen er ved I$_2$C.\\
+SM står for at måle skibets hældning og sende denne til KI. KI kan så informere dette til brugeren. Når SM har målt hældningen på skibet giver denne besked til VBTE1 og VBTE2 om at åbne og lukke for ventilerne til tankene. VBTE1 og VBTE2 styres fra en PSoC. VBTE1 og VBTE2 er placeret på være deres tank. For at kunne kontrollere hvor meget vand der er i tankende dette gøres ved hjælp af to ultra lydssensore som hele tiden måler og vidergiver denne information til SM som så sender dette videre til KI der kan advare om vandstanden i tankene i tilfælde af at systemet af sat på manuel styring.
+KI sender data om skibet til databasen som lagre disse data i en mySQl database som så kan tilgås via et web interface.
