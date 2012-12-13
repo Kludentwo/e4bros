@@ -122,3 +122,10 @@ SM software behandler den konverterede data fra ADC'en samt kommunikation med VB
 \end{figure}
 \textbf{getFromKI}\\
 Funktionen er bedst beskrevet med et flowdiagram:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{billeder/getFromKIflowchart}
+	\caption{Flowdiagram for funktionen getFromKI}
+	\label{fig:gFKIfc}
+\end{figure}
+Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel. 
