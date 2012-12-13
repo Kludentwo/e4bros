@@ -57,7 +57,7 @@ Uden for PSoC'en er der lavet 2 hardwareblokke. Disse har til ansvar at omsætte
 	\end{minipage}
 \end{figure}
 \subsubsection{Ventilkreds}
-Ventilkredsen får to kontrolsignaler fra PSoC'en og disse skal styre de to ventiler. Ventilerne monteret på kredsen er fra Danfoss og er af modellerne EV210A-1.2 og EV210A-4.5.
+Ventilkredsen får to kontrolsignaler fra PSoC'en og disse skal styre de to ventiler. Ventilerne monteret på kredsen er fra Danfoss og er af modellerne EV210A-1.2 og EV210A-4.5. Disse ventiler drives ved 12V 0.4A. Der er valgt en BD139 transistor til at forstærke signalet op. Denne har en forstærkning mellem 40 og 160 (aflæst fra databladet\footnote{Se bilag/BD139.pdf}). Dette kan kun lige drives med en BD139 transistor hvilken har en forstærkning på 40-160. Der er derfor lavet en darlington kobling for at mindske belastningen af PSoC'en og for at sikre at der bliver lukket nok op for transistoren. Transistorne er valgt ud fra pris og tilgængelighed. Der var først valgt en MOSFET IRLZ44n men denne var både for dyr og kunne klare en unødvendig stor effekt. 
 \subsubsection{Software}
 
 
