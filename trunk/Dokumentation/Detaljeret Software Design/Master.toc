@@ -43,7 +43,7 @@
 \contentsline {subsubsection}{bros}{19}{section*.22}
 \contentsline {subsubsection}{mysql}{20}{section*.23}
 \contentsline {subsection}{\numberline {3.0.12}Tilpasning}{21}{subsection.3.0.12}
-\contentsline {subsection}{\numberline {3.0.13}TCP}{21}{subsection.3.0.13}
+\contentsline {subsection}{\numberline {3.0.13}TCP}{22}{subsection.3.0.13}
 \contentsline {subsection}{\numberline {3.0.14}Apache}{22}{subsection.3.0.14}
 \contentsline {subsection}{\numberline {3.0.15}mySQL}{22}{subsection.3.0.15}
 \contentsline {chapter}{\chapternumberline {4}SM}{24}{chapter.4}
@@ -53,15 +53,16 @@
 \contentsline {section}{\numberline {4.4}Funktionsbeskrivelser}{25}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Init}{25}{subsection.4.4.1}
 \contentsline {subsubsection}{Ansvar}{25}{section*.24}
-\contentsline {subsection}{\numberline {4.4.2}Levelsensor}{25}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.2}H\IeC {\ae }ldningssensorblok}{25}{subsection.4.4.2}
 \contentsline {subsubsection}{Ansvar}{25}{section*.25}
-\contentsline {subsection}{\numberline {4.4.3}autoReg}{25}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.3}H\IeC {\ae }ldningsregulering}{25}{subsection.4.4.3}
 \contentsline {subsubsection}{Ansvar}{25}{section*.26}
-\contentsline {subsection}{\numberline {4.4.4}I2C\_Kom}{26}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.4}VBTE-Driver}{26}{subsection.4.4.4}
 \contentsline {subsubsection}{Ansvar}{26}{section*.27}
-\contentsline {subsection}{\numberline {4.4.5}KI\_KOM}{26}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.5}Kommunikation}{26}{subsection.4.4.5}
 \contentsline {subsubsection}{Ansvar}{26}{section*.28}
 \contentsline {section}{\numberline {4.5}Eventuelle Sekvensdiagrammer og state machines}{27}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}getFromKI}{27}{subsection.4.5.1}
 \contentsline {chapter}{\chapternumberline {5}VBTE}{28}{chapter.5}
 \contentsline {section}{\numberline {5.1}Modulets ansvar}{28}{section.5.1}
 \contentsline {section}{\numberline {5.2}Klassediagram}{28}{section.5.2}

@@ -14,11 +14,10 @@ Nedenfor ses klassediagrammet for SM. Bemærk at koden dog er i C men for overbl
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \cellcolor[gray]{0.8}\textbf{Variabel} &\cellcolor[gray]{0.8} \textbf{Beskrivelse}\\ \hline
-\texttt{autoflag} & Denne variable er et flag der holder styr på automatisk regulering .\\ \hline
-\texttt{manuflag} & Et flag til at holde styr på manuel regulering.\\ \hline
+\texttt{autoflag} & Denne variable er et flag der holder styr på automatisk regulering. 0 = slukket. 1 = tændt.\\ \hline
 \texttt{levelVal} & En variable med vores level værdi.\\ \hline
 \texttt{VBTE1Niveau og VBTE2Niveau} & Holder styr på vandniveauet i ballasttanke i \%. \\ \hline
-\texttt{VBTE1Status og VBTE2Status} & Holder styr op tilgængelighed for VBTE1 og 2.\\ \hline
+\texttt{VBTE1Status og VBTE2Status} & Holder styr på ventilstatus for  VBTE1 og 2. 0 = begge lukket. 1 = ind ventil åben. 2 = ud ventil åben.\\ \hline
 \texttt{vinkelVal} & Indeholder værdien for manuel regulering.\\ \hline
 \end{tabular}
 \end{table}
@@ -37,7 +36,7 @@ Returværdi:&ingen\\
 \end{tabular}
 \end{table}
 % spacer %
-\subsection{Levelsensor}
+\subsection{Hældningssensorblok}
 \subsubsection{Ansvar}
 Denne header har til ansvar at hente levelværdien ind fra vores accelerometer.
 \texttt{\textcolor{blue}{uint32} getLevel( \textcolor{blue}{void});} 
@@ -50,7 +49,7 @@ Returværdi:&\texttt{\textcolor{blue}{uint32} levelVal}\\
 \end{tabular}
 \end{table}
 % spacer %
-\subsection{autoReg}
+\subsection{Hældningsregulering}
 \subsubsection{Ansvar}
 Denne header har til ansvar at styre automatisk regulering.
 \texttt{\textcolor{blue}{void} autoReg( \textcolor{blue}{struct} smflags* sm);} 
@@ -63,7 +62,7 @@ Returværdi:&ingen\\
 \end{tabular}
 \end{table}
 % spacer %
-\subsection{I2C\_Kom}
+\subsection{VBTE-Driver}
 \subsubsection{Ansvar}
 Denne header har til ansvar at kommunikere med VBTE modulerne.
 \texttt{\textcolor{blue}{uint8} writeToVbte( \textcolor{blue}{uint8} Adresse, \textcolor{blue}{uint8} besked);} 
@@ -77,7 +76,7 @@ Returværdi:&\texttt{\textcolor{blue}{uint8} VbteNiveau}\\
 \end{tabular}
 \end{table}
 % spacer %
-\subsection{KI\_KOM}
+\subsection{Kommunikation}
 \subsubsection{Ansvar}
 Denne header har til ansvar at kommunikere med KI enheden.\\
 \texttt{\textcolor{blue}{int} convertToEnum( \textcolor{blue}{int} value);} 
@@ -110,4 +109,12 @@ Returværdi:&ingen\\
 \end{table}
 % spacer %
 \section{Eventuelle Sekvensdiagrammer og state machines}
-Måske kommer de senere?
+\subsection{getFromKI}
+Funktionalitet af getFromKI beskrives med et flowchart:
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/getFromKIflowchart}
+\caption{Flowchart for getFromKI}
+\label{getFromKIFC}
+\end{figure}
+Hver ACK er specifik for den læste UART værdi. Dette gør at det muligt for KI modulet at vide hvad SM'en modtog. 
