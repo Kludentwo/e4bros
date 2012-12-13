@@ -68,3 +68,12 @@ Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt 
 	\label{fig:levelsensor}
 \end{figure}
 \subsubsection{Software}
+SM software behandler den konverterede data fra ADC'en samt kommunikation med VBTE og KI modulernerne. Sofwarens udvikling har fulgt de samme faser som hardwaren, hvilket har ført til letforståelig og læselig kode. Softwaren er illustreret på \textit{Figur~\ref{fig:SMKD}}. Der vil efterfølgende blive taget udgangspunkt i funktionerne autoReg og getFromKI.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{billeder/smKlassediagram}
+	\caption{Klassediagram for SM}
+	\label{fig:SMKD}
+\end{figure}
+\textbf{getFromKI}\\
+Funktionen er bedst beskrevet med et flowdiagram:
