@@ -63,18 +63,26 @@ Der er derfor lavet en darlington kobling for at mindske belastningen af PSoC'en
 Transmitterkredsen anvender ultralydstranduceren som en højtaler. Denne er koblet over transistoren (Her anvendes også en BD139).\\
 \newpage
 \begin{figure}[H]
-\begin{minipage}[l]{0.45\textwidth}
-Text
+\begin{minipage}[c]{0.45\textwidth}
+Via. kontrolsignalet fra PSoC'en, der bliver sendt ud ved $\SI{40}{kHz}$, bliver der sat en spænding over transduceren.\\ 
+Forsyningen hertil trækkes fra samme forsyning som ventilkredsen der bliver leveret fra powersuply'en. Ud fra databladet er der aflæst en ohmsk modstand på omtrendt $\SI{10}{k}\Omega$. Derfor kan PSoC'en uden problemer selv trække denne kreds.
 \end{minipage}
-\begin{minipage}[r]{0.45\textwidth}
+\begin{minipage}[c]{0.45\textwidth}
 \centering
 \includegraphics[width = 1\textwidth]{billeder/transmitterkreds}
 \caption{Transmitterkreds}
 \end{minipage}
 \end{figure}
+For yderligere detaljer vedrørende hardware på VBTE henvises til \textit{Deltajeret hardware design}.
 \subsubsection{Software}
-
-
+Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kravspecifikationen samt arkitekturen i systemarkitekturen. Den er blevet designet til at passe til hardwaren så den kan kontrollere de enkelte elementer. I designfasen er der blevet udfærdiget et klassediagram samt en statemachine over funktionaliteten. På \textit{figur \ref{fig:VBTEklasse} } ses klassediagramet for VBTE modulets software.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/ClassVBTE}
+\label{fig:VBTEklasse}
+\caption{Klassediagram over VBTE}
+\end{figure}
+Selvom softwaren er skrevet i C er der lavet klasser for alle h-filer for at gøre systemet overskueligt. For detaljerede metodebeskriveler henvises til detaljeret software design.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% SM %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
