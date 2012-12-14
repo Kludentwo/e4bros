@@ -61,8 +61,90 @@ I tabellen beskrives de interne signaler
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
 AC/DC\_1 S2 & Analog  & 24V AC / 24V DC & Indgangsspænding fra spændingskilde efter sikring.\\  \hline
 AC/DC\_2  & Analog & 0V AC / 0V DC & 0V AC eller 0V DC fra spændingskilden. \\  \hline
-Ensrettet DC & Analog & ca. 34V AC & \\ Det ensrettet signal vil bestå af  \hline
+Ensrettet DC & Analog & ca. 23 - 34 Vpk. & Det ensrettet signal består af positive halvbuer.\\ \hline
+GND & Analog & 0V & ground signal.\\ \hline
 \end{tabular}
 \caption{Tabel over signaler i Sikring}
-\label{table:SikringSignaler}
+\label{table:Ensretter}
 \end{table}
+\newpage
+\subsection{Udglatning}
+Udglatningen genere et jærn og stabilt DC-niveau
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/UdglatningsBlok}
+\caption{Blokdiagram for udglatning}
+\label{fig:UdglatningBlok}
+\end{figure}
+\subsubsection{Signalbeskrivelser}
+I tabellen beskrives de interne signaler.
+\begin{table}[H]
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
+\cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
+Ensrettet DC & Analog  & ca. 23 - 34 Vpk & Det ensrettet signal består af positive halvbuer.\\  \hline
+GND  & Analog & 0V DC & ground signal. \\  \hline
++DC & Analog & ca. (24V * 1.41)V DC & jærnt og stabilt DC-niveau\\ \hline
+GND & Analog & 0V DC & ground signal.\\ \hline
+\end{tabular}
+\caption{Tabel over signaler i Udglatning}
+\label{table:udglatning}
+\end{table}
+\newpage
+\subsection{Regulator 12V}
+Regulere spædning ned til 12V DC, 1A
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/Regulering_12VBlok}
+\caption{Blokdiagram for regulator 12V}
+\label{fig:regulator_12V}
+\end{figure}
+\subsubsection{Signalbeskrivelser}
+I tabellen beskrives de interne signaler.
+\begin{table}[H]
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
+\cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
++DC & Analog & 23 - 34 VDC & jærnt og stabilt DC-niveau\\  \hline
+GND  & Analog & 0V DC & ground signal. \\  \hline
+12V & Analog & 12V +-0.2V & jærnt og stabilt DC-niveau\\ \hline
+GND & Analog & 0V DC & ground signal.\\ \hline
+Feedback\_udgang & Analog & 12V +-0.2V & Feedback signalet måler på 12V udgangen.\\ \hline
+\end{tabular}
+\caption{Tabel over signaler i Sikring}
+\label{table:udglatning}
+\end{table}
+\subsubsection{Blokbeskrivelser}
+\subsubsection{Regulator}
+Regulatoren regulere spænding ned til 12V, de 12V er bestemt ud fra hvad feedbacket. 
+\subsubsection{Feedback}
+Feedbacket måler på udgangssignalet af regulatoren, feedbacket bestemmet hvilke spændning regulatoren skal indstille sig på.
+\newpage
+\subsection{Regulator 5V}
+Regulere spædning ned til 5V DC, 0.5A
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/Regulering_5VBlok}
+\caption{Blokdiagram for regulator 5V}
+\label{fig:regulator_5V}
+\end{figure}
+\subsubsection{Signalbeskrivelser}
+I tabellen beskrives de interne signaler.
+\begin{table}[H]
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
+\cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
++DC & Analog & 23 - 34 VDC & jærnt og stabilt DC-niveau\\  \hline
+GND  & Analog & 0V DC & ground signal. \\  \hline
+12V & Analog & 5V +-0.2V & jærnt og stabilt DC-niveau\\ \hline
+GND & Analog & 0V DC & ground signal.\\ \hline
+Feedback\_udgang & Analog & 5V +-0.2V & Feedback signalet måler på 12V udgangen.\\ \hline
+\end{tabular}
+\caption{Tabel over signaler i Sikring}
+\label{table:udglatning}
+\end{table}
+\subsubsection{Blokbeskrivelser}
+\subsubsection{Regulator}
+Regulatoren regulere spænding ned til 5V, de 5V er bestemt ud fra hvad feedbacket. 
+\subsubsection{Feedback}
+Feedbacket måler på udgangssignalet af regulatoren, feedbacket bestemmet hvilke spændning regulatoren skal indstille sig på.
+\newpage
+\section{Analyse og design af blokke}
+
