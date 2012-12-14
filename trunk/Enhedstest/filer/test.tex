@@ -1,11 +1,11 @@
 \chapter{Test}
 I dette afsnit følger selve testen.
-\subsection{Testcases}
+\section{Testcases}
 Dette afsnit er delt op i  2 dele. Hardware og software:\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% HARDWARE                   %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Hardware}
+\subsection{Hardware}
 I dette afsnit forklares hvordan enhedstest af hardware udføres.
 \begin{table}[htbp]
 \centering
@@ -19,7 +19,7 @@ Case &Enhed &Formål &Udførelse\\\hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SOFTWARE                   %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Software}
+\subsection{Software}
 I dette afsnit forklares hvordan enhedstests af hardware udføres.
 \begin{table}[htbp]
 \centering
@@ -28,15 +28,26 @@ I dette afsnit forklares hvordan enhedstests af hardware udføres.
 Case &Enhed &Formål &Udførelse\\\hline
 1 &SM &GetLevel &GetLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
 2 &SM &getFromKI &Et program køres hvor getFromKI kaldes i en while løkke. SM modulet sættes sammen med en teststub der sender 6 forskellige cases, 1000 gange.\\\hline
+&KONTROLINTERFACET\\\hline
+3 &KI &"AKTIVER MANUEL HÆLDNINGSREGULERING"-knappen.\\\hline
+3b &KI &At teste hvorvidt en ændret manuel vinkling sendes ud serielt. &Der indsættes en manuel vinklingsregulering på den grafiske brugergrænseflade. Alle kombinationer af side og værdi afprøves. Der verificeres i terminalen at RS232-klassen udsender værdierne til SM.\\\hline
+3b &KI &Det testes hvordan programmet reagerer hvis man efter at have trykket på "AKTIVER MANUEL HÆLDNINGSREGULERING" fortryder sit valg ved tryk på "Cancel"-knappen.\\\hline
+4 &KI &At teste hvorvidt en status struct kan requestes fra SM-klassen og sendes til databasen. SM-klassen returnerer en status-stub. Det verificeres i terminalen at dataserver-klassen udsender værdierne til databasen.\\\hline
+5 &KI &"AKTIVER AUTOMATISK HÆLDNINGSREGULERING"\\\hline
+5a &KI &Det testes hvordan programmet reagerer hvis man forsøger at aktivere automatisk regulering, når denne allerede er aktiveret. &Der trykkes på knappen "AKTIVER AUTOMATISK HÆLDNINGSREGULERING".\\\hline
+5b &KI &Det testes hvordan programmet reagerer hvis man forsøger at aktivere automatisk regulering, når denne ikke er aktiveret. &Der trykkes på knappen "AKTIVER AUTOMATISK HÆLDNINGSREGULERING".\\\hline
+6 &KI &"LUK BROS"-KNAPPEN\\\hline
+6a &KI &Det testes hvordan programmet reagerer hvis man ønsker at lukke programmet med et tryk på "LUK BROS"-knappen og efterfølgende bekræfter ved tryk på "YES"-knappen.\\\hline
+6b &KI &Det testes hvordan programmet reagerer hvis man efter tryk på "LUK BROS"-knappen fortryder sit valg og vælger "NO".\\\hline
 \end{tabular}
 \end{table}
 % Testresultater
-\subsection{Testresultater}
+\section{Testresultater}
 Dette afsnit er delt op i  2 dele baseret på ovenstående tests.\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% HARDWARE RESULTATER        %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Hardware}
+\subsection{Hardware}
 I dette afsnit findes forventede resultater samt resultater på testcases fra ovenstående hardware kapitel.\\
 \begin{table}[htbp]
 \centering
@@ -50,14 +61,25 @@ Case &Forventet resultat &Resultat &Status\\\hline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SOFTWARE RESULTATER        %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Software}
+\subsection{Software}
 I dette afsnit findes forventede resultater samt resultater på testcases fra ovenstående software kapitel.\\
 \begin{table}[htbp]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{3cm} | p{4.5cm} | p{4.5cm} |}
+\begin{tabular}{| p{0.5cm}  | p{7cm} | p{4.5cm} | p{1.5cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Level bliver returneret og verificeret &Level blev returneret og verificeret &Ok \\\hline
 2 &teststubben printer til skærmen at alle cases er succesfulde &teststubben printede Success: 6000 &Ok\\\hline
+&KONTROLINTERFACET\\\hline
+3a &I terminalen aflæses det at valget er bekræftiget og at RS232-klassen udsender værdien for kommandoen og dernæst hældningen i overensstemmelse med protokollen. I programmet kan det aflæses hvilken værdi der manuelt er indstillet til &Resultatet kan ses i \ref{fig:manuResult} og stemmer overens med forventningerne. &\fxnote{Indsæt nice OK-sign}\\\hline
+3b &Programmet vender tilbage til stadiet før det første tryk på "AKTIVER MANUEL HÆLDNINGSREGULERING" og trykket har ingen konsekvenser. &Programmet foretog sig intet i relation til trykket. &\fxnote{Indsæt nice OK-sign}\\\hline
+4 &I terminalen udskrives status-struct-stubben. Den udskrives efterfølgende igen af dataserver-klassen som den sendes til databasen. Her sendes navnet på skibet og tiden siden sidste opdatering fra SM. Disse er tilføjet Kontrolinterface-klassen.&\\\hline
+5 &"AKTIVER AUTOMATISK HÆLDNINGSREGULERING"\\\hline
+5a &Det forventes at programmet bringer en dialog op hvori der informeres om at denne reguleringstype allerede er aktiveret. &Programmet reagerede blot med dialogen. \fxnote{indsæt reference til dialog AUTO==ON}. &\fxnote{Indsæt nice OK-sign}\\\hline
+5b &Det forventes at der popper en dialog frem hvor der skal bekræftiges at man ønsker at gå væk fra manuel hældning. Ved bekræftelser udskrives det af RS232-klassen at kommandoen er sendt. Ved annullering lukker dialogen og trykket har ingen videre konsekvens. &Dialogen kom frem og kan ses på figur \fxnote{indsæt MANUELBEKRÆFT-dialog}&\fxnote{Indsæt nice OK-sign}\\\hline
+6 &"LUK BROS"-knappen\\\hline
+6a &Det forventes at programmet sender protokolkorrekte termineringskoder til både databasen og styringsmodulet og herefter lukker ned. Hvis programmet ikke får et svar fra styringsmodulet afbrydes termineringen med en dialog med teksten:
+Ingen kontakt til Styringsmodulet. Af sikkerhedsmæssige årsager kan programmet ikke lukkes". &Programmet kunne ikke lukkes ned. Se Integrationstesten for test af korrekt termineringen af programmet.\fxnote{indsæt billede af dialog} &\fxnote{Indsæt nice OK-sign}\\\hline
+6b &Det forventes at programmet blot vender tilbage til stadiet før trykket på "LUK BROS" uden yderligere handling. &Programmet vente korrekt tilbage og foretog sig intet yderligere i forhold til trykket. &\fxnote{Indsæt nice OK-sign}\\\hline
 \end{tabular}
 \end{table}
