@@ -3,10 +3,15 @@ Ud fra kravspecifikation skal delmodulerne (SM og VBTE) kunne drives fra en 24V 
 
 \section{Overordnet design}
 I dette afsnit beskrives og vises det overordnede hardware blokdiagram over strømforsyningen samt beskrivelse signaler.
-
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{billeder/PowerSupplyBlok}
+\includegraphics[scale=0.6]{billeder/PowerSupply}
+\caption{Strømforsyning}
+\label{fig:PowerSubbly}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{billeder/PowerSupplyBlok}
 \caption{Overordnet blokdiagram for strømforsyning}
 \label{fig:PowerSubbly Blok}
 \end{figure}
@@ -41,7 +46,7 @@ I tabellen beskrives de interne signaler
 AC/DC\_1 S1 & Analog  & 24V AC / 24V DC & Indgangsspænding fra spændingskilde inden sikring.\\  \hline
 AC/DC\_1   & Analog & 24V AC / 24V DC & Indgangsspænding fra spændingskilde efter sikring. \\  \hline
 AC/DC\_2 & Analog & 0V AC / 0V DC & 0V AC eller 0V DC fra spændingskilden.\\  \hline
-AC/DC\_2 & Analog & 0V AC / 0V DC & 0V AC eller 0V DC fra spændingskilden.\\  \hline
+
 \end{tabular}
 \caption{Tabel over signaler i Sikring}
 \label{table:SikringSignaler}
@@ -61,7 +66,7 @@ I tabellen beskrives de interne signaler
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
 AC/DC\_1 S2 & Analog  & 24V AC / 24V DC & Indgangsspænding fra spændingskilde efter sikring.\\  \hline
 AC/DC\_2  & Analog & 0V AC / 0V DC & 0V AC eller 0V DC fra spændingskilden. \\  \hline
-Ensrettet DC & Analog & ca. 23 - 34 Vpk. & Det ensrettet signal består af positive halvbuer.\\ \hline
+Ensrettet DC & Analog & ca. 23 - 33 Vpk. & Det ensrettet signal består af positive halvbuer. Hvis DC vil der være en jævn og stabil DC.\\ \hline
 GND & Analog & 0V & ground signal.\\ \hline
 \end{tabular}
 \caption{Tabel over signaler i Sikring}
@@ -81,9 +86,9 @@ I tabellen beskrives de interne signaler.
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
-Ensrettet DC & Analog  & ca. 23 - 34 Vpk & Det ensrettet signal består af positive halvbuer.\\  \hline
+Ensrettet DC & Analog  & ca. 23 - 34 Vpk & Det ensrettet signal består af positive halvbuer. Hvis DC vil der være en jævn og stabil DC.\\  \hline
 GND  & Analog & 0V DC & ground signal. \\  \hline
-+DC & Analog & ca. (24V * 1.41)V DC & jærnt og stabilt DC-niveau\\ \hline
++DC & Analog & ca. (24V * 1.41)V DC & jævnt og stabilt DC-niveau\\ \hline
 GND & Analog & 0V DC & ground signal.\\ \hline
 \end{tabular}
 \caption{Tabel over signaler i Udglatning}
@@ -103,9 +108,9 @@ I tabellen beskrives de interne signaler.
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
-+DC & Analog & 23 - 34 VDC & jærnt og stabilt DC-niveau\\  \hline
++DC & Analog & 23 - 34 VDC & jævnt og stabilt DC-niveau\\  \hline
 GND  & Analog & 0V DC & ground signal. \\  \hline
-12V & Analog & 12V +-0.2V & jærnt og stabilt DC-niveau\\ \hline
+12V & Analog & 12V +-0.2V & jævnt og stabilt DC-niveau\\ \hline
 GND & Analog & 0V DC & ground signal.\\ \hline
 Feedback\_udgang & Analog & 12V +-0.2V & Feedback signalet måler på 12V udgangen.\\ \hline
 \end{tabular}
@@ -131,9 +136,9 @@ I tabellen beskrives de interne signaler.
 \begin{table}[H]
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
-+DC & Analog & 23 - 34 VDC & jærnt og stabilt DC-niveau\\  \hline
++DC & Analog & 23 - 34 VDC & jævnt og stabilt DC-niveau\\  \hline
 GND  & Analog & 0V DC & ground signal. \\  \hline
-12V & Analog & 5V +-0.2V & jærnt og stabilt DC-niveau\\ \hline
+12V & Analog & 5V +-0.2V & jævnt og stabilt DC-niveau\\ \hline
 GND & Analog & 0V DC & ground signal.\\ \hline
 Feedback\_udgang & Analog & 5V +-0.2V & Feedback signalet måler på 12V udgangen.\\ \hline
 \end{tabular}
@@ -146,5 +151,5 @@ Regulatoren regulere spænding ned til 5V, de 5V er bestemt ud fra hvad feedback
 \subsubsection{Feedback}
 Feedbacket måler på udgangssignalet af regulatoren, feedbacket bestemmet hvilke spændning regulatoren skal indstille sig på.
 \newpage
-\section{Analyse og design af blokke}
+\section{Opbygning af design}
 
