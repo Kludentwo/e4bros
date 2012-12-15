@@ -47,8 +47,13 @@ Case &Formål &Udførelse\\\hline
 \begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1 &GetLevel &GetLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
-2  &getFromKI &Et program køres hvor getFromKI kaldes i en while løkke. SM modulet sættes sammen med en teststub der sender 6 forskellige cases, 1000 gange.\\\hline
+1 &SendBurst &Metoden kaldes i intervaller på 500ms og der måles med osciloskop på ben P0\_1 at der bliver sendt burst's med en varighed på $\sim$250$\mu$s og med en frekvens på $\sim$40kHz.\\\hline
+2  &CalculateDistance & Metoden kaldes 100 gange med forskellige inputværdier. Outputtet ligges i et array og der valideres på disse værdier.\\\hline
+3 &ConvertMMtoPercent & Metoden kaldes 100 gange med forskellige inputværdier. Outputtet ligges i et array og der valideres på disse værdier.\\\hline
+4 & ChangeState & Metoden kaldes med alle forskellige slags input og 3 værdier uden for input. Der lyttes på ventilerne og der valideres om de åbner/lukker som de skal.\\\hline
+5 & I2C\_handle & Der anvendes en stub der agerer som SM. Denne sender alle værdier fra protokollen samt 3 værdier uden for protokollen. Der kontrolleres om der modtages alle værdier korrekt ved at udskrive dem på displayet. Der kontrolleres også om den rigtige værdi sendes retur til SM stub'en.\\\hline
+6 & I2C\_decode & Metoden kaldes med de forskellige værdier for protokollen samt 3 uden for protokollen. Returværdien kontrolleres for at validere det korrekte state.\\\hline
+7 & Init & Metoden kaldes og der kontrolleres om der returneres 1 tilbage.\\\hline
 \end{tabular}
 \end{table}
 \subsubsection{KI}
