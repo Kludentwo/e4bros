@@ -37,14 +37,14 @@ manudialog:&Oprettes af MainWindow og styrer den dialog, der fremkommer når man
 \caption{Kontrolinterfacets klasser}
 \label{tabel:ki-klasser}
 \end{table}
-
+\fxnote{tabellens bredde skal fixes.}
 \subsubsection{Grafisk brugergrænseflade}
 I denne sektion vil der kort blive gennemgået det vigtigste vindue i den grafiske brugergrænseflade; hovedvinduet. En gennemgang af de resterende vinduer vil kunne findes i Softwaredesign Appendix A: Kontrolinterface.
 På figur \ref{fig:hovedvindue} er hovedvinduet vist. Her er vinduets elementer indrammet. En beskrivelse af hvert element vil kunne findes i tabel \ref{tabel:ki-elementer}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{billeder/hovedvindue}
+\includegraphics[width=0.8\textwidth]{billeder/hovedvindue}
 \label{fig:hovedvindue}
 \caption{På figuren ses hovedvinduet for Kontrolinterface-programmet}
 \end{figure}
@@ -87,7 +87,7 @@ I denne situation er der forbindelse til styringsmodulet, men ikke serveren.\\
 
 \end{tabular}
 \end{table}
-
+\fxnote{Tabellen "Hovedvinduets elementer" skal fixes både med bredde og streger.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% VBTE %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,7 +231,7 @@ SM software behandler den konverterede data fra ADC'en samt kommunikation med VB
 Funktionalitet af SM kan bedst beskrives med et state diagram. På \textit{Figur~\ref{fig:SMSTM}} ses  state machine diagrammet for SM modulet. Diagrammet indeholder Automatisk regulering state der beskriver den automatiske regulering i systemet. Den automatiske regulering styres med et flag. Flaget bliver sat når SM opnår forbindelse med KI modulet i 'Afvent' statet. Flaget bliver nulstillet hvis KI sender besked til SM modulet om at det skal termineres, hvorefter SM går tilbage i 'Afvent' statet. Behandlingen af beskeder fra KI i 'Modtag besked fra KI' og 'Send svar til KI' states ses i følgende afsnit \textit{getFromKI}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{billeder/stmSM}
+	\includegraphics[width=.8\textwidth]{billeder/stmSM}
 	\caption{State machine for SM}
 	\label{fig:SMSTM}
 \end{figure}
