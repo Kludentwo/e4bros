@@ -210,11 +210,76 @@ I beregning af størrelsen af elektrolytten tages der udgangspunkt i 3 faktorer:
 - Ønsket max rippel ved fuld belastning: U\_rip = 3V\\
 C\_L = (I\_DC * T\_p) / (2 * U\_rip) = (1,5A * 20ms) / (2*3V) = 5mF\\ \\
 Ud fra standard størrelse på elektrolytter vælges der 2 * 2,2mF 63V elektrolyt. \\
-C\_L = \textbf{4,4mF, 63V}
-
-
-
-
+C\_L = \textbf{4,4mF, 63V}\\
+Da værdien på en elektrolyt har en tolerance på -10\% / +50\% er der stor sandsynlighed for at der vil være en mindre rippel.
+\newpage
 \subsection{Regulator 12V}
+Regulatoren regulere den udglatede DC spændning ned til 12V, dette gøres vha. et feedback som kontinuitet måler udgangsspændning. 
+\begin{figure}[htbp] \centering
+\begin{minipage}[c]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Regulering_12VBlok.jpg} 
+\end{minipage} \hfill
+\begin{minipage}[c]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Regulator_12V.jpg} 
+\end{minipage} \\ 
+\begin{minipage}[b]{0.48\textwidth}
+\caption{Blokdiagram.} 
+\label{fig:Blokdiagram_12V}
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth}
+\caption{Diagram 12V} 
+\label{fig:billede2}
+\end{minipage}
+\end{figure}
+\subsubsection{Regulator}
+Som regulator er der valgt en LM117, Dette gjort da den ifølge databladet kan tåle en indgangs spændning på op til +40V DC. \\
+Regulator: \textbf{LM117}
+\subsubsection{Beregning af feedback}
+Feedbacket bestå af en spændningsdeler bestående af to modstande, udfra databladet findes formel for beregning af modstandende. \\
+V\_out = 1,25*(1+(R4/R3))+ I\_adj*R4 \\
+R3 vælges med en standardværdi til 150 ohm. I\_adj er ifølge databladet = max 100uA \\
+R4 = (R3 * 10,75) / (I\_adj +1,25) = (150 * 10,75) / (100uA * 1,25) = \\
+R4 = 1290 ohm
+Nærmeste standardværdi er 1300 ohm \\
+\textbf{R4 = 1300 ohm}
+
+\newpage
 \subsection{Regulator 5V}
+Regulatoren regulere den udglatede DC spændning ned til 5V, dette gøres vha. et feedback som kontinuitet måler udgangsspændning. 
+\begin{figure}[htbp] \centering
+\begin{minipage}[c]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Regulering_5VBlok.jpg} 
+\end{minipage} \hfill
+\begin{minipage}[c]{0.48\textwidth} \centering
+\includegraphics[width=1.00\textwidth]{billeder/Regulator_5V.jpg} 
+\end{minipage} \\ 
+\begin{minipage}[b]{0.48\textwidth}
+\caption{Blokdiagram.} 
+\label{fig:Blokdiagram_5V}
+\end{minipage} \hfill
+\begin{minipage}[b]{0.48\textwidth}
+\caption{Diagram 5V} 
+\label{fig:billede2}
+\end{minipage}
+\end{figure}
+\subsubsection{Regulator}
+Som regulator er der valgt en LM117, Dette gjort da den ifølge databladet kan tåle en indgangs spændning på op til +40V DC. \\
+Regulator: \textbf{LM117}
+\subsubsection{Beregning af feedback}
+Feedbacket bestå af en spændningsdeler bestående af to modstande, udfra databladet findes formel for beregning af modstandende. \\
+V\_out = 1,25*(1+(R4/R3))+ I\_adj*R4 \\
+R3 vælges med en standardværdi til 270 ohm. I\_adj er ifølge databladet = max 100uA \\
+R4 = (R3 * 3,75) / (I\_adj +1,25) = (270 * 10,75) / (100uA * 1,25) = \\
+R4 = 810 ohm
+Nærmeste standardværdi er 1300 ohm \\
+\textbf{R4 = 820 ohm}
+\newpage
+\subsection{Endeligt diagram}
+Udfra blokdiagrammet vises nedefor det endelige diagram over strømforsyningen.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{billeder/final_power}
+\caption{Diagram for strømforsyning}
+\label{fig:Dia_finalpower}
+\end{figure}
 
