@@ -1,5 +1,9 @@
 \chapter{Strømforsyning}
 Ud fra kravspecifikation skal delmodulerne (SM og VBTE) kunne drives fra en 24V AC forsynings kilde. Selve modulerne er designet til 12V DC og 5V DC forsyningsspændringer , der designes derfor en strømforsyning der regulere spændingen så den kan levere 12V 1A og 5V 0,5A.  
+\section{Krav til strømforsyning}
+Indgangsspændning / Strøm: \textbf{24V AC RMS / 1,5A} \\
+Udgangsspændning / Strøm: \textbf{12V DC / 1A} \\
+Udgangsspændning / Strøm: \textbf{5V DC / 0,5A} \\
 
 \section{Overordnet design}
 I dette afsnit beskrives og vises det overordnede hardware blokdiagram over strømforsyningen samt beskrivelse signaler.
@@ -15,7 +19,6 @@ I dette afsnit beskrives og vises det overordnede hardware blokdiagram over str�
 \caption{Overordnet blokdiagram for strømforsyning}
 \label{fig:PowerSubbly Blok}
 \end{figure}
-\newpage
 \subsection{Blokke}
 Nedenfor beskrives de enkelte blokke illustreret på \textit{Figur~\ref{fig:PowerSubbly Blok}}
 \subsubsection{Sikring}
@@ -163,13 +166,13 @@ Sikringen sidder som sagt som beskyttelse af forsyningsspændningen, hvis der tr
 \label{fig:Indre_modstand}
 \end{figure}
 Transformator(Forsyningskilde) R\_Cu: ca. 1 ohm \\
-Dobbelt ensretter(diodebro) R\_D: 2 * 0,2 ohm = 0,4 ohm \\
+Dobbelt ensretter(diodebro) R\_D: 2 * 0,02 ohm = 0,04 ohm \\
 Udglatning(Elektrolyt kondensator) R\_ESR: ca. 1 ohm \\
-Indre modstand R\_Z = \textbf{2,4 ohm}\\ \
+Indre modstand R\_Z = \textbf{2,04 ohm}\\ \
 Peak spænding:\\
 Vpk = 24V RMS*1,41 = \textbf{33,84 Vpk} \\
 Kortslutningstrøm:\\
-I\_K = Vpk / R\_Z = 33,84Vpk / 2,4 ohm = \textbf{14,1 A} \\
+I\_K = Vpk / R\_Z = 33,84Vpk / 2,04 ohm = \textbf{16,5 A} \\
 \newpage 
 Ud fra beregningerne og \textit{Figur~\ref{fig:Sikringskurve_PS}} kan størrelse af sikringen findes 
 \begin{figure}[H]
@@ -180,14 +183,38 @@ Ud fra beregningerne og \textit{Figur~\ref{fig:Sikringskurve_PS}} kan størrelse
 \end{figure}
 Størrelse på sikringen vælges til \textbf{4A} og en springetid på \textbf{250ms.}
 \subsection{Dobbelt ensretter}
-Dobbelt ensretteren, ensretter AC signalet til positive halvperioder, ved at det er en diodebro der består af 4 dioder vil der altid være 2 dioder der leder samtidig, dette betyder at der vil være det dobbelt af positive halvperioder. Ved at der er det dobbelt af positive halvperioder betyder også en bedre udglatning af DC signalet, samt bedre udnytelse af AC signalet. \\
-\subsubsection{Beregning} \\ 
-Peak spændning efter dobbelt ensretter:\\
-Vpk_D = (24V AC RMS * 1,41) - 1,4V = 32,43 Vpk.
+Dobbelt ensretteren, ensretter AC signalet til positive halvperioder, ved at det er en diodebro der består af 4 dioder vil der altid være 2 dioder der leder samtidig, dette betyder at der vil være det dobbelt af positive halvperioder. Ved at der er det dobbelt af positive halvperioder betyder også en bedre udglatning af DC signalet, samt bedre udnytelse af AC signalet.
 \newpage
-\subsubsection{Simulering}
+\subsubsection{Beregning}
+Spændning over diode i diodebro:\\
+D\_f = 0,7V, D\_f vil stige i forhold til den strøm der løber igennem dioden\\
+Peak spændning efter dobbelt ensretter:\\
+Vpk\_Diodebro = (24V AC RMS * 1,41) - (2 * 0,7V) = 32,43V pk.\\
+Diodenbroen der er valgt er \textbf{kbl-04} der kan klare op til 4A. 
+\footnote{Se datablad for kbl-04 i bilag}
+\newpage
+
 
 \subsection{Udglatning}
-\subsection{Regulator 5V}
+Udglatningen består af en elektrolyt, som bliver opladet når spændning stiger og aflades når spændningen falder.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{billeder/Udglatning}
+\caption{Diagram for beregning af C\_L}
+\label{fig:Udglatning}
+\end{figure}
+\subsubsection{Beregning} 
+I beregning af størrelsen af elektrolytten tages der udgangspunkt i 3 faktorer:\\
+- Pulstiden: T\_p = 20 ms\\
+- Max udgangstrøm: I\_DC = 1,5A \\
+- Ønsket max rippel ved fuld belastning: U\_rip = 3V\\
+C\_L = (I\_DC * T\_p) / (2 * U\_rip) = (1,5A * 20ms) / (2*3V) = 5mF\\ \\
+Ud fra standard størrelse på elektrolytter vælges der 2 * 2,2mF 63V elektrolyt. \\
+C\_L = \textbf{4,4mF, 63V}
+
+
+
+
 \subsection{Regulator 12V}
+\subsection{Regulator 5V}
 
