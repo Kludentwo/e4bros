@@ -44,7 +44,7 @@ I tabellen beskrives de interne signaler
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{4.5cm}|} \hline
 \cellcolor[gray]{0.85}Signal navn& \cellcolor[gray]{0.85}Type &\cellcolor[gray]{0.85}Spænding&\cellcolor[gray]{0.85}Beskrivelse\\ \hline
 AC\_1 S1 & Analog  & 24V AC RMS & Indgangsspænding fra spændingskilde inden sikring.\\  \hline
-AC\_1 S2  & Analog & 24V AC RMS & Indgangsspænding fra spændingskilde efter sikring. \\  \hline
+AC\_1 S2 & Analog & 24V AC RMS & Indgangsspænding fra spændingskilde efter sikring. \\  \hline
 AC\_2 & Analog & 0V AC & 0V AC fra spændingskilden.\\  \hline
 
 \end{tabular}
@@ -155,17 +155,38 @@ Feedbacket måler på udgangssignalet af regulatoren, feedbacket bestemmet hvilk
 Nedenfor følger opbygningen af designet for de forskellige blokke i strømforsyningen. Dette vil blive beskrevet med Multisim designs, simuleringer, samt udregninger. 
 
 \subsection{Sikring}
-Sikringen sidder som sagt som beskyttelse af forsyningsspændningen, hvis der trækkes en for stor strøm fra strømforyningen i et kort tid. Sikringen beskytter også derfor evt. komponenter på strømforsyningen. Bestemmelsen af sikringsstørrelse sker ud fra et skema samt kortslutningsstrømmen. Kortslutningsstrømmen beregnes udfra den indre modstand i strømforsyningen: \\
-
-Transformator(Forsyningskilde): tilnærmelsesvis 1 ohm \\
-Dobbelt ensretter(diodebro): 2 * 0.2 ohm = 0.4 ohm \\
-Udglatning(Elektrolyt kondensator): tilnærmelsesvis 1 ohm \\
-
-\textbf{Indre modstand ialt: 2.4 ohm}
-
-
-
+Sikringen sidder som sagt som beskyttelse af forsyningsspændningen, hvis der trækkes en for stor strøm fra strømforyningen i et kort tid vil sikringen springe. Sikringen beskytter også derfor evt. komponenter på strømforsyningen. Bestemmelsen af sikringsstørrelse sker ud fra et skema samt kortslutningsstrømmen. Kortslutningsstrømmen beregnes udfra den indre modstand i strømforsyningen og tomgangs peak spændingen: \\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{billeder/Indre_modstand}
+\caption{Indre modstand for Transformator, Diodebro og Elektrolyt}
+\label{fig:Indre_modstand}
+\end{figure}
+Transformator(Forsyningskilde) R\_Cu: ca. 1 ohm \\
+Dobbelt ensretter(diodebro) R\_D: 2 * 0,2 ohm = 0,4 ohm \\
+Udglatning(Elektrolyt kondensator) R\_ESR: ca. 1 ohm \\
+Indre modstand R\_Z = \textbf{2,4 ohm}\\ \
+Peak spænding:\\
+Vpk = 24V RMS*1,41 = \textbf{33,84 Vpk} \\
+Kortslutningstrøm:\\
+I\_K = Vpk / R\_Z = 33,84Vpk / 2,4 ohm = \textbf{14,1 A} \\
+\newpage 
+Ud fra beregningerne og \textit{Figur~\ref{fig:Sikringskurve_PS}} kan størrelse af sikringen findes 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{billeder/Sikringskurve_PS}
+\caption{Sikringskurve}
+\label{fig:Sikringskurve_PS}
+\end{figure}
+Størrelse på sikringen vælges til \textbf{4A} og en springetid på \textbf{250ms.}
 \subsection{Dobbelt ensretter}
+Dobbelt ensretteren, ensretter AC signalet til positive halvperioder, ved at det er en diodebro der består af 4 dioder vil der altid være 2 dioder der leder samtidig, dette betyder at der vil være det dobbelt af positive halvperioder. Ved at der er det dobbelt af positive halvperioder betyder også en bedre udglatning af DC signalet, samt bedre udnytelse af AC signalet. \\
+\subsubsection{Beregning} \\ 
+Peak spændning efter dobbelt ensretter:\\
+Vpk_D = (24V AC RMS * 1,41) - 1,4V = 32,43 Vpk.
+\newpage
+\subsubsection{Simulering}
+
 \subsection{Udglatning}
 \subsection{Regulator 5V}
 \subsection{Regulator 12V}
