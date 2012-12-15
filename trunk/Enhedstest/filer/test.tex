@@ -10,16 +10,17 @@ I dette afsnit forklares hvordan enhedstest af hardware udføres.
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1 &Indstil Accelerometer &Der skrives hej på ben 44-45\\\hline
+1 &Indstil Accelerometer &Der skrives 0x06 på P15[2:0]\\\hline
+2 &Verificer RS232 &Der sættes en jumper mellem RX\_out og TX\_out og derefter sendes der 5 forskellige chars via UART\\\hline
 \end{tabular}
 \end{table}
 \subsubsection{VBTE}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1 &At teste ventilkreds &Der toggles 5V med 500ms interval ud fra PSoC'en på ben P0\_0 og P0\_2. Der lyttes på ventilerne for at bekræfte at de åbner og lukker.\\\hline
@@ -34,7 +35,7 @@ I dette afsnit forklares hvordan enhedstests af hardware udføres.
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1 &GetLevel &GetLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
@@ -44,7 +45,7 @@ Case &Formål &Udførelse\\\hline
 \subsubsection{VBTE}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1 &SendBurst &Metoden kaldes i intervaller på 500ms og der måles med osciloskop på ben P0\_1 at der bliver sendt burst's med en varighed på $\sim$250$\mu$s og med en frekvens på $\sim$40kHz.\\\hline
@@ -59,7 +60,7 @@ Case &Formål &Udførelse\\\hline
 \subsubsection{KI}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 3 &"AKTIVER MANUEL HÆLDNINGSREGULERING"-knappen.\\\hline
@@ -85,17 +86,17 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-1 &SM &Accelerometeret er indstillet & \\\hline
- 
+1 &Accelerometeret er indstillet. &Det observeres at accelerometeret er indstillet og aktivt. &\begin{Huge}$\surd$\end{Huge}\\\hline
+2 &De afsendte chars bliver modtaget via UART. &De afsendte chars blev modtaget via UART. &\begin{Huge}$\surd$\end{Huge}\\\hline
 \end{tabular}
 \end{table}
 \subsubsection{VBTE}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Ventilerne åbner og lukker &Det høres tydeligt at ventilerne åbnes og lukkes. &\begin{Huge}$\surd$\end{Huge} \\\hline 
@@ -110,7 +111,7 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Level bliver returneret og verificeret &Level blev returneret og verificeret &\begin{Huge}$\surd$\end{Huge} \\\hline 
@@ -120,7 +121,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \subsubsection{KI}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{6cm} | p{5cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 3a &I terminalen aflæses det at valget er bekræftiget og at RS232-klassen udsender værdien for kommandoen og dernæst hældningen i overensstemmelse med protokollen. I programmet kan det aflæses hvilken værdi der manuelt er indstillet til &Resultatet kan ses i \ref{fig:manuResult} og stemmer overens med forventningerne. &\begin{Huge}$\surd$\end{Huge} \\\hline 
