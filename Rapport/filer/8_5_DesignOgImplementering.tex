@@ -213,7 +213,7 @@ Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i proce
 	\label{fig:SMPSOC1}
 	\end{minipage}
 \end{figure}
-Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt en DelSig ADC internt i PSoC'en. Valget af accelerometer kommer af at have lavet en række prototyper der ikke mødte vores krav, hvilket accelerometeret i PSoC'en gjorde. Valget af ADC faldt på en DelSig da, den er meget støj immun grundet det indbyggede lavpas filter og har en høj opløsning. Valgte komponenter er illustret på \textit{Figur~\ref{fig:levelsensor}}. ADC konverterer det analoge signal fra, en pin forbundet til, accelerometer til en digital værdi der så senere bliver anvendt i softwaren. For ADC og accelerometerets opsætning se da afsnit \ref{ch:DetajlDesign}~\textit{Detaljeret hardware design} i Bilag.
+Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt en DelSig ADC internt i PSoC'en. Valget af accelerometer kommer af at have lavet en række prototyper der ikke mødte vores krav, hvilket accelerometeret i PSoC'en gjorde. Valget af ADC faldt på en DelSig da, den er meget støj immun grundet det indbyggede lavpas filter og har en høj opløsning. Valgte komponenter er illustret på \textit{figur~\ref{fig:levelsensor}}. ADC konverterer det analoge signal fra, en pin forbundet til, accelerometer til en digital værdi der så senere bliver anvendt i softwaren. For ADC og accelerometerets opsætning se da afsnit \ref{ch:DetajlDesign}~\textit{Detaljeret hardware design} i Bilag.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.8]{billeder/levelsensor}
@@ -221,7 +221,7 @@ Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt 
 	\label{fig:levelsensor}
 \end{figure}
 \subsubsection{Software}
-SM software behandler den konverterede data fra ADC'en samt kommunikation med VBTE og KI modulernerne. Sofwarens udvikling har fulgt de samme faser som hardwaren, hvilket har ført til letforståelig og læselig kode. Softwaren er illustreret på \textit{Figur~\ref{fig:SMKD}}. Der vil efterfølgende blive taget udgangspunkt i et statemachine samt funktionen getFromKI.
+SM software behandler den konverterede data fra ADC'en samt kommunikation med VBTE og KI modulernerne. Sofwarens udvikling har fulgt de samme faser som hardwaren, hvilket har ført til letforståelig og læselig kode. Softwaren er illustreret på \textit{figur~\ref{fig:SMKD}}. Der vil efterfølgende blive taget udgangspunkt i et statemachine samt funktionen getFromKI.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{billeder/smKlassediagram}
@@ -229,7 +229,7 @@ SM software behandler den konverterede data fra ADC'en samt kommunikation med VB
 	\label{fig:SMKD}
 \end{figure}
 \textbf{SM funktionalitet}\\
-Funktionalitet af SM kan bedst beskrives med et state diagram. På \textit{Figur~\ref{fig:SMSTM}} ses  state machine diagrammet for SM modulet. Diagrammet indeholder Automatisk regulering state der beskriver den automatiske regulering i systemet. Den automatiske regulering styres med et flag. Flaget bliver sat når SM opnår forbindelse med KI modulet i 'Afvent' statet. Flaget bliver nulstillet hvis KI sender besked til SM modulet om at det skal termineres, hvorefter SM går tilbage i 'Afvent' statet. Behandlingen af beskeder fra KI i 'Modtag besked fra KI' og 'Send svar til KI' states ses i følgende afsnit \textit{getFromKI}.
+Funktionalitet af SM kan bedst beskrives med et state diagram. På \textit{figur~\ref{fig:SMSTM}} ses  state machine diagrammet for SM modulet. Diagrammet indeholder hældningsregulering state der beskriver den automatiske og manuelle regulering i systemet. Den automatiske regulering styres med et flag. Den manuelle styres med en værdi der bliver sat. Flaget bliver sat når SM opnår forbindelse med KI modulet i 'Afvent' statet. Flaget bliver nulstillet hvis KI sender besked til SM modulet om at det skal termineres, hvorefter SM går tilbage i 'Afvent' statet. Behandlingen af beskeder fra KI i 'Modtag besked fra KI' og 'Send svar til KI' states ses i følgende afsnit \textit{getFromKI}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.8\textwidth]{billeder/stmSM}
@@ -244,7 +244,7 @@ Funktionen er bedst beskrevet med et flowdiagram:
 	\caption{Flowdiagram for funktionen getFromKI}
 	\label{fig:gFKIfc}
 \end{figure}
-Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel. 
+Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel da KI modulet har mulighed for at validere på overførslen. getFromKI bliver kaldt ca. hver andet sekund for at se om KI har skrevet noget til bufferen. Hvis der ikke er noget i bufferen returnerer funktionen med det samme.
 
 \subsection{Database}
 Denne section beskriver design og implementering af database delen som er lavet på baggrund af kravspecifikationen og systemarkitekturen.\\
