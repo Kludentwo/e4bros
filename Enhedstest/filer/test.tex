@@ -34,13 +34,13 @@ Case &Formål &Udførelse\\\hline
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1a &At teste 12V udgangsspænding ved 0A &Der måles direkte på 12V udgangen med et voltmeter, uden load modstand.\\\hline
-1b &At teste 12V udgangsspænding ved 0.5A  &Der måles direkte på 12V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
-1c &At teste 12V udgangsspænding ved 1A  &Der måles direkte på 12V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 1A.\\\hline
-2a &At teste 5V udgangsspænding ved 0A &Der måles direkte på 5V udgangen med et voltmeter, uden load modstand.\\\hline
-2b &At teste 5V udgangsspænding ved 0.5A  &Der måles direkte på 5V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.25A.\\\hline
-2c &At teste 5V udgangsspænding ved 1A  &Der måles direkte på 5V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
-3 &At teste udgangsspænding 12V ved 1A og 5V 0.5A samtidig &Der måles direkte på 12V og 5V udgangen samtidig med et voltmeter, med effekt load modstand der svare til at der vil blive trukket 1A på 12V udgangen og 0.5A på 5V udgangen. \\\hline
+1a &At teste 12V udgangsspænding ved 0A &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V udgangen af strømforsyningen med et voltmeter og oscilloskop, uden load modstand.\\\hline
+1b &At teste 12V udgangsspænding ved 0.5A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
+1c &At teste 12V udgangsspænding ved 1A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A.  Der måles direkte på 12V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 1A.\\\hline
+2a &At teste 5V udgangsspænding ved 0A &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 5V udgangen med et voltmeter og oscilloskop, uden load modstand.\\\hline
+2b &At teste 5V udgangsspænding ved 0.5A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 5V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 0.25A.\\\hline
+2c &At teste 5V udgangsspænding ved 1A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A.  Der måles direkte på 5V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
+3 &At teste udgangsspænding 12V ved 1A og 5V 0.5A samtidig & Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V og 5V udgangen samtidig med et voltmeter og oscilloskop, med effekt load modstand der svare til at der vil blive trukket 1A på 12V udgangen og 0.5A på 5V udgangen. \\\hline
 \end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -161,22 +161,29 @@ Case &Forventet resultat &Resultat &Status\\\hline
 3 & Der ses burst efter PGA'en samt "tapper" efter mixeren via. oscilloskop. & Ved første test blev et markant svagere end antaget modtaget. Gain i PGA blev justeret til 32 og testen kunne godkendes. Testresultet ses på \textit{figur \ref{fig:PGA}, \ref{fig:mixer} og \ref{fig:mixer2}} i bilag. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 \end{tabular}
 \end{table}
+\newpage
 \subsubsection{Strømforsyning}
+Martrialer brugt til test af strømforsyning.:\\
+Effekt modstande: \textbf{22 ohm 5W, 10 ohm 5W} \\
+Testinstrumeter:\\
+Labitoriestrømforsyning: \textbf{1-C3-5} \\
+Voltmeter:\textbf{TTi 1604 (1-C3-10)} \\
+Testopstillingen til strømforsyningen kan ses på figur...? i bilag.\\
 \begin{table}[H]
 \centering
 \begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-1a &12V spændingen ligger på stabilt 12V &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
-1b &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver varme &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
-1c &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver meget varme &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
-2a &5V spændingen ligger på stabilt 5V &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
-2b &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver varme &-- &  \\\hline %\begin{Huge}$\surd$\end{Huge}
-2c &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver meget varme &-- &  \\\hline %\begin{Huge}$\surd$\end{Huge}
-3 &12V spændingen ligger lidt under 12V, 5V spændingen ligger lidt under 5V,komponenter på strømforsyningen bliver meget varme &-- & \\\hline 
+1a &12V spændingen ligger stabilt &Voltmeteret viste: 12.075V.& \begin{Huge}$\surd$\end{Huge} \\ \hline 
+1b &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver varme &Voltmeteret viste: 12.098V, labitoriestrømforsyning viste: 23.8V, 0.53A. Testresultet ses på & \begin{Huge}$\surd$\end{Huge}\\ \hline
+1c &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 12.098V, labitoriestrømforsyning viste: 23.8V, 1.07A.& \begin{Huge}$\surd$\end{Huge}\\ \hline
+2a &5V spændingen ligger på stabilt 5V &Voltmeteret viste: 5.128V. & \begin{Huge}$\surd$\end{Huge} \\ \hline 
+2b &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver varme &Voltmeteret viste: 5.088V, labitoriestrømforsyning viste: 23.8V, 0.26A. & \begin{Huge}$\surd$\end{Huge}\\ \hline
+2c &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 5.118V, labitoriestrømforsyning viste: 23.8V, 0.50A. & \begin{Huge}$\surd$\end{Huge}\\ \hline
+3 &12V spændingen ligger lidt under 12V, 5V spændingen ligger lidt under 5V,komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 12.098V, og 5.118 labitoriestrømforsyning viste: 23.8V, 1.60A. & \begin{Huge}$\surd$\end{Huge}\\ \hline
 \end{tabular}
 \end{table}
-\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SOFTWARE RESULTATER        %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
