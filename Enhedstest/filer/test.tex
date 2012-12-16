@@ -28,6 +28,21 @@ Case &Formål &Udførelse\\\hline
 3 &At teste receiverkredsen & Der sendes burst fra transmitterkredsen med 500ms interval med en varighed på $\sim$250$\mu$s. Der indsættes to analoge pinde i PSoCdesignet der kobles til udgangen på PGA'en og udgangen af mixeren. Signalet valideres med oscilloskopbilleder.\\\hline
 \end{tabular}
 \end{table}
+\subsubsection{Strømforsyning}
+\begin{table}[H]
+\centering
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
+\hline
+Case &Formål &Udførelse\\\hline
+1a &At teste 12V udgangsspænding ved 0A &Der måles direkte på 12V udgangen med et voltmeter, uden load modstand.\\\hline
+1b &At teste 12V udgangsspænding ved 0.5A  &Der måles direkte på 12V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
+1c &At teste 12V udgangsspænding ved 1A  &Der måles direkte på 12V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 1A.\\\hline
+2a &At teste 5V udgangsspænding ved 0A &Der måles direkte på 5V udgangen med et voltmeter, uden load modstand.\\\hline
+2b &At teste 5V udgangsspænding ved 0.5A  &Der måles direkte på 5V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.25A.\\\hline
+2c &At teste 5V udgangsspænding ved 1A  &Der måles direkte på 5V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
+3 &At teste udgangsspænding 12V ved 1A og 5V samtidig &Der måles direkte på 12V og 5V udgangen samtidig med et voltmeter, med effekt load modstand der svare til at der vil blive trukket 1A på 12V udgangen og 0.5A på 5V udgangen. \\\hline
+\end{tabular}
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SOFTWARE                   %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,7 +161,22 @@ Case &Forventet resultat &Resultat &Status\\\hline
 3 & Der ses burst efter PGA'en samt "tapper" efter mixeren via. oscilloskop. & Ved første test blev et markant svagere end antaget modtaget. Gain i PGA blev justeret til 32 og testen kunne godkendes. Testresultet ses på \textit{figur \ref{fig:PGA}, \ref{fig:mixer} og \ref{fig:mixer2}} i bilag. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 \end{tabular}
 \end{table}
-
+\subsubsection{Strømforsyning}
+\begin{table}[H]
+\centering
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\hline
+Case &Forventet resultat &Resultat &Status\\\hline
+1a &12V spændingen ligger på stabilt 12V &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
+1b &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver varme &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
+1c &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver meget varme &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
+2a &5V spændingen ligger på stabilt 5V &-- & \\\hline %\begin{Huge}$\surd$\end{Huge}
+2b &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver varme &-- &  \\\hline %\begin{Huge}$\surd$\end{Huge}
+2c &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver meget varme &-- &  \\\hline %\begin{Huge}$\surd$\end{Huge}
+3 &12V spændingen ligger lidt under 12V, 5V spændingen ligger lidt under 5V,komponenter på strømforsyningen bliver meget varme &-- & \\\hline 
+\end{tabular}
+\end{table}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SOFTWARE RESULTATER        %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
