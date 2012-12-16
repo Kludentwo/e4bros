@@ -39,8 +39,13 @@ I dette afsnit forklares hvordan enhedstests af hardware udføres.
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1 &GetLevel &GetLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
-2  &getFromKI &Et program køres hvor getFromKI kaldes i en while løkke. SM modulet sættes sammen med en teststub der sender 6 forskellige cases, 1000 gange.\\\hline
+1 &getLevel &getLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
+2 &getFromKI &Et program køres hvor getFromKI kaldes i en while løkke. SM modulet sættes sammen med en teststub der sender forskellige kommandoer, 6000 gange. For kommandoer se \textit{Arkitektur}\\\hline
+3 &writeToVbte &SM modulet sættes sammen med en I2C teststub der tilføjer 10 til værdien og returner. På SM modulet checkes via Debug menuen hvad der er modtaget.\\\hline
+4 &init &init kaldes og der verificeres at en diode på SM modulet aktiveres.\\\hline
+5 &autoReg &Der kobles to teststubbe på SM modulet. Derefter vinkles SM modulet således at man opnår $\pm$5 grader. Stubbene returnere skiftevis værdier fra 0 til 100 i trin af 20. Der verificeres at autoReg sender beskeder ud via et display monteret på teststubbe.\\\hline
+6 &convertToEnum &Der indsættes værdier fra 2000 til 4000 i trin af 17. Der opserveres på returværdier. \\\hline
+7 &convertToValue &Der indsættes alle værdier i Hældningsenum beskrevet i \textit{Arkitektur}. Der opserveres på returværdier.\\\hline
 \end{tabular}
 \end{table}
 \subsubsection{VBTE}
@@ -154,7 +159,12 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Level bliver returneret og verificeret &Level blev returneret og verificeret &\begin{Huge}$\surd$\end{Huge} \\\hline 
-2 &teststubben printer til skærmen at alle cases er succesfulde &teststubben printede Success: 6000 &\begin{Huge}$\surd$\end{Huge} \\\hline 
+2 &teststubben printer til skærmen at alle cases er succesfulde &teststubben printede Success: 6000 &\begin{Huge}$\surd$\end{Huge} \\\hline
+3 &Der modtages 13 til 19. &13 til 19 blev modtaget. &\begin{Huge}$\surd$\end{Huge} \\\hline
+4 &En LED tænder på SM modulet. &En LED blev tændt. &\begin{Huge}$\surd$\end{Huge} \\\hline
+5 &Det observeres at der sendes åben og luk af de forskellige ventiler baseret på de værdier der modtages fra stubbene. &Der blev sendt åben og luk af de forskellige ventiler men i et ud af 20 tilfælde blev der modtaget en værdi større end 100, hvilket medførte en fejlmelding. Dette skyldes noget i hardwaren der behandler I2C. &\begin{Huge}$\surd$\end{Huge} \\\hline
+6 &Der modtages værdien svarende til 0 graders hældning for lave værdier hvorefter hele level enum bliver kørt igennem og den efterfølgende returnere 0. &Der blev modtaget 255 indtil hele enum blev kørt igennem hvorefter der blev modtaget 255 igen. &\begin{Huge}$\surd$\end{Huge} \\\hline
+7 &Der returneres hældningsværdier svarende til enum vinklingsnavne &Der blev returneret værdier svarende til enums vinklingsnavne. Dog drifter værdien en smule&\begin{Huge}$\surd$\end{Huge} \\\hline
 \end{tabular}
 \end{table}
 \subsubsection{VBTE}
