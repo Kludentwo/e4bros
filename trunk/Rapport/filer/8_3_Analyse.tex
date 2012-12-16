@@ -11,3 +11,9 @@ RPi eller ej? Qt4 vs Qt5.\fxnote{Skriv afsnit om RPi og Qt}
 Qt-specifik eller C++? Boost? \fxnote{Skriv afsnit om Qt-frameworket}
 \subsection{Jura}
 Hvilke lovgivninger findes der på området? Er der et behov for dette? Hvad er de rigtige termer? \fxnote{skriv afsnit om jura}
+
+\subsection{Valg af database}
+For at vælge database til systemet blev der kigge på MySQL, Microsoft Acces og en lagring til en tekstfil.\\
+Microsoft Acces er et database system der der medfølgende i Microsoft Office pakken. Microsoft Access benytter sit eget format baseret på Access Jet Database Engine. En ulempe ved Microsoft Acces er at den kun fungere under Windows og da systemet skulle alsidigt var dette ikke den bedste løsning. At lagre direkte i en tekst fil blev overvejet da det er meget simpelt at lagre til tekstfiler fra c++ og php kan håndtere at hente fra den. Det kan gå galt ved loading og lagring til filen samtidig med at formater kan blive et problem. \\
+Der var i forvejen kendskab til MySQL og dette er et færdig udviklet system til at fungere med webinterfaces og for programmerings sprog som C++ er der udviklet header. Systemet er et system der fungere på mange platforme og løbende bliver udviklet på. På baggrund af dette blev dette system valgt.
+
