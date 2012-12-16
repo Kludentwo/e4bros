@@ -304,18 +304,6 @@ Returværdi: & Ingen\\
 \subsection{Tilpasning}
 Der er mulighed for at opsætte server delen sådan at denne lagre direkte i mySQL databsen hvis man har et ønske om at mindske ansvaret for websiden. for at gøre dette kan man i tcp klassens funktion startRead(void) erstate funktionskaldet til klassen savedata() med funktionen save(tmp) og i stedet benytte klassen SQL med funktionskaldet saveSQL(tmp). funktionen saveSQL(tmp) har save(tmp) som i tilfælde af at der opstår fejl med at gemme data til databasen vil sikre at data bliver lagret i en backup fil som så kan håndteres af websiden.
 
-\subsection{TCP}
-TCP/IP (Transmission Control Protocol) og UDP/IP (User Datagram Protocol) har et begreb som er Port. Alt data udstyr der skal kommunikere via en IP indenfor et netværk skal have en unik IP adresse. En klient har derfor et IP nummer og port nummer og en server har en anden ip og anden port nummer. Dette kaldes for en socket og den identificere derfor TCP.\\
-
-Man kan sige at TCP er en af kerne protocollerne for  den nutidige Internet og data kommunikation.
-Igennem TCP kan forskellige vertsmaskiner på f.eks. internettet oprette forbindelse imellem hinanden og man har mulighed for at udveksle datapakker. TCP giver nogle vitale garantier for at datapakken afsendes og modtages
-\begin{itemize}
-\item Stabilitet: en pakke der går tabt bliver automatisk forsøgt sendt igen
-\item Ordnet levering: Pakken ankommer til modtageren i samme rækkefølge som den blev afsendt.
-\end{itemize}
-TCP benytter portnumre til muliggøre etablering af forskellige datastrømme til/fra værtsmaskinen. 
-\fxnote{diagram}
-
 \subsection{Apache}
 Apache HTTP Server er en webserver fra Apache Software Foundation. Apache er en ofte benytte webserver og er en open source-serverprogram. Serveren installeres på en computer og kan herefter benytte ved at benytte den lokale ip adresse 127.0.0.1 eller localhost. Om computeren med Apache serveren er placeret i et større netværk og skal benyttes fra andre computere kan denne tilgås fra disse ved at indtaste computerens oprindelige ip adresse på netværket. Dette giver også mulighed for at benytte serveren fra internettet ved at koble den op via DNS. Om dette gøres skal man specielt være opmærksom på at lukke port numrerne 20 og 21 da disse ofte er portene som bliver hacket desuden bør man ligge password på serveren for udefra kommende. I BROS er Apache serveren placeret i internt netværk og derfor er det ikke nødvendigt at lukke portene eller benytte sig af password tilladelse for at arbejde til serveren.
 Generalt står apache serverene for ca 60\% af alle webserere i verden.
