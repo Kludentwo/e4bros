@@ -245,10 +245,12 @@ Funktionen er bedst beskrevet med et flowdiagram:
 	\label{fig:gFKIfc}
 \end{figure}
 Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel da KI modulet har mulighed for at validere på overførslen. getFromKI bliver kaldt ca. hver andet sekund for at se om KI har skrevet noget til bufferen. Hvis der ikke er noget i bufferen returnerer funktionen med det samme.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% DA TAB ACE  %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Database}
 Denne section beskriver design og implementering af database delen som er lavet på baggrund af kravspecifikationen og systemarkitekturen.\\
-Databasen er blevet opdelt i 2 dele som håndtere denne side. Databasen er opdelt i serveren og web-siden.
+Databasen er blevet opdelt i 2 dele som håndtere denne side. Databasen er opdelt i server og Webinterface.
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.5\textwidth]{billeder/database_to_mysql}
@@ -258,38 +260,38 @@ Databasen er blevet opdelt i 2 dele som håndtere denne side. Databasen er opdel
 
 \subsection{Serveren}
 Denne section beskriver design og implementering af serveren.
-Opbygningen af severen er gjort i klasser sådan at hver element i severen er implementeret som en klasse se figur \ref{fig:database_server}. Ud over dette benyttes der nogle hjælpeklasser.\\
+Opbygningen af serveren er gjort sådan at hver element i serveren er implementeret som en klasse, hvilket er illustreret på \textit{figur \ref{fig:database_server}}.
 
-Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp som benytter sig af socket. Når tilslutningen er gjort kan der overføres data fra KI til databasen. Dataerne bliver gemt i en tekst fil, der indlæses af web siden
+Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp som benytter sig af socket. Når tilslutningen er gjort kan der overføres data fra KI til databasen. Data bliver gemt i en tekst fil, der indlæses af Webinterface.
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.5\textwidth]{billeder/database_server}
-\caption{Illustrere overordnet hvordan serveren fungere}
+\caption{Overordnet illustration af serveren funktionalitet}
 \label{fig:database_server}
 \end{figure}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{p{3cm} p{12.5cm}}
+\begin{tabular}{p{4cm} p{10cm}}
 \multicolumn{2}{l}{{\Large Serverens klasser}} \\\hline
 Server & Er hovedvinduet på serveren. Information til brugeren udskrives herfra og knapper er implementeret. \\
 TCP forbindelse (tcp) & Opretter en mulig tcp forbindelse hvor skibet kan tilslutte sig og overføre data.\\
 Gemme data (savedata) & Gemmer data til en tekst fil.\\
-De kryptering(enumDeKrypteringskode) & Dekryptere level fra sm så data bliver i grader\\
+De kryptering (enumDeKrypteringskode) & Dekryptere level fra sm så data bliver i grader\\
 \end{tabular}
 \caption{Serverens klasser}
 \label{tabel:server-klasser}
 \end{table}
 
 \section*{Hovedvindue for serveren}
-Dette giver et kort billed på hvordan serverens funktion ser ud. Den fulde model kan ses i apandix
+Dette giver et kort billed på hvordan serverens funktion ser ud. Den fulde model kan ses i appendix
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.4\textwidth]{billeder/server}
 	\caption{Billed af serverens hovedvindue}
 	\label{fig:server}
 \end{figure}
-Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den den web baserede database. Der er en mulighed for at lukke serveren. Denne er ment som en mulighed for at lukke serveren i tilfælde af fejl eller restart da det er meningen at serveren skal køre konstant. Serverens grafiske visning er ikke til brug for terminaloperatøren men ment for at man kan se at serveren køre.
+Serverens GUI giver mulighed for at brugeren kan se at serveren køre og hvilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den den web baserede database. Der er en mulighed for at lukke serveren. Denne er ment som en mulighed for at lukke serveren i tilfælde af fejl eller restart da det er meningen at serveren skal køre konstant. Serverens grafiske visning er ikke til brug for terminaloperatøren men ment for at man kan se at serveren køre.
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{Hovedvinduets elementer} \\
@@ -307,11 +309,11 @@ Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke ko
 \end{table}
 
 
-\subsection{Web-side}
+\subsection{Webinterface}
 Denne section beskriver design og implementering af web siden.\\
-Opbygningen af web siden er gjort hovedsageligt i php hvor dette gav mening. Desuden er html og styles (css) blevet benyttet til at sikre ens stil på hele web siden og for simpelt at kunne veligeholdes. For at sikre mindst data transmision imellem computer og server er princippet i ajax blevet benyttet.
+Opbygningen af Webinterface er gjort hovedsageligt i php hvor dette gav mening. Desuden er html og styles (css) blevet benyttet til at sikre ens stil på hele web siden og for simpelt at kunne veligeholdes. For at sikre mindst data transmision imellem computer og server er princippet i ajax blevet benyttet.
 
-Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan denne tilgå disse via den web baserede database. Når serveren køre kan brugeren tilgå databasen via knappen "Database" ellers kan denne tilgås via ip adressen dette giver mulighed for at tilgå siden via internet hvorved at behovet for adgangskode ved log in er nødvendig for at sikre data imod uatorisret brug. Efter log ind på siden kan brugeren vælge hvilket skib der skal benyttes. Når skib er valgt komemr brugeren ind på den valgte database. Her kan brugeren se ID på skibet vandtilstand i ballast tanke, hældning og tid siden sidste opdatering (for nærmere se apandix\fxnote{link til apendix}). Webinterfacet checker hvert 5 secund om der er kommet ny data. Ved ny data vil et script sørge for at denne bliver gemt i MySQL databasen. Webinterfacet tilgå den angivne tabel i den angivne database.
+Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan denne tilgå disse via den web baserede database. Når serveren køre kan brugeren tilgå databasen via knappen "Database" ellers kan denne tilgås via ip adressen dette giver mulighed for at tilgå siden via internet hvorved at behovet for adgangskode ved log in er nødvendig for at sikre data imod uatorisret brug. Efter log ind på siden kan brugeren vælge hvilket skib der skal benyttes. Når skib er valgt komemr brugeren ind på den valgte database. Her kan brugeren se ID på skibet vandtilstand i ballast tanke, hældning og tid siden sidste opdatering (for nærmere se appendix\fxnote{link til appendix}). Webinterfacet checker hvert 5 secund om der er kommet ny data. Ved ny data vil et script sørge for at denne bliver gemt i MySQL databasen. Webinterfacet tilgår den angivne tabel i den angivne database.
 
 \begin{figure}[H]
 \centering
@@ -323,7 +325,7 @@ Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan de
 \begin{table}[H]
 \centering
 \begin{tabular}{p{3cm} p{12.5cm}}
-\multicolumn{2}{l}{{\Large Web sidens beskrivelse}} \\\hline
+\multicolumn{2}{l}{{\Large Webinterface beskrivelse}} \\\hline
 MainWindow (index) & index loader shippas ind som er en form som håndtere adgangskoder. Dette er siden brugeren kommer til som det første. Brugeren skal taste sin adgangskode for at få adgang til databasen\\
 Databasen (logon) & Denne side bliver kaldt efter at brugeren er logget på. Her vælger brugeren hvilket skib denne ønsker at få vidst data for.\\
 \end{tabular}
