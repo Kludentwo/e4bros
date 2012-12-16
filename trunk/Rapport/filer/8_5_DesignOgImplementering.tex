@@ -259,7 +259,7 @@ Databasen er blevet opdelt i 2 dele som håndtere denne side. Databasen er opdel
 Denne section beskriver design og implementering af serveren.
 Opbygningen af severen er gjort i klasser sådan at hver element i severen er implementeret som en klasse se figur \ref{fig:database_server}. Ud over dette benyttes der nogle hjælpeklasser.\\
 
-Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp som benytter sig af socket. Når tilslutningen er gjort kan der overføres data fra KI til databasen. Dataerne bliver gemt i mySQL databasen. I tilfælde af at der blvier problermer med at gemme, laves der en en tekst fil hvori dataerne bliver lagt og kan så forsøgt gemt af web siden.
+Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp som benytter sig af socket. Når tilslutningen er gjort kan der overføres data fra KI til databasen. Dataerne bliver gemt i en tekst fil, der indlæses af web siden
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.5\textwidth]{billeder/database_server}
@@ -279,6 +279,32 @@ De kryptering(enumDeKrypteringskode) & Dekryptere level fra sm så data bliver i
 \caption{Serverens klasser}
 \label{tabel:server-klasser}
 \end{table}
+
+\section*{Hovedvindue for serveren}
+Dette giver et kort billed på hvordan serverens funktion ser ud. Den fulde model kan ses i apandix
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{billeder/server}
+	\caption{Billed af serverens hovedvindue}
+	\label{fig:server}
+\end{figure}
+Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den den web baserede database og lukke severen.
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{Hovedvinduets elementer} \\
+\hline
+\textcolor{green}{\textbf{1: Info}}
+&Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server_on}\\
+
+\textcolor{blue}{\textbf{2: Database}}
+&Anvendes til at lade brugeren tilgå den web baserede database som ses i \ref{fig:web_pass}\\
+
+\textcolor{red}{\textbf{2: Luk serveren}}
+&Anvendes til at lukke programmet. Programmet åbner dialogen som ses i \ref{fig:databselLogOff}\\
+
+\end{tabular}
+\end{table}
+
 
 \subsection{Web-side}
 Denne section beskriver design og implementering af web siden.\\
@@ -302,4 +328,32 @@ Databasen (logon) & Denne side bliver kaldt efter at brugeren er logget på. Den
 \end{tabular}
 \caption{Web sidens opbygning}
 \label{tabel:webside-simpel}
+\end{table}
+
+\subsection*{Skibs data i database}
+Et billed af hvordan data fremvises for brugeren. For de andre sider på websitet kan disse ses i apendix
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/web_database}
+	\caption{Billed databasen BROS for skibet Martha}
+	\label{fig:web_database}
+\end{figure}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+
+\multicolumn{2}{l}{Data fra skib i databasen } \\
+\hline
+\textcolor{Turquoise}{\textbf{1: Skib og sidst opdateret}}
+&Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er opdateret.\\
+\textcolor{green}{\textbf{2: ID på skib}}
+&Skibets ID bliver vidst. Hvis at KI lukker tcp forbindelsen vil skibts ID skifte til "TERMINATED".\\
+\textcolor{blue}{\textbf{3: Styrbord vandtanksniveau}}
+&Der vises hvor meget vand der er i styrbord ballasttank.\\
+\textcolor{yellow}{\textbf{4: Bagbord vandtanksniveau}}
+&Der vises hvor meget vand der er i bagbord ballasttank.\\
+\textcolor{red}{\textbf{5: Hældning i grader}}
+&Der vises hvor mange grader sibet hælder i forhold til styrbord.\\
+\textcolor{RoyalPurple}{\textbf{6: Skib tilsluttet}}
+&Der vise hvor lang tid i secunder der er gået fra overførelsen før til denne.\\
+\end{tabular}
 \end{table}
