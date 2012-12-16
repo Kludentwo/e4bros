@@ -24,7 +24,8 @@ Case &Formål &Udførelse\\\hline
 \hline
 Case &Formål &Udførelse\\\hline
 1 &At teste ventilkreds &Der toggles 5V med 500ms interval ud fra PSoC'en på ben P0\_0 og P0\_2. Der lyttes på ventilerne for at bekræfte at de åbner og lukker.\\\hline
-2 &At teste transmitterkreds &Der sendes burst ved 40kHz 0V-5V fra PSoC'en på ben P0\_1. Disse sendes med 100ms interval og der indsættes et ekstra ben mellem PGA og mixer. Der testes med Osciloskop og der bekræftes om et burst modtages ved at holde en genstand over ultralydstransmitteren og receiveren.\\\hline
+2 &At teste transmitterkreds &Der sendes et 40kHz signal fra funktionsgeneratoren med 12Vp-p. Der læses med oscilloskop på receiveren og det valideres om signalet bliver transmitteret.\\\hline
+3 &At teste receiverkredsen & Der sendes burst fra transmitterkredsen med 500ms interval med en varighed på $\sim$250$\mu$s. Der indsættes to analoge pinde i PSoCdesignet der kobles til udgangen på PGA'en og udgangen af mixeren. Signalet valideres med oscilloskopbilleder.\\\hline
 \end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,7 +48,7 @@ Case &Formål &Udførelse\\\hline
 \centering
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
-Case &Formål &Udførelse\\\hline
+Case &Metode &Udførelse\\\hline
 1 &SendBurst &Metoden kaldes i intervaller på 500ms og der måles med osciloskop på ben P0\_1 at der bliver sendt burst's med en varighed på $\sim$250$\mu$s og med en frekvens på $\sim$40kHz.\\\hline
 2  &CalculateDistance & Metoden kaldes 100 gange med forskellige inputværdier. Outputtet ligges i et array og der valideres på disse værdier.\\\hline
 3 &ConvertMMtoPercent & Metoden kaldes 100 gange med forskellige inputværdier. Outputtet ligges i et array og der valideres på disse værdier.\\\hline
@@ -136,9 +137,11 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Ventilerne åbner og lukker &Det høres tydeligt at ventilerne åbnes og lukkes. &\begin{Huge}$\surd$\end{Huge} \\\hline 
-2 &Der ses burst på osciloskopet &Der modtages et svagere signal end først antaget. Gain i PGA justeres til og testen gennemføres igen. Testen kan herefter godkendes. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+2 &Der ses signal på osciloskopet &Signalet ses på osciloskop. Se \textit{figur \ref{fig:transmittertest}} &\begin{Huge}$\surd$\end{Huge} \\\hline 
+3 & Der ses burst efter PGA'en samt "tapper" efter mixeren via. oscilloskop. & Ved første test blev et markant svagere end antaget modtaget. Gain i PGA blev justeret til 32 og testen kunne godkendes. Testresultet ses på \textit{figur \ref{fig:PGA}, \ref{fig:mixer} og \ref{fig:mixer2}} i bilag. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 \end{tabular}
 \end{table}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SOFTWARE RESULTATER        %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,7 +157,21 @@ Case &Forventet resultat &Resultat &Status\\\hline
 2 &teststubben printer til skærmen at alle cases er succesfulde &teststubben printede Success: 6000 &\begin{Huge}$\surd$\end{Huge} \\\hline 
 \end{tabular}
 \end{table}
-
+\subsubsection{VBTE}
+\begin{table}[H]
+\centering
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\hline
+Case &Forventet resultat &Resultat &Status\\\hline
+1 &Metoden laver et burst på $\sim$250$\mu$s og med en frekvens på $\sim$40kHz & Der er blevet målt med osciloskop på P0\_1. Se resultat på \textit{figur \ref{fig:burstpsoc} og \ref{fig:flereburstpsoc}} i bilag. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+2 &Metoden returnerer 100 værdier der stemmer overens med funktionaliteten & Metoden returnerede de forventede værdier. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+3 &Metoden returnerer 100 værdier der stemmer overens med funktionaliteten & Metoden returnerede de forventede værdier. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+4 &Metoden togler ventilerne som forventet & Ventilerne blev toglet som forventet. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+5 &Metoden udskriver værdierne på displayet og svarer SM stub'en & Der blev aflæst det forventede på displayet og svaret til SM stemte overens med forventningerne. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+6 &Metoden returnerer de forventede resultater og returnerer luk ventiler ved værdier uden for protokollen& Metoden returnerede de forventede værdier. &\begin{Huge}$\surd$\end{Huge} \\\hline
+7 &Metoden returnerer 1 & Metoden returnerede 1. &\begin{Huge}$\surd$\end{Huge} \\\hline  
+\end{tabular}
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%     KI      %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,3 +227,66 @@ Ingen kontakt til Styringsmodulet. Af sikkerhedsmæssige årsager kan programmet
 4b &Det forventes at programmet blot vender tilbage til stadiet før trykket på "LUK BROS" uden yderligere handling. &Programmet vende korrekt tilbage og foretog sig intet yderligere i forhold til trykket. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 \end{tabular}
 \end{table}
+
+\chapter{Bilag}
+
+\section{VBTE hardware}
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width = 0.4\textwidth]{billeder/PGA}
+\caption{Burst set mellem PGA og mixer}
+\label{fig:PGA}
+\end{figure}
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width = 0.4\textwidth]{billeder/mixer}
+\caption{Burst set mellem mixer og delta-sigma}
+\label{fig:mixer}
+\end{figure}
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width = 0.4\textwidth]{billeder/mixer2}
+\caption{gentagene burst set mellem mixer og delta-sigma}
+\label{fig:mixer2}
+\end{figure}
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width = 0.4\textwidth]{billeder/burst}
+\caption{Burst sendt fra PSoC'en}
+\label{fig:flereburstpsoc}
+\end{figure}
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width = 0.4\textwidth]{billeder/gentageneburst}
+\caption{gentagene burst sendt fra PSoC'en}
+\label{fig:burstpsoc}
+\end{figure}
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width = 0.4\textwidth]{billeder/transmittertest}
+\caption{40kHz signal fra transmitter set på receiver}
+\label{fig:transmittertest}
+\end{figure}
+
+\section{Test kode til VBTE}
+
+\lstset{language=C++,                % choose the language of the code
+  numbers=left,                   % where to put the line-numbers
+  stepnumber=1,                   % the step between two line-numbers.        
+  numbersep=10pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+}
+\texttt{\lstinputlisting{Test/test_VBTE.c}}
+
+
+
+
+
