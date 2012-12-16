@@ -188,13 +188,14 @@ For yderligere detaljer om software for VBTE henvises til detaljeret design doku
 \subsection{SM}
 I dette afsnit beskrives design og implementering af SM modulet. SM modulet består af både software og hardware.
 \subsubsection{Hardware}
-SM modulets hardware består af en konverteringskreds og en PSoC. På PSoC'en er monteret et Kionix KXSC7-2050 accelerometer. Konverteringskredsen anvendes til at sende UART signaler fra PSoC til en KI modulet. Accelerometerets x-akse anvendes til hældningsmålinger for hældningssensorblokken. Designfasen til SM er delt op i 3 faser:
+SM modulets hardware består af en konverteringskreds og en PSoC. På PSoC'en er monteret et Kionix KXSC7-2050 accelerometer. Konverteringskredsen anvendes til at sende UART signaler fra PSoC til en KI modulet. Accelerometerets x-akse anvendes til hældningsmålinger for hældningssensorblokken.\\
+Designfasen til SM er delt op i 3 faser:
 \begin{enumerate}
 \item Overordnet design
 \item Nedbrydning af blokke
 \item Opbygning af design
 \end{enumerate}
-Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i processen og at kunne implementere modulet så det overholder de krav der er stillet. Ligeledes gør fremgangsmåden det lettere at overskue flere løsninger til hvert problem. på \textit{Figur~\ref{fig:SMHW1}} ses det Overordnede design og på \textit{Figur~\ref{fig:SMPSOC1}} ses PSoC blokken i SM. Der bliver efterfølgende taget udgangspunkt i Hældningssensoren. \\
+Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i processen og at kunne implementere modulet så det kan opfylde de krav der er opstillet. Ligeledes gør fremgangsmåden det lettere at overskue flere løsninger til hvert problem. på \textit{Figur~\ref{fig:SMHW1}} ses det Overordnede design og på \textit{Figur~\ref{fig:SMPSOC1}} ses PSoC blokken i SM. Der bliver efterfølgende taget udgangspunkt i Hældningssensoren. \\
 \begin{figure}[H]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}\centering
@@ -215,7 +216,7 @@ Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i proce
 Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt en DelSig ADC internt i PSoC'en. Valget af accelerometer kommer af at have lavet en række prototyper der ikke mødte vores krav, hvilket accelerometeret i PSoC'en gjorde. Valget af ADC faldt på en DelSig da, den er meget støj immun grundet det indbyggede lavpas filter og har en høj opløsning. Valgte komponenter er illustret på \textit{Figur~\ref{fig:levelsensor}}. ADC konverterer det analoge signal fra, en pin forbundet til, accelerometer til en digital værdi der så senere bliver anvendt i softwaren. For ADC og accelerometerets opsætning se da afsnit \ref{ch:DetajlDesign}~\textit{Detaljeret hardware design} i Bilag.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.50\textwidth]{billeder/levelsensor}
+	\includegraphics[scale=0.8]{billeder/levelsensor}
 	\caption{Hældningssensorens implementering}
 	\label{fig:levelsensor}
 \end{figure}
