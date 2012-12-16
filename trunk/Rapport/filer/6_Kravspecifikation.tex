@@ -1,6 +1,12 @@
 \chapter{Kravspecifikation}
 Kravspecifikationen er udarbejdet i begyndelsen af projektforløbet og omfatter use cases, ikke funktionelle krav samt kvalitets faktorer. For den fulde kravspecifikation, henvises der til dokumentions dokumentet.
 
+<<<<<<< .mine
+Systemet BROS er lavet som et automatisk balast kontrol system. Dette giver brugeren mulighed for at kontroller hældningen på skibet under lastning og losning. Dene kontrol foretages ved at skibet kan tage vand ind og ud af ballast tanke placeret i styrbord og bagbord side af skibet. Fra kontrol interfacet har brugeren mulighed for at justere hvor meget vand der skal være i hver vand tank. Dette gøres da brugeren på denne måde har mulighed for at at justere hældningen på skibet i tilfælde af at denne ved at der vil komme en stor last fra starten af i den ene side.
+Alle informationer bliver skrevet til en grafisk bruger grænseflade sådan at brugeren kan følge med.
+
+
+=======
 \subsection{Overordnede krav til systemet}
 Systemet skal indeholde én til flere sensorer samt en til flere aktuatorer. Endvidere skal systemet indeholde et kontrolinterfacet og et styringsmodul. Kontrolinterfacet fungerer som brugergrænesflade og har kontakt til en ekstern database.
 
@@ -17,6 +23,7 @@ Når systemet sættes op første gange anvendes Opstart af Program(Use Case 1). 
 Projektforløbet skal følge V-modellen. SCRUM skal bruges i projektstyringsprocessen til at give overblik over projektets arbejdsopgaver. SCRUMmaster og projektleder uddeles til gruppemedlemmer.\\
 Til dokumentation skal der bruges SysML diagrammer til at beskrive systemet overordnet og i detaljer.\\
 Programmeringen til systemets embedded enheder, Styringsmodulet og Vandballasttankenhederne, anvendes C og til kontrolinterfaces anvendes C++. Til Databasen anvendes PHP  og databaseinterfacet skrives i HTML. \fxnote{Mick skal lige kigge på "Databaseinterfacet og hvad databasen er skrevet i!}.
+>>>>>>> .r246
 
 \subsection{Krav til grænseflader}
 Kommunikationen mellem kontrolinterfacet og styringsmodulet skal følge UART protokollen. Det kan kun tilkobles ét kontrolinterface og ét styringsmodul.\\

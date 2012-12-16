@@ -1,0 +1,47 @@
+\BOOKMARK [0][-]{chapter.1}{Indledning}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Form\345l}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Reference dokumentation}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Kontrolinterface}{}% 4
+\BOOKMARK [1][-]{subsection.2.0.1}{Modulets ansvar}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.0.2}{Klassediagram}{subsection.2.0.1}% 6
+\BOOKMARK [1][-]{section.2.1}{Metode- og klassebeskrivelser}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.1.1}{MainWindow}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.2}{Kontrolinterface}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.3}{DataServer}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.4}{manuDialog}{section.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.1.5}{Styringsmodul}{section.2.1}% 12
+\BOOKMARK [2][-]{subsection.2.1.6}{VBTE}{section.2.1}% 13
+\BOOKMARK [2][-]{subsection.2.1.7}{Sensor}{section.2.1}% 14
+\BOOKMARK [2][-]{subsection.2.1.8}{RS232}{section.2.1}% 15
+\BOOKMARK [0][-]{chapter.3}{Databasen}{}% 16
+\BOOKMARK [1][-]{subsection.3.0.9}{Modultes Ansvar}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.0.10}{Klassediagrammer}{subsection.3.0.9}% 18
+\BOOKMARK [2][-]{subsection.3.0.11}{Funktionsbeskrivelser}{subsection.3.0.9}% 19
+\BOOKMARK [2][-]{subsection.3.0.12}{Tilpasning}{subsection.3.0.9}% 20
+\BOOKMARK [2][-]{subsection.3.0.13}{TCP}{subsection.3.0.9}% 21
+\BOOKMARK [2][-]{subsection.3.0.14}{Apache}{subsection.3.0.9}% 22
+\BOOKMARK [2][-]{subsection.3.0.15}{mySQL}{subsection.3.0.9}% 23
+\BOOKMARK [0][-]{chapter.4}{SM}{}% 24
+\BOOKMARK [1][-]{section.4.1}{Klassens ansvar}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{Klassediagram}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.3}{Variabler}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.4}{Funktionsbeskrivelser}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.4.1}{Init}{section.4.4}% 29
+\BOOKMARK [2][-]{subsection.4.4.2}{Levelsensor}{section.4.4}% 30
+\BOOKMARK [2][-]{subsection.4.4.3}{autoReg}{section.4.4}% 31
+\BOOKMARK [2][-]{subsection.4.4.4}{I2C\137Kom}{section.4.4}% 32
+\BOOKMARK [2][-]{subsection.4.4.5}{KI\137KOM}{section.4.4}% 33
+\BOOKMARK [1][-]{section.4.5}{Eventuelle Sekvensdiagrammer og state machines}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{VBTE}{}% 35
+\BOOKMARK [1][-]{section.5.1}{Modulets ansvar}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.2}{Klassediagram}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.3}{Globale variabler}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.4}{Metode- og klassebeskrivelser}{chapter.5}% 39
+\BOOKMARK [2][-]{subsection.5.4.1}{Init}{section.5.4}% 40
+\BOOKMARK [2][-]{subsection.5.4.2}{Valve}{section.5.4}% 41
+\BOOKMARK [2][-]{subsection.5.4.3}{Dist}{section.5.4}% 42
+\BOOKMARK [2][-]{subsection.5.4.4}{I2Chandle}{section.5.4}% 43
+\BOOKMARK [2][-]{subsection.5.4.5}{PSoC-API::ADC}{section.5.4}% 44
+\BOOKMARK [2][-]{subsection.5.4.6}{State Machine}{section.5.4}% 45
+\BOOKMARK [2][-]{subsection.5.4.7}{Timing Diagram}{section.5.4}% 46
+\BOOKMARK [2][-]{subsection.5.4.8}{Interrupt rutiner}{section.5.4}% 47
