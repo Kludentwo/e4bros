@@ -274,7 +274,7 @@ Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp
 \multicolumn{2}{l}{{\Large Serverens klasser}} \\\hline
 Server & Er hovedvinduet på serveren. Information til brugeren udskrives herfra og knapper er implementeret. \\
 TCP forbindelse (tcp) & Opretter en mulig tcp forbindelse hvor skibet kan tilslutte sig og overføre data.\\
-Gemme data (savedata) & Gemmer data til en tekst fil hvis ikke det har været muligt for serveren at få kontakt til mySQL.\\
+Gemme data (savedata) & Gemmer data til en tekst fil.\\
 De kryptering(enumDeKrypteringskode) & Dekryptere level fra sm så data bliver i grader\\
 \end{tabular}
 \caption{Serverens klasser}
@@ -289,19 +289,19 @@ Dette giver et kort billed på hvordan serverens funktion ser ud. Den fulde mode
 	\caption{Billed af serverens hovedvindue}
 	\label{fig:server}
 \end{figure}
-Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den den web baserede database og lukke severen.
+Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den den web baserede database. Der er en mulighed for at lukke serveren. Denne er ment som en mulighed for at lukke serveren i tilfælde af fejl eller restart da det er meningen at serveren skal køre konstant. Serverens grafiske visning er ikke til brug for terminaloperatøren men ment for at man kan se at serveren køre.
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{Hovedvinduets elementer} \\
 \hline
 \textcolor{green}{\textbf{1: Info}}
-&Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server_on}\\
+&Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server}\\
 
 \textcolor{blue}{\textbf{2: Database}}
 &Anvendes til at lade brugeren tilgå den web baserede database som ses i \ref{fig:web_pass}\\
 
 \textcolor{red}{\textbf{2: Luk serveren}}
-&Anvendes til at lukke programmet. Programmet åbner dialogen som ses i \ref{fig:databselLogOff}\\
+&Anvendes til at lukke programmet. Bruges til nedlukning\\
 
 \end{tabular}
 \end{table}
@@ -311,7 +311,7 @@ Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke ko
 Denne section beskriver design og implementering af web siden.\\
 Opbygningen af web siden er gjort hovedsageligt i php hvor dette gav mening. Desuden er html og styles (css) blevet benyttet til at sikre ens stil på hele web siden og for simpelt at kunne veligeholdes. For at sikre mindst data transmision imellem computer og server er princippet i ajax blevet benyttet.
 
-Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan denne tilgå disse via den web baserede database. Når serveren køre kan brugeren tilgå databasen via knappen "Database" ellers kan denne tilgås via den locale adresse. For at komme ind i databasen skal brugeren taste sit password dette gøres for at sikre imod uaotirseret brug af databasen. Efter log ind på siden kan brugeren vælge hvilket skib der skal benyttes. Når skib er valgt komemr brugeren ind på den valgte database. Her kan brugeren se ID på skibet vandtilstand i ballast tanke, hældning og tid siden sidste opdatering (for nærmere se apandix\fxnote{link til apendix}). Hvis serveren har haft problemer med at gemme den nyeste data vil web siden forsøge at gemme som det første inden databasen loades. 
+Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan denne tilgå disse via den web baserede database. Når serveren køre kan brugeren tilgå databasen via knappen "Database" ellers kan denne tilgås via ip adressen dette giver mulighed for at tilgå siden via internet hvorved at behovet for adgangskode ved log in er nødvendig for at sikre data imod uatorisret brug. Efter log ind på siden kan brugeren vælge hvilket skib der skal benyttes. Når skib er valgt komemr brugeren ind på den valgte database. Her kan brugeren se ID på skibet vandtilstand i ballast tanke, hældning og tid siden sidste opdatering (for nærmere se apandix\fxnote{link til apendix}). Webinterfacet checker hvert 5 secund om der er kommet ny data. Ved ny data vil et script sørge for at denne bliver gemt i MySQL databasen. Webinterfacet tilgå den angivne tabel i den angivne database.
 
 \begin{figure}[H]
 \centering
@@ -324,8 +324,8 @@ Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan de
 \centering
 \begin{tabular}{p{3cm} p{12.5cm}}
 \multicolumn{2}{l}{{\Large Web sidens beskrivelse}} \\\hline
-Hovedvindue (index) & Den første side brugeren kommer til om ikke denne går via serveren \ref{tabel:server-klasser} Denne side loader siden Forside, Om os og Log in ind i sig.\\
-Databasen (logon) & Denne side bliver kaldt efter at brugeren er logget på. Denne side loader Skibs valg, bros datasen for skibet, Forside og Om os. 
+MainWindow (index) & index loader shippas ind som er en form som håndtere adgangskoder. Dette er siden brugeren kommer til som det første. Brugeren skal taste sin adgangskode for at få adgang til databasen\\
+Databasen (logon) & Denne side bliver kaldt efter at brugeren er logget på. Her vælger brugeren hvilket skib denne ønsker at få vidst data for.\\
 \end{tabular}
 \caption{Web sidens opbygning}
 \label{tabel:webside-simpel}
