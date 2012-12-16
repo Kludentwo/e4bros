@@ -10,16 +10,17 @@ I dette afsnit forklares hvordan enhedstest af hardware udføres.
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1 &Indstil Accelerometer &Der skrives hej på ben 44-45\\\hline
+1 &Indstil Accelerometer &Der skrives 0x06 på P15[2:0]\\\hline
+2 &Verificer RS232 &Der sættes en jumper mellem RX\_out og TX\_out og derefter sendes der 5 forskellige chars via UART\\\hline
 \end{tabular}
 \end{table}
 \subsubsection{VBTE}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1 &At teste ventilkreds &Der toggles 5V med 500ms interval ud fra PSoC'en på ben P0\_0 og P0\_2. Der lyttes på ventilerne for at bekræfte at de åbner og lukker.\\\hline
@@ -34,7 +35,7 @@ I dette afsnit forklares hvordan enhedstests af hardware udføres.
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1 &GetLevel &GetLevel kaldes som funktionskald med en stub. Stubben verificere returnværdien.\\\hline
@@ -44,7 +45,7 @@ Case &Formål &Udførelse\\\hline
 \subsubsection{VBTE}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1 &SendBurst &Metoden kaldes i intervaller på 500ms og der måles med osciloskop på ben P0\_1 at der bliver sendt burst's med en varighed på $\sim$250$\mu$s og med en frekvens på $\sim$40kHz.\\\hline
@@ -63,7 +64,7 @@ Case &Formål &Udførelse\\\hline
 \begin{table}[H]
 \caption{"AKTIVER MANUEL HÆLDNINGSREGULERING\"-knappen}
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 1a &At teste hvorvidt en ændret manuel vinkling sendes ud serielt. &Der indsættes en manuel vinklingsregulering på den grafiske brugergrænseflade. Alle kombinationer af side og værdi afprøves. Der verificeres i terminalen at RS232-klassen udsender værdierne til SM.\\\hline
@@ -77,7 +78,7 @@ Case &Formål &Udførelse\\\hline
 \begin{table}[H]
 \caption{Opdatering af grafisk brugergrænseflade}
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 
@@ -88,7 +89,7 @@ Case &Formål &Udførelse\\\hline
 \begin{table}[H]
 \caption{"AKTIVER AUTOMATISK HÆLDNINGSREGULERING\"-knappen}
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 3a &Det testes hvordan programmet reagerer hvis man forsøger at aktivere automatisk regulering, når denne allerede er aktiveret. &Automatisk hældningsregulering skal ikke være aktiveret. Tryk på "AKTIVER AUTOMATISK HÆLDNINGSREGULERING". Aflæs terminalen og GUI'en.\\\hline
@@ -102,7 +103,7 @@ Case &Formål &Udførelse\\\hline
 \begin{table}[H]
 \caption{"LUK BROS\"-knappen}
 \centering
-\begin{tabular}{| p{1.2cm}  | p{4.5cm} | p{8cm} |}
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
 4a &Det testes hvordan programmet reagerer hvis man ønsker at lukke programmet med et tryk på "LUK BROS"-knappen og efterfølgende bekræfter ved tryk på "YES"-knappen.&Tryk på "LUK BROS"-knappen. Tryk på "YES". Aflæs terminalen og GUI'en.\\\hline
@@ -121,17 +122,17 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-1 &SM &Accelerometeret er indstillet & \\\hline
- 
+1 &Accelerometeret er indstillet. &Det observeres at accelerometeret er indstillet og aktivt. &\begin{Huge}$\surd$\end{Huge}\\\hline
+2 &De afsendte chars bliver modtaget via UART. &De afsendte chars blev modtaget via UART. &\begin{Huge}$\surd$\end{Huge}\\\hline
 \end{tabular}
 \end{table}
 \subsubsection{VBTE}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Ventilerne åbner og lukker &Det høres tydeligt at ventilerne åbnes og lukkes. &\begin{Huge}$\surd$\end{Huge} \\\hline 
@@ -146,7 +147,7 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \subsubsection{SM}
 \begin{table}[H]
 \centering
-\begin{tabular}{| p{1.5cm}  | p{4cm} | p{6cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Level bliver returneret og verificeret &Level blev returneret og verificeret &\begin{Huge}$\surd$\end{Huge} \\\hline 
@@ -161,7 +162,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \begin{table}[H]
 \caption{"AKTIVER MANUEL HÆLDNINGSREGULERING"-knappen}
 \centering
-\begin{tabular}{| p{1.5cm}  | p{6cm} | p{5cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 
@@ -176,7 +177,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \begin{table}[H]
 \caption{Opdatering af grafisk brugergrænseflade}
 \centering
-\begin{tabular}{| p{1.5cm}  | p{6cm} | p{5cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 2 &I terminalen udskrives status-struct-stubben i SM-klassen. Den udskrives efterfølgende igen af dataserver-klassen som den sendes til databasen. Her sendes navnet på skibet og tiden siden sidste opdatering fra SM. Disse er tilføjet Kontrolinterface-klassen.&&\\\hline
@@ -186,7 +187,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \begin{table}[H]
 \caption{"AKTIVER AUTOMATISK HÆLDNINGSREGULERING"-knappen}
 \centering
-\begin{tabular}{| p{1.5cm}  | p{6cm} | p{5cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 3a &Det forventes at programmet bringer en dialog op hvori der informeres om at denne reguleringstype allerede er aktiveret. &Programmet reagerede blot med dialogen. \fxnote{indsæt reference til dialog AUTO==ON}. &\begin{Huge}$\surd$\end{Huge} \\\hline
@@ -200,7 +201,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \begin{table}[H]
 \caption{"LUK BROS"-knappen}
 \centering
-\begin{tabular}{| p{1.5cm}  | p{6cm} | p{5cm} | p{1cm} |}
+\begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 4a &Det forventes at programmet sender protokolkorrekte termineringskoder til både databasen og styringsmodulet og herefter lukker ned. Hvis programmet ikke får et svar fra styringsmodulet afbrydes termineringen med en dialog med teksten:
