@@ -45,7 +45,7 @@ for(i = 0; i < n; i++){
 //===============================================================
 // ENHED       : VBTE
 // CASE ID     : 4
-// BESKRIVELSE : ChangeState testes for om ventilerne åbner/lukker
+// BESKRIVELSE : ChangeState testes for om ventilerne aabner/lukker
 //===============================================================
 
 uint8 state[7] = {0,1,2,3,4,5,6};
@@ -59,8 +59,8 @@ for(i = 0; i < n; i++){
 //===============================================================
 // ENHED       : VBTE
 // CASE ID     : 5
-// BESKRIVELSE : I2C_handle kaldes og der ses på displayet om de 
-//			 	 rigtige værdier udskrives på displayet.
+// BESKRIVELSE : I2C_handle kaldes og der ses paa displayet om de 
+//			 	 rigtige vaerdier udskrives paa displayet.
 //===============================================================
 
 uint8 BufferSize = 8;
@@ -74,8 +74,8 @@ while(1){
 //===============================================================
 // ENHED       : VBTE
 // CASE ID     : 6
-// BESKRIVELSE : I2C_decode testes med 7 værdier. 4 som protokollen
-//				 foreskriver og 3 uden for protokollen. Returværdien
+// BESKRIVELSE : I2C_decode testes med 7 vaerdier. 4 som protokollen
+//				 foreskriver og 3 uden for protokollen. Returvaerdien
 //				 kontrolleres.
 //===============================================================
 
@@ -90,8 +90,8 @@ while(1){
 //===============================================================
 // ENHED       : VBTE
 // CASE ID     : 6
-// BESKRIVELSE : I2C_decode testes med 7 værdier. 4 som protokollen
-//				 foreskriver og 3 uden for protokollen. Returværdien
+// BESKRIVELSE : I2C_decode testes med 7 vaerdier. 4 som protokollen
+//				 foreskriver og 3 uden for protokollen. Returvaerdien
 //				 kontrolleres.
 //===============================================================
 
