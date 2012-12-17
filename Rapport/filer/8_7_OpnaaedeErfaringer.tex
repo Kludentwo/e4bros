@@ -44,17 +44,7 @@ Gruppen har i dette projekt bestået af 5 elektronik ingeniørstuderende. Dette 
 For de fleste moduler i systemet startede implementeringen ret tidligt. Dette skyldtes for det første at det er denne fase gruppens medlemmer finder mest interessant, men ligeledes at det indledende arbejde gav blod på tanden til at afprøve de problemløsninger der langsomt begyndte at forme sig. Således gik en del af teknologiundersøgelsen ud på at afprøve nogle af disse problemløsninger, og før man har set sig om har man sprunget både systemarkitektur og designfasen over. Dette har for mere end et modul ført til en omskrivning af hele programmet op til flere gange. Disse omskrivninger har bl.a. været som følge af dårlig strukturet kode som følge af mange ændringer. Dette medførte hurtigt en besværliggørelse af læsningen af, og det videre arbejde med, koden. Tillige har det været svært at arbejde med koden i et tilfredsstillende tempo, da programmet ikke har været udformet og designet tilstrækkeligt inden implementeringsfasen. Erfaringen må være at et program hurtigt bliver større end hvad der kan overskues i hovedet af projektgruppens medlemmer på deres nuværende niveau. Vigtigheden af at faserne bliver benyttet er dermed større end først antaget.\\
 
 \subsection{Rettidig test}
-\subsection{Udvikling af hældningssensor}
-Vi har startede med at udvikle på en prototype af en libellesensor vist på \textit{Figur~\ref{fig:libelle}}.
-\begin{figure}[hbpt]
-\centering
-\includegraphics[width=0.5\textwidth]{billeder/libellesensor1}
-\caption{henning}
-\label{fig:libelle}
-\end{figure}
-Vi kom frem til at den har en capacitet på omkring $1*10^{-15}[F]$. Det gør det praktisk umuligt at anvende da vores filter så har en alt for stor cutoff frekvens liggende over 3.0 MHz. Den høje frekvens giver en stor selvinduktion i vores ledning. Samtidig kan vi ikke lave sinus med denne frekvens med PSoC'en. Dette gjorde at vi måtte finde en anden løsning.\\
-Næste prototype bestod af et potmeter og et pendul. Dog havde potmeteret en for stor friktionsmodstand, der gjorde det upræcist i forhold til vores krav.\\
-Vi har gennem et tredje semestersfag fundet ud af at PSoC'en indeholder et accelerometer. Vi valgte så at lave en prototype med det. Dette viste sig at være en god løsning.
+
 
 \subsection{Metoder}
 Gruppen var opsatte på at have læst review på projektets dokumentation, men de adspurgte grupper havde ingen interesse i at lave review udvekslinger. Dette har ført til at dokumentationen blev gennemlæst på et senere tidspunkt af gruppens vejleder. Grundet udskydelsen havde gruppen set sig nødsaget til at forlænge tidsplanen for at opdatere og forbedre foreløbigt færdig dokumentation. Dette førte til at design og, i sidste ende, implementering blev udskudt, hvilket medfører et stort pres imod slutningen af projektforløbet.\\

@@ -1,7 +1,16 @@
 \section{Analyse}
 \subsection{Hvordan måler vi hældning?}
-Før vi kunne begynde på at lave en hældningssensor blev vi nødt til at finde ud af hvilke muligheder der var hældningsumåling. En af mulighederne var at anvende et pendul eller en libelle. Disse løsninger blev undersøgt og en redegørelse findes i afsnit \ref{ch:OpXP}.\\
-Valget faldt på at anvende et accelerometer. Det var en fordel af at anvende det accelerometer, der er monteret på PSoC'en.
+Før vi kunne begynde på at lave en hældningssensor blev vi nødt til at finde ud af hvilke muligheder der var hældningsumåling. En af mulighederne var at anvende et pendul eller en libelle. Vi har startede med at udvikle på en prototype af en libellesensor vist på \textit{Figur~\ref{fig:libelle}}.
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width=0.4\textwidth]{billeder/libellesensor1}
+\caption{Hældningssensor baseret på libelle}
+\label{fig:libelle}
+\end{figure}
+Hældningssensorprototype 1 indeholder 2 højpas filtrer samt en frekvensgenerator og en differensforstærker. Vi kom frem til at libellesensoren har en capacitet på omkring $1*10^{-15}[F]$. Det gør det praktisk umuligt at anvende da vores komponenter i det filter der skulle designes til den færdige sensor, da cutoff frekvens kommer til at være $>3.0[MHz]$. Den høje frekvens giver en stor selvinduktion i vores ledning. Et lavt signal fra hældningssensoren kombineret med stor selvinduktion, gjorde at vi måtte finde en anden løsning.\\
+Næste prototype bestod af et potmeter og et pendul. Dog havde potmeteret en for stor friktionsmodstand, der gjorde det upræcist i forhold til vores krav.\\
+Vi har gennem et tredje semestersfag fundet ud af at PSoC'en indeholder et accelerometer\footnote{KXSC7-2050 se bilag}. Efter en prototypeopbygning fandt vi ud af at det komponentet opfyldte de krav stille i kravspecifikation. Dog er prototypen implementeret med en '\#define' da databladet er vagt og output varierer mellem PSoCs.
+
 
 \subsubsection{Hvordan måler vi niveauet i vandballasttankene?}
 \subsection{Hvordan skal de forskellige modulerne forsynes?}
@@ -25,6 +34,7 @@ Da modulerne sidder rundt om i skibbet, skal der overvejes hvordan de kan forsyn
 RPi eller ej? Qt4 vs Qt5.\fxnote{Skriv afsnit om RPi og Qt}
 \subsection{Hvordan anvendes UART og TCP i Qt-frameworket}
 Qt-specifik eller C++? Boost? \fxnote{Skriv afsnit om Qt-frameworket}
+
 \subsection{Jura}
 Hvilke lovgivninger findes der på området? Er der et behov for dette? Hvad er de rigtige termer? \fxnote{skriv afsnit om jura}
 
