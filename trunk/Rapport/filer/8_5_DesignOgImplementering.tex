@@ -244,7 +244,84 @@ Funktionen er bedst beskrevet med et flowdiagram:
 	\caption{Flowdiagram for funktionen getFromKI}
 	\label{fig:gFKIfc}
 \end{figure}
-Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel da KI modulet har mulighed for at validere på overførslen. getFromKI bliver kaldt ca. hver andet sekund for at se om KI har skrevet noget til bufferen. Hvis der ikke er noget i bufferen returnerer funktionen med det samme.
+Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel da KI modulet har mulighed for at validere på overførslen. getFromKI bliver kaldt ca. hver andet sekund for at se om KI har skrevet noget til bufferen. Hvis der ikke er noget i bufferen returnerer funktionen med det samme.\\
+\subsection{Strømforsyning}
+I dette afsnit beskrives design og implementering af strømforsying. Strømforsyningen implementeres sammen med SM og VBTE.
+\subsubsection{Hardware}
+Strømforsyning er designet til at levere to forsyningsspændinger: \textbf{12VDC 1A og 5VDC 0.5A} dette gøres fra en 24V AC forsyningskilde. 
+For at gøre designet af strømforsyning mere oversskuelig er designfasen delt op i 3 faser:
+\begin{enumerate}
+\item Overordnet design
+\item Nedbrydning af blokke
+\item Opbygning af design
+\end{enumerate}
+Igennem de tre faser er designet af strømforsyning blevet udarbejdet, dette er gjort ved at have startet med et overordnet blokdiagram, hvor efter hver enkel blok er blevet beskevet og designet. \textit{figur \ref{fig:PowerSupplyBlok}} viser det overordnet blokdiagram af strømforsyningen.\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/PowerSupplyBlok}
+\caption{Illustrering af overordnet blokdiagram af strømforsyningen.}
+\label{fig:PowerSupplyBlok}
+\end{figure}
+\subsubsection{Beskrivelse af vitale hardware blokke}
+I dette afsnit vil der være en beskrivelse af udvalgte blokke, samt enkle udregninger til blokkene.
+\subsubsection{Dobbelt ensretter og udglatning}
+Da strømforsyningen for leveret strøm fra en AC spændingskilde, skal AC signalet ensrettes til DC.\\ 
+Dette gøres med dobbelt ensretteren og udglatningen. dobbelt ensretteren en lavet som en diodebro, mens at udglatningen er en elektrolyt kondensator.
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.80\textwidth]{billeder/DobbeltensretterBlok}
+	\end{minipage}
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.80\textwidth]{billeder/UdglatningsBlok}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Blok for dobbelt ensretter}
+	\label{fig:DobbeltensretterBlok}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Blok for udglatning}
+	\label{fig:UdglatningsBlok}
+	\end{minipage}
+\end{figure}
+\subsubsection{Beregning for dobbelt ensretter og udglatning}
+DC Spæding efter dobbelt ensretter og udglatning:\\
++DC = (24V AC * 1.41)-1.4V = \textbf{32.44V}
+\subsubsection{Regulator 12V og Regulator 5V}
+Da de enkle moduler bruger 12V og/eller 5V skal spænding reguleres ned til det pasende niveau, dette gøres i blokkene regulator 12V og regulator 5V. Udover enkle beregninger er designet af blokken den samme. 
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.80\textwidth]{billeder/Regulering_12VBlok}
+	\end{minipage}
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.80\textwidth]{billeder/Regulering_5VBlok}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Blok for 12V regulator}
+	\label{fig:Regulering_12VBlok}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Blok for 5V regulator}
+	\label{fig:Regulering_5VBlok}
+	\end{minipage}
+\end{figure}
+\subsubsection{Beregning på feedback til regulator 12V og 5V}
+\textbf{12V regulator}\\
+V\_out = 1,25*(1+(R4/R3))+ I\_adj*R4 \\
+R3 vælges med en standardværdi til 150 ohm. I\_adj er ifølge databladet = max 100uA \\
+R4 = (R3 * 10,75) / (I\_adj +1,25) = (150 * 10,75) / (100uA * 1,25) \\
+R4 = 1290 ohm \\
+Nærmeste standardværdi er 1300 ohm \\
+\textbf{R4 = 1300 ohm}\\\\
+\textbf{5V regulator }\\
+V\_out = 1,25*(1+(R4/R3))+ I\_adj*R4 \\
+R3 vælges med en standardværdi til 270 ohm. I\_adj er ifølge databladet = max 100uA \\
+R4 = (R3 * 3,75) / (I\_adj +1,25) = (270 * 10,75) / (100uA * 1,25) \\
+R4 = 810 ohm \\
+Nærmeste standardværdi er 820 ohm \\
+\textbf{R4 = 820 ohm}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% DA TAB ACE  %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
