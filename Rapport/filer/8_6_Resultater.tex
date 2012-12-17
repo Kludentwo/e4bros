@@ -14,3 +14,41 @@ VBTE modulet er fuldt implementeret, men med problemer. Afstanden målt af ultra
 \subsection{powersupply}
 
 \subsection{Samlede resultat og vurdering af resultater}
+Til de samlede resultater har gruppen udarbejdet en tabel der viser hvordan test's er gået helt nede fra enhedstest til accepttest. For detaljer om de enkelte test henvises til "Enhedstest", "Integrationstest" og "Accepttest". Testresultaterne er opdelt i fire katagorier som angivet i tabellen :
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Godkendt 	& Delvist godkendt 	& Ikke godkendt & Ikke testet \\
+\cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+$\surd$		& $\times$		& $\div$ & $\diamond$	\\\hline
+\end{tabular}
+\caption{Testgodkendelseskatagorier}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{llllllll}
+\hline
+\multicolumn{1}{c}{Test} & \multicolumn{7}{c}{Test case ID}\\
+\cmidrule(r){1-1} \cmidrule(r){2-8} 
+\textbf{Enhedstest software} & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+\hline
+\phantom{mm}KI  		& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+\phantom{mm}Database  	& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+\phantom{mm}SM			& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ &  $\surd$ & $\surd$\\
+\phantom{mm}VBTE  		& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\ 
+\textbf{Enhedstest hardware} \\
+\hline
+\phantom{mm}SM			& $\surd$ & $\surd$\\
+\phantom{mm}VBTE  		& $\surd$ & $\surd$ & $\times$ \\ 
+\phantom{mm}Strømforsyning & $\surd$ & $\surd$ & $\surd$\\
+\hline
+\textbf{Integrationstest} & $\surd$ & $\surd$ & $\surd$ & $\div$ & $\surd$ & $\surd$\\
+\textbf{Accepttest} & $\diamond$ & $\diamond$ & $\diamond$ & $\diamond$ & $\diamond$ & $\diamond$\\
+\hline
+\end{tabular}
+\caption{Samlet tabel med alle resultater}
+\label{table:alle test samlet}
+\end{table}
+Som tabellen illustrerer er der blevet implementeret en masse funktionaliteter som er blevet godkendt gennem enhedstest. Dog var der problemer med afstandsmåling på VBTE og denne testcase kunne derfor kun delvist godkendes.\\
+Da der under integrationstest skete uheld og problemer ved at have mange enheder koblet sammen blev gruppen enige om at droppe accepttesten på grund af tidsnød.\\
