@@ -18,7 +18,7 @@ Severens GUI giver mulighed for at brugeren kan se at serveren køre og vilke ko
 &Anvendes til at lade brugeren tilgå den web baserede database som ses i \ref{fig:web_pass}\\
 
 \textcolor{red}{\textbf{2: Luk serveren}}
-&Anvendes til at lukke programmet. Programmet åbner dialogen som ses i \ref{fig:databselLogOff}\\
+&Anvendes til at lukke programmet, denne er implementeret som et redskab for korrekt nedlukning istedet for at lukke på krydset, desudne kan man ved dette give brugeren en advarsel som kan sikre stabilt brug.. Programmet åbner dialogen som ses i \ref{fig:databselLogOff}\\
 
 \end{tabular}
 \end{table}
@@ -59,7 +59,7 @@ Ved tryk på "Luk server" vil billedet \ref{fig:databselLogOff} fremkomme og man
 Den web baserede adgang til databasen
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{billeder/database/web_pass}
+	\includegraphics[width=0.8\textwidth]{billeder/database/web_forside}
 	\caption{Billed af log in på den web baserede database}
 	\label{fig:web_pass}
 \end{figure}
@@ -69,7 +69,9 @@ Den web baserede adgang til databasen
 \multicolumn{2}{l}{Password check for adgang til den web baserede database } \\
 \hline
 \textcolor{green}{\textbf{1: Password check}}
-&Når brugeren åbner databasen fra serveren vil denne komme til den web baserede database. For at få adgang til databasen skal brugeren taste det password som er blevet opgivet til denne\\
+&Når brugeren åbner databasen fra serveren eller fra en almindelig browser via internettet, vil denne komme til den web baserede database. For at få adgang til databasen skal brugeren taste det password som er blevet opgivet til denne\\
+\textcolor{blue}{\textbf{1: Logpå/Log af}}
+&Når brugeren endnu ikke er logget på systemet er disse 3 knapper sat til Log på. Efter at bruegren er logget på vil disse knapper ændre sig til log af. Dette er brugerens bedste billed af hvor denne står på siden.
 \end{tabular}
 \end{table}
 
@@ -88,8 +90,8 @@ Efter log in kan brugeren vælge imellem de skibe der er i dennes database. I de
 \hline
 \textcolor{green}{\textbf{1: Valg af skib}}
 &Efter at brugeren er logget på som på \ref{fig:web_pass} kan brugeren vælge imellem de skibe som denne har adgang til fra sin database del. Fo havne kontoret ville dette normalt være alle skibe. I denne test version er der kun et skib "Martha"\\
-\textcolor{red}{\textbf{2: Log af}}
-&Efter at brugeren er logget ind vil denne på alle sider have mulighed for at logge af, dette sker ved at trykke på Log af.\\
+\textcolor{blue}{\textbf{2: Log af}}
+&Efter at brugeren er logget ind vil denne på alle sider have mulighed for at logge af, dette sker ved at trykke på Log af. Efter at brugeren er logget af vil denne blvie sendt tilbage til Log på vinduet.\\
 \end{tabular}
 \end{table}
 
@@ -120,25 +122,6 @@ Efter at brugeren har valgt skib kan denne følge med i tilstanden på skibet. D
 &Der vise hvor lang tid i secunder der er gået fra overførelsen før til denne.\\
 \end{tabular}
 \end{table}
-
-\subsection*{BROS forside}
-Om ikke at brugeren tilgår BROS databasen fra serveren vil forsiden fremkomme, denne kan også tilgås fra databasen.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{billeder/database/web_forside}
-	\caption{Billed BROS forside}
-	\label{fig:web_forside}
-\end{figure}
-
-\subsection*{Om BROS}
-Efter at brugeren har valgt skib kan denne følge med i tilstanden på skibet. Denen side opdateres hver 5 secund hvis der er ny data.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{billeder/database/web_about}
-	\caption{Billed af om os på web siden}
-	\label{fig:web_about}
-\end{figure}
-
 
 \section*{MySQL}
 MySQL er en flertrådet SQL-database som understøtter mange samtidige brugere. MySQL er en open-source program som kan downloades på mysql.com og kan benyttes med mange forskellige operativ systemer som f.eks. WIndows, Linux og MAC OS X Lion.
