@@ -2,7 +2,6 @@
 Nedenfor følger design af software til databasen og dens interface. Dette er lavet på baggrund af kravspecifikation og systemarkitektur. 
 
 
-
 \subsection{Modultes Ansvar}
 Databasen er her hvor havne terminalens personale kan aflæse data fra skibet. Disse data er sendt fra KI. Programmerne indeholder brugergrænseflader der opfylder kravene, beskrevet i kravspecifikationen. Her kan der også ses en prototype på brugergrænsefladen.
 Databasemodulet har tre dele; severen, websiden og en mySQL database. \\
@@ -16,14 +15,14 @@ Severedelen er opskrevet som et normalt klassediagram og websiden er opskrevet s
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.4\textwidth]{billeder/serverKlassediagram}
+	\includegraphics[width=0.4\textwidth]{billeder/Database/serverKlassediagram}
 	\caption{Klassedigram for databasens severer}
 	\label{fig:serverKlassediagram}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{billeder/web_klasse}
+	\includegraphics[width=0.5\textwidth]{billeder/Database/web_klasse}
 	\caption{Klassedigram for databasens web-side.}
 	\label{fig:serverKlassediagram}
 \end{figure}
@@ -48,7 +47,7 @@ Returværdi:& Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} on\_closeServer\_clocked( )}} \\
 \hline
-Beskrivelse: &Denne funktion håndtere luk knappen. Ved tryk knappen vil brugeren blive bedt om at svare ja eller nej til at lukke server connectionen \\
+Beskrivelse: &Denne funktion håndtere luk knappen. Ved tryk knappen vil brugeren blive bedt om at svare ja eller nej til at lukke server connectionen. En knap der er implementeret som en hjælp men ikke videre beskrevet \\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
@@ -65,21 +64,10 @@ Returværdi: & Ingen\\
 \end{table}
 
 \subsubsection{update}
-Denne header står for at håndtere de struct's der benyttes til at at save data til log filen. 
-
-\begin{table}[H]
-\begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} addLogEntry( \textcolor{blue}{QString} )}} \\
-\hline
-Beskrivelse&Står for at udskrive beskeder fra tcp klassen til GUI \\
-Parametre:& Ui::Server *ui;\\
-Returværdi:&\\
-\end{tabular}
-\end{table}
-
+Denne header indeholder de data der skal sendes fra tcp klassen til savedata
 
 \subsubsection{tcp}
-Denne header står for tcp forbindelsen. Socket oprettes og connection adgang gives. Når data bliver modtaget blvier denne gemt i den eksterne log fil ship.txt
+Denne header står for forbindelsen fra KI kan oprettes. Denne opretter en socket og klargør serveren til modtagelse af data. Ved modtagelse af data sørger klassen for opdeling og strengen og flytte dem til variabler for vider behandling
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
@@ -106,11 +94,26 @@ Returværdi:&\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{Void} startRead( \textcolor{blue}{void} )}} \\
 \hline
-Beskrivelse:&Læser data fra socket. Data til fil og GUI\\
+Beskrivelse:&Læser data fra socket. Data som bliver modtaget som en streng bliver splittet og lagt ud i de 5 variabler ID, STYRBORD, BAGBORD, LEVEL og TIME\\
 Parametre:&QTcpSocket* client\\
 Returværdi:&\\
 \end{tabular}
 \end{table}
+
+\subsubsection{enumdekrypteringskode}
+Denne header står for at dekryptere LEVEL niveau til grader fra sm. 
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{int} levelEnumConverterAndSetter( \textcolor{blue}{int level} )}} \\
+\hline
+Beskrivelse & Oversætter LEVEL til grader ud fra protokollen fra uart\\
+Parametre: & level\\
+Returværdi:& level\\
+\end{tabular}
+\end{table}
+
+
 
 \subsubsection{savedata}
 Denne header står for at handtere lagring af data modtaget fra skibet. Den lager dataerne i ship.txt
@@ -119,7 +122,7 @@ Denne header står for at handtere lagring af data modtaget fra skibet. Den lage
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{int} save( \textcolor{blue}{save\_data} )}} \\
 \hline
-Beskrivelse & Står for at udskrive beskeder fra tcp klassen til GUI \\
+Beskrivelse & Står for at gemme data til en tekstfil. \\
 Parametre: & Ingen\\
 Returværdi:& Ingen\\
 \end{tabular}
@@ -134,7 +137,7 @@ Web-siden står for at fremvise skibs data grafisk for terminal personalet. Desu
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} file\_handle( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Beskrivelse:&Klargør tekstfil til læsning\\
 Parametre:& Ingen\\
 Returværdi:& Ingen\\
 \end{tabular}
@@ -144,7 +147,7 @@ Returværdi:& Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} fgets ( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse:&Læse hvilken adresse databasen ligger på\\
+Beskrivelse:&Tager fat i tekststrengen i tekstfilen\\
 Parametre:& Ingen\\
 Returværdi:& Ingen\\
 \end{tabular}
@@ -154,7 +157,7 @@ Returværdi:& Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} explode( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse: &Læse hvilken adresse databasen ligger på\\
+Beskrivelse: &Splitter linien ind til flere varible\\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
@@ -174,7 +177,7 @@ Returværdi: & Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} mysql\_connect( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse: &Læse hvilken adresse databasen ligger på\\
+Beskrivelse: &connecter til MySQL databasen\\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
@@ -184,7 +187,7 @@ Returværdi: & Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} mysql\_select\_db( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse: & Læse hvilken adresse databasen ligger på\\
+Beskrivelse: & Vælger hvilken database der skal benyttes i MySQL\\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
@@ -194,7 +197,7 @@ Returværdi: & Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} unlink( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse: & Læse hvilken adresse databasen ligger på\\
+Beskrivelse: & Sletter den tekstfil som der lige er blevet læst fra\\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
@@ -204,7 +207,7 @@ Returværdi: & Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{new} mysql( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse: & Læse hvilken adresse databasen ligger på\\
+Beskrivelse: & Opretter ny database fobindelse\\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
@@ -215,7 +218,7 @@ Returværdi: & Ingen\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{} setHostName( \textcolor{blue}{} )}} \\
 \hline
-Beskrivelse: & Læse hvilken adresse databasen ligger på\\
+Beskrivelse: & Sætter server navn/ip\\
 Parametre: & Ingen\\
 Returværdi: & Ingen\\
 \end{tabular}
