@@ -122,7 +122,7 @@ Clock\_dist interruptrutinen sørger for at tælle en variabel op der anvendes i
 Receiverkredsen modtager signalet fra ultralydsreceiveren og omsætter det til en detektion. Dette sker efter følgende opskrift:\\
 Løfte signalet $\rightarrow$ Forstærkning $\rightarrow$ Mixning.\\
 Signalet bliver løftet på til $\frac{Vdda}{2}$ fordi PSoC'en ikke kan arbejde med værdier under Vssa (GND). Dette gøres ved hjælp af en kondensator, en modstand og en spændingsfølger med $\frac{Vdda}{2}$ på det positive ben.\\
-Efter signalet er løftet bliver det forstærket op af en PGA. Efter undersøgelser, hvor der blev sendt bursts, er der valgt en forstærkning på 16, da der ca. modtages et signal på $\SI{200}{mV} p\-p$.\\
+Efter signalet er løftet, bliver det forstærket op af en PGA. Den første forstærkning, fundet i teknologiundersøgelsen, viste sig at være for lav og forstærkningen blev justeret til 32. Problemet heri ligger at et meget klart signal vil kunne få systemet til at gå i mætning. Men dette ser ikke ud til at ske.\\
 Herefter bliver signalet mixet med $\SI{40}{kHz}$ og filtreret. Efter mixeren giver det, stort set, en DC og summen af de to signaler. Filteret er inbygget i Delta-Sigma ADC'en og har en knækfrekvens ved $\frac{Sample frekvens}{3}$. For at være sikker på at det meste af signalet er kommet over regnes der en opladningstid på filteret til $\SI{1/4}{ms}$. Efter undersøgelser af signalet ind på ADC'en blev en spænding på $\SI{0.3}{V}$.
 
 \subsubsection{Hardware uden for PSoC'en}
