@@ -7,3 +7,21 @@ Der er også blevet implementeret tre forskellige kommunikationsprotokoller i pr
 Problemerne kunne være opdaget tidligere i projektforløbet hvis gruppen havde påbegyndt testningen tidligere. Dette var dog ikke muligt da der har været ret mange last-minute tilføjelser til projektet - bl.a. tre forsyningsboards. Dette kan igen skyldes den mangelfulde strukturering af projektets faser.
 
 \chapter{Forbedringer til systemet}
+
+I dette afsnit samles op på det endelige system og der diskuteres forbedringer til systemet. Der diskuteres ikke udvidelser men reelle forbedringer til det dokumenterede system. Afsnittet er delt op i tre punkter "Sikkerhed", "Optimering af overførsel af data" og "Effektivitet".
+
+\begin{large}\begin{itemize}
+\item Sikkerhed
+\end{itemize}\end{large}
+Før systemet skulle implementeres mere er der meget sikkerhed der skal tages til overvejelse. Visse scenarier vil få katastrofale konsekvenser hvis systemet kom ud på et stort skib. Forsvandt forbindelsen mellem SM og VBTE mens en VBTE er ved at fylde i en tank vil dennes tilstand ikke blive ændret og VBTE'en vil blive ved med at fylde vand ind til der ikke kunne være mere og skibet ville kæntre. Forhåbentligt ville SM og den anden VBTE, hvis der stadig var forbindelse der, kunne oprette holde vatter for skibet ved at fylde denne tank også. Men forsvandt SM fuldstændigt kunne det gå helt galt.\\
+Her kunne indføres timere på hver VBTE til at lukke for ventilerne hvis der ikke blev opdateret tilstand i en hvis tidsperiode. En slags watchdog.
+\begin{large}\begin{itemize}
+\item Optimering af overførsel af data
+\end{itemize}\end{large}
+Sådan som systemet lige nu håndterer data bliver der udskrevet til brugeren at forbindelsen er mistet til SM hvis der bliver svaret med forkert data til KI. Dette kan optimeres ved at forsøge flere gange hvis det rigtige svar ikke kommer tilbage. \\
+Derudover er der ikke nogen tjek af data mellem SM og VBTE. Den eneste sikring indført her er at ventilerne bliver lukket hvis der bliver modtaget data uden for protokollen. Man kunne indføre at VBTE svarer tilbage med hvad den har sat sig til og herefter sender niveauet tilbage.
+\begin{large}\begin{itemize}
+\item Effektivitet
+\end{itemize}\end{large}
+Systemet tømmer/fylder kun en tank af gangen som implementeringen er sket. Dette kunne optimeres på flere måder. Den ene er mere intelligent software på SM. Den anden, og mere interressante, kunne være at helt udelade SM og have en hældningsmåler på hver VBTE. VBTE vil derfor reagere selvstændigt på hældningen resulterende i at der både bliver tømt og fyldt på samme tid i hver sin side. Problemet med dette bliver så kontakt til KI og der skal laves væsentlige ændringer i hele struktureringen af systemet.\\
+Til effektivitet kan også nævnes at manuel vinkling også manuelt skal sættes tilbage igen. Dette kunne håndteres ved hjælp af SM. Hvis det var nødvendigt med manuel hældning ville man også kunne antage at systemet ville ramme tilbage i vatter i takt med den store lastning. Dermed burde SM aktivere automatik igen når den når vatter.
