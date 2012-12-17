@@ -4,6 +4,8 @@ I dette afsnit samles der op på resultaterne gruppen har opnået gennem projekt
 \subsection{KI}
 
 \subsection{Database og webinterface}
+Database og Webinterfacet er fuldt implementeret. I database modulet er serveren fuldt kørende og har en stabil forbindelse med KI via TCP. Serveren er i stand til at motage data fra KI. Benytte en dekryptering til at omsætte hældningen fra SM til grader og gemme denne som en tekstfil. Lagring direkte til MySQL blev aldrig implementeret grundet broplemer med MySQL driver. Selve MySQL databasen er fuldt kørende og fungere fejlfrit. \\
+Webinterfacet er fuldt implementeret og ved opstart af webinterfacet fungere bruger adgangskoden næsten korrekt. Der opstår et problem ved fejl password hvor brugeren får en hvid side i stedet for igen at blive bedt om nyt password men får dog ikke adgang til data. Ved korrekt adgangskode får brugeren mulighed for at vælge skib og få dennes data frem. Ved inndlæsning af data siden bliver tekstfilen som serveren genereret hentet. Data bliver taget ud fra den og gemt i MySQL databsen og filen slettet. Alle data bliver hentet fra MySQL databasen med de nyeste øverst. Siden checker hvert 5 sekund om der er ny data. Hvis der ikke er ny data foretages der intet.
 
 \subsection{SM}
 SM modulet er fuldt implementeret, men ikke finjusteret. Forbindelsen til KI er fuldt funktionel. Forbindelsen til VBTE virker 95\% af tiden. Automatisk hældningsregulering er implementeret, men da niveaumålinger ikke modtages fra VBTE modulet er det ikke muligt at tømme tankene inden vi fylder i den anden tank. Prototypen er modulet er monteret med 7 LED's der bruges til fejlfinding. Prototypen er også lagt ud på print med indeholdende levelkonvertering og I2C pull-up modstande.

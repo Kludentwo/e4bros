@@ -54,8 +54,17 @@ Qt-specifik eller C++? Boost? \fxnote{Skriv afsnit om Qt-frameworket}
 \subsection{Jura}
 Hvilke lovgivninger findes der på området? Er der et behov for dette? Hvad er de rigtige termer? \fxnote{skriv afsnit om jura}
 
+%%%%%%%%%%%%%%%%%%%%
+%%% Databasen %%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Server}
+Opbygningen af serveren er gjort på baggrund af behovet for at kunne overføre data via et netværk. Til denne dataoverførelse har valget ligget imellem UDB eller TCP. UDB giver mulighed for flere tilslutninger men har ikke mulighed for pålidelig data overførelse. Ved at benytte TCP kan der ikke flere end en der kan koble til samtidig men derimod giver denne stabilitet og ordnet levering. Dette vil sge at hvis en pakke går tabt under overførelsen vil denne automatisk blive forsøgt sendt igen og så er vi sikre på at data kommer frem i samme orden som de blev afsendt. 
+der blev valgt at benytte TCP som gav den udfordring at ved afsendelse fra KI kom alle data over i en streng selv om vi forsøgte at sende dem over i 5 forskellige strenge og satte delays. Dette skyldes at TCP ser det som en streng der skal overføres og ikke som 5. For at løse dette satte vi nul terminering på ved afsendelse. Ved modtagelse blev dataet lagt ind i en variable som blev splittet ved nul terminaringen og efterfølgende gemt.
+
 \subsection{Valg af database}
 For at vælge database til systemet blev der kigge på MySQL, Microsoft Acces og en lagring til en tekstfil.\\
 Microsoft Acces er et database system der der medfølgende i Microsoft Office pakken. Microsoft Access benytter sit eget format baseret på Access Jet Database Engine. En ulempe ved Microsoft Acces er at den kun fungere under Windows og da systemet skulle alsidigt var dette ikke den bedste løsning. At lagre direkte i en tekst fil blev overvejet da det er meget simpelt at lagre til tekstfiler fra c++ og php kan håndtere at hente fra den. Det kan gå galt ved loading og lagring til filen samtidig med at formater kan blive et problem. \\
 Der var i forvejen kendskab til MySQL og dette er et færdig udviklet system til at fungere med webinterfaces og for programmerings sprog som C++ er der udviklet header. Systemet er et system der fungere på mange platforme og løbende bliver udviklet på. På baggrund af dette blev dette system valgt.
 
+\subsection{Webinterface}
+Til den grafiske brugere grænseflade for Databasen blev et Webinterface valgt på baggrund af muligheden for at flere på havneterminalen kunne tilgå dataerne på samme tid. På baggrung af et på forhånd middel kendskab til php og intergrationen med MySQL database blev php valgt som sprog til kodning af Webinterfacet.
