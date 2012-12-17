@@ -20,15 +20,25 @@ Da modulerne sidder rundt om i skibbet, skal der overvejes hvordan de kan forsyn
 	\begin{itemize}
 	\item Smart da man ungår at trække en ledning med forsyning.
 	\item Dette kan være meget problematisk med et batteri, da der ikke vides hvor meget strøm der skal trækkes dvs. stort det skal være. 
-	\item Da der i forvejen er en kablet kommilikation, skal der alligevel kabel ud til modulet, derfor kan lige så smart at have en kabelet forsyning.
+	\item Da der i forvejen er en kablet kommunikation, skal der alligevel kabel ud til modulet, derfor kan lige så smart at have en kabelet forsyning.
 	\end{itemize}
-\item Kablet forsyning
-	\begin{itemize}
-	\item 
-	\end{itemize} 
-
+\item Kablet forsyning \\
+Ved at vælge at bruge en kablet forsyning dukker der andre spørgsmål op.
+\begin{itemize}
+\item F.eks. hvilken forsyningsspænding skal der være.?\\
+24V, 230V, 12V, 5V eller noget helt andet..
 \end{itemize}
-
+Da der ikke er 100\% kendskab til hvilke forsyning spænding der er på et skib, men nok er 230V AC skal der med stor bruges en strømforsyning til modulerne, da de bruger en lavere spænding. \\
+Ved at have en transformator kan spænding evt. komme ned på 24V AC. De 24V AC kan føres ud til modulerne samme med kommunikationen. \\
+Ved modulerne kan der bygges en strømforsyning der regulere de 24V AC om til DC. \\
+Her kommer der to muliglige strømforsyninger op:
+\begin{itemize}
+\item En SMPS: \textit{Effektiv, høj virkningsgrad.}
+\item En lineær strømforsyning: \textit{Stabil, mellem virkningsgrad}
+\end{itemize}
+Da virkningsgraden ikke har stor bestydning for produktet, samt erfaringen med SMPS ikke er stor, vil der tages udgangspunkt i en lineær størmforysning.
+\end{itemize}
+Ved udviklingen af prototypen, kan der overvejes om der skal designes en eller flere strømforsyninger.
 
 \subsection{På hvilken enhed ønsker vi at afvikle programmet KI}
 RPi eller ej? Qt4 vs Qt5.\fxnote{Skriv afsnit om RPi og Qt}
