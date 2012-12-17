@@ -132,6 +132,52 @@ Case &Formål &Udførelse\\\hline
 4b &Det testes hvordan programmet reagerer hvis man efter tryk på "LUK BROS"-knappen fortryder sit valg ved at trykke "NO".&Tryk på "LUK BROS"-knappen. Tryk på "NO". Aflæs terminalen og GUI'en.\\\hline
 \end{tabular}
 \end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%     Server      %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]
+\caption{Tilkobling fra tcp client}
+\centering
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
+\hline
+Case &Formål &Udførelse\\\hline
+1 &Det testes hvordan programmet reagerer hvis en tcp client forsøger at tilkoble &Stup forsøger at tilkoble. Server udskriver i terminal at tilkobling er sket\\\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Modtagelse og lagring af data}
+\centering
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
+\hline
+Case &Formål &Udførelse\\\hline
+1 &Der testet om programmet kan modtage en streng og dele den ind til de 5 dele: ID, STYRBORD, BAGBORD, LEVEL, TIME &Stup sender streng med de data som angivet i formål\\\hline
+2 &Der testet om programmet kan dekryptere LEVEL som skal dekrypteres til grader &Stup sender en LEVEL værdi svarende til den som kommer fra sm i hendhold til uart protocol\\\hline
+3 &Der testes om programmet er i stand til at gemme da til en tekstfil &Stup sender alle værdier via tcp. Alle værdier skal gemmes i tekstfil\\\hline
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%     Webinterface  %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]
+\caption{Webinterface}
+\centering
+\begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
+\hline
+Case &Formål &Udførelse\\\hline
+1 &Der testes om brugeren bliver logget på ved indtastning af korrekt password&Password indtastastes og ved grafisk visning ses det at brugeren er logget på\\\hline
+2 &Der testes om brugeren bliver bedt om indtastning af password igen ved forkert password&Password indtastastes og ved grafisk visning ses det at brugeren ikke bliver logget på men skal forsøge igen\\\hline
+3 &Der testes om brugeren kan trykker på det ønskede skib og brugeren bliver sendt til dennes database& Ved tryk på skib ses det grafisk at brugeren kommer til siden\\\hline
+4 &Der testet om data for skibet bliver vidst for brugeren& Når brugeren er trykket ind på databasen ses det grafisk at data bliver hentet fra MySQL databasen\\\hline
+5 &Der testet om side checker for data hvert 5 sekund& Der ses grafisk og med stop ur at siden opdatere hvert 5 sekund.\\\hline
+6 &Der testes at hvis der er kommet ny data at denne bliver gemt i MySQL databasen og filen slettes samt data vidst for brugeren& Når placeres en ny fil med data som skal gemmes. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
+7 &Der testet at ved tryk på Log af bliver brugeren sendt til log in & Grafisk testes dette ved tryk på Log af\\\hline
+8 &Der testet om ved fejl link henvisning sendes brugeren til en 404 side & Ved at ændre en URL henvisning testes der for om brugern får en 404 fejl.\\\hline
+\end{tabular}
+\end{table}
+
+
+
 % Testresultater
 \section{Testresultater}
 Dette afsnit er delt op i  2 dele baseret på ovenstående tests.\\
