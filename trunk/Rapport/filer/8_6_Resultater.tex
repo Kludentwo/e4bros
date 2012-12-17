@@ -6,6 +6,7 @@ I dette afsnit samles der op på resultaterne gruppen har opnået gennem projekt
 \subsection{Database og webinterface}
 
 \subsection{SM}
+SM modulet er fuldt implementeret, men ikke finjusteret. Forbindelsen til KI er fuldt funktionel. Forbindelsen til VBTE virker 95\% af tiden. Automatisk hældningsregulering er implementeret, men da niveaumålinger ikke modtages fra VBTE modulet er det ikke muligt at tømme tankene inden vi fylder i den anden tank. Prototypen er modulet er monteret med 7 LED's der bruges til fejlfinding. Prototypen er også lagt ud på print med indeholdende levelkonvertering og I2C pull-up modstande.
 
 \subsection{VBTE}
 VBTE modulet er fuldt implementeret, men med problemer. Afstanden målt af ultralydssensoren er upålidelig og det er svært at måle over ret lange afstande. Derudover er det svært at vide hvordan og hvor meget af lyden der bliver reflekteret. Under kontrollerede forhold var afstande "nemme" at måle og der kom også derfor gode resultater ud af enhedstesten. Men skulle systemet sættes under andre forhold blev det straks meget sværere at få systemet til at fungere. Jeg vil dog gerne fremhæve resultatet at have fået opbygget en ultralydssensor udelukkende ud fra en transducer og receiver.\\ Derudover er der udlagt et print inklusiv testkredsløb der indeholder en 2x16 LCD skærm og kontakter til at skifte I2C adresse.
