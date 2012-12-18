@@ -127,7 +127,7 @@ Gennem disse faser er designet blevet udfærdiget. Fremgangsmåden er anvendt fo
 \label{fig:HWVBTE}
 \end{figure}
 \subsubsection{Hardware på PSoC'en}
-Hardware opbygget på PSoC'en kunne uden problemer være blevet designet uden for PSoC'en, men PSoC miljøet gør det meget nemt at arbejde med mange forskellige elementer. Der vil i rapporten ligges vægt på transmitterkredsen samt receiverkredsen. På figur \ref{fig:HWVBTE} ses hardware designet på PSoC'en.
+Hardware opbygget på PSoC'en kunne uden problemer være blevet designet uden for PSoC'en, men PSoC miljøet gør det meget nemt at arbejde med mange forskellige elementer. Der vil i rapporten ligges vægt på transmitterkredsen samt receiverkredsen. På figur \ref{fig:PSOCHW} ses hardware designet på PSoC'en.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{billeder/PSOC_Hardware}
@@ -136,13 +136,13 @@ Hardware opbygget på PSoC'en kunne uden problemer være blevet designet uden fo
 \end{figure}
 \subsubsection{Transmitterkreds}
 Transmitterkredsen står for at sende burst samt at time hvert burst.  Dette opnåes med to clocks, en AND gate, en output pin samt et kontrol register. Transmitterclocken er indstillet til 40kHz da ultralydstransmitteren, ifølge databladet, opererede ved $\SI{40}{kHz}\pm\SI{1}{kHz}$. Clocken er blevet målt på oscilloskop til $\SI{40.3}{kHz}$. Burst kontrolregisteret er anvendt til at AND'e clocken ud på trans\_kontrol pinden.\\
-Clock\_dist interruptrutinen sørger for at tælle en variabel op der anvendes i main til at kalde burst funktionen. Dette gøres for at lave et nonblocking delay så andet kan køres på PSoC'en mens en burst er sendt afsted og der afventes detektion.
+Clock\_dist interruptrutinen sørger for at tælle en variabel op der anvendes i main til at kalde burst funktionen. Dette gøres for at lave et nonblocking delay så andet kan køres på PSoC'en mens et burst er sendt afsted og der afventes detektion.
 \subsubsection{Receiverkreds}
 Receiverkredsen modtager signalet fra ultralydsreceiveren og omsætter det til en detektion. Dette sker efter følgende opskrift:\\
 Løfte signalet $\rightarrow$ Forstærkning $\rightarrow$ Mixning.\\
 Signalet bliver løftet på til $\frac{Vdda}{2}$ fordi PSoC'en ikke kan arbejde med værdier under Vssa (GND). Dette gøres ved hjælp af en kondensator, en modstand og en spændingsfølger med $\frac{Vdda}{2}$ på det positive ben.\\
 Efter signalet er løftet, bliver det forstærket op af en PGA. Den første forstærkning, fundet i teknologiundersøgelsen, viste sig at være for lav og forstærkningen blev justeret til 32. Problemet heri ligger at et meget klart signal vil kunne få systemet til at gå i mætning. Men dette ser ikke ud til at ske.\\
-Herefter bliver signalet mixet med $\SI{40}{kHz}$ og filtreret. Efter mixeren giver det, stort set, en DC og summen af de to signaler. Filteret er inbygget i Delta-Sigma ADC'en og har en knækfrekvens ved $\frac{Sample frekvens}{3}$. For at være sikker på at det meste af signalet er kommet over regnes der en opladningstid på filteret til $\SI{1/4}{ms}$. Efter undersøgelser af signalet ind på ADC'en blev en spænding på $\SI{0.3}{V}$.
+Herefter bliver signalet mixet med $\SI{40}{kHz}$ og filtreret. Efter mixeren giver det, stort set, en DC og summen af de to signaler. Filteret er indbygget i Delta-Sigma ADC'en og har en knækfrekvens ved $\frac{Sample frekvens}{3}$. For at være sikker på at det meste af signalet er kommet over regnes der en opladningstid på filteret til $\SI{1/4}{ms}$. Efter undersøgelser af signalet ind på ADC'en blev en spænding på $\SI{0.3}{V}$ valgt til at representere en detektion.
 
 \subsubsection{Hardware uden for PSoC'en}
 Uden for PSoC'en er der lavet 2 hardwareblokke. Disse har til ansvar at omsætte et kontrolsignal til en større spænding over de respektive enheder.
@@ -168,18 +168,15 @@ Ventilkredsen får to kontrolsignaler fra PSoC'en og disse skal styre de to vent
 Der er derfor lavet en darlington kobling for at mindske belastningen af PSoC'en og for at sikre at der bliver lukket nok op for transistoren. Dette er gjort med en transistor af typen BC547. Transistorne er valgt ud fra pris og tilgængelighed. Der var først valgt en MOSFET IRLZ44n men denne var både for dyr og kunne klare en unødvendig stor effekt. Det smarte ved MOSFET'en er dog at den er spændingsstyret i forhold til de to andre transistorer. 
 \subsubsection{Transmitterkreds}
 Transmitterkredsen anvender ultralydstranduceren som en højtaler. Denne er koblet over transistoren (Her anvendes også en BD139).\\
-\begin{figure}[H]
-\begin{minipage}[c]{0.45\textwidth}
 Via. kontrolsignalet fra PSoC'en, der bliver sendt ud ved $\SI{40}{kHz}$, bliver der sat en spænding over transduceren.\\ 
 Forsyningen hertil trækkes fra samme forsyning som ventilkredsen der bliver leveret fra powersuply'en. Ud fra databladet er der aflæst en ohmsk modstand på omtrendt $\SI{10}{k}\Omega$. Derfor kan PSoC'en uden problemer selv trække denne kreds.
-\end{minipage}
-\begin{minipage}[c]{0.45\textwidth}
+\begin{figure}[H]
 \centering
-\includegraphics[width = 1\textwidth]{billeder/transmitterkreds}
+\includegraphics[width = .5\textwidth]{billeder/transmitterkreds}
 \caption{Transmitterkreds}
-\end{minipage}
 \end{figure}
 For yderligere detaljer vedrørende hardware på VBTE henvises til \textit{Deltajeret hardware design}.
+
 \subsubsection{Software}
 Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kravspecifikationen samt arkitekturen i systemarkitekturen. Den er blevet designet til at passe til hardwaren så den kan kontrollere de enkelte elementer. I designfasen er der blevet udfærdiget et klassediagram samt en statemachine over funktionaliteten. På \textit{figur \ref{fig:VBTEklasse} } ses klassediagramet for VBTE modulets software.
 \begin{figure}[H]
@@ -188,7 +185,6 @@ Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kra
 \label{fig:VBTEklasse}
 \caption{Klassediagram over VBTE}
 \end{figure}
-Selvom softwaren er skrevet i C er der lavet klasser for alle h-filer for at gøre systemet overskueligt. For detaljerede metodebeskriveler henvises til detaljeret software design.
 Selvom softwaren er skrevet i C er der lavet klasser for alle h-filer for at gøre systemet overskueligt. For detaljerede metodebeskriveler henvises til detaljeret software design.\\
 For at overskueligtgøre funktionaliteten af softwaren anvendes statemachinediagrammet. Dette viser de forskellige tilstande programmet til enhver til kan befinde sig i.
 \begin{figure}[H]
@@ -198,7 +194,7 @@ For at overskueligtgøre funktionaliteten af softwaren anvendes statemachinediag
 \end{figure}
 De forskellige betingelser der skal til for at skifte tilstand vil herefter blive beskrevet. \\
 Som nævnt i hardware anvendes et interrupt til at lave et nonblocking delay på 500ms. Dette håndteres på VBTE'en i main ved hjælp af en if sætning der tjekker op på variablen fra interruptet.\\
-Burst receivered bliver opnået når flaget hertil bliver sat. Dette flag bliver sat inde i ADC'en interruptrutine når den måler en værdi der indikerer at et burst er modtaget.\\
+Burst receivered bliver opnået når flaget hertil bliver sat. Dette flag bliver sat inde i ADC'ens interruptrutine når den måler en værdi der indikerer at et burst er modtaget.\\
 Read complete betingelsen bliver kontrolleret inde i I2C\_handle. Heri aflæses data fra SM og omsættes til et state for ventilerne. Herefter fyldes afstanden for tankene ind i readbufferen for I2C'en med henblik på at den sendes retur. Herefter ændres ventil tilstanden så den passer med den modtagede tilstand.\\
 For yderligere detaljer om software for VBTE henvises til detaljeret design dokumentation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
