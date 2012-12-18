@@ -52,8 +52,8 @@ Ved udviklingen af prototypen, kan der overvejes om der skal designes en eller f
 %%%%%%%%%%%%%%%%%%%%
 
 \subsection{Raspberry Pi som host for Kontrolinterfacet}
-I den indledende fase var det gruppens ønske at kunne implementere Kontrolinterfacet på et Raspberry Pi-modul. Denne mulighed blev undersøgt, og det viste sig at det godt kunne lade sig gøre at skrive Qt-programmer til Raspberry Pi'en hvis man anvendte en nyere version af Qt.\\
-Versionerne imellem var der dog så store forskelle på fundamentale områder af frameworket og nogle af teknologiundersøgelserne måtte derfor undersøges igen.\\
+I den indledende fase var det gruppens ønske at kunne implementere Kontrolinterfacet på et Raspberry Pi-modul. Denne mulighed blev undersøgt, og det viste sig at det godt kunne lade sig gøre at skrive Qt-programmer til Raspberry Pi'en hvis man anvendte den nyeste beta-version af Qt.\\
+Versionerne imellem var der dog store forskelle på fundamentale områder af frameworket; nogle af teknologiundersøgelserne måtte derfor undersøges igen.\\
 Det var også oprindeligt gruppens ønske at anvende I2C-protokollen mellem Kontrolinterfacet og Styringsmodulet. Denne protokol er også understøttet af Raspberry Pi, men kan kun implementeres med Python medmindre der selv udvikles kernemoduler.\\
 Dette var en større opgave end gruppen ønskede at prioritere den. Vi begyndte derfor at kigge efter andre protokoller.\\
 Næste emne var rs232-protokollen, da den er kendt for gruppen. Protokollen viste sig at være god med Raspberry Pi. Efter nogle teknologiundersøgelser fandt gruppen også ud af hvordan rs232-kommunikationen kunne implementeres med den nye Qt-version.

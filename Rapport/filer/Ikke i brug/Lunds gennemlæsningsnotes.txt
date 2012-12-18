@@ -1,0 +1,123 @@
+¤¤¤¤
+Indledning:
+¤¤¤¤
+UNDERLIG SÆTNING
+Formålet med projektet er at anvende de teorier og metoder, 
+som er blevet tilegnet gennem studiet, 
+og ikke mindst tilegne sig ny viden på egen hånd, 
+for at fuldføre gennemførelsen af et komplet projektforløb.
+
+Underlig afslutning
+
+4.1
+Rapportens egentlig indhold? Det hele er vel indhold. Væsentligste?
+øverste abstraktionsniveau i stedet for abstraktion
+Flyt det at hvert afsnit kan stå alene til slutningen: lige før at det anbefales at læse den fortløbende
+
+5.1
+Vejlederen istedet for vejledere
+
+5.2
+Ansvarshavende officer? Er det en korrekt reference? Har vi en anden?
+"kunne interagere med systemet hvis systemet kommer med en alarm". Omformulering - det er misvisende
+Kaptajnen != Officer
+Generel omformulering
+
+Projektidefinition og ikke defination
+"korrigere fra"?
+
+Vi fører ingen log-fil
+
+Hvad er forskellen på projektformuleringen og systembeskrivelse. Projektformuleringen skal vel beskrive det problem vi gerne vil løse?
+
+6
+
+7.0.1
+En tiul flere sensorer samt en til flere aktuatorer. Skal aktuatorernes rolle ikke beskrives, eller kan der godt anvendes fx et køleapparat?
+
+figur 7.1:
+The BROS?!
+Hvor kommer operatør fra? Er det en ekstern operatør til BROS?
+Jeg synes godt vi kan have et eksempel på en use case. Fx Use Case 2 som anvendes i systemarkitekturen
+
+7.0.3: Virker voldsomt at have en subsection hvor man referer til noget som ikke er med. Det virker som om der mangler noget.
+
+7.0.4:
+Uddeler vi scrummasteren? Eller bliver opgaven uddelegeret
+vi har snakket om at fjerne værktøjerne, dvs. stort set hele afsnittet
+
+7.0.5
+Grænsefladerne vi beskriver her er de interne mellem to moduler. Menes der ikke grænsefladen til systemet fra Kundens synspunkt?
+
+7.0.6
+Generelt stavefejl
+
+8:
+Lav evt en reference til opgaveformuleringen
+Referencen til tabelen er forkert. Den siger 9.1 i stedet for 8.1
+
+9.1 METODER:
+Længden af faserne og Gnidningsfrit? Andet afsnit kan godt formuleres bedre
+
+9.1.1:
+Fx: Valget af SCRUM som udviklingsværktøjer har givet nogle naturlige roller i systemet?
+Evt. en kolonne i tabelen med stikord til ansvaret og ikke lade det have sit et subsection
+Hvis rollerne skyldes valget af SCRUM burde de så ikke blive præsenteret sammen med SCRUM?
+
+9.2:
+"indlært gennem et tidligere projekt" vi er ikke mestre i det endnu. 
+Hvornår har vi lavet en produktbacklog? Hvor er den?
+SCRUM-MEETING? SCRUM-møde?
+Der kan ikke komme nye opgaver i et sprint. Man snakker i stedet om hvad man har lavet, hvad man vil i gang med og evt. problemer
+"Alle de opgaver der ikke er færdige".. er vi ukritiske her? Bliver alt bare smidt over? Vi har forholdt os til hvorfor opgaver ikke har været færdige
+Figuren er ikke en beskrivelse af sprintpoint, men procesopgørelse. Skal der være for sprintpoint? altså arbejdsvægtning
+
+9.2.2 V-model
+Det er meget kort. Det skal heller ikke fylde meget, men vi kan evt. skrive at modellen nu er så kendt af gruppen at den ikke behøver yderligere forklaring. Det kunne evt. også gælde for scrum
+
+9.3 Analyse
+Skal der være en introduktion til analyseafsnittet? Eller er det i læsevejledningen nok?
+
+9.3.1 Hvordan måler vi hældning
+Første sætning giver ikke mening
+"..praktisk talt umuligt.."
+Sætning giver ikke mening (..."praktisk umuligt at anvende...")
+"et fag fra tredje semester" eller "3.-semesterfag"
+Implementeret med en "#define"? WTF?
+
+9.3.2 Hvordan måler vi niveauet i vandballasttankene?
+Vend om på den første sætning, så vi, for at prøve noget nyt, valgte at prøve krafter med en ultralyssensor.
+"Jeg" - hvem er afsenderen? Hvem er du? :)
+Jeg kunne godt bruge en tegning. Hvordan virker ultralyden?
+
+9.3.2 Forsyning
+God opbygning, men flyt fordelene ved kablet ned til kablet. Lad fordele og ulemper for batteriet stå for sig selv.
+Vi må da kunne undersøge hvilken forsyning der er? Vi kan ikke bare ikke vide det og så gætte på noget. Det burde være til at undersøge.
+Måske en smule for teknisk? Det er i hvert fald tydeligt at det ikke er på vores niveau :)
+
+9.3.4
+Det hedder UDP.
+Man kan også have flere tilslutningner med TCP
+Måske en anelse for teknisk? Det er ikke et problem ved TCP, men blot dig og mig der ikke er gode nok :)
+
+9.3.5
+Var de andre overhovedet på tale? Det er en helt legitim grund at man vælger noget pga. erfaring med det og derved ikke undersøger alternativerne
+
+9.3.6:
+Et godt afsnit når lige stavefejl bliver rettet
+
+9.3.7:
+Som vi har arbejdet ud fra? Vi er i analyseafsnittet og det er derfor de jura-elementer som vi har fundet frem til og baseret vores system og definitioner på.
+Bør måske være et afsnit for sig selv. Det er rigtig godt, men skal det med i rapporten?
+Det er mega godt. Måske skal vi refere til det i kravspecifikationen? Det er jo også noget som kunden skal overholde?
+
+9.5 DESIGN OG IMPLEMENTERING
+9.5.1 KONTROLINTERFACE
+Mindre diagrammer
+Mindre tabel til hovedvinduet
+
+
+
+
+
+
