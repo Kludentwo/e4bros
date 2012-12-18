@@ -1,7 +1,21 @@
-\chapter{Opgaveformulering}
-\label{ch:Opgaveformulering}
-Gruppen skal fremstille et system der overholder nogle krav. Kravene er at systemet skal kunne interagere med omverdenen vha. af sensorer og aktuatorer. Endvidere skal der også anvendes faglige elementer fra fjerde semesterets kurser. Transmission af data mellem enheder i projektet skal være pålidelig. Til slut skal systemet indeholde brugerinteraktion. 
-
 \chapter{Projektformulering}
+\section{Opgaveformulering}
+\label{ch:Opgaveformulering}
+Opgaveformuleringen er givet af vejledere til projektet som retningslinier for projektet. Følgende er givet som krav i disse retningslinier.
+\begin{itemize}
+\item Systemet skal interagere med omverdenen vha. sensorer og aktuatorer.
+\item Der skal anvendes relevante faglige elementer fra semestrets kurser.
+\item Systemet skal omfatte pålidelig transmission af data mellem udvalgte enheder.
+\item Systemet skal kunne interagere med en bruger
+\end{itemize}
+\section{Projektformulering}
 \label{ch:Projektformulering}
-Gruppen har valgt at arbejde med lastning og losning af et bulkskib. Vi vil gerne lave et system der aflaster skibets ansvarshavende officer, som står på broen under hele lastningen/losningen. Hans job er at holde øje med at hele operationen bliver gjort ordentligt. Denne opgave vil vi gerne gøre nemmere. Med et system der automatisk sørger for at skibet altid er i vatter skal kaptajnen kunne interagere med systemet hvis systemet kommer med en alarm. Kaptajnen kan manuelt vælge at flytte ballast til den ene side, hvis han ved at der komme en række tunge containere, der skal stå i modsatte side. For at sikre at alle skibe i havnen er i vatter, sender systemet statusbeskeder til en database på havnekontoret. Kontoret kan derfor sende bemanding eller tage kontakt til skibet, der har en alarm.
+\subsubsection{Baggrund}
+Når man laster eller losser et bulkskib bruges der ofte mange resourcer på at kontrollere at skibet ikke får slagside. Skibets ansvarshavende officer står på broen under hele lastningen/losningen og holder øje med at det bliver gjort ordentligt. Denne opgave vil vi gerne gøre nemmere. Med et system der automatisk sørger for at skibet altid er i vatter skal kaptajnen kunne interagere med systemet hvis systemet kommer med en alarm. Kaptajnen kan manuelt vælge at flytte ballast til den ene side, hvis han ved at der komme en stor last placeret i modsatte side. For at sikre at havnen har et overblik over alle skibe i havnen, sender systemet statusbeskeder til en database på havnekontoret. Kontoret kan derfor tage kontakt til skibet, der har en alarm.
+\subsubsection{Projektdefination}
+Det er gruppens ønske at lave et system der korrigerer skibe fra at få slagside i forbindelse med lastning og losning af gods, således at skibet er i vatter. Overordnede system krav udarbejdet i projektformuleringen:
+\begin{itemize}
+\item Systemet skal føre en log-fil hvori data omkring skibsnavn og status sendes til en database
+\item Systemet skal monitorere om skibet er i vatter
+\item Systemet skal agere i tilfælde af skibet er ude af vatter
+\end{itemize}
