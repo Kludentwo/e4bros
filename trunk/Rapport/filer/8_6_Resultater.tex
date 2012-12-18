@@ -13,7 +13,8 @@ SM modulet er fuldt implementeret, men ikke finjusteret. Forbindelsen til KI er 
 \subsection{VBTE}
 VBTE modulet er fuldt implementeret, men med problemer. Afstanden målt af ultralydssensoren er upålidelig og det er svært at måle over ret lange afstande. Derudover er det svært at vide hvordan og hvor meget af lyden der bliver reflekteret. Under kontrollerede forhold var afstande "nemme" at måle og der kom også derfor gode resultater ud af enhedstesten. Men skulle systemet sættes under andre forhold blev det straks meget sværere at få systemet til at fungere. Jeg vil dog gerne fremhæve resultatet at have fået opbygget en ultralydssensor udelukkende ud fra en transducer og receiver.\\ Derudover er der udlagt et print inklusiv testkredsløb der indeholder en 2x16 LCD skærm og kontakter til at skifte I2C adresse.
 
-\subsection{powersupply}
+\subsection{Strømforsyning}
+Strømforsyning er fuldt implementeret, i testen er der blevet brugt effekt modstande som load, en labitoriestrømforsyning og et voltmeter. Enhedstesten er blevet godkendt. Vitale dele på strømforsyningen bliver dog noget varme ved fuld load på udgangen, men da det med stor sandsynlighed sjælende vil ske, ses det ikke som et problem. Strømforsyningen er implementeret med SM og VBTE. Derudover er der udlagt et print med 12V og 5V forsyning.
 
 \subsection{Samlede resultat og vurdering af resultater}
 Til de samlede resultater har gruppen udarbejdet en tabel der viser hvordan test's er gået helt nede fra enhedstest til accepttest. For detaljer om de enkelte test henvises til "Enhedstest", "Integrationstest" og "Accepttest". Testresultaterne er opdelt i fire katagorier som angivet i tabellen :
