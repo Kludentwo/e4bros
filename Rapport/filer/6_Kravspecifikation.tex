@@ -2,10 +2,10 @@
 Kravspecifikationen er udarbejdet i begyndelsen af projektforløbet og omfatter use cases, ikke funktionelle krav samt kvalitets faktorer. For den fulde kravspecifikation, henvises der til dokumentions dokumentet.
 
 \subsection{Overordnede krav til systemet}
-Systemet skal indeholde én til flere sensorer samt en til flere aktuatorer. Endvidere skal systemet indeholde et kontrolinterfacet og et styringsmodul. Kontrolinterfacet fungerer som brugergrænesflade og har kontakt til en ekstern database.
+Systemet skal indeholde én til flere sensorer samt en til flere aktuatorer. Endvidere skal systemet indeholde et kontrolinterfact og et styringsmodul. Kontrolinterfacet fungerer som brugergrænesflade og har kontakt til en ekstern database.
 
 \subsection{Funktioner}
-Systemets funktioner er beskrevet vha. Use Cases. I hver Use case er der en beskrivelse af en enkelt funktionalitet systemet skal have. Der er også beskrevet alternative hændelser, såfremt hældelsesforløbet ikke forløber som planlagt. Se kravspecifikationsdokumentet for alle systemets Use Cases. På \textit{Figur~\ref{fig:UCDBROS}} ses Use Cases for systemet.\\
+Systemets funktioner er beskrevet vha. Use Cases. I hver Use case er der en beskrivelse af den enkelt funktionalitet systemet skal have. Der er også beskrevet alternative hændelser, såfremt hældelsesforløbet ikke forløber som planlagt. Se kravspecifikationsdokumentet for alle systemets Use Cases. På \textit{Figur~\ref{fig:UCDBROS}} ses Use Cases for systemet.\\
 Når systemet sættes op første gange anvendes Opstart af Program(Use Case 1). Når systemet er startet op kan brugeren vælge mellem Automatisk ballastkontrol (Use Case 2) eller Manuel Skibsvinkling (Use Case 3). Hvis brugeren vil deaktivere systemet kan han afslutte programmet (Use Case 4). En Terminaloperator kan tilgå databaseinformationen via et Webinterface(Use Case 5 og 6).
 \begin{figure}[hbpt]
 \centering
@@ -14,14 +14,15 @@ Når systemet sættes op første gange anvendes Opstart af Program(Use Case 1). 
 \label{fig:UCDBROS}
 \end{figure}
 \subsection{Krav til udvinklingsprocess og teknologi}
-Projektforløbet skal følge V-modellen. SCRUM skal bruges i projektstyringsprocessen til at give overblik over projektets arbejdsopgaver. SCRUMmaster og projektleder uddeles til gruppemedlemmer.\\
+Projektforløbet skal følge V-modellen. SCRUM skal bruges i projektstyringsprocessen til at give overblik over projektets arbejdsopgaver. SCRUM master og projektleder uddeles til gruppemedlemmer.\\
 Til dokumentation skal der bruges SysML diagrammer til at beskrive systemet overordnet og i detaljer.\\
-Programmeringen til systemets embedded enheder, Styringsmodulet og Vandballasttankenhederne, anvendes C. Til kontrolinterfaces og databasen anvendes C++. Til Databaselagring anvendes mySQL. Webinterfacet er skrevet i php og HTML 5.
+Programmeringen til systemets embedded enheder, Styringsmodulet og Vandballasttankenhederne, anvendes C. Til kontrolinterfaces og databasen anvendes C++. Til Databaselagring anvendes MySQL. Webinterfacet er skrevet i php og HTML 4.01 med benyttelse af css.
 
 \subsection{Krav til grænseflader}
 Kommunikationen mellem kontrolinterfacet og styringsmodulet skal følge UART protokollen. Det kan kun tilkobles ét kontrolinterface og ét styringsmodul.\\
 Til styringsmodulet tilkobles én sensor samt to vandballasttankenheder via I2C protokollen.\\
 På kontrolinterfacet skal alt funktionaliteten være indbygget i brugergrænsefladen. Det skal være muligt at skifte mellem automatisk ballastkontrol og manuel skibsvinkling. \fxnote{Lund skal lige beskrive resten af GUI'en}
+Terminaloperatøren skal have mulighed for via et webinterface at tilgå den eksterne database for kontrol af skibets data.
 
 \subsection{Krav til kvalitet}
 For at sikre kvaliteten af vores produkt har vi valgt at opstille en række kvalitetsfaktorer. Det er meget vigtigt for vores system at det er pålideligt, sikkert og Effektivt. Pålideligheden skyldes at systemet kan risikere at være fatalt for et skib, hvis der sker en fejl. Systemet skal være sikkert da det er en kritisk komponent. Endvidere skal systemet være effektivt da det ikke må sløve lastning og losningsprocessen.\\
