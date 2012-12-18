@@ -4,22 +4,76 @@ Nedenfor følger design af software til Kontrolinterfacet. Dette er lavet på ba
 Kontrolinterfacet er brugerens primære kontaktflade til systemet. Programmet indeholder en brugergrænseflade der opfylder kravene i Kravspecifikationen. Her kan der også ses en prototype på den grafiske brugergrænseflade.
 Kontrolinterfacet står for at modtage inputs fra brugeren. Disse inputs sendes som kommandoer til Styringsmodulet. Det er også herfra at Kontrolinterfacet modtager de værdier, som sidenhen vises på den grafiske brugergrænseflade. Kontrolinterfacet står også for kommunikationen til den eksterne database. Her sendes en række parametre om skibet og dets status.
 
+\subsection{State machine diagram}
+Designet af Kontrolinterfacet tager udgangspunkt i arkitekturen fremstillet i artefaktet Systemarkitektur. Her blev der fremstillet et state machine for Kontrolinterfacet. State machinet var simplificeret og er i designfasen blevet udvidet. Resultatet ses i figur \ref{fig:stm_detaljeret}.\\
+Figuren beskriver hvilke stadier programmet kan befinde sig i og sammenhængen imellem dem.\\
+Størstedelen af kontrolinterfacets levetid foregår i et ventestadie hvor der afventes enten et brugerinput eller et timeout. Begge scenarier afføder et behov for kommunikation med styringsmodulet. \\
+Hvis der har været et timeout skal der hentes værdier fra Styringsmodulet hvorefter Databasen opdateres.\\
+Hvis der har været et brugerinput skal Kontrolinterfacet blot have en bekræftigelse fra Styringsmodulet på at kommandoen er modtaget.\\
+
+\begin{figure}[htbp]
+\centering
+\label{fig:stm_detaljeret}
+\includegraphics[width=1\textwidth]{billeder/GUI/STM_KI_DETALJERET}
+\caption{På figuren ses det detaljerede state machine diagram for Kontrolinterfacet}
+\end{figure}
+
 \subsection{Klassediagram}
-Nedenfor ses klassediagrammet for Kontrolinterfacet. Bemærk at klassediagrammet er delt op i to. Skæringsstedet er mellem Kontrolinterface-klassen og Styringsmodul-klassen og er markeret med <<extend>>.
+Således er det videre skridt at udarbejde et klassediagram for programmet. Her anvendes klassediagrammer. Klassediagrammet er ligesom state machines først lavet i en simplificeret version og dernæst i en detaljeret. Den første kan ses på figur \ref{fig:kd_simpel}.
+
+Klassediagrammet på figur \ref{fig:kd_simpel} afspejler et system designet med forbillede i det samlede system. Dette er gjort for at trække på de løsninger der er fundet i forbindelse med det fulde system. Her ses det hvordan hovedklassen er Kontrolinterfacet. Alt andet oprettes enten direkte af Kontrolinterface-klassen eller af en klasse oprettet af samme. Kontrolinterfacet har kun kontakt til brugergrænsefladen (MainWindow), Styringsmodulet og DataServer. Kommunikationen mellem Kontrolinterface-klassen og Styringsmodul spejler den kommunikation der er imellem de fysiske blokke Kontrolinterface og Styringsmodul i det samlede system.\\
+
+\begin{figure}[htbp]
+\centering
+\label{fig:kd_simpel}
+\includegraphics[width=1\textwidth]{billeder/GUI/klassediagram_simpel}
+\caption{På figuren ses det simple klassediagram for Kontrolinterfacet. Se en beskrivelse af hver klasse i tabel \ref{tabel:ki-klasser}}
+\end{figure}
+
+En beskrivelse af hver klasse kan findes i tabel \ref{tabel:ki-klasser}.\\
+ 
+\begin{table}[H]
+\centering
+\rowcolors{1}{white}{light-gray}
+\begin{tabular}{| p{3cm}  p{12.5cm}|}
+\multicolumn{2}{l}{{\Large Kontrolinterfacets klasser}} \\\hline
+Kontrolinterface:&Programmets hovedklasse. Eksisterer for at rydde op i main-funktionen.\\\hline
+DataServer:&Står for alt TCP-kommunikationen med databasen. Oprettes af KI-klassen\\\hline
+Styringsmodul:&Oprettes af KI og opretter VBTE-, Sensor- og RS232klasserne.\\\hline
+Sensor:&Oprettes af SM og er ansvarlig for hældningsværdien.\\\hline
+VBTE:&Der eksisterer et VBTE-objekt for hvert fysisk VBTE-modul. Det er objektets ansvar at holde styr på værdierne for sit VBTE-modul.\\\hline
+RS232:&Objektet oprettes af SM-klassen og VBTE- og Sensorobjekterne har en delt association til den. Objektet har ansvaret for kommunikationen med det fysiske SM-modul. Objektet formidler sig på en protokol forstået den kommunikationsansvarlige kode på SM-modulet. Protokollen kan ses i dokumentet for det detaljerede softwaredesign.\\\hline
+MainWindow:&Oprettes af KI-klassen. Kontrollerer og overvåger den grafiske brugergrænsefalde.\\\hline
+manudialog:&Oprettes af MainWindow og styrer den dialog, der fremkommer når man ønsker en manuel hældningsregulering.\\\hline
+\end{tabular}
+\caption{Kontrolinterfacets klasser}
+\label{tabel:ki-klasser}
+\end{table}
+
+Der er så udarbejdet et detaljeret klassediagram for klasserne i Kontrolinterfacet. Dette udarbejdes ud fra det detaljerede state machine diagram og de krav der er stillet i kravspecifikationen. Brugergrænsefladen udarbejdes ud fra de modeller der er aftalt med kunden og som ligger som bilag A i kravspecifikationen.\\
+Det detaljerede klassediagram indeholder de samme klasser og relationer som det simplificerede. Derudover er der anført hvilke metoder, signaler, slots og attributter klasserne indeholder. \\
+Signaler og slots er indført af Qt-frameworket og muliggør kommunikation mellem klasser uden at koble klasserne unødvendig meget. En klasse abbonnerer så at sige på et signal. Udsendes signalet så vil funktionaliteten i en slot så blive kaldt. Flere klasser kan godt reagerer på samme signal. Således kan et signal godt påvirke flere elementer af programmet.\\
+Derudover er de anvendte enumeratorer og structs indført i diagrammet. Structs er indført i designet for at kunne pakke flere værdier ned og sende dem samtidigt. Enumerationer gør koden nemmere at læse og gør det nemt at implementere en protokol som fx protokol til Styringsmodulet.\\
+Bemærk at klassediagrammet er delt op i to. Skæringsstedet er mellem Kontrolinterface-klassen og Styringsmodul-klassen og er markeret med <<extend>>.\\
+Klassediagrammet for Kontrolinterface-klassen og de tilhørende klasser kan ses på figur \ref{fig:kd_ki_del} og for Styringsmodul-delen henvises der til figur \ref{fig:kd_sm_del}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/KI-Class}
 \caption{På figuren ses klassediagrammet for KI - Kontrolinterface-delen}
+\label{fig:kd_ki_del}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/SM-Class}
 \caption{På figuren ses klassediagrammet for KI - Styringsmodul-delen}
+\label{fig:kd_sm_del}
 \end{figure}
 
 \section{Metode- og klassebeskrivelser}
+Når klassediagrammet er på plads skal metoderne i det beskrives. Det vil de blive gjort i dette afsnit.
+
 \subsection{MainWindow}
 \subsubsection{Ansvar}
 Denne klasse indeholder de funktioner der er skrevet til Qt-formen MainWindow.ui hvori selve det grafiske er opbygget. Klassen indeholder de funktioner der anvendes i forbindelse med den grafiske brugergrænseflade. Det være sig når der kommer et input, eller der skal opdateres nogle værdier på skærmen.
