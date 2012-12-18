@@ -14,7 +14,7 @@ Problemerne kunne være opdaget tidligere i projektforløbet hvis gruppen havde 
 
 \chapter{Forbedringer til systemet}
 
-I dette afsnit samles op på det endelige system og der diskuteres forbedringer til systemet. Der diskuteres ikke udvidelser men reelle forbedringer til det dokumenterede system. Afsnittet er delt op i tre punkter "Sikkerhed", "Optimering af overførsel af data" og "Effektivitet".
+I dette afsnit samles op på det endelige system og der diskuteres forbedringer til systemet. Der diskuteres ikke udvidelser men reelle forbedringer til det dokumenterede system. Afsnittet er delt op i tre punkter "Sikkerhed", "Optimering af overførsel af data" og "Effektivitet". 
 
 \begin{large}\begin{itemize}
 \item Sikkerhed
@@ -30,4 +30,4 @@ Derudover er der ikke nogen tjek af data mellem SM og VBTE. Den eneste sikring i
 \item Effektivitet
 \end{itemize}\end{large}
 Systemet tømmer/fylder kun en tank af gangen som implementeringen er sket. Dette kunne optimeres på flere måder. Den ene er mere intelligent software på SM. Den anden, og mere interressante, kunne være at helt udelade SM og have en hældningsmåler på hver VBTE. VBTE vil derfor reagere selvstændigt på hældningen resulterende i at der både bliver tømt og fyldt på samme tid i hver sin side. Problemet med dette bliver så kontakt til KI og der skal laves væsentlige ændringer i hele struktureringen af systemet.\\
-Til effektivitet kan også nævnes at manuel vinkling også manuelt skal sættes tilbage igen. Dette kunne håndteres ved hjælp af SM. Hvis det var nødvendigt med manuel hældning ville man også kunne antage at systemet ville ramme tilbage i vatter i takt med den store lastning. Dermed burde SM aktivere automatik igen når den når vatter.
+Til effektivitet kan også nævnes at manuel vinkling også manuelt skal sættes tilbage igen. Dette kunne håndteres ved hjælp af SM. Hvis det var nødvendigt med manuel hældning ville man også kunne antage at systemet ville ramme tilbage i vatter i takt med den store lastning. Dermed burde SM aktivere automatik igen når den når vatter. Desuden kunne et check på om Databasen har modtaget data fra KI sikre at Havneterminalen opdager en mulig fejl.
