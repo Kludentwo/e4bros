@@ -1,6 +1,6 @@
 \section{Analyse}
 \subsection{Hvordan måler vi hældning?}
-Før vi kunne begynde på at lave en hældningssensor blev vi nødt til at finde ud af hvilke muligheder der var hældningsumåling. En af mulighederne var at anvende et pendul eller en libelle. Vi har startede med at udvikle på en prototype af en libellesensor vist på \textit{Figur~\ref{fig:libelle}}.
+Før vi kunne begynde på at lave en hældningssensor blev vi nødt til at finde ud af hvilke muligheder der var hældningsumåling. En af mulighederne var at anvende et pendul eller en libelle. Vi startede med at udvikle på en prototype af en libellesensor vist på \textit{Figur~\ref{fig:libelle}}.
 \begin{figure}[hbpt]
 \centering
 \includegraphics[width=0.4\textwidth]{billeder/libellesensor1}
@@ -26,7 +26,7 @@ Da modulerne sidder rundt om i skibbet, skal der overvejes hvordan de kan forsyn
 	\begin{itemize}
 	\item Smart da man ungår at trække en ledning med forsyning.
 	\item Dette kan være meget problematisk med et batteri, da der ikke vides hvor meget strøm der skal trækkes dvs. stort det skal være. 
-	\item Da der i forvejen er en kablet kommunikation, skal der alligevel kabel ud til modulet, derfor kan lige så smart at have en kabelet forsyning.
+	\item Da der i forvejen er en kablet kommunikation, skal der alligevel kabel ud til modulet, derfor kan det være lige så smart at have en kablet forsyning.
 	\end{itemize}
 \item Kablet forsyning \\
 Ved at vælge at bruge en kablet forsyning dukker der andre spørgsmål op.
@@ -34,7 +34,7 @@ Ved at vælge at bruge en kablet forsyning dukker der andre spørgsmål op.
 \item F.eks. hvilken forsyningsspænding skal der være.?\\
 24V, 230V, 12V, 5V eller noget helt andet..
 \end{itemize}
-Da der ikke er 100\% kendskab til hvilke forsyning spænding der er på et skib, men nok er 230V AC skal der med stor bruges en strømforsyning til modulerne, da de bruger en lavere spænding. \\
+Da der ikke er 100\% kendskab til hvilke forsyning spænding der er på et skib, men nok er 230V AC skal der med stor stor sandsynlighed bruges en strømforsyning til modulerne, da de bruger en lavere spænding. \\
 Ved at have en transformator kan spænding evt. komme ned på 24V AC. De 24V AC kan føres ud til modulerne samme med kommunikationen. \\
 Ved modulerne kan der bygges en strømforsyning der regulere de 24V AC om til DC. \\
 Her kommer der to muliglige strømforsyninger op:
@@ -63,16 +63,16 @@ Desværre løb gruppen igen i problemer da der skulle kompiles til modulet. Her 
 %%% Databasen %%%%%%
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Server}
-Opbygningen af serveren er gjort på baggrund af behovet for at kunne overføre data via et netværk. Til denne dataoverførelse har valget ligget imellem UDB eller TCP. UDB giver mulighed for flere tilslutninger men har ikke mulighed for pålidelig data overførelse. Ved at benytte TCP kan der ikke flere end en der kan koble til samtidig men derimod giver denne stabilitet og ordnet levering. Dette vil sge at hvis en pakke går tabt under overførelsen vil denne automatisk blive forsøgt sendt igen og så er vi sikre på at data kommer frem i samme orden som de blev afsendt. 
-der blev valgt at benytte TCP som gav den udfordring at ved afsendelse fra KI kom alle data over i en streng selv om vi forsøgte at sende dem over i 5 forskellige strenge og satte delays. Dette skyldes at TCP ser det som en streng der skal overføres og ikke som 5. For at løse dette satte vi nul terminering på ved afsendelse. Ved modtagelse blev dataet lagt ind i en variable som blev splittet ved nul terminaringen og efterfølgende gemt.
+Opbygningen af serveren er gjort på baggrund af behovet for at kunne overføre data via et netværk. Til denne dataoverførelse har valget ligget imellem UDB eller TCP. UDB giver mulighed for flere tilslutninger men har ikke mulighed for pålidelig data overførelse. Ved at benytte TCP, kan der ikke være  flere end en der kan koble til samtidig men derimod giver denne stabilitet og ordnet levering noget der blev prioriteret højest i prototypen da der kun var et skib(kontrolinterface). Dette vil sige at hvis en pakke går tabt under overførelsen vil denne automatisk blive forsøgt sendt igen og så er vi sikre på at data kommer frem i samme orden som de blev afsendt. 
+der blev valgt at benytte TCP som gav den udfordring at ved afsendelse fra KI kom alle data over i en streng selv om vi forsøgte at sende dem over i 5 forskellige strenge og satte delays. Dette skyldes at TCP ser det som en streng der skal overføres og ikke som 5. For at løse dette satte vi nul terminering på ved afsendelse. Ved modtagelse blev dataet lagt ind i en variable som blev splittet ved nul terminaringen og efterfølgende gemt. Fra startr var dte meningen at Serveren skulle gemme data direkte til MySQL databasen men grundet problemer med at kompile MySQL header og driver med blev dette efter noget tid droppet og i stedet blev backup muligheden der også er indskravet i kravspecifiklationen ophøjet til eneste mulighed.
 
 \subsection{Valg af database}
 For at vælge database til systemet blev der kigge på MySQL, Microsoft Acces og en lagring til en tekstfil.\\
-Microsoft Acces er et database system der der medfølgende i Microsoft Office pakken. Microsoft Access benytter sit eget format baseret på Access Jet Database Engine. En ulempe ved Microsoft Acces er at den kun fungere under Windows og da systemet skulle alsidigt var dette ikke den bedste løsning. At lagre direkte i en tekst fil blev overvejet da det er meget simpelt at lagre til tekstfiler fra c++ og php kan håndtere at hente fra den. Det kan gå galt ved loading og lagring til filen samtidig med at formater kan blive et problem. \\
+Microsoft Acces er et database system der medfølgende i Microsoft Office pakken. Microsoft Access benytter sit eget format baseret på Access Jet Database Engine. En ulempe ved Microsoft Acces er at den kun fungere under Windows og da systemet skulle være alsidigt var dette ikke den bedste løsning. At lagre direkte i en tekst fil blev overvejet da det er meget simpelt at lagre til tekstfiler fra c++ og php kan håndtere at hente fra den. Det kan gå galt ved loading og lagring til filen samtidig med at formater kan blive et problem. \\
 Der var i forvejen kendskab til MySQL og dette er et færdig udviklet system til at fungere med webinterfaces og for programmerings sprog som C++ er der udviklet header. Systemet er et system der fungere på mange platforme og løbende bliver udviklet på. På baggrund af dette blev dette system valgt.
 
 \subsection{Webinterface}
-Til den grafiske brugere grænseflade for Databasen blev et Webinterface valgt på baggrund af muligheden for at flere på havneterminalen kunne tilgå dataerne på samme tid. På baggrung af et på forhånd middel kendskab til php som er et  intepretere sprog og dens intergrationen med MySQL database blev php valgt som sprog til kodning af Webinterfacet.
+Til den grafiske brugere grænseflade for Databasen blev et Webinterface valgt på baggrund af muligheden for at flere på havneterminalen kunne tilgå dataerne på samme tid. På baggrung af et på forhånd middel kendskab til php som er et  intepretere sprog og dens intergrationen med MySQL database blev php valgt som sprog til kodning af Webinterfacet. Php giver desuden mulighed for at benytte ajax princippet og at bygge en hoved side der includere de andre sider. Dette giver mulighed for at let veligeholdes samt minimal dataoverførelse fra webserveren som m indsker loarding time.
 
 %%%%%%%%%%%%%%%%%%%%
 %%% Jura %%%%%%
