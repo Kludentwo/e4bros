@@ -282,64 +282,45 @@ Igennem de tre faser er designet af strømforsyning blevet udarbejdet, dette er 
 \label{fig:PowerSupplyBlok}
 \end{figure}
 \subsubsection{Beskrivelse af vitale hardware blokke}
-I dette afsnit vil der være en beskrivelse af udvalgte blokke, samt enkle udregninger til blokkene.
+I dette afsnit vil der være en beskrivelse af de udvalgte blokke.
 \subsubsection{Dobbelt ensretter og udglatning}
-Da strømforsyningen for leveret strøm fra en AC spændingskilde, skal AC signalet ensrettes til DC.\\ 
-Dette gøres med dobbelt ensretteren og udglatningen. dobbelt ensretteren en lavet som en diodebro, mens at udglatningen er en elektrolyt kondensator.
+Da strømforsyningen for leveret strøm fra en AC spændingskilde, skal AC signalet ensrettes til DC, dette gøres med dobbelt ensretter blokken og udglatnings blokken. 
+\subsubsection{Dobbelt ensretter}
 \begin{figure}[H]
-	\centering
-	\begin{minipage}[b]{0.48\textwidth}\centering
-	\includegraphics[width=0.80\textwidth]{billeder/DobbeltensretterBlok}
-	\end{minipage}
-	\begin{minipage}[b]{0.48\textwidth}\centering
-	\includegraphics[width=0.80\textwidth]{billeder/UdglatningsBlok}
-	\end{minipage}
-	\begin{minipage}[t]{0.48\textwidth}
-	\caption{Blok for dobbelt ensretter}
-	\label{fig:DobbeltensretterBlok}
-	\end{minipage}
-	\begin{minipage}[t]{0.48\textwidth}
-	\caption{Blok for udglatning}
-	\label{fig:UdglatningsBlok}
-	\end{minipage}
+\centering
+\includegraphics[scale=1]{billeder/DobbeltensretterBlok}
+\caption{Blok for dobbelt ensretter}
+\label{fig:DobbeltensretterBlok}
 \end{figure}
-\subsubsection{Beregning for dobbelt ensretter og udglatning}
-DC Spæding efter dobbelt ensretter og udglatning:\\
-+DC = (24V AC * 1.41)-1.4V = \textbf{32.44V}
+Dobbelt ensretteren en lavet som en diodebro bestående af 4 dioder, hvor to af dioderne samtiddig, hvilket betyder at der vil være positive halvperioder på udgangen "ensrettet DC" med en spidsværdi på ca. indgangsspænding * $\sqrt{2}$
+\subsubsection{Udglatning}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/UdglatningsBlok}
+\caption{Blok for dobbelt ensretter}
+\label{fig:DobbeltensretterBlok}
+\end{figure}
+Udglatningen er en elektrolyt kondensator som oplades og aflades i forhold til de positive halvperioder, da kondensator kun når at aflade lidt for hver nedadgående periode, vil der være en jævn og stabil DC.  
 \subsubsection{Regulator 12V og Regulator 5V}
-Da de enkle moduler bruger 12V og/eller 5V skal spænding reguleres ned til det pasende niveau, dette gøres i blokkene regulator 12V og regulator 5V. Udover enkle beregninger er designet af blokken den samme. 
+Da de enkle moduler bruger 12V og/eller 5V skal DC spænding fra Udglatningen reguleres ned til det pasende niveau, dette gøres i blokkene regulator 12V og regulator 5V.
+\subsubsection{12V regulator}
 \begin{figure}[H]
-	\centering
-	\begin{minipage}[b]{0.48\textwidth}\centering
-	\includegraphics[width=0.80\textwidth]{billeder/Regulering_12VBlok}
-	\end{minipage}
-	\begin{minipage}[b]{0.48\textwidth}\centering
-	\includegraphics[width=0.80\textwidth]{billeder/Regulering_5VBlok}
-	\end{minipage}
-	\begin{minipage}[t]{0.48\textwidth}
-	\caption{Blok for 12V regulator}
-	\label{fig:Regulering_12VBlok}
-	\end{minipage}
-	\begin{minipage}[t]{0.48\textwidth}
-	\caption{Blok for 5V regulator}
-	\label{fig:Regulering_5VBlok}
-	\end{minipage}
+\centering
+\includegraphics[scale=1]{billeder/Regulering_12VBlok}
+\caption{Blok for 12V regulator}
+\label{fig:Regulering_12VBlok}
 \end{figure}
-\subsubsection{Beregning på feedback til regulator 12V og 5V}
-\textbf{12V regulator}\\
-V\_out = 1,25*(1+(R4/R3))+ I\_adj*R4 \\
-R3 vælges med en standardværdi til 150 ohm. I\_adj er ifølge databladet = max 100uA \\
-R4 = (R3 * 10,75) / (I\_adj +1,25) = (150 * 10,75) / (100uA * 1,25) \\
-R4 = 1290 ohm \\
-Nærmeste standardværdi er 1300 ohm \\
-\textbf{R4 = 1300 ohm}\\\\
-\textbf{5V regulator }\\
-V\_out = 1,25*(1+(R4/R3))+ I\_adj*R4 \\
-R3 vælges med en standardværdi til 270 ohm. I\_adj er ifølge databladet = max 100uA \\
-R4 = (R3 * 3,75) / (I\_adj +1,25) = (270 * 10,75) / (100uA * 1,25) \\
-R4 = 810 ohm \\
-Nærmeste standardværdi er 820 ohm \\
-\textbf{R4 = 820 ohm}
+For at regulatoren kan regulere spændingen ned til 12V, skal der bruges et feedback fra udgangen "12V", feedbacket er indstillet til 12V ved hjælp af to modstande.
+\newpage
+\subsubsection{5V regulator}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/Regulering_5VBlok}
+\caption{Blok for 5V regulator}
+\label{fig:Regulering_5VBlok}
+\end{figure}
+For at regulatoren kan regulere spændingen ned til 5V, skal der bruges et feedback fra udgangen "5V", feedbacket er indstillet til 12V ved hjælp af to modstande.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% DA TAB ACE  %%%%%%%
