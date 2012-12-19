@@ -1,16 +1,17 @@
 \section{Analyse}
 \label{ch:analyse}
 \subsection{Hvordan måler vi hældning?}
-Før vi kunne begynde på at lave en hældningssensor blev vi nødt til at finde ud af hvilke muligheder der var hældningsumåling. En af mulighederne var at anvende et pendul eller en libelle. Vi startede med at udvikle på en prototype af en libellesensor vist på \textit{Figur~\ref{fig:libelle}}.
+Før vi kunne begynde på at lave en hældningssensor, blev vi nødt til at finde ud af hvilke muligheder, der eksisterer for hældningsmåling. \\
+En af mulighederne var at anvende et pendul eller en libelle. Vi startede med at udvikle på en prototype af en libellesensor vist på figur \ref{fig:libelle}.
 \begin{figure}[hbpt]
 \centering
 \includegraphics[width=0.4\textwidth]{billeder/libellesensor1}
 \caption{Hældningssensor baseret på libelle}
 \label{fig:libelle}
 \end{figure}
-Hældningssensorprototype 1 indeholder 2 højpas filtrer samt en frekvensgenerator og en differensforstærker. Vi kom frem til at libellesensoren har en capacitet på omkring $1*10^{-15}[F]$. Det gør det praktisk umuligt at anvende da vores komponenter i det filter der skulle designes til den færdige sensor, da cutoff frekvens kommer til at være $>3.0[MHz]$. Den høje frekvens giver en stor selvinduktion i vores ledning. Et lavt signal fra hældningssensoren kombineret med stor selvinduktion, gjorde at vi måtte finde en anden løsning.\\
-Næste prototype bestod af et potmeter og et pendul. Dog havde potmeteret en for stor friktionsmodstand, der gjorde det upræcist i forhold til vores krav.\\
-Vi har gennem et tredje semestersfag fundet ud af at PSoC'en indeholder et accelerometer\footnote{KXSC7-2050 se bilag}. Efter en prototypeopbygning fandt vi ud af at accelerometeret opfyldte de krav, der er stillet i kravspecifikation. Prototypen er implementeret med en defineret standard værdi for 0 graders hældning. Denne værdi skal kunne ændres da hver PSoC har sin egen værdi dog indenfor et interval beskrevet i databladet.
+Den første hældningssensorprototype indeholder to højpasfiltrer, en frekvensgenerator og en differensforstærker. Vi kom frem til at libellesensoren har en capacitet på omkring $1*10^{-15}[F]$. Det gør det praktisk talt umuligt at anvende, da vores filter skulle designes til en cutoff frekvens $>3.0[MHz]$. Den høje frekvens giver en stor selvinduktion i vores ledning. Et lavt signal fra hældningssensoren kombineret med stor selvinduktion, gjorde at vi måtte finde en anden løsning.\\
+Næste prototype bestod af et potmeter og et pendul. Dog havde potmeteret en for stor friktionsmodstand, der gjorde det for upræcist i forhold til vores krav.\\
+Vi har gennem et tredje semestersfag fundet ud af at PSoC'en indeholder et accelerometer\footnote{KXSC7-2050, se bilag}. Efter en prototypeopbygning fandt vi ud af at accelerometeret opfyldte de krav, der er stillet i kravspecifikation. Prototypen er implementeret med en defineret standard værdi for 0 graders hældning. Denne værdi skal kunne ændres da hver PSoC har sin egen værdi dog indenfor et interval beskrevet i databladet.
 %%%%%%%%%%%%%%%%%%%%
 %%% VBTE %%%%%%%
 %%%%%%%%%%%%%%%%%%%%
