@@ -168,11 +168,11 @@ Case &Formål &Udførelse\\\hline
 \hline
 Case &Formål &Udførelse\\\hline
 3a &Der testes om brugeren bliver logget på ved indtastning af korrekt password&Password indtastes og ved grafisk visning ses det at brugeren er logget på\\\hline
-3b &Der testes om brugeren bliver bedt om indtastning af password igen ved forkert password&Password indtastes og ved grafisk visning ses det at brugeren ikke bliver logget på men skal forsøge igen\\\hline
-3c &Der testes om brugeren kan trykker på det ønskede skib og brugeren bliver sendt til dennes database& Ved tryk på skib ses det grafisk at brugeren kommer til siden\\\hline
-3d &Der testet om data for skibet bliver vist for brugeren& Når brugeren er trykket ind på databasen ses det grafisk at data bliver hentet fra MySQL databasen\\\hline
+3b &Der testes om brugeren bliver bedt om indtastning af password igen, ved forkert password&Password indtastes og ved grafisk visning, ses det at brugeren ikke bliver logget på, men skal forsøge igen\\\hline
+3c &Der testes om brugeren kan trykker på det ønskede skib, og brugeren bliver sendt til dennes database& Ved tryk på skib, ses det grafisk at brugeren kommer til siden\\\hline
+3d &Der testet om data for skibet bliver vist for brugeren& Når brugeren er trykket ind på databasen, ses det grafisk at data bliver hentet fra MySQL databasen\\\hline
 3e &Der testet om side checker for data hvert 5 sekund& Der ses grafisk og med stop ur at siden opdatere hvert 5 sekund.\\\hline
-3f &Der testes at hvis der er kommet ny data at denne bliver gemt i MySQL databasen og filen slettes samt data vist for brugeren& Når en ny fil med data, bliver denne gemt. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
+3f &Der testes, at hvis der er kommet ny data, at denne bliver gemt i MySQL databasen, og filen slettes samt data vist for brugeren& Når en ny fil med data, bliver denne gemt. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
 3g &Der testet at ved tryk på Log af bliver brugeren sendt til log in & Grafisk testes dette ved tryk på Log af\\\hline
 3h &Der testet om ved fejl link henvisning sendes brugeren til en 404 side & Ved at ændre en URL henvisning, testes der for om brugern får en 404 fejl.\\\hline
 \end{tabular}
@@ -345,8 +345,8 @@ Case &Forventet resultat &Resultat &Status\\\hline
 Case &Forventet resultat &Resultat &Status\\\hline
 2a &Der forventes at programmet modtager data  & Programmet modtog data via TCP. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 2b &Der forventes at programmet vil splitte den modtagede streng ind til fem dele  & Programmet splittede strengen i de 5 dele. &\begin{Huge}$\surd$\end{Huge} \\\hline
-2c &Der forventes at programmet er i stand til at dekryptere hældningen og omdanne den til grader  & Programmet dekrypterede og omdannede hældningen til grader. &\begin{Huge}$\surd$\end{Huge} \\\hline
-2d &Der forventes at programmet efter modtagelse, splitning og dekryptering er i stand til at gemme den modtagende data til en teksfil  & Programmet gemte den modtagne data korrekt i tekst fil. &\begin{Huge}$\surd$\end{Huge} \\\hline
+2c &Der forventes at programmet er i stand til, at dekryptere hældningen og omdanne den til grader  & Programmet dekrypterede og omdannede hældningen til grader. &\begin{Huge}$\surd$\end{Huge} \\\hline
+2d &Der forventes at programmet efter modtagelse, splitning og dekryptering er i stand til, at gemme den modtagende data til en teksfil  & Programmet gemte den modtagne data korrekt i tekst fil. &\begin{Huge}$\surd$\end{Huge} \\\hline
 \end{tabular}
 \end{table}
 For at se output af test cases fra terminal se figur \ref{fig:server_test}.
@@ -357,12 +357,12 @@ For at se output af test cases fra terminal se figur \ref{fig:server_test}.
 \begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-3a &Brugeren bliver logget på databasen  & Ved indtasting af korrekt adgangskode blev brugeren logget på.. &\begin{Huge}$\surd$\end{Huge} \\\hline 
-3b &Ved indtastning af forkert adgangskode bliver brugeren ikke logget på men bedt om indtastning af adgangskode igen   & Ved forkert adgangskode blev brugeren sendt til en blank side men kan ikke få adgang til data &\begin{Huge}$\surd$\end{Huge} \\\hline
+3a &Brugeren bliver logget på databasen  & Ved indtasting af korrekt adgangskode, blev brugeren logget på. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+3b &Ved indtastning af forkert adgangskode, bliver brugeren ikke logget på, men bedt om indtastning af adgangskode igen   & Ved forkert adgangskode, blev brugeren sendt til en blank side, men kan ikke få adgang til data &\begin{Huge}$\surd$\end{Huge} \\\hline
 3c &Brugeren bliver sendt til den ønskede database  & Brugeren blev bedt sendt til den ønskede database. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3d &Data blev fremvist for brugeren, hentet fra MySQL databasen & Den nye data blev vist for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3e &Siden skal checke for data hvert 5 sekund & Siden opdaterede hvert 5 sekund. &\begin{Huge}$\surd$\end{Huge} \\\hline
-3f &Ved nykommen data i form af tekstfil hentes denne ind i databasen og filen slettes & Den nye data blev hentet ind i MySQL databasen og filen blev slettet. &\begin{Huge}$\surd$\end{Huge} \\\hline
+3f &Ved nykommen data i form af tekstfil, hentes denne ind i databasen og filen slettes & Den nye data blev hentet ind i MySQL databasen og filen blev slettet. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3g &Brugeren bliver sendt til log på siden & Brugeren blev sendt til siden hvor denne skulle logge på. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3h &Ved tryk på et link der ikke var rigtigt henvist bliver en 404 fejl vist & Fejl meddelelse bliver vist for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
 \end{tabular}
