@@ -1,4 +1,5 @@
 \chapter{Konklusion}
+\label{ch:konklusion}
 \subsection{Bulletpoints til Konklusion}
 \begin{itemize}
 \item Delvist godkendt acceptest
@@ -17,8 +18,8 @@ Gruppe vil også konkludere på vellykket gruppearbejde, da gruppen for første 
 
 
 \chapter{Forbedringer til systemet}
-
-I dette afsnit samles op på det endelige system og der diskuteres forbedringer til systemet. Der diskuteres ikke udvidelser men reelle forbedringer til det dokumenterede system. Afsnittet er delt op i tre punkter "Sikkerhed", "Optimering af overførsel af data" og "Effektivitet". 
+\label{ch:Forbedringer}
+I dette afsnit samles op på det endelige system og der diskuteres forbedringer til systemet. Der diskuteres ikke udvidelser men reelle forbedringer til det dokumenterede system. Afsnittet er delt op i fire punkter "Sikkerhed", "Optimering af overførsel af data", "Effektivitet" og "Prototype". 
 
 \begin{large}\begin{itemize}
 \item Sikkerhed
@@ -35,3 +36,7 @@ Derudover er der ikke nogen tjek af data mellem SM og VBTE. Den eneste sikring i
 \end{itemize}\end{large}
 Systemet tømmer/fylder kun en tank af gangen som implementeringen er sket. Dette kunne optimeres på flere måder. Den ene er mere intelligent software på SM. Den anden, og mere interressante, kunne være at helt udelade SM og have en hældningsmåler på hver VBTE. VBTE vil derfor reagere selvstændigt på hældningen resulterende i at der både bliver tømt og fyldt på samme tid i hver sin side. Problemet med dette bliver så kontakt til KI og der skal laves væsentlige ændringer i hele struktureringen af systemet.\\
 Til effektivitet kan også nævnes at manuel vinkling også manuelt skal sættes tilbage igen. Dette kunne håndteres ved hjælp af SM. Hvis det var nødvendigt med manuel hældning ville man også kunne antage at systemet ville ramme tilbage i vatter i takt med den store lastning. Dermed burde SM aktivere automatik igen når den når vatter. Desuden kunne et check på om Databasen har modtaget data fra KI sikre at Havneterminalen opdager en mulig fejl.
+\begin{large}\begin{itemize}
+\item Prototype
+\end{itemize}\end{large}
+Der er i projektet anvendt ventiler til at styre in/out-flow af vand til tankene. Dette er anvendt pga. tilgængelighed. Dette vil ikke fungere på et skib og det gør også reguleringen på vores prototype langsomere. Det vil derfor være mere optimalt og korrekt at anvende pumper til systemet.

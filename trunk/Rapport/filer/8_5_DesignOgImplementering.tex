@@ -175,37 +175,27 @@ Efter signalet er løftet, bliver det forstærket op af en PGA. Den første fors
 Herefter bliver signalet mixet med $\SI{40}{kHz}$ og filtreret. Efter mixeren giver det, stort set, en DC og summen af de to signaler. Filteret er indbygget i Delta-Sigma ADC'en og har en knækfrekvens ved $\frac{Sample frekvens}{3}$. For at være sikker på at det meste af signalet er kommet over regnes der en opladningstid på filteret til $\SI{1/4}{ms}$. Efter undersøgelser af signalet ind på ADC'en blev en spænding på $\SI{0.3}{V}$ valgt til at representere en detektion.
 
 \subsubsection{Hardware uden for PSoC'en}
-Uden for PSoC'en er der lavet 2 hardwareblokke. Disse har til ansvar at omsætte et kontrolsignal til en større spænding over de respektive enheder. 
+Uden for PSoC'en er der lavet 2 hardwareblokke (Ventilkreds og transmitterkreds). Disse har til ansvar at omsætte et kontrolsignal til en større spænding over de respektive enheder. Herunder vil der blive fokuseret på ventilkredsen.
 \begin{figure}[H]
 	\centering
-	\begin{minipage}[b]{0.48\textwidth}\centering
-	\includegraphics[width=0.80\textwidth]{billeder/Ventilblok}
-	\end{minipage}
-	\begin{minipage}[b]{0.48\textwidth}\centering
-	\includegraphics[width=0.80\textwidth]{billeder/Transmitterblok}
-	\end{minipage}
-	\begin{minipage}[t]{0.48\textwidth}
+	\includegraphics[width=0.40\textwidth]{billeder/Ventilblok}
 	\caption{Hardwareblok for ventil}
 	\label{fig:Ventilblok1}
-	\end{minipage}
-	\begin{minipage}[t]{0.48\textwidth}
-	\caption{Hardwareblok for transmitteren}
-	\label{fig:transmitterblok1}
-	\end{minipage}
 \end{figure}
 \subsubsection{Ventilkreds}
 Ventilkredsen får to kontrolsignaler fra PSoC'en og disse skal styre de to ventiler. Ventilerne monteret på kredsen er fra Danfoss og er af modellerne EV210A-1.2 og EV210A-4.5. Disse ventiler drives ved 12V 0.4A. Der er valgt en BD139 transistor til at forstærke signalet op. Denne har en forstærkning mellem 40 og 160 (aflæst fra databladet\footnote{Se bilag/BD139.pdf}). IO's på PSoC'en kan maksimalt trække en strøm på $\SI{4}{mA}$ og det vil i værste tilfælde ikke være nok til at trække ventilerne.\\
 Der er derfor lavet en darlington kobling for at mindske belastningen af PSoC'en og for at sikre at der bliver lukket nok op for transistoren. Dette er gjort med en transistor af typen BC547. Transistorne er valgt ud fra pris og tilgængelighed. Der var først valgt en MOSFET IRLZ44n men denne var både for dyr og kunne klare en unødvendig stor effekt. Det smarte ved MOSFET'en er dog at den er spændingsstyret i forhold til de to andre transistorer. 
-\subsubsection{Transmitterkreds}
-Transmitterkredsen anvender ultralydstranduceren som en højtaler. Denne er koblet over transistoren (Her anvendes også en BD139).\\
-Via. kontrolsignalet fra PSoC'en, der bliver sendt ud ved $\SI{40}{kHz}$, bliver der sat en spænding over transduceren.\\ 
-Forsyningen hertil trækkes fra samme forsyning som ventilkredsen der bliver leveret fra powersuply'en. Ud fra databladet er der aflæst en ohmsk modstand på omtrendt $\SI{10}{k}\Omega$. Derfor kan PSoC'en uden problemer selv trække denne kreds.
-\begin{figure}[H]
-\centering
-\includegraphics[width = .5\textwidth]{billeder/transmitterkreds}
-\caption{Transmitterkreds}
-\end{figure}
-For yderligere detaljer vedrørende hardware på VBTE henvises til \textit{Deltajeret hardware design}.
+
+%\subsubsection{Transmitterkreds}
+%Transmitterkredsen anvender ultralydstranduceren som en højtaler. Denne er koblet over transistoren (Her anvendes også en BD139).\\
+%Via. kontrolsignalet fra PSoC'en, der bliver sendt ud ved $\SI{40}{kHz}$, bliver der sat en spænding over transduceren.\\ 
+%Forsyningen hertil trækkes fra samme forsyning som ventilkredsen der bliver leveret fra powersuply'en. Ud fra databladet er der aflæst en ohmsk modstand på omtrendt $\SI{10}{k}\Omega$. Derfor kan PSoC'en uden problemer selv trække denne kreds.
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width = .5\textwidth]{billeder/transmitterkreds}
+%\caption{Transmitterkreds}
+%\end{figure}
+%For yderligere detaljer vedrørende hardware på VBTE henvises til \textit{Deltajeret hardware design}.
 
 \subsubsection{Software}
 Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kravspecifikationen samt arkitekturen i systemarkitekturen. Den er blevet designet til at passe til hardwaren så den kan kontrollere de enkelte elementer. I designfasen er der blevet udfærdiget et klassediagram samt en statemachine over funktionaliteten. På \textit{figur \ref{fig:VBTEklasse} } ses klassediagramet for VBTE modulets software.

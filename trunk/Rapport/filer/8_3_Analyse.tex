@@ -1,4 +1,5 @@
 \section{Analyse}
+\label{ch:analyse}
 \subsection{Hvordan måler vi hældning?}
 Før vi kunne begynde på at lave en hældningssensor blev vi nødt til at finde ud af hvilke muligheder der var hældningsumåling. En af mulighederne var at anvende et pendul eller en libelle. Vi startede med at udvikle på en prototype af en libellesensor vist på \textit{Figur~\ref{fig:libelle}}.
 \begin{figure}[hbpt]
@@ -14,7 +15,7 @@ Vi har gennem et tredje semestersfag fundet ud af at PSoC'en indeholder et accel
 %%% VBTE %%%%%%%
 %%%%%%%%%%%%%%%%%%%%
 \subsubsection{Hvordan måler vi niveauet i vandballasttankene?}
-Ultralydsafstandsmålingen blev valgt for at prøve noget ingen havde kendskab til i projektet. Man kunne have valgt at købe en færdiglavet enhed men det blev vurderet at dette ikke gav ret meget faglig erfaring. I e-lab havde de nogle rå tranducere og receivere liggende og der blev derfor valgt at forsøge med at udvikle en ultralydsafstandsmåler. Der blev i starten lavet en del teknologiundersøgelse inden for ultralyden og tranducere og receivere blev testede for at se hvordan de aggerede. Vi fandt at der var en del destruktive reflektioner. En løsning der blev afprøvet var at fylde akustisk skum i toppen af tankene, men da det skum der blev anskaffet var elektrisk ledende kunne det ikke anvendes. Herudover blev der lavet forsøg med forskellige ultralydskredse fundet på nettet, hvilket gav anledning til erfaring og viden. Metoden der blev valgt til at måle afstanden kan ses på figuren nedenfor og gøres ved hjælp af bursts. Der er valgt et burst på 250$\mu$s.
+Da ingen i projektgruppen havde arbejdet med ultralyd før valgte vi at forsøge med det. Man kunne have valgt at købe en færdiglavet enhed men det blev vurderet at dette ikke gav ret meget faglig erfaring. I e-lab havde de nogle rå tranducere og receivere liggende og der blev derfor valgt at forsøge med at udvikle en ultralydsafstandsmåler. Der blev i starten lavet en del teknologiundersøgelse inden for ultralyden og tranducere og receivere blev testede for at se hvordan de aggerede. Vi fandt at der var en del destruktive reflektioner. En løsning der blev afprøvet var at fylde akustisk skum i toppen af tankene, men da det skum der blev anskaffet var elektrisk ledende kunne det ikke anvendes. Herudover blev der lavet forsøg med forskellige ultralydskredse fundet på nettet, hvilket gav anledning til erfaring og viden. Metoden der blev valgt til at måle afstanden kan ses på figuren nedenfor og gøres ved hjælp af bursts. Der er valgt et burst på 250$\mu$s.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.4\textwidth]{billeder/ultralydsburst}
