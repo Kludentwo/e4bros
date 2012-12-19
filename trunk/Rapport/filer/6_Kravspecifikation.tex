@@ -17,7 +17,23 @@ Når systemet startes op første gange anvendes Opstart af Program(Use Case 1). 
 
 
 \subsection{Ikke funktionelle krav}
-I dette afsnit beskrives krav til tolerancer og andre krav der ikke er use case specifikke. 
+I dette afsnit beskrives krav til tolerancer og andre krav der ikke er use case specifikke. Nedenfor er noteret nogle ikke funktionelle krav:
+\begin{itemize}
+\item Sensorer:
+\begin{itemize}
+\item[$\diamond$] Hældningssensor:\\
+Hældningssensor måler skibets hældning i forhold til vandret i området -7.5 til 7.5 grader, med en nøjaftighed på 0.5 grader.\\
+\item[$\diamond$] Ballasttank\\
+Vandniveauet i ballasttanken skal måles fra 0-100\% med en nøjagtighed på $\pm$2.5\%-point.
+\end{itemize}
+\item Alarmer:
+\begin{itemize}
+\item[$\diamond$]Vandniveauet i ballasttanke bliver mere end 70\%.
+\item[$\diamond$]Hældning på skibet bliver større end $\pm$5 grader.
+\item[$\diamond$]Mistet eller ingen forbindelse internt i systemet.
+\item[$\diamond$]Mistet eller ingen forbindelse til ekstern database.
+\end{itemize}
+\end{itemize}
 \subsection{Krav til udvinklingsprocess og teknologi}
 Projektforløbet skal følge V-modellen. SCRUM skal bruges i projektstyringsprocessen til at give overblik over projektets arbejdsopgaver. SCRUMmaster og projektleder uddeles til gruppemedlemmer.\\
 Til dokumentation skal der bruges SysML diagrammer til at beskrive systemet overordnet og i detaljer.\\
