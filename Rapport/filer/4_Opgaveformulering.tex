@@ -1,7 +1,7 @@
 \chapter{Projektformulering}
 \section{Opgaveformulering}
 \label{ch:Opgaveformulering}
-Opgaveformuleringen er givet af vejledere til projektet som retningslinier for projektet. Følgende er givet som krav i disse retningslinier.
+Opgaveformuleringen er givet til gruppen for projektet som retningslinier. Følgende er givet som krav i disse retningslinier.
 \begin{itemize}
 \item Systemet skal interagere med omverdenen vha. sensorer og aktuatorer.
 \item Der skal anvendes relevante faglige elementer fra semestrets kurser.
@@ -11,11 +11,12 @@ Opgaveformuleringen er givet af vejledere til projektet som retningslinier for p
 \section{Projektformulering}
 \label{ch:Projektformulering}
 \subsubsection{Baggrund}
-Når man laster eller losser et bulkskib bruges der ofte mange resourcer på at kontrollere at skibet ikke får slagside. Skibets ansvarshavende officer står på broen under hele lastningen/losningen og holder øje med at det bliver gjort ordentligt. Denne opgave vil vi gerne gøre nemmere. Med et system der automatisk sørger for at skibet altid er i vatter skal kaptajnen kunne interagere med systemet hvis systemet kommer med en alarm. Kaptajnen kan manuelt vælge at flytte ballast til den ene side, hvis han ved at der komme en stor last placeret i modsatte side. For at sikre at havnen har et overblik over alle skibe i havnen, sender systemet statusbeskeder til en database på havnekontoret. Kontoret kan derfor tage kontakt til skibet, der har en alarm.
-\subsubsection{Projektdefination}
+Når man laster eller losser et bulkskib bruges der mange resourcer på at kontrollere at skibet ikke får slagside. Der bruges lang tid på at planlægge hvor, hvornår og hvad der skal lastes. Hertil står skibsføreren på broen under hele lastningen/losningen og overvåger at det bliver gjort korrekt. Inde på terminalen bliver skibet også overvåget for at sikre at der ikke sker fejl. Derudover er det ifølge lovgivning også muligt at modkompensere en slagsside forsaget af en forestående last ved at flytte rundt på ballast i ballasttanke. Gruppen vil derfor gerne arbejde med et system der automatisk kan afhjælpe problemer med slagsside og minimere tiden der skal bruges på planlægning af en lastning/losning.
+
+\subsubsection{Projektdefinition}
 Det er gruppens ønske at lave et system der korrigerer skibe fra at få slagside i forbindelse med lastning og losning af gods, således at skibet er i vatter. Overordnede system krav udarbejdet i projektformuleringen:
 \begin{itemize}
-\item Systemet skal føre en log-fil hvori data omkring skibsnavn og status sendes til en database
-\item Systemet skal monitorere om skibet er i vatter
-\item Systemet skal agere i tilfælde af skibet er ude af vatter
+\item Systemet skal logge data omkring skibsnavn og status til en database.
+\item Systemet skal monitorere om skibet er i vatter.
+\item Systemet skal agere i tilfælde af skibet er ude af vatter.
 \end{itemize}
