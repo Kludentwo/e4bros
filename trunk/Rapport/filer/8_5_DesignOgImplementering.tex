@@ -27,10 +27,10 @@ Det videre skridt er at udarbejde et klassediagram for programmet. Klassediagram
 \label{fig:kd_simpel}
 \end{figure}
  
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \rowcolors{1}{white}{light-gray}
-\begin{tabular}{| p{3cm}  p{12.5cm}|}
+\begin{tabular}{| p{3cm}  p{12cm}|}
 \multicolumn{2}{l}{{\Large Kontrolinterfacets klasser}} \\\hline
 Kontrolinterface:&Programmets hovedklasse. Eksisterer for at rydde op i main-funktionen.\\\hline
 DataServer:&Står for alt TCP-kommunikationen med databasen. Oprettes af KI-klassen\\\hline
@@ -58,8 +58,8 @@ På figur \ref{fig:hovedvindue} er hovedvinduet vist. Her er vinduets elementer 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{billeder/KI/hovedvindue}
-\label{fig:hovedvindue}
 \caption{På figuren ses hovedvinduet for Kontrolinterface-programmet}
+\label{fig:hovedvindue}
 \end{figure}
 
 \textcolor{red}{\textbf{1: Forsinkelse i sekunder}}\\
@@ -92,50 +92,6 @@ Bringer dig til en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grade
 
 \textcolor{purple}{\textbf{9: Aktivitetslog}}\\
 Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel kan det ses hvordan alarmer skrives med rødt og oprettede forbindelser skrives med grønt.
-
-%\begin{table}[H]
-%\begin{center}
-
-%\rowcolors{1}{white}{light-gray}
-%\begin{tabular}{| l | p{9.5cm} | }
-
-%\multicolumn{2}{l}{Hovedvinduets elementer} \\
-%\hline
-%\textcolor{red}{\textbf{1: Forsinkelse i sekunder}}
-%&Det øverste tal fortæller tiden i sekunder siden serveren sidst er blevet opdateret succesfuldt.
-%Nedenunder udskrives tiden i sekunder siden værdierne i boks tre og fire er blevet opdateret.\\
-
-%\textcolor{Orange}{\textbf{2: Nedlukningsknap}}
-%&Anvendes til at lukke programmet. Programmet åbner dialogen som kan ses i Designdokumentet, Appendix A.\\\hline
-
-%\textcolor{brown}{\textbf{3: Vandballasttankene}}
-%&Her kan status for vandballasttankene aflæses. Niveauet er hvor fyldt tanken er angivet i procent. Hvis niveauet er over 70\% skrives tallet med rødt.
-%Status angiver vandets flow i tanken: IND/UD/LUKKET.\\\hline
-
-%\textcolor{yellow}{\textbf{4: Hældningssensor}}
-%&Værdien for hældningen af skibet angives i antal grader og i hvilken side skibet hælder.\\\hline
-
-%\textcolor{green}{\textbf{5: Reguleringsstatus}}
-%&Her angives hvorvidt automatisk eller manuel hældningsregulering er aktiveret. Der vil altid kun være en og kun en af disse aktiveret. Derfor vil der altid være en rød og en grøn indikator tændt. I dette eksempel er den automatisk hældningsregulering aktiveret.\\\hline
-
-%\textcolor{pink}{\textbf{6: Forbindelser}}
-%&Indikerer hvorvidt der er forbindelse til Styringsmodulet og serveren. Dataforbindelse er rød hvis det ikke lykkedes at oprette forbindelse til serveren ved sidste forsøg.
-%SM-forbindelse er rød hvis det ikke lykkedes at få de ventede svar fra Styringsmodulet.
-%I denne situation er der forbindelse til styringsmodulet, men ikke serveren.\\\hline
-
-%\textcolor{blue}{\textbf{7: Automatisk reguleringsknap}}
-%&Ved tryk på denne knap vil man komme til en dialog hvor man beder bekræfte at man ønsker at gå væk fra manuel hældningsregulering. Hvis automatisk regulering allerede er aktiveret vil man få dette af vide i en dialog. Dialogerne kan ses i Designdokumentet, Appendix A.\\\hline
-
-%\textcolor{BlueGreen}{\textbf{8: Manuel reguleringsknap}}
-%&Bringer dig til en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grader. Herefter vælges siden skibet skal hælde til. Dialogen kan ses i Designdokumentet, Appendix A.\\\hline
-
-%\textcolor{purple}{\textbf{9: Aktivitetslog}}
-%&Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel kan det ses hvordan alarmer skrives med rødt og oprettede forbindelser skrives med grønt.\\\hline
-
-%\end{tabular}
-%\label{tabel:ki-elementer}
-%\end{center}
-%\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% VBTE %%%%%%%%%%%%
@@ -202,8 +158,8 @@ Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kra
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/ClassVBTE}
-\label{fig:VBTEklasse}
 \caption{Klassediagram over VBTE}
+\label{fig:VBTEklasse}
 \end{figure}
 Selvom softwaren er skrevet i C er der lavet klasser for alle h-filer for at gøre systemet overskueligt. For detaljerede metodebeskriveler henvises til detaljeret software design.\\
 For at overskueligtgøre funktionaliteten af softwaren anvendes statemachinediagrammet. Dette viser de forskellige tilstande programmet til enhver til kan befinde sig i.
@@ -369,6 +325,7 @@ Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp
 
 \begin{table}[H]
 \centering
+\rowcolors{1}{white}{light-gray}
 \begin{tabular}{p{4cm} p{10cm}}
 \multicolumn{2}{l}{{\Large Serverens klasser}} \\\hline
 Server & Er hovedvinduet på serveren. Information til brugeren udskrives herfra og knapper er implementeret. \\
