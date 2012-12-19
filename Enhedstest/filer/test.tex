@@ -154,8 +154,8 @@ Case &Formål &Udførelse\\\hline
 Case &Formål &Udførelse\\\hline
 2a &Der testet om programmet kan modtage en streng &Stup sender streng med de data som angivet i formål\\\hline
 2b & der testet om programmet kan splitte den modtagede streng til de 5 dele: ID, STYRBORD, BAGBORD, LEVEL, TIME & Stup sender en streng med 4 mellemrum. \\\hline
-2c &Der testet om programmet kan dekryptere LEVEL som skal dekrypteres til grader &Stup sender en LEVEL værdi svarende til den som kommer fra sm i hendhold til uart protocol\\\hline
-2d &Der testes om programmet er i stand til at gemme data til en tekstfil &Stup sender alle værdier via tcp. Alle værdier skal gemmes i tekstfil\\\hline
+2c &Der testet om programmet kan dekryptere LEVEL som skal dekrypteres til grader &Stup sender en LEVEL værdi svarende til den som kommer fra SM i hendhold til uart protocol\\\hline
+2d &Der testes om programmet er i stand til at gemme data til en tekstfil &Stup sender alle værdier via tcp. Alle værdier skal gemmes i en tekstfil\\\hline
 \end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,9 +172,9 @@ Case &Formål &Udførelse\\\hline
 3c &Der testes om brugeren kan trykker på det ønskede skib og brugeren bliver sendt til dennes database& Ved tryk på skib ses det grafisk at brugeren kommer til siden\\\hline
 3d &Der testet om data for skibet bliver vidst for brugeren& Når brugeren er trykket ind på databasen ses det grafisk at data bliver hentet fra MySQL databasen\\\hline
 3e &Der testet om side checker for data hvert 5 sekund& Der ses grafisk og med stop ur at siden opdatere hvert 5 sekund.\\\hline
-3f &Der testes at hvis der er kommet ny data at denne bliver gemt i MySQL databasen og filen slettes samt data vidst for brugeren& Når placeres en ny fil med data som skal gemmes. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
+3f &Der testes at hvis der er kommet ny data at denne bliver gemt i MySQL databasen og filen slettes samt data vidst for brugeren& Når en ny fil med data, bliver denne gemt. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
 3g &Der testet at ved tryk på Log af bliver brugeren sendt til log in & Grafisk testes dette ved tryk på Log af\\\hline
-3h &Der testet om ved fejl link henvisning sendes brugeren til en 404 side & Ved at ændre en URL henvisning testes der for om brugern får en 404 fejl.\\\hline
+3h &Der testet om ved fejl link henvisning sendes brugeren til en 404 side & Ved at ændre en URL henvisning, testes der for om brugern får en 404 fejl.\\\hline
 \end{tabular}
 \end{table}
 
@@ -333,7 +333,7 @@ Ingen kontakt til Styringsmodulet. Af sikkerhedsmæssige årsager kan programmet
 \begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-1a &Der forventes at programmet acceptere den tilkoblede client & Programmet accepterede tilkobling.\fxnote{indsæt billede af dialog} &\begin{Huge}$\surd$\end{Huge} \\\hline 
+1a &Der forventes at programmet acceptere den tilkoblede client & Programmet accepterede tilkobling. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 \end{tabular}
 \end{table}
 
@@ -344,11 +344,12 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 2a &Der forventes at programmet modtager data  & Programmet modtog data via TCP. &\begin{Huge}$\surd$\end{Huge} \\\hline 
-2b &Der forventes at programmet vil splitte den modtagende streng ind til fem dele  & Programmet splittede strengen i de 5 dele. &\begin{Huge}$\surd$\end{Huge} \\\hline
+2b &Der forventes at programmet vil splitte den modtagede streng ind til fem dele  & Programmet splittede strengen i de 5 dele. &\begin{Huge}$\surd$\end{Huge} \\\hline
 2c &Der forventes at programmet er i stand til at dekryptere hældningen og omdanne den til grader  & Programmet dekrypterede og omdannede hældningen til grader. &\begin{Huge}$\surd$\end{Huge} \\\hline
 2d &Der forventes at programmet efter modtagelse, splitning og dekryptering er i stand til at gemme den modtagende data til en teksfil  & Programmet gemte den modtagne data korrekt i tekst fil. &\begin{Huge}$\surd$\end{Huge} \\\hline
 \end{tabular}
 \end{table}
+For at se output af test cases fra terminal se figur \ref{fig:server_test}.
 
 \begin{table}[H]
 \caption{Webinterface}
@@ -357,9 +358,9 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 3a &Brugeren bliver logget på databasen  & Ved indtasting af korrekt adgangskode blev brugeren logget på.. &\begin{Huge}$\surd$\end{Huge} \\\hline 
-3b &Ved indtastning af forkert adgangskode bliver brugeren ikke logget på og bedt om indtastning af adgangskode igen   & Ved forkert adgangskode blev brugeren sendt til en blank side men kan ikke få adgang til data &\begin{Huge}$\surd$\end{Huge} \\\hline
+3b &Ved indtastning af forkert adgangskode bliver brugeren ikke logget på men bedt om indtastning af adgangskode igen   & Ved forkert adgangskode blev brugeren sendt til en blank side men kan ikke få adgang til data &\begin{Huge}$\surd$\end{Huge} \\\hline
 3c &Brugeren bliver sendt til den ønskede database  & Brugeren blev bedt sendt til den ønskede database. &\begin{Huge}$\surd$\end{Huge} \\\hline
-3d &Data blev fremvidst for brugeren hentet fra MySQL databasen & Den nye data blev vidst for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
+3d &Data blev fremvidst for brugeren, hentet fra MySQL databasen & Den nye data blev vidst for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3e &Siden skal checke for data hvert 5 sekund & Siden opdaterede hvert 5 sekund. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3f &Ved nykommen data i form af tekstfil hentes denne ind i databasen og filen slettes & Den nye data blev hentet ind i MySQL databasen og filen blev slettet. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3g &Brugeren bliver sendt til log på siden & Brugeren blev sendt til siden hvor denne skulle logge på. &\begin{Huge}$\surd$\end{Huge} \\\hline
