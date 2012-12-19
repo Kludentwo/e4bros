@@ -4,7 +4,7 @@
 // BESKRIVELSE : Indsaetter vaerdier i structen og viser hvorledes de udskrives
 // ===============================================================
 
-//INDSÆTTER I STRUCT
+//INDSAETTER I STRUCT
     status testStub;
     testStub.bagbordNiveau = 1;
     testStub.bagbordStatus = 2;
