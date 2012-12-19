@@ -20,7 +20,7 @@ Systemarkitekturen starter med funktionaliteten beskrevet i Use Casene, og udvid
 \end{figure}
 
 \subsubsection{Relationen mellem elementer og aktører}
-I domænemodelen (figur \ref{fig:dmuc2}) beskrives relationen mellem systemets elementer og aktørerne. Disse enheder omdannes i klassediagrammet (figur \ref{fig:kduc2}) til konceptuelle klasser, af en given type. Det ses at i Use Case 2 agerer KI som både en kontrolklasse og en grænsefladeklasse. Den agerer som en kontrolklasse fordi den er initiativtager, og beslutningstager til den efterfølgende udvikling i systemet. Både KI, SM og VBTE agerer som en grænsefladeklasse, fordi alle tre klasser er i berøring med en aktør.\\
+I domænemodelen \textit{(figur \ref{fig:dmuc2})} beskrives relationen mellem systemets elementer og aktørerne. Disse enheder omdannes i klassediagrammet (figur \ref{fig:kduc2}) til konceptuelle klasser, af en given type. Det ses at i Use Case 2 agerer KI som både en kontrolklasse og en grænsefladeklasse. Den agerer som en kontrolklasse fordi den er initiativtager, og beslutningstager til den efterfølgende udvikling i systemet. Både KI, SM og VBTE agerer som en grænsefladeklasse, fordi alle tre klasser er i berøring med en aktør.\\
 
 \begin{figure}[H]
 \centering
@@ -40,13 +40,13 @@ I sekvensdiagrammet (figur \ref{fig:sduc2}) beskrives kommunikationen og timinge
 \end{figure}
 
 \subsection{Stadier for konceptuelle klasser}
-Når alle Use Cases er blevet bearbejdet som Use Case 2 er blevet i figur \ref{fig:dmuc2}, \ref{fig:kduc2} og \ref{fig:sduc2} har gruppen dannet state machines for de konceptuelle klasser i systemet. Her visualiseres hvilke stadier, klasserne har brug for at gennemgå i løbet af klassens levetid, for at opfylde kravene sat i kravspecifikationen. Som et eksempel på en sådan state machine, vises state machinen for Styringsmodulet på figur \ref{fig:stm_sm}. \\Flowet i state machinen bygger oven på det beskrevne i sekvensdiagrammerne. Starten på Use Case 2, er et brugerinput på KI'en. Dette medfører en besked fra KI til SM. Programmet kan være i to forskellige stadier når den modtager beskeden:\\
+Når alle Use Cases er blevet bearbejdet som Use Case 2 er blevet i \textit{figur \ref{fig:dmuc2}}, \textit{\ref{fig:kduc2}} og \textit{\ref{fig:sduc2}} har gruppen dannet state machines for de konceptuelle klasser i systemet. Her visualiseres hvilke stadier, klasserne har brug for at gennemgå i løbet af klassens levetid, for at opfylde kravene sat i kravspecifikationen. Som et eksempel på en sådan state machine, vises state machinen for Styringsmodulet på figur \textit{\ref{fig:stm_sm}}. \\Flowet i state machinen bygger oven på det beskrevne i sekvensdiagrammerne. Starten på Use Case 2, er et brugerinput på KI'en. Dette medfører en besked fra KI til SM. Programmet kan være i to forskellige stadier når den modtager beskeden:\\
 Hvis programmet er nyopstartet, vil beskeden få styringsmodulet ud af "Afvent" -stadiet og til at aktivere automatisk hældningsregulering. Hvis programmet befinder sig i "Hældningsregulerings"-stadiet med reguleringstypen \textit{manuel}, vil beskeden fra KI få styringsmodulet over i stadiet "Modtaget besked fra KI". SM besvarer beskeden med en aktiveringsbekræftigelse, og programmet returerner derpå til "Hældningsregulering"-stadiet - nu med reguleringstypen \textit{automatisk}.
 
 Dette var for Use Case 2. Der i state machinen beskrevet styringsmodulets opførelse i alle Use Case tilfælde. 
 
 \subsubsection{Fra konceptuelle klasser til system}
-Næste trin er, at omdanne de konceptuelle klasser til et regulært system. Nogle konceptuelle klasser, kan grupperes, andre står for sig selv. Den fysiske opbygning af systemet, bliver så vist i et blokdefinitionsdiagram. Blokdefinitionsdiagrammet for systemet, kan ses i figur \ref{fig:bdd_bros}. Her ses det, at systemet ender ud med fire hovedblokke: Kontrolinterfacet, Styringsmodul, Vandballasttankenhed og Database. De konceptuelle klasser der ikke er endt som hovedblokke, er i stedet for blevet til underblokke af enten styringsmodulblokken eller vandballasttankenhedblokken.
+Næste trin er, at omdanne de konceptuelle klasser til et regulært system. Nogle konceptuelle klasser, kan grupperes, andre står for sig selv. Den fysiske opbygning af systemet, bliver så vist i et blokdefinitionsdiagram. Blokdefinitionsdiagrammet for systemet, kan ses i figur \textit{\ref{fig:bdd_bros}}. Her ses det, at systemet ender ud med fire hovedblokke: Kontrolinterfacet, Styringsmodul, Vandballasttankenhed og Database. De konceptuelle klasser der ikke er endt som hovedblokke, er i stedet for blevet til underblokke af enten styringsmodulblokken eller vandballasttankenhedblokken.
 
 \begin{figure}[htbp]
 \centering
@@ -67,7 +67,7 @@ Herefter er opgaven to-delt. Kommunikationsvejene skal kortlægges både internt
 
 Som det kan ses i figur anvendes der en række protokoller til kommunikation mellem systemets interne blokke. Disse protokoller skal defineres inden design og implementering af systemets blokke kan begynde.
 
-Som eksempel vil der blive givet kommunikationsprotokollen mellem VBTE og Styringsmodulet som opskrevet i tabel \ref{tabel:protokoloversigt} med de indstillinger angivet \ref{tabel:forbindelsesindstillinger}.
+Som eksempel vil der blive givet kommunikationsprotokollen mellem VBTE og Styringsmodulet som opskrevet i tabel \ref{tabel:protokoloversigt} med de indstillinger angivet \textit{\ref{tabel:forbindelsesindstillinger}}.
 
 
 \begin{table}[H]
