@@ -17,41 +17,43 @@ Softwaren er implementeret således, at der kan kalibreres for det offset, der e
 %%% VBTE %%%%%%%
 %%%%%%%%%%%%%%%%%%%%
 \subsubsection{Hvordan måler vi niveauet i vandballasttankene?}
-Da ingen i projektgruppen havde arbejdet med ultralyd før valgte vi for udfordringens skyld at forsøge med det. Man kunne have valgt at købe en færdiglavet enhed, men det blev vurderet at dette ikke gav ret meget faglig erfaring. Elektroniklaboratoriet lå inde med nogle rå tranducere og receivere, og der blev derfor valgt at forsøge med at udvikle en ultralydsafstandsmåler. Der blev i starten lavet en del teknologiundersøgelse inden for ultralyden og tranducere og receivere blev testede for at se hvordan de aggerede. Vi fandt at der var en del destruktive reflektioner. En løsning der blev afprøvet var at fylde akustisk skum i toppen af tankene, men da det skum der blev anskaffet var elektrisk ledende kunne det ikke anvendes. Herudover blev der lavet forsøg med forskellige ultralydskredse fundet på nettet, hvilket gav anledning til erfaring og viden. Metoden der blev valgt til at måle afstanden kan ses på figuren nedenfor og gøres ved hjælp af bursts. Der er valgt et burst på 250$\mu$s.
+Da ingen i projektgruppen havde arbejdet med ultralyd før valgte vi for udfordringens skyld at forsøge med det. Man kunne have valgt at købe en færdiglavet enhed, men det blev vurderet at dette ikke gav ret meget faglig erfaring. Elektroniklaboratoriet lå inde med nogle rå tranducere og receivere, og gruppen ville derfor forsøge at udvikle en afstandsmåler baseret på ultralyd.\\ 
+Der blev i starten lavet en del teknologiundersøgelse af ultralyd og tranducere og receivere blev testede for at se hvordan de aggerede. Vi fandt at der var en del destruktive reflektioner. En løsning var at fylde akustisk skum i toppen af tankene, men da det skum der blev anskaffet var elektrisk ledende kunne det ikke anvendes. Herudover blev der lavet forsøg med forskellige ultralydskredse fundet på Internettet, hvilket gav anledning til erfaring og viden. \\
+Den valgte metode anvender bursts og kan ses på figur \ref{fig:bursts}. Der er valgt et burst på 250$\mu$s.\\
 \begin{figure}[H]
 \centering
-\includegraphics[width=.4\textwidth]{billeder/ultralydsburst}
-\caption{illutration af et burst til afstandsmåling}
+\includegraphics[width=.3\textwidth]{billeder/ultralydsburst}
+\caption{illustration af et burst til afstandsmåling}
+\label{fig:bursts}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%
 %%% forsyning %%%%%%
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Hvordan skal de forskellige modulerne forsynes?}
-Da modulerne for eksemplevis kan være placret ved styrbord, bagbord og midten af skibet, skal der overvejes hvordan de kan forsynes, der gennem overvvejes derfor hvilke muligheder der er for forsyingen.
+Da modulerne for eksemplevis kan være placeret ved styrbord, bagbord og midten af skibet, skal der overvejes hvordan de kan forsynes og derigennem overvejes hvilke muligheder der er for forsyningen.
 En tanke var om man kunne bruge et batteri eller om der skulle bruges en kablet forsyning.
 \begin{itemize}
 \item Batteri:
 	\begin{itemize}
-	\item Smart da man ungår at trække en ledning med forsyning.
-	\item Dette kan være meget problematisk med et batteri, da der ikke vides hvor meget strøm der skal trækkes dvs. hvor stort det skal være både i kapcitet og fysisk størrelse. \\
+	\item Smart, da man undgår at trække en forsyningsledning.
+	\item Det kan være meget problematisk med et batteri, da der ikke vides hvor meget strøm der skal trækkes dvs. hvor stort det skal være både i kapicitet og fysisk størrelse. \\
 	\end{itemize}
 \item Kablet forsyning \\
 \begin{itemize}
-\item Da der i forvejen er en kablet kommunikation, skal der alligevel kabel ud til modulet, derfor kan det være lige så smart at have en kablet forsyning.\\
+\item Da der i forvejen er en kablet kommunikation, skal der alligevel kabel ud til modulet.\\
 \end{itemize}
-Ud fra de overstående overvejerelser og tanker vil der arbejdes videre med kablet forsyning.
-Her til vil der dukke andre spørgsmål op.
-For eksemple hvilken forsyningsspænding skal der være.?
-Da forsyning spænding på et skib ligger langt over det der bruges i vores system, skal der bruges en transformator der kan regulere spænding ned på 24V AC. De 24V AC kan føres ud til modulerne samme med kommunikationen. 
-Ved modulerne kan der bygges en strømforsyning der regulere de 24V AC om til DC. \\
-Her kommer der to muliglige strømforsyninger op:
+\end{itemize}
+Ud fra de overstående overvejelser og tanker vil der arbejdes videre med kablet forsyning.
+Valget giver anledning til yderligere spørgsmål, for eksempel hvilken forsyningsspænding skal der være?\\
+Da forsyningsspændingen på et skib (fx 480V) ligger langt over det der bruges i vores system, skal der bruges en transformator, der kan regulere spænding ned på 24V AC. De 24V AC kan føres ud til modulerne sammen med kommunikationen. \\
+Ved modulerne kan der bygges en strømforsyning, der regulerer de 24V AC om til DC. \\
+Her kommer der to mulige strømforsyninger op:
 \begin{itemize}
 \item En SwitchModePowerSupply: \textit{Effektiv, høj virkningsgrad.}
 \item En lineær strømforsyning: \textit{Stabil, mellem virkningsgrad}
 \end{itemize}
-Da virkningsgraden ikke har stor bestydning for produktet, samt erfaringen med SMPS ikke er stor, vil der tages udgangspunkt i en lineær størmforysning.
-\end{itemize}
+Da virkningsgraden ikke har afgørende betydning for systemet, samt erfaringen med SMPS ikke er stor, vil der tages udgangspunkt i en lineær stømforsyning.\\
 Ved udviklingen af prototypen, kan der overvejes om der skal designes en eller flere strømforsyninger.
 
 
@@ -60,35 +62,33 @@ Ved udviklingen af prototypen, kan der overvejes om der skal designes en eller f
 %%%%%%%%%%%%%%%%%%%%
 
 \subsection{Raspberry Pi som host for Kontrolinterfacet}
-I den indledende fase var det gruppens ønske at kunne implementere Kontrolinterfacet på et Raspberry Pi-modul. Denne mulighed blev undersøgt, og det viste sig at det godt kunne lade sig gøre at skrive Qt-programmer til Raspberry Pi'en hvis man anvendte den nyeste beta-version af Qt.\\
-Versionerne imellem var der dog store forskelle på fundamentale områder af frameworket; nogle af teknologiundersøgelserne måtte derfor undersøges igen.\\
-Det var også oprindeligt gruppens ønske at anvende I2C-protokollen mellem Kontrolinterfacet og Styringsmodulet. Denne protokol er også understøttet af Raspberry Pi, men kan kun implementeres med Python medmindre der selv udvikles kernemoduler.\\
+I den indledende fase var det gruppens ønske at kunne implementere Kontrolinterfacet på et Raspberry Pi-modul. Denne mulighed blev undersøgt, og det viste sig at det godt kunne lade sig gøre. Ved at anvende den nyeste beta-version af Qt kunne der skrives programmer til Raspberry Pi'en.\\
+Versionerne imellem var der dog store forskelle på fundamentale områder af frameworket; nogle af teknologiundersøgelserne måtte derfor foretages igen.\\
+Det var også oprindeligt gruppens ønske at anvende I2C-protokollen mellem Kontrolinterfacet og Styringsmodulet. Denne protokol er også understøttet af Raspberry Pi, men kan kun implementeres med Python medmindre der selv udvikles headerfiler.\\
 Dette var en større opgave end gruppen ønskede at prioritere den. Vi begyndte derfor at kigge efter andre protokoller.\\
-Næste emne var rs232-protokollen, da den er kendt for gruppen. Protokollen viste sig at være god med Raspberry Pi. Efter nogle teknologiundersøgelser fandt gruppen også ud af hvordan rs232-kommunikationen kunne implementeres med den nye Qt-version.
-Desværre løb gruppen igen i problemer da der skulle kompiles til modulet. Her valgte gruppen at nedprioritere ønsket om at implementere Kontrolinterfacet på Raspberry Pi-modulet og dermed stoppede undersøgelserne.
+Næste emne var rs232-protokollen, da den er kendt for gruppen. Protokollen viste sig at være god med Raspberry Pi. Efter nogle teknologiundersøgelser fandt gruppen også ud af hvordan rs232-kommunikationen kunne implementeres med den nye Qt-version.\\
+Gruppen løb desvæære igen i problemer, da der skulle kompiles til modulet. Her valgte gruppen at nedprioritere ønsket om at implementere Kontrolinterfacet på Raspberry Pi-modulet og dermed stoppede undersøgelserne.
 
 %%%%%%%%%%%%%%%%%%%%
 %%% Databasen %%%%%%
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Server}
-Opbygningen af serveren er gjort på baggrund af behovet for at kunne overføre data via et netværk. Til denne overførelse er TCP blevet valgt grundet erfaring med denne. Ved at benytte TCP, kan der være flere end en der koble til samtidig. TCP giver stabilitet og ordnet levering noget der blev prioriteret højt i prototypen da det er en sikkerhed under lastning og losning. Dette vil sige at hvis en pakke går tabt under overførelsen vil denne automatisk blive forsøgt sendt igen og så er vi sikre på at data kommer frem i samme orden som de blev afsendt. 
-Ved TCP kom den udfordring at ved afsendelse fra KI kom alle data over i en streng selv om vi forsøgte at sende dem over i 5 forskellige strenge og satte delays. Dette skyldes at TCP ser det som en streng der skal overføres og ikke som 5. For at løse dette satte vi nul terminering på ved afsendelse. Ved modtagelse blev dataet lagt ind i en variable som blev splittet ved nul terminaringen og efterfølgende gemt. Fra starten var dte meningen at Serveren skulle gemme data direkte til MySQL databasen men grundet problemer med at kompile MySQL header og driver med blev dette efter noget tid droppet og i stedet blev backup muligheden der også er indskravet i kravspecifiklationen ophøjet til eneste mulighed.
+Opbygningen af serveren er gjort på baggrund af behovet for at kunne overføre data via et netværk. Til denne overførelse er TCP blevet valgt grundet erfaring med denne. Ved at benytte TCP kan der være flere end en der kobler til samtidig. TCP giver stabilitet og sikker dataoverførelse. Dette er prioriteret højt i prototypen, da systemet skal være sikkert under lastning og losning. Sikker dataoverførelse sikrer at hvis en pakke går tabt under overførelsen vil denne automatisk blive forsøgt sendt igen. Data vil således også komme frem i korrekt rækkefølge.\\
+Fra starten var det meningen at Serveren skulle gemme data direkte til MySQL-databasen, men grundet problemer med at kompile MySQL-header og -driver blev dette efter noget tid droppet. I stedet blev backup-muligheden, der også er indskrevet i kravspecifikationen, fremtaget som eneste mulighed.
 
 \subsection{Valg af database}
 For at vælge database til systemet blev der kigge på MySQL, Microsoft Acces og en lagring til en tekstfil.\\
-Microsoft Acces er et database system der medfølgende i Microsoft Office pakken. Microsoft Access benytter sit eget format baseret på Access Jet Database Engine. En ulempe ved Microsoft Acces er at den kun fungere under Windows og da systemet skulle være alsidigt var dette ikke den bedste løsning. At lagre direkte i en tekst fil blev overvejet da det er meget simpelt at lagre til tekstfiler fra c++ og php kan håndtere at hente fra den. Det kan gå galt ved loading og lagring til filen samtidig med at formater kan blive et problem. \\
-Der var i forvejen kendskab til MySQL og dette er et færdig udviklet system til at fungere med webinterfaces og for programmerings sprog som C++ er der udviklet header. Systemet er et system der fungere på mange platforme og løbende bliver udviklet på. På baggrund af dette blev dette system valgt.
+At lagre direkte i en tekst fil blev overvejet, da det er meget simpelt at lagre til tekstfiler fra c++ og php kan håndtere at hente fra den. Det kan gå galt ved loading og lagring til filen samtidig med at formater kan blive et problem. \\
+Der var i forvejen kendskab til MySQL og dette er et færdigudviklet system, der fungerer med webinterfaces og for programmeringssprog som C++ er der udviklet headere. Systemet er et system der fungere på mange platforme og løbende bliver udviklet på. På baggrund af dette blev dette system valgt.
 
 \subsection{Webinterface}
-Til den grafiske brugere grænseflade for Databasen blev et Webinterface valgt på baggrund af muligheden for at flere på havneterminalen kunne tilgå dataerne på samme tid. På baggrung af et på forhånd middel kendskab til php som er et  intepretere sprog og dens intergrationen med MySQL database blev php valgt som sprog til kodning af Webinterfacet. Php giver desuden mulighed for at benytte ajax princippet og at bygge en hoved side der includere de andre sider. Dette giver mulighed for at let veligeholdes samt minimal dataoverførelse fra webserveren som mindsker loarding time.\\
-Websitet er implementeret på en Apache server. Apache serveren er en webserver som kan hentes som et færdigt produkt. Denne giver mulighed for håndterering af websider. På Apache serveren er der mulighed for at ligge en lås som gør sikre yderligere for udefra kommende ved at ligge en lås på mapperne som serveren benytter. Dette er ikke blevet benyttet i denne prototype da denne sikkerhed ikke blev ment nødvendig for fremvisning af en prototype men ved et slut produkt skulle dette naturligvis gøres.
+Til den grafiske brugergrænseflade for Databasen blev et webinterface valgt for at flere på havneterminalen kunne tilgå data på samme tid. På baggrund af et middel kendskab til interpretere sproget php og dens integration med MySQL-databaser blev php valgt. Php giver desuden mulighed for at benytte ajax princippet og at bygge en hovedside der inkluderer de andre sider. I sidste ende vil dette valg give simplere vedligholdelsen og mindske overførelsestiden til slutbrugeren.\\
+Websitet er implementeret på en Apacheserver. Apacheserveren gør det muligt senere at højne sikkerheden på websitet.
 
 %%%%%%%%%%%%%%%%%%%%
 %%% Jura %%%%%%
 %%%%%%%%%%%%%%%%%%%%
 \subsection{Jura}
-I dette afsnit vil vi beskrive de vigtigste juridiske problem stillinger som vi har arbejdet ud fra.
-
-I startfasen blev de forskellige juridiske problemstillinger undersøgt. Dette gav grund til en del overvejelser omkring opbygningen systemet BROS. Ansvars havene personer samt krav til ballastvand er blevet overvejet. Et udplik af de vigtigste begraber findes i \textit{bilag for Jura}.
-Til uddybelse af disse problemstillinger er Maersk blevet kontaktet, desværre har vi ikke fået noget svar. De uridske problemstillinger har bl.a. gjort at projektet blev indskrænket til kun at omhandle bulk skibe samt skibe i nationalt farvand.
+I startfasen blev de forskellige juridiske problemstillinger undersøgt. Dette gav grund til en del overvejelser omkring opbygningen af systemet BROS. Ansvarshavende personer samt krav til ballastvand er blevet overvejet. Et udpluk af de vigtigste begreber findes i \textit{bilag for Jura}.
+For at få en uddybning af disse problemstillinger er Maersk A/S blevet kontaktet. Desværre har vi ikke fået noget svar. De juridske problemstillinger har blandt andet gjort at projektet blev indskrænket til kun at omhandle bulkskibe i nationalt farvand.
 
