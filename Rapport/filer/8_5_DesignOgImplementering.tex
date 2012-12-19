@@ -347,21 +347,15 @@ Dette giver et kort billed på hvordan serverens funktion ser ud. Den fulde mode
 	\label{fig:server}
 \end{figure}
 Serverens GUI giver mulighed for at brugeren kan se at serveren køre og hvilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den web baserede database. Der er en mulighed for at lukke serveren. Denne er ment som en mulighed for at lukke serveren i tilfælde af fejl eller restart da det er meningen at serveren skal køre konstant. Serverens grafiske visning er ikke til brug for terminaloperatøren men ment for at man kan se at serveren køre i stedet for at få udskrifter i terminalen.
-\begin{table}[H]
-\begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{Hovedvinduets elementer} \\
-\hline
-\textcolor{green}{\textbf{1: Info}}
-&Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server}\\
 
-\textcolor{blue}{\textbf{2: Database}}
-&Anvendes til at lade brugeren tilgå den web baserede database. Efter log in og valg af skib komemr brugeren til databasen for skibet som ses i \ref{fig:database_web}\\
+\textcolor{green}{\textbf{1: Info}}\\
+Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server}.
 
-\textcolor{red}{\textbf{2: Luk serveren}}
-&Anvendes til at lukke programmet. Bruges til nedlukning\\
+\textcolor{blue}{\textbf{2: Database}}\\
+Anvendes til at lade brugeren tilgå den web baserede database. Efter log in og valg af skib kommer brugeren til databasen for skibet som ses i \ref{fig:database_web}.
 
-\end{tabular}
-\end{table}
+\textcolor{red}{\textbf{2: Luk serveren}}\\
+Anvendes til at lukke programmet. Bruges til nedlukning\\
 
 
 \subsection{Webinterface}
@@ -406,24 +400,24 @@ Et billed af hvordan data fremvises for brugeren. For de andre sider på website
 	\label{fig:web_database}
 \end{figure}
 
-\begin{table}[H]
-\begin{tabular}{p{5cm} p{10cm}}
-%\multicolumn{2}{l}{Data fra skib i databasen } \\
-\hline
-\textcolor{Turquoise}{\textbf{1: Skib er sidst opdateret}}
-&Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er opdateret.\\ 
-\textcolor{green}{\textbf{2: ID på skib}}
-&Skibets ID bliver vidst. Hvis at KI lukker tcp forbindelsen vil skibts ID skifte til "TERMINATED".\\
-\textcolor{blue}{\textbf{3: Styrbord vandtanksniveau}}
-&Der vises hvor meget vand der er i styrbord ballasttank.\\
-\textcolor{yellow}{\textbf{4: Bagbord vandtanksniveau}}
-&Der vises hvor meget vand der er i bagbord ballasttank.\\
-\textcolor{red}{\textbf{5: Hældning i grader}}
-&Der vises hvor mange grader sibet hælder i forhold til styrbord.\\
-\textcolor{RoyalPurple}{\textbf{6: Skib tilsluttet}}
-&Der vise hvor lang tid i secunder der er gået fra overførelsen før til denne.\\
-\end{tabular}
-\end{table}
+\textcolor{Turquoise}{\textbf{1: Skib er sidst opdateret}}\\
+Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er opdateret.
+
+\textcolor{green}{\textbf{2: ID på skib}}\\
+Skibets ID bliver vidst. Hvis at KI lukker tcp forbindelsen vil skibts ID skifte til "TERMINATED".
+
+\textcolor{blue}{\textbf{3: Styrbord vandtanksniveau}}\\
+Der vises hvor meget vand der er i styrbord ballasttank.
+
+\textcolor{yellow}{\textbf{4: Bagbord vandtanksniveau}}\\
+Der vises hvor meget vand der er i bagbord ballasttank.
+
+\textcolor{red}{\textbf{5: Hældning i grader}}\\
+Der vises hvor mange grader sibet hælder i forhold til styrbord.
+
+\textcolor{RoyalPurple}{\textbf{6: Skib tilsluttet}}\\
+Der vise hvor lang tid i secunder der er gået fra overførelsen før til denne.
+
 
 \subsection{MySQL}
 Som database benyttes MySQL. Denne er en multitreading database som giver mulighed for at flere kan tilgå denne samtid. Det er et færdigt produkt der kan implementeres på de fleste styresystemer. Systemet giver mulighed for at oprette interne databaser med egne taballer til algring af data (se apendix for flere detaljer).
