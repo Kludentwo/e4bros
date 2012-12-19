@@ -34,13 +34,13 @@ Case &Formål &Udførelse\\\hline
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1a &At teste 12V udgangsspænding ved 0A &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V udgangen af strømforsyningen med et voltmeter og oscilloskop, uden load modstand.\\\hline
-1b &At teste 12V udgangsspænding ved 0.5A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
-1c &At teste 12V udgangsspænding ved 1A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A.  Der måles direkte på 12V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 1A.\\\hline
-2a &At teste 5V udgangsspænding ved 0A &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 5V udgangen med et voltmeter og oscilloskop, uden load modstand.\\\hline
-2b &At teste 5V udgangsspænding ved 0.5A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 5V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 0.25A.\\\hline
-2c &At teste 5V udgangsspænding ved 1A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A.  Der måles direkte på 5V udgangen med et voltmeter og oscilloskop, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
-3 &At teste udgangsspænding 12V ved 1A og 5V 0.5A samtidig & Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V og 5V udgangen samtidig med et voltmeter og oscilloskop, med effekt load modstand der svare til at der vil blive trukket 1A på 12V udgangen og 0.5A på 5V udgangen. \\\hline
+1a &At teste 12V udgangsspænding ved 0A &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V udgangen af strømforsyningen med et voltmeter, uden load modstand.\\\hline
+1b &At teste 12V udgangsspænding ved 0.5A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
+1c &At teste 12V udgangsspænding ved 1A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A.  Der måles direkte på 12V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 1A.\\\hline
+2a &At teste 5V udgangsspænding ved 0A &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 5V udgangen med et voltmeter, uden load modstand.\\\hline
+2b &At teste 5V udgangsspænding ved 0.5A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 5V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.25A.\\\hline
+2c &At teste 5V udgangsspænding ved 1A  &Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A.  Der måles direkte på 5V udgangen med et voltmeter, med effekt  load modstand der svare til at der vil blive trukket 0.5A.\\\hline
+3 &At teste udgangsspænding 12V ved 1A og 5V 0.5A samtidig & Strømforsyningen tilsluttes en labetoriestrømforsyning der kan klare op til 24V, 1.5A. Der måles direkte på 12V og 5V udgangen samtidig med et voltmeter, med effekt load modstand der svare til at der vil blive trukket 1A på 12V udgangen og 0.5A på 5V udgangen. \\\hline
 \end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -216,18 +216,18 @@ Effekt modstande: \textbf{22 ohm 5W, 10 ohm 5W} \\
 Testinstrumeter:\\
 Labitoriestrømforsyning: \textbf{1-C3-5} \\
 Voltmeter:\textbf{TTi 1604 (1-C3-10)} \\
-Testopstillingen til strømforsyningen kan ses på figur...? i bilag.\\
+Testopstillingen til strømforsyningen kan ses på figur \ref{fig:testopstilling} i bilag.\\
 \begin{table}[H]
 \centering
 \begin{tabular}{| p{1cm}  | p{4cm} | p{6cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-1a &12V spændingen ligger stabilt &Voltmeteret viste: 12.075V.& \begin{Huge}$\surd$\end{Huge} \\ \hline 
-1b &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver varme &Voltmeteret viste: 12.098V, labitoriestrømforsyning viste: 23.8V, 0.53A. Testresultet ses på & \begin{Huge}$\surd$\end{Huge}\\ \hline
-1c &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 12.098V, labitoriestrømforsyning viste: 23.8V, 1.07A.& \begin{Huge}$\surd$\end{Huge}\\ \hline
-2a &5V spændingen ligger på stabilt 5V &Voltmeteret viste: 5.128V. & \begin{Huge}$\surd$\end{Huge} \\ \hline 
-2b &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver varme &Voltmeteret viste: 5.088V, labitoriestrømforsyning viste: 23.8V, 0.26A. & \begin{Huge}$\surd$\end{Huge}\\ \hline
-2c &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 5.118V, labitoriestrømforsyning viste: 23.8V, 0.50A. & \begin{Huge}$\surd$\end{Huge}\\ \hline
+1a &12V spændingen ligger stabilt &Voltmeteret viste: 12.075V. Testresultet kan ses i figur  \ref{fig:udgang_12V_0A}& \begin{Huge}$\surd$\end{Huge} \\ \hline 
+1b &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver varme &Voltmeteret viste: 12.098V, labitoriestrømforsyning viste: 23.8V, 0.53A. Testresultet kan ses i figur  \ref{fig:udgang_12V_05A} og figur \ref{fig:forsyning_12V_05A_lab}& \begin{Huge}$\surd$\end{Huge}\\ \hline
+1c &12V spændingen ligger lidt under 12V, komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 12.098V, labitoriestrømforsyning viste: 23.8V, 1.07A. Testresultet kan ses i figur  \ref{fig:udgang_12V_1A} og figur \ref{fig:forsyning_12V_1A_lab}& \begin{Huge}$\surd$\end{Huge}\\ \hline
+2a &5V spændingen ligger på stabilt 5V &Voltmeteret viste: 5.128V. Testresultet kan ses i figur  \ref{fig:udgang_5V_0A} & \begin{Huge}$\surd$\end{Huge} \\ \hline 
+2b &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver varme &Voltmeteret viste: 5.088V, labitoriestrømforsyning viste: 23.8V, 0.26A. Testresultet kan ses i figur  \ref{fig:udgang_5V_025A} og figur \ref{fig:forsyning_5V_025A_lab} & \begin{Huge}$\surd$\end{Huge}\\ \hline
+2c &5V spændingen ligger lidt under 5V, komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 5.118V, labitoriestrømforsyning viste: 23.8V, 0.50A. Testresultet kan ses i figur  \ref{fig:udgang_5V_05A} og figur \ref{fig:forsyning_5V_05A_lab} & \begin{Huge}$\surd$\end{Huge}\\ \hline
 3 &12V spændingen ligger lidt under 12V, 5V spændingen ligger lidt under 5V,komponenter på strømforsyningen bliver meget varme &Voltmeteret viste: 12.098V, og 5.118 labitoriestrømforsyning viste: 23.8V, 1.60A. & \begin{Huge}$\surd$\end{Huge}\\ \hline
 \end{tabular}
 \end{table}
@@ -412,52 +412,52 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \subsubsection{Test case \#1a}
 \begin{figure}[htbp] \centering
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/test_power.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/test_power.jpg} 
 \end{minipage} \hfill
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/12V_0A.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/12V_0A.jpg} 
 \end{minipage} \\ 
 \begin{minipage}[t]{0.48\textwidth}
 \caption{Testopstilling til test case 1,2 og 3} 
-\label{fig:udgang_12V_05A1}
+\label{fig:testopstilling}
 \end{minipage} \hfill
 \begin{minipage}[t]{0.48\textwidth}
 \caption{12V målt med voltmeter uden load modstand} 
-\label{fig:forsyning_12V_05A}
+\label{fig:udgang_12V_0A}
 \end{minipage}
 \end{figure}
 \subsubsection{Test case \#1b}
 \begin{figure}[htbp] \centering
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/12V_05A_meter.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/12V_05A_meter.jpg} 
 \end{minipage} \hfill
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/12V_05A_power.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/12V_05A_power.jpg} 
 \end{minipage} \\ 
 \begin{minipage}[t]{0.48\textwidth}
 \caption{12V målt med voltmeter med 0.5A load} 
-\label{fig:udgang_12V_05A2}
+\label{fig:udgang_12V_05A}
 \end{minipage} \hfill
 \begin{minipage}[t]{0.48\textwidth}
-\caption{labitoriestrømforsyning} 
-\label{fig:forsyning_12V_05A}
+\caption{Labitoriestrømforsyning} 
+\label{fig:forsyning_12V_05A_lab}
 \end{minipage}
 \end{figure}
 \subsubsection{Test case \#1c}
 \begin{figure}[htbp] \centering
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/12V_1A_meter.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/12V_1A_meter.jpg} 
 \end{minipage} \hfill
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/12V_1A_power.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/12V_1A_power.jpg} 
 \end{minipage} \\ 
 \begin{minipage}[b]{0.48\textwidth}
 \caption{12V målt med voltmeter med 1A load} 
-\label{fig:udgang_12V_1A1}
+\label{fig:udgang_12V_1A}
 \end{minipage} \hfill
 \begin{minipage}[b]{0.48\textwidth}
 \caption{labitoriestrømforsyning} 
-\label{fig:forsyning_12V_1A}
+\label{fig:forsyning_12V_1A_lab}
 \end{minipage}
 \end{figure}
 \newpage
@@ -471,35 +471,35 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \subsubsection{Test case \#2b}
 \begin{figure}[htbp] \centering
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/5V_025A_meter.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/5V_025A_meter.jpg} 
 \end{minipage} \hfill
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/5V_025A_power.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/5V_025A_power.jpg} 
 \end{minipage} \\ 
 \begin{minipage}[b]{0.48\textwidth}
 \caption{5V målt med voltmeter med 0.25A load} 
-\label{fig:udgang_5V_05A}
+\label{fig:udgang_5V_025A}
 \end{minipage} \hfill
 \begin{minipage}[b]{0.48\textwidth}
 \caption{labitoriestrømforsyning} 
-\label{fig:forsyning_5V_05A}
+\label{fig:forsyning_5V_025A_lab}
 \end{minipage}
 \end{figure}
 \subsubsection{Test case \#2c}
 \begin{figure}[htbp] \centering
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/5V_05A_meter.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/5V_05A_meter.jpg} 
 \end{minipage} \hfill
 \begin{minipage}[c]{0.48\textwidth} \centering
-\includegraphics[width=1.00\textwidth]{billeder/5V_05A_power.jpg} 
+\includegraphics[width=0.9\textwidth]{billeder/5V_05A_power.jpg} 
 \end{minipage} \\ 
 \begin{minipage}[b]{0.48\textwidth}
-\caption{12V målt med voltmeter med 0.5A load} 
-\label{fig:udgang_12V_05A3}
+\caption{5V målt med voltmeter med 0.5A load} 
+\label{fig:udgang_5V_05A}
 \end{minipage} \hfill
 \begin{minipage}[b]{0.48\textwidth}
 \caption{labitoriestrømforsyning} 
-\label{fig:forsyning_12V_05A}
+\label{fig:forsyning_5V_05A_lab}
 \end{minipage}
 \end{figure}
 \newpage
