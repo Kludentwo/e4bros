@@ -164,7 +164,7 @@ Ventil driveren består af to software styrede output pins. Disse anvendes som k
 \end{figure}
 
 \subsubsection{Transmitterdriver}
-Transmitterdriveren består af en output pin til kontrol af transmitterkredsen, en interruptrutine til at tælle antallet af perioder der bliver sendt, en interruptrutine til at hjælpe med et nonblocking delay, en 40kHz og en 1kHz clock samt en softwarestyret kontrol pin (Burst\_pin). Når kontrolpinden bliver sat bliver clocken and'et igennem ud til interruptrutinen samt kontrolpinden. \\
+Transmitterdriveren består af en output pin til kontrol af transmitterkredsen, en interruptrutine til at hjælpe med et nonblocking delay, en 40kHz og en 1kHz clock samt en softwarestyret kontrol pin (Burst\_pin). Når kontrolpinden bliver sat bliver clocken and'et igennem ud til kontrolpinden. Timeren anvendt til at måle tiden et burst har bevæget sig anvendes også her til at sørge for at burst har den korrekte længde på 250$\mu$s. \\
 Nedenfor ses det endelige PSoC design for transmitterdriveren.
 \begin{figure}[H]
 \centering
@@ -172,7 +172,7 @@ Nedenfor ses det endelige PSoC design for transmitterdriveren.
 \caption{PSoC transmitterdriver}
 \label{fig:psoctransmitterdriver}
 \end{figure}
-\newpage
+
 \subsection{Transmitterkreds}
 Transmitterkredsen skal, som beskrevet ovenfor, modtage et kontrol signal og omsætte det signal til en større spænding over den keramiske ultralydstransmitter. Dette er realiseret ved at anvende en transistor (BD139). I databladet aflæses impedansen af transmitteren til $\sim10k\Omega$ ved 40kHz. Med en forsyning på 12V trækker den derved en strøm på:\\
 $I_{transmitter}=\frac{12V}{10k\Omega}=1.2mA$\\
@@ -217,3 +217,10 @@ Ventil\_ud & P0\_0 & Kontrolsignal til ventilen der leder vand ud\\ \hline
 \caption{Tabel over pin forbindelser fra PSoC'en.}
 \label{table:VBTEpinforbindelser}
 \end{table}
+\section{Printudlæg}
+Efter designet er udført er der blevet lagt print ud til VBTE kredsen. Printet ses nedenfor.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.75\textwidth]{billeder/vbteprint}
+\caption{Printudlæg til VBTE}
+\end{figure}
