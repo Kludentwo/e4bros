@@ -18,7 +18,7 @@ Opbygningen af Kontrolinterfacets design tager udgangspunkt i den state machine 
 
 State machinen er god til at få en forståelse for programmet, men for at komme videre må den uddybes væsentligt. Det første trin i designfasen har derfor været at udarbejde en mere detaljeret state machine. Resultatet kan ses i Kontrolinterface-afsnittet i dokumentationsdokumentet for Detaljeret Software Design.
 
-Det videre skridt er at udarbejde et klassediagram for programmet. Klassediagrammet er ligesom state machines først lavet i en simplificeret version og dernæst i en detaljeret. Det første kan ses på figur \ref{fig:kd_simpel} med en beskrivelse af hver klasse i tabel \ref{tabel:ki-klasser}.\\
+Det videre skridt er at udarbejde et klassediagram for programmet. Klassediagrammet er ligesom state machines først lavet i en simplificeret version og dernæst i en detaljeret. Det første kan ses på \textit{figur \ref{fig:kd_simpel}} med en beskrivelse af hver klasse i \textit{tabel \ref{tabel:ki-klasser}}.\\
 
 \begin{figure}[htbp]
 \centering
@@ -45,7 +45,7 @@ manudialog:&Oprettes af MainWindow og styrer den dialog, der fremkommer når man
 \label{tabel:ki-klasser}
 \end{table}
 
-Klassediagrammet på figur \ref{fig:kd_simpel} afspejler et program designet med forbillede i det samlede system. Dette er gjort for at trække på de løsninger der er fundet i forbindelse med det fulde system. \\
+Klassediagrammet på \textit{figur \ref{fig:kd_simpel}} afspejler et program designet med forbillede i det samlede system. Dette er gjort for at trække på de løsninger der er fundet i forbindelse med det fulde system. \\
 Det ses hvordan hovedklassen er Kontrolinterfacet. Alt andet oprettes enten direkte af Kontrolinterface-klassen eller af en klasse oprettet af samme. Kontrolinterfacet har kun kontakt til brugergrænsefladen (MainWindow), Styringsmodulet og DataServer. Kommunikationen mellem Kontrolinterface-klassen og Styringsmodul spejler den kommunikation der er imellem de fysiske blokke Kontrolinterface og Styringsmodul i det samlede system.\\
 
 Det gælder for VBTE-, SM- og Sensor-klasserne at når der efterspørges en af de værdier, klassen har ansvaret for, så benyttes RS232-objektet til at fremskaffe disse værdier ved hjælp af den serielle kommunikationsprotokol. 
@@ -53,7 +53,7 @@ Det gælder for VBTE-, SM- og Sensor-klasserne at når der efterspørges en af d
 
 \subsubsection{Grafisk brugergrænseflade}
 I denne sektion vil der kort blive gennemgået det vigtigste vindue i den grafiske brugergrænseflade; hovedvinduet. En gennemgang af de resterende vinduer vil kunne findes i Softwaredesign Appendix A: Kontrolinterface.
-På figur \ref{fig:hovedvindue} er hovedvinduet vist. Her er vinduets elementer indrammet. Herefter vil hovedvinduets elementer blive beskrevet.
+På \textit{figur \ref{fig:hovedvindue}} er hovedvinduet vist. Her er vinduets elementer indrammet. Herefter vil hovedvinduets elementer blive beskrevet.
 
 \begin{figure}[H]
 \centering
