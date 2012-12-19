@@ -92,7 +92,7 @@ Case &Formål &Udførelse\\\hline
 
 1b &Det testes hvordan programmet reagerer hvis man efter at have trykket på "AKTIVER MANUEL HÆLDNINGSREGULERING" fortryder sit valg ved tryk på "Cancel"-knappen.&Tryk på knappen. Tryk på "Cancel".\\\hline
 
-1c &Det testes hvordan programmet reagerer hvis der ingen forbindelse er til SM når man forsøger at sætte en manuel hældning. &Tryk på "AKTIVER MANUEL HÆLDNINGSREGULERING" uden forbindelse til SM. Bekræft værdier. Aflæs GUI'en og terminalen.\\\hline
+1c &Det testes hvordan programmet reagerer hvis der ingen forbindelse er til SM når man forsøger at sætte en manuel hældning. &Tryk på "AKTIVER MANUEL HÆLDNINGSREGULERING"  uden forbindelse til SM. Bekræft værdier. Aflæs GUI'en og terminalen.\\\hline
 \end{tabular}
 \end{table}
 
@@ -268,7 +268,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%
-%%%%     KI      %%%%%%%
+%%%%   KI-RESULT %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{KI}
 \begin{table}[H]
@@ -278,11 +278,11 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 
-1a &I terminalen aflæses det at valget er bekræftiget og at RS232-klassen udsender værdien for kommandoen og dernæst hældningen i overensstemmelse med protokollen\fxnote{indsæt reference til billedet}. I programmet kan det aflæses hvilken værdi der manuelt er indstillet til &Resultatet kan ses i \ref{fig:manuResult} og stemmer overens med forventningerne. &\begin{Huge}$\surd$\end{Huge} \\\hline 
+1a &I terminalen aflæses det at valget er bekræftiget og at RS232-klassen udsender værdien for kommandoen og dernæst hældningen i overensstemmelse med protokollen (se Systemarkitekturen). I programmet kan det aflæses hvilken værdi der manuelt er indstillet til &Resultatet kan ses i \ref{fig:manuelhaeldning} og stemmer overens med forventningerne. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 
 1b &Programmet vender tilbage til stadiet før det første tryk på "AKTIVER MANUEL HÆLDNINGSREGULERING" og trykket har ingen konsekvenser. &Programmet foretog sig intet i relation til trykket. GUI'en er uændret. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 
-1c &Det samme som 1b.&&\begin{Huge}$\surd$\end{Huge}\\\hline
+1c &Det samme som 1b.&Det samme som 1b&\begin{Huge}$\surd$\end{Huge}\\\hline
 \end{tabular}
 \end{table}
 
@@ -292,7 +292,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \begin{tabular}{| p{1cm}  | p{6cm} | p{5cm} | p{1cm} |}
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
-2 &I terminalen udskrives status-struct-stubben i SM-klassen. Den udskrives efterfølgende igen af dataserver-klassen som den sendes til databasen. Her sendes navnet på skibet og tiden siden sidste opdatering fra SM. Disse er tilføjet Kontrolinterface-klassen.&&\\\hline
+2 &I terminalen udskrives status-struct-stubben i SM-klassen. Den udskrives efterfølgende igen af dataserver-klassen som den sendes til databasen. Her sendes navnet på skibet og tiden siden sidste opdatering fra SM. Disse er tilføjet Kontrolinterface-klassen.&Programmet opførte sig som forventet. Koden ligger som bilag.&\begin{Huge}$\surd$\end{Huge}\\\hline
 \end{tabular}
 \end{table}
 
@@ -536,6 +536,21 @@ Der vises et output fra terminalen for test af serverens funktionalitet udført 
 \section{Test kode for server}
 \texttt{\lstinputlisting{Test/test_server.cpp}}
 
+\section{Kontrolinterfacet}
+\texttt{\lstinputlisting{Test/test_KI.c}}
+\label{test_KI_kode}
+	
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.8\textwidth]{billeder/manuelhaeldning}
+\caption{Terminal output fra Kontrolinterfacets testcase 2}
+\label{fig:manuelhaeldning}
+\end{figure}
 
-
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.8\textwidth]{billeder/termineringfail}
+\caption{Terminal output fra Kontrolinterfacets testcase 4}
+\label{fig:terminering}
+\end{figure}
 
