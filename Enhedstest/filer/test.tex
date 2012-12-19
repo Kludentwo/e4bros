@@ -142,7 +142,7 @@ Case &Formål &Udførelse\\\hline
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-1a &Det testes hvordan programmet reagerer hvis en tcp client forsøger at tilkoble &Stup forsøger at tilkoble. Server udskriver i terminal at tilkobling er sket\\\hline
+1a &Det testes hvordan programmet reagerer hvis en tcp client forsøger at tilkoble &Stub forsøger at tilkoble. Server udskriver i terminal at tilkobling er sket\\\hline
 \end{tabular}
 \end{table}
 
@@ -152,10 +152,10 @@ Case &Formål &Udførelse\\\hline
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-2a &Der testet om programmet kan modtage en streng &Stup sender streng med de data som angivet i formål\\\hline
-2b & der testet om programmet kan splitte den modtagede streng til de 5 dele: ID, STYRBORD, BAGBORD, LEVEL, TIME & Stup sender en streng med 4 mellemrum. \\\hline
-2c &Der testet om programmet kan dekryptere LEVEL som skal dekrypteres til grader &Stup sender en LEVEL værdi svarende til den som kommer fra SM i hendhold til uart protocol\\\hline
-2d &Der testes om programmet er i stand til at gemme data til en tekstfil &Stup sender alle værdier via tcp. Alle værdier skal gemmes i en tekstfil\\\hline
+2a &Der testet om programmet kan modtage en streng &Stub sender streng med de data som angivet i formål\\\hline
+2b & der testet om programmet kan splitte den modtagede streng til de 5 dele: ID, STYRBORD, BAGBORD, LEVEL, TIME & Stub sender en streng med 4 mellemrum. \\\hline
+2c &Der testet om programmet kan dekryptere LEVEL som skal dekrypteres til grader &Stub sender en LEVEL værdi svarende til den som kommer fra SM i hendhold til uart protocol\\\hline
+2d &Der testes om programmet er i stand til at gemme data til en tekstfil &Stub sender alle værdier via tcp. Alle værdier skal gemmes i en tekstfil\\\hline
 \end{tabular}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,12 +167,12 @@ Case &Formål &Udførelse\\\hline
 \begin{tabular}{| p{1cm}  | p{4.5cm} | p{8cm} |}
 \hline
 Case &Formål &Udførelse\\\hline
-3a &Der testes om brugeren bliver logget på ved indtastning af korrekt password&Password indtastastes og ved grafisk visning ses det at brugeren er logget på\\\hline
-3b &Der testes om brugeren bliver bedt om indtastning af password igen ved forkert password&Password indtastastes og ved grafisk visning ses det at brugeren ikke bliver logget på men skal forsøge igen\\\hline
+3a &Der testes om brugeren bliver logget på ved indtastning af korrekt password&Password indtastes og ved grafisk visning ses det at brugeren er logget på\\\hline
+3b &Der testes om brugeren bliver bedt om indtastning af password igen ved forkert password&Password indtastes og ved grafisk visning ses det at brugeren ikke bliver logget på men skal forsøge igen\\\hline
 3c &Der testes om brugeren kan trykker på det ønskede skib og brugeren bliver sendt til dennes database& Ved tryk på skib ses det grafisk at brugeren kommer til siden\\\hline
-3d &Der testet om data for skibet bliver vidst for brugeren& Når brugeren er trykket ind på databasen ses det grafisk at data bliver hentet fra MySQL databasen\\\hline
+3d &Der testet om data for skibet bliver vist for brugeren& Når brugeren er trykket ind på databasen ses det grafisk at data bliver hentet fra MySQL databasen\\\hline
 3e &Der testet om side checker for data hvert 5 sekund& Der ses grafisk og med stop ur at siden opdatere hvert 5 sekund.\\\hline
-3f &Der testes at hvis der er kommet ny data at denne bliver gemt i MySQL databasen og filen slettes samt data vidst for brugeren& Når en ny fil med data, bliver denne gemt. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
+3f &Der testes at hvis der er kommet ny data at denne bliver gemt i MySQL databasen og filen slettes samt data vist for brugeren& Når en ny fil med data, bliver denne gemt. Der ses at filen bliver slettet grafisk fremkommer den nye data\\\hline
 3g &Der testet at ved tryk på Log af bliver brugeren sendt til log in & Grafisk testes dette ved tryk på Log af\\\hline
 3h &Der testet om ved fejl link henvisning sendes brugeren til en 404 side & Ved at ændre en URL henvisning, testes der for om brugern får en 404 fejl.\\\hline
 \end{tabular}
@@ -244,7 +244,7 @@ I dette afsnit findes forventede resultater samt resultater på testcases fra ov
 \hline
 Case &Forventet resultat &Resultat &Status\\\hline
 1 &Level bliver returneret og verificeret &Level blev returneret og verificeret &\begin{Huge}$\surd$\end{Huge} \\\hline 
-2 &teststubben printer til skærmen at alle cases er succesfulde &teststubben printede Success: 6000 &\begin{Huge}$\surd$\end{Huge} \\\hline
+2 &Teststubben printer til skærmen at alle cases er succesfulde &Teststubben printede Success: 6000 &\begin{Huge}$\surd$\end{Huge} \\\hline
 3 &Der modtages 13 til 19. &13 til 19 blev modtaget. &\begin{Huge}$\surd$\end{Huge} \\\hline
 4 &En LED tænder på SM modulet. &En LED blev tændt. &\begin{Huge}$\surd$\end{Huge} \\\hline
 5 &Det observeres at der sendes åben og luk af de forskellige ventiler baseret på de værdier der modtages fra stubbene. &Der blev sendt åben og luk af de forskellige ventiler men i et ud af 20 tilfælde blev der modtaget en værdi større end 100, hvilket medførte en fejlmelding. Dette skyldes noget i hardwaren der behandler I2C. &\begin{Huge}$\surd$\end{Huge} \\\hline
@@ -360,11 +360,11 @@ Case &Forventet resultat &Resultat &Status\\\hline
 3a &Brugeren bliver logget på databasen  & Ved indtasting af korrekt adgangskode blev brugeren logget på.. &\begin{Huge}$\surd$\end{Huge} \\\hline 
 3b &Ved indtastning af forkert adgangskode bliver brugeren ikke logget på men bedt om indtastning af adgangskode igen   & Ved forkert adgangskode blev brugeren sendt til en blank side men kan ikke få adgang til data &\begin{Huge}$\surd$\end{Huge} \\\hline
 3c &Brugeren bliver sendt til den ønskede database  & Brugeren blev bedt sendt til den ønskede database. &\begin{Huge}$\surd$\end{Huge} \\\hline
-3d &Data blev fremvidst for brugeren, hentet fra MySQL databasen & Den nye data blev vidst for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
+3d &Data blev fremvist for brugeren, hentet fra MySQL databasen & Den nye data blev vist for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3e &Siden skal checke for data hvert 5 sekund & Siden opdaterede hvert 5 sekund. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3f &Ved nykommen data i form af tekstfil hentes denne ind i databasen og filen slettes & Den nye data blev hentet ind i MySQL databasen og filen blev slettet. &\begin{Huge}$\surd$\end{Huge} \\\hline
 3g &Brugeren bliver sendt til log på siden & Brugeren blev sendt til siden hvor denne skulle logge på. &\begin{Huge}$\surd$\end{Huge} \\\hline
-3h &Ved tryk på et link der ikke var rigtigt henvidst bliver en 404 fejl vidst & Fejl meddelelse bliver vidst for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
+3h &Ved tryk på et link der ikke var rigtigt henvist bliver en 404 fejl vist & Fejl meddelelse bliver vist for brugeren. &\begin{Huge}$\surd$\end{Huge} \\\hline
 \end{tabular}
 \end{table}
 
@@ -419,7 +419,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \end{minipage} \\ 
 \begin{minipage}[t]{0.48\textwidth}
 \caption{Testopstilling til test case 1,2 og 3} 
-\label{fig:udgang_12V_05A}
+\label{fig:udgang_12V_05A1}
 \end{minipage} \hfill
 \begin{minipage}[t]{0.48\textwidth}
 \caption{12V målt med voltmeter uden load modstand} 
@@ -436,7 +436,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \end{minipage} \\ 
 \begin{minipage}[t]{0.48\textwidth}
 \caption{12V målt med voltmeter med 0.5A load} 
-\label{fig:udgang_12V_05A}
+\label{fig:udgang_12V_05A2}
 \end{minipage} \hfill
 \begin{minipage}[t]{0.48\textwidth}
 \caption{labitoriestrømforsyning} 
@@ -453,7 +453,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \end{minipage} \\ 
 \begin{minipage}[b]{0.48\textwidth}
 \caption{12V målt med voltmeter med 1A load} 
-\label{fig:udgang_12V_1A}
+\label{fig:udgang_12V_1A1}
 \end{minipage} \hfill
 \begin{minipage}[b]{0.48\textwidth}
 \caption{labitoriestrømforsyning} 
@@ -495,7 +495,7 @@ Case &Forventet resultat &Resultat &Status\\\hline
 \end{minipage} \\ 
 \begin{minipage}[b]{0.48\textwidth}
 \caption{12V målt med voltmeter med 0.5A load} 
-\label{fig:udgang_12V_05A}
+\label{fig:udgang_12V_05A3}
 \end{minipage} \hfill
 \begin{minipage}[b]{0.48\textwidth}
 \caption{labitoriestrømforsyning} 
