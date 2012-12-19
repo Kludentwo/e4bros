@@ -12,8 +12,8 @@ Opbygningen af Kontrolinterfacets design tager udgangspunkt i den state machine 
 \begin{figure}[htbp]
 \centering
 \label{fig:KI-stm}
-\includegraphics[width=1\textwidth]{billeder/KI/stm_ki}
-\caption{På figuren ses den simplificerede state machine for Kontrolinterfacet. En mere detaljeret kan ses i desgindokumentationen for Kontrolinterfacet}
+\includegraphics[width=0.6\textwidth]{billeder/KI/stm_ki}
+\caption{På figuren ses den simplificerede state machine for Kontrolinterfacet. En mere detaljeret kan ses i designdokumentationen for Kontrolinterfacet}
 \end{figure}
 
 State machinen på figur \ref{fig:KI-stm} er god til at få en forståelse for programmet, men for at komme videre må den uddybes væsentligt. Det første trin i designfasen har derfor været at udarbejde en mere detaljeret state machine. Resultatet kan ses i Kontrolinterface-afsnittet i dokumentationsdokumentet for Detaljeret Software Design.
@@ -23,7 +23,7 @@ Det videre skridt er at udarbejde et klassediagram for programmet. Klassediagram
 \begin{figure}[htbp]
 \centering
 \label{fig:kd_simpel}
-\includegraphics[width=1\textwidth]{billeder/KI/klassediagram_simpel}
+\includegraphics[width=0.5\textwidth]{billeder/KI/klassediagram_simpel}
 \caption{På figuren ses det simple klassediagram for Kontrolinterfacet. Se en beskrivelse af hver klasse i tabel \ref{tabel:ki-klasser}}
 \end{figure}
  
@@ -53,59 +53,89 @@ Det gælder for VBTE-, SM- og Sensor-klasserne at når der efterspørges en af d
 
 \subsubsection{Grafisk brugergrænseflade}
 I denne sektion vil der kort blive gennemgået det vigtigste vindue i den grafiske brugergrænseflade; hovedvinduet. En gennemgang af de resterende vinduer vil kunne findes i Softwaredesign Appendix A: Kontrolinterface.
-På figur \ref{fig:hovedvindue} er hovedvinduet vist. Her er vinduets elementer indrammet. En beskrivelse af hvert element vil kunne findes i tabel \ref{tabel:ki-elementer}.
+På figur \ref{fig:hovedvindue} er hovedvinduet vist. Her er vinduets elementer indrammet. Herefter vil hovedvinduets elementer blive beskrevet.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{billeder/KI/hovedvindue}
+\includegraphics[width=0.7\textwidth]{billeder/KI/hovedvindue}
 \label{fig:hovedvindue}
 \caption{På figuren ses hovedvinduet for Kontrolinterface-programmet}
 \end{figure}
 
+\textcolor{red}{\textbf{1: Forsinkelse i sekunder}}\\
+Det øverste tal fortæller tiden i sekunder siden serveren sidst er blevet opdateret succesfuldt.
+Nedenunder udskrives tiden i sekunder siden værdierne i boks tre og fire er blevet opdateret.
 
-\begin{table}[H]
-\begin{center}
+\textcolor{Orange}{\textbf{2: Nedlukningsknap}}\\
+Anvendes til at lukke programmet. Programmet åbner dialogen som kan ses i Designdokumentet, Appendix A.
 
-\rowcolors{1}{white}{light-gray}
-\begin{tabular}{| l | p{9.5cm} | }
+\textcolor{brown}{\textbf{3: Vandballasttankene}}\\
+Her kan status for vandballasttankene aflæses. Niveauet er hvor fyldt tanken er angivet i procent. Hvis niveauet er over 70\% skrives tallet med rødt.
+Status angiver vandets flow i tanken: IND/UD/LUKKET.
 
-\multicolumn{2}{l}{Hovedvinduets elementer} \\
-\hline
-\textcolor{red}{\textbf{1: Forsinkelse i sekunder}}
-&Det øverste tal fortæller tiden i sekunder siden serveren sidst er blevet opdateret succesfuldt.
-Nedenunder udskrives tiden i sekunder siden værdierne i boks tre og fire er blevet opdateret.\\\hline
+\textcolor{yellow}{\textbf{4: Hældningssensor}}\\
+Værdien for hældningen af skibet angives i antal grader og i hvilken side skibet hælder.
 
-\textcolor{Orange}{\textbf{2: Nedlukningsknap}}
-&Anvendes til at lukke programmet. Programmet åbner dialogen som kan ses i Designdokumentet, Appendix A.\\\hline
-
-\textcolor{brown}{\textbf{3: Vandballasttankene}}
-&Her kan status for vandballasttankene aflæses. Niveauet er hvor fyldt tanken er angivet i procent. Hvis niveauet er over 70\% skrives tallet med rødt.
-Status angiver vandets flow i tanken: IND/UD/LUKKET.\\\hline
-
-\textcolor{yellow}{\textbf{4: Hældningssensor}}
-&Værdien for hældningen af skibet angives i antal grader og i hvilken side skibet hælder.\\\hline
-
-\textcolor{green}{\textbf{5: Reguleringsstatus}}
-&Her angives hvorvidt automatisk eller manuel hældningsregulering er aktiveret. Der vil altid kun være en og kun en af disse aktiveret. Derfor vil der altid være en rød og en grøn indikator tændt. I dette eksempel er den automatisk hældningsregulering aktiveret.\\\hline
-
-\textcolor{pink}{\textbf{6: Forbindelser}}
-&Indikerer hvorvidt der er forbindelse til Styringsmodulet og serveren. Dataforbindelse er rød hvis det ikke lykkedes at oprette forbindelse til serveren ved sidste forsøg.
+\textcolor{green}{\textbf{5: Reguleringsstatus}}\\
+Her angives hvorvidt automatisk eller manuel hældningsregulering er aktiveret. Der vil altid kun være en og kun en af disse aktiveret. Derfor vil der altid være en rød og en grøn indikator tændt. I dette eksempel er den automatisk hældningsregulering aktiveret.
+	
+\textcolor{pink}{\textbf{6: Forbindelser}}\\
+Indikerer hvorvidt der er forbindelse til Styringsmodulet og serveren. Dataforbindelse er rød hvis det ikke lykkedes at oprette forbindelse til serveren ved sidste forsøg.
 SM-forbindelse er rød hvis det ikke lykkedes at få de ventede svar fra Styringsmodulet.
-I denne situation er der forbindelse til styringsmodulet, men ikke serveren.\\\hline
+I denne situation er der forbindelse til styringsmodulet, men ikke serveren.
 
-\textcolor{blue}{\textbf{7: Automatisk reguleringsknap}}
-&Ved tryk på denne knap vil man komme til en dialog hvor man beder bekræfte at man ønsker at gå væk fra manuel hældningsregulering. Hvis automatisk regulering allerede er aktiveret vil man få dette af vide i en dialog. Dialogerne kan ses i Designdokumentet, Appendix A.\\\hline
+\textcolor{blue}{\textbf{7: Automatisk reguleringsknap}}\\
+Ved tryk på denne knap vil man komme til en dialog hvor man beder bekræfte at man ønsker at gå væk fra manuel hældningsregulering. Hvis automatisk regulering allerede er aktiveret vil man få dette af vide i en dialog. Dialogerne kan ses i Designdokumentet, Appendix A.
 
-\textcolor{BlueGreen}{\textbf{8: Manuel reguleringsknap}}
-&Bringer dig til en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grader. Herefter vælges siden skibet skal hælde til. Dialogen kan ses i Designdokumentet, Appendix A.\\\hline
+\textcolor{BlueGreen}{\textbf{8: Manuel reguleringsknap}}\\
+Bringer dig til en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grader. Herefter vælges siden skibet skal hælde til. Dialogen kan ses i Designdokumentet, Appendix A.
 
-\textcolor{purple}{\textbf{9: Aktivitetslog}}
-&Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel kan det ses hvordan alarmer skrives med rødt og oprettede forbindelser skrives med grønt.\\\hline
+\textcolor{purple}{\textbf{9: Aktivitetslog}}\\
+Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel kan det ses hvordan alarmer skrives med rødt og oprettede forbindelser skrives med grønt.
 
-\end{tabular}
-\label{tabel:ki-elementer}
-\end{center}
-\end{table}
+%\begin{table}[H]
+%\begin{center}
+
+%\rowcolors{1}{white}{light-gray}
+%\begin{tabular}{| l | p{9.5cm} | }
+
+%\multicolumn{2}{l}{Hovedvinduets elementer} \\
+%\hline
+%\textcolor{red}{\textbf{1: Forsinkelse i sekunder}}
+%&Det øverste tal fortæller tiden i sekunder siden serveren sidst er blevet opdateret succesfuldt.
+%Nedenunder udskrives tiden i sekunder siden værdierne i boks tre og fire er blevet opdateret.\\
+
+%\textcolor{Orange}{\textbf{2: Nedlukningsknap}}
+%&Anvendes til at lukke programmet. Programmet åbner dialogen som kan ses i Designdokumentet, Appendix A.\\\hline
+
+%\textcolor{brown}{\textbf{3: Vandballasttankene}}
+%&Her kan status for vandballasttankene aflæses. Niveauet er hvor fyldt tanken er angivet i procent. Hvis niveauet er over 70\% skrives tallet med rødt.
+%Status angiver vandets flow i tanken: IND/UD/LUKKET.\\\hline
+
+%\textcolor{yellow}{\textbf{4: Hældningssensor}}
+%&Værdien for hældningen af skibet angives i antal grader og i hvilken side skibet hælder.\\\hline
+
+%\textcolor{green}{\textbf{5: Reguleringsstatus}}
+%&Her angives hvorvidt automatisk eller manuel hældningsregulering er aktiveret. Der vil altid kun være en og kun en af disse aktiveret. Derfor vil der altid være en rød og en grøn indikator tændt. I dette eksempel er den automatisk hældningsregulering aktiveret.\\\hline
+
+%\textcolor{pink}{\textbf{6: Forbindelser}}
+%&Indikerer hvorvidt der er forbindelse til Styringsmodulet og serveren. Dataforbindelse er rød hvis det ikke lykkedes at oprette forbindelse til serveren ved sidste forsøg.
+%SM-forbindelse er rød hvis det ikke lykkedes at få de ventede svar fra Styringsmodulet.
+%I denne situation er der forbindelse til styringsmodulet, men ikke serveren.\\\hline
+
+%\textcolor{blue}{\textbf{7: Automatisk reguleringsknap}}
+%&Ved tryk på denne knap vil man komme til en dialog hvor man beder bekræfte at man ønsker at gå væk fra manuel hældningsregulering. Hvis automatisk regulering allerede er aktiveret vil man få dette af vide i en dialog. Dialogerne kan ses i Designdokumentet, Appendix A.\\\hline
+
+%\textcolor{BlueGreen}{\textbf{8: Manuel reguleringsknap}}
+%&Bringer dig til en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grader. Herefter vælges siden skibet skal hælde til. Dialogen kan ses i Designdokumentet, Appendix A.\\\hline
+
+%\textcolor{purple}{\textbf{9: Aktivitetslog}}
+%&Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel kan det ses hvordan alarmer skrives med rødt og oprettede forbindelser skrives med grønt.\\\hline
+
+%\end{tabular}
+%\label{tabel:ki-elementer}
+%\end{center}
+%\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% VBTE %%%%%%%%%%%%
