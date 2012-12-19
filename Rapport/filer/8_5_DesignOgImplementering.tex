@@ -324,23 +324,26 @@ Dobbelt ensretteren en lavet som en diodebro bestående af 4 dioder, hvor to af 
 Udglatningen er en elektrolyt kondensator som oplades og aflades i forhold til de positive halvperioder, da kondensator kun når at aflade lidt for hver nedadgående periode, vil der være en jævn og stabil DC.  
 \subsubsection{Regulator 12V og Regulator 5V}
 Da de enkle moduler bruger 12V og/eller 5V skal DC spænding fra Udglatningen reguleres ned til det pasende niveau, dette gøres i blokkene regulator 12V og regulator 5V.
-\subsubsection{12V regulator}
 \begin{figure}[H]
-\centering
-\includegraphics[scale=1]{billeder/Regulering_12VBlok}
-\caption{Blok for 12V regulator}
-\label{fig:Regulering_12VBlok}
-\end{figure}
-For at regulatoren kan regulere spændingen ned til 12V, skal der bruges et feedback fra udgangen "12V", feedbacket er indstillet til 12V ved hjælp af to modstande.
-\newpage
-\subsubsection{5V regulator}
-\begin{figure}[H]
-\centering
-\includegraphics[scale=1]{billeder/Regulering_5VBlok}
-\caption{Blok for 5V regulator}
-\label{fig:Regulering_5VBlok}
-\end{figure}
-For at regulatoren kan regulere spændingen ned til 5V, skal der bruges et feedback fra udgangen "5V", feedbacket er indstillet til 12V ved hjælp af to modstande.
+	\centering
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.80\textwidth]{billeder/Regulering_12VBlok}
+	\end{minipage}
+	\begin{minipage}[b]{0.48\textwidth}\centering
+	\includegraphics[width=0.80\textwidth]{billeder/Regulering_5VBlok}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Blok for 12V regulator}
+	\label{fig:Regulering_12VBlok}
+	\end{minipage}
+	\begin{minipage}[t]{0.48\textwidth}
+	\caption{Blok for 5V regulator}
+	\label{fig:Regulering_5VBlok}
+	\end{minipage}
+	\end{figure}
+For at regulatoren kan regulere spændingen ned til 12V og 5V, bruges et feedback fra udgangen, feedbacket er indstillet til 12V ved hjælp af to modstande. \\
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
