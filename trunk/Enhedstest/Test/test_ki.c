@@ -1,10 +1,10 @@
 // ===============================================================
 // ENHED : KI
 // CASE ID : 2
-// BESKRIVELSE : Indsætter værdier i structen. 
+// BESKRIVELSE : Indsaetter vaerdier i structen og viser hvorledes de udskrives
 // ===============================================================
-status styringsmodul::getStatus()
-{
+
+//INDSÆTTER I STRUCT
     status testStub;
     testStub.bagbordNiveau = 1;
     testStub.bagbordStatus = 2;
@@ -13,11 +13,10 @@ status styringsmodul::getStatus()
     testStub.styrbordNiveau = 5;
     testStub.styrbordStatus = 6;
 	
+//UDSKRIVER STRUCT
 	qDebug() << testStub.bagbordNiveau;
 	qDebug() << testStub.styrbordNiveau;
 	qDebug() << testStub.bagbordStatus;
 	qDebug() << testStub.styrbordStatus;
 	qDebug() << testStub.SecondsSinceLastGuiUpdate;
 	qDebug() << testStub.level;
-    return testStub;
-}
