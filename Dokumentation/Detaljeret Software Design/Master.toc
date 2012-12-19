@@ -34,58 +34,59 @@
 \contentsline {subsubsection}{Funktionsbeskrivelser}{17}{section*.16}
 \contentsline {chapter}{\chapternumberline {3}Databasen}{18}{chapter.3}
 \contentsline {subsection}{\numberline {3.0.9}Modulets Ansvar}{18}{subsection.3.0.9}
-\contentsline {subsection}{\numberline {3.0.10}Klassediagrammer}{18}{subsection.3.0.10}
-\contentsline {subsection}{\numberline {3.0.11}Funktionsbeskrivelser}{19}{subsection.3.0.11}
-\contentsline {subsubsection}{Server}{19}{section*.17}
-\contentsline {subsubsection}{update}{20}{section*.18}
-\contentsline {subsubsection}{tcp}{20}{section*.19}
-\contentsline {subsubsection}{enumdekrypteringskode}{21}{section*.20}
-\contentsline {subsubsection}{savedata}{21}{section*.21}
-\contentsline {subsubsection}{Webinterface}{21}{section*.22}
-\contentsline {subsubsection}{bros}{21}{section*.23}
-\contentsline {subsubsection}{mysql}{22}{section*.24}
-\contentsline {subsection}{\numberline {3.0.12}Tilpasning}{23}{subsection.3.0.12}
-\contentsline {subsection}{\numberline {3.0.13}Apache}{23}{subsection.3.0.13}
-\contentsline {subsection}{\numberline {3.0.14}mySQL}{24}{subsection.3.0.14}
-\contentsline {chapter}{\chapternumberline {4}SM}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Klassens ansvar}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Klassediagram}{25}{section.4.2}
-\contentsline {section}{\numberline {4.3}Variabler}{26}{section.4.3}
-\contentsline {section}{\numberline {4.4}Funktionsbeskrivelser}{26}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Init}{26}{subsection.4.4.1}
-\contentsline {subsubsection}{Ansvar}{26}{section*.25}
-\contentsline {subsection}{\numberline {4.4.2}H\IeC {\ae }ldningssensorblok}{26}{subsection.4.4.2}
-\contentsline {subsubsection}{Ansvar}{26}{section*.26}
-\contentsline {subsection}{\numberline {4.4.3}H\IeC {\ae }ldningsregulering}{26}{subsection.4.4.3}
-\contentsline {subsubsection}{Ansvar}{26}{section*.27}
-\contentsline {subsection}{\numberline {4.4.4}VBTE-Driver}{27}{subsection.4.4.4}
-\contentsline {subsubsection}{Ansvar}{27}{section*.28}
-\contentsline {subsection}{\numberline {4.4.5}Kommunikation}{27}{subsection.4.4.5}
-\contentsline {subsubsection}{Ansvar}{27}{section*.29}
-\contentsline {section}{\numberline {4.5}Eventuelle Sekvensdiagrammer og state machines}{28}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}getFromKI}{28}{subsection.4.5.1}
-\contentsline {chapter}{\chapternumberline {5}VBTE}{29}{chapter.5}
-\contentsline {section}{\numberline {5.1}Modulets ansvar}{29}{section.5.1}
-\contentsline {section}{\numberline {5.2}Klassediagram}{29}{section.5.2}
-\contentsline {section}{\numberline {5.3}Globale variabler}{30}{section.5.3}
-\contentsline {section}{\numberline {5.4}Metode- og klassebeskrivelser}{30}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Init}{30}{subsection.5.4.1}
-\contentsline {subsubsection}{Ansvar}{30}{section*.30}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{30}{section*.31}
-\contentsline {subsection}{\numberline {5.4.2}Valve}{30}{subsection.5.4.2}
-\contentsline {subsubsection}{Ansvar}{30}{section*.32}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{31}{section*.33}
-\contentsline {subsection}{\numberline {5.4.3}Dist}{31}{subsection.5.4.3}
-\contentsline {subsubsection}{Ansvar}{31}{section*.34}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{31}{section*.35}
-\contentsline {subsection}{\numberline {5.4.4}I2Chandle}{31}{subsection.5.4.4}
-\contentsline {subsubsection}{Ansvar}{31}{section*.36}
-\contentsline {subsubsection}{Funktionsbeskrivelser}{32}{section*.37}
-\contentsline {subsection}{\numberline {5.4.5}PSoC-API::ADC}{32}{subsection.5.4.5}
-\contentsline {subsubsection}{Ansvar}{32}{section*.38}
-\contentsline {subsubsection}{Beskrivelse}{32}{section*.39}
-\contentsline {subsection}{\numberline {5.4.6}State Machine}{32}{subsection.5.4.6}
-\contentsline {subsection}{\numberline {5.4.7}Timing Diagram}{33}{subsection.5.4.7}
-\contentsline {subsection}{\numberline {5.4.8}Interrupt rutiner}{33}{subsection.5.4.8}
-\contentsline {subsubsection}{isr\_dist}{33}{section*.40}
-\contentsline {subsubsection}{isr\_counter}{34}{section*.41}
+\contentsline {subsection}{\numberline {3.0.10}State machine diagram}{18}{subsection.3.0.10}
+\contentsline {subsection}{\numberline {3.0.11}Klassediagrammer}{19}{subsection.3.0.11}
+\contentsline {subsection}{\numberline {3.0.12}Funktionsbeskrivelser}{21}{subsection.3.0.12}
+\contentsline {subsubsection}{Server}{21}{section*.17}
+\contentsline {subsubsection}{update}{21}{section*.18}
+\contentsline {subsubsection}{tcp}{22}{section*.19}
+\contentsline {subsubsection}{enumdekrypteringskode}{22}{section*.20}
+\contentsline {subsubsection}{savedata}{22}{section*.21}
+\contentsline {subsubsection}{Webinterface}{22}{section*.22}
+\contentsline {subsubsection}{bros}{23}{section*.23}
+\contentsline {subsubsection}{mysql}{24}{section*.24}
+\contentsline {subsection}{\numberline {3.0.13}Tilpasning}{25}{subsection.3.0.13}
+\contentsline {subsection}{\numberline {3.0.14}Apache}{25}{subsection.3.0.14}
+\contentsline {subsection}{\numberline {3.0.15}mySQL}{25}{subsection.3.0.15}
+\contentsline {chapter}{\chapternumberline {4}SM}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Klassens ansvar}{27}{section.4.1}
+\contentsline {section}{\numberline {4.2}Klassediagram}{27}{section.4.2}
+\contentsline {section}{\numberline {4.3}Variabler}{28}{section.4.3}
+\contentsline {section}{\numberline {4.4}Funktionsbeskrivelser}{28}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Init}{28}{subsection.4.4.1}
+\contentsline {subsubsection}{Ansvar}{28}{section*.25}
+\contentsline {subsection}{\numberline {4.4.2}H\IeC {\ae }ldningssensorblok}{28}{subsection.4.4.2}
+\contentsline {subsubsection}{Ansvar}{28}{section*.26}
+\contentsline {subsection}{\numberline {4.4.3}H\IeC {\ae }ldningsregulering}{28}{subsection.4.4.3}
+\contentsline {subsubsection}{Ansvar}{28}{section*.27}
+\contentsline {subsection}{\numberline {4.4.4}VBTE-Driver}{29}{subsection.4.4.4}
+\contentsline {subsubsection}{Ansvar}{29}{section*.28}
+\contentsline {subsection}{\numberline {4.4.5}Kommunikation}{29}{subsection.4.4.5}
+\contentsline {subsubsection}{Ansvar}{29}{section*.29}
+\contentsline {section}{\numberline {4.5}Eventuelle Sekvensdiagrammer og state machines}{30}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}getFromKI}{30}{subsection.4.5.1}
+\contentsline {chapter}{\chapternumberline {5}VBTE}{31}{chapter.5}
+\contentsline {section}{\numberline {5.1}Modulets ansvar}{31}{section.5.1}
+\contentsline {section}{\numberline {5.2}Klassediagram}{31}{section.5.2}
+\contentsline {section}{\numberline {5.3}Globale variabler}{32}{section.5.3}
+\contentsline {section}{\numberline {5.4}Metode- og klassebeskrivelser}{32}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Init}{32}{subsection.5.4.1}
+\contentsline {subsubsection}{Ansvar}{32}{section*.30}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{32}{section*.31}
+\contentsline {subsection}{\numberline {5.4.2}Valve}{32}{subsection.5.4.2}
+\contentsline {subsubsection}{Ansvar}{32}{section*.32}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{33}{section*.33}
+\contentsline {subsection}{\numberline {5.4.3}Dist}{33}{subsection.5.4.3}
+\contentsline {subsubsection}{Ansvar}{33}{section*.34}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{33}{section*.35}
+\contentsline {subsection}{\numberline {5.4.4}I2Chandle}{33}{subsection.5.4.4}
+\contentsline {subsubsection}{Ansvar}{33}{section*.36}
+\contentsline {subsubsection}{Funktionsbeskrivelser}{34}{section*.37}
+\contentsline {subsection}{\numberline {5.4.5}PSoC-API::ADC}{34}{subsection.5.4.5}
+\contentsline {subsubsection}{Ansvar}{34}{section*.38}
+\contentsline {subsubsection}{Beskrivelse}{34}{section*.39}
+\contentsline {subsection}{\numberline {5.4.6}State Machine}{34}{subsection.5.4.6}
+\contentsline {subsection}{\numberline {5.4.7}Timing Diagram}{35}{subsection.5.4.7}
+\contentsline {subsection}{\numberline {5.4.8}Interrupt rutiner}{35}{subsection.5.4.8}
+\contentsline {subsubsection}{isr\_dist}{35}{section*.40}
+\contentsline {subsubsection}{isr\_counter}{36}{section*.41}
