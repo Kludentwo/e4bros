@@ -9,6 +9,23 @@ Databasemodulet har tre dele; serveren, websiden og en MySQL-database. \\
 \textbf{Webinterfacet} giver brugeren mulighed for at se info om BROS samt at logge sig ind i BROS-databasen hvorfrax data om skibe, der er tilsluttet systemet, kan aflæses. Webinterfacets tre vigtigste funktioner er at gemme ny data til MySQL-databasen, slette den tekstfil som serveren lavede og vise data for brugeren. For at håndtere webinterfacet, der benytter sig af php (webprogrammering) kræves der en webserver, som er i stand til at håndtere dette. En af de mest udbredte er apacheserveren, som også benyttes for denne webside.
 \textbf{MySQL-databasen} er en database, som er  installeret på computeren. Alle data, som er sendt fra KI, er lagret i MySQL-databasen.
 
+\subsection{State machine diagram}
+Designet af Databasen tager udgangspunkt i arkitekturen fremstillet i artefaktet Systemarkitektur. Her blev der fremstillet et state machine for serveren webinterfacet. State machinet var simplificeret og er i designfasen blevet udvidet. Resultatet ses i \textit{figur \ref{fig:stm_server}} for serveren og \textit{figur \ref{fig:stm_web}} webinterfacet. Figuren beskriver hvilke stadier programmet kan befinde sig i og sammenhængen imellem dem.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/Database/stm_server}
+	\caption{State machine diagram for serveren}
+	\label{fig:stm_server}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{billeder/Database/stm_web}
+	\caption{State machine diagram for serveren}
+	\label{fig:stm_web}
+\end{figure}
+
 \subsection{Klassediagrammer}
 Nedenfor ses klassediagrammerne for databasen. Bemærk databasemodulet er lavet som en serverdel og en webdel\\
 Serveredelen er opskrevet som et normalt klassediagram og websiden er opskrevet som et modificeret klassediagram. Dette skyldes at websiden er opbygget som en blanding imellem HTML og php. HTML kan man ikke lave et decideret klassediagram, da der ikke findes funktionskald i dette, men blot includes. Php har derimod funktionskald og er lavet traditionelt. For at lette læsningen af diagrammet har alle blokke i webinterface-klassediagrammet skrevet i toppen om det er HTML eller php.
@@ -20,14 +37,44 @@ Serveredelen er opskrevet som et normalt klassediagram og websiden er opskrevet 
 	\label{fig:serverKlassediagram}
 \end{figure}
 
+\begin{table}[H]
+\centering
+\rowcolors{1}{white}{light-gray}
+\begin{tabular}{| p{3cm}  p{12.5cm}|}
+\multicolumn{2}{l}{{\Large Serverens klasser}} \\\hline
+Server:&Hovedklassen. Denne klasse står for udskrivning til GUI og meddele fejl.\\\hline
+tcp:& Står for modtagelse af data fra KI. Denne splitter den modtagede streng og sender den videre til savedata.\\\hline
+savedata: & Står for at gemme alle data til en tekstfil.\\\hline
+enumDeKrypteringkode:& Står for at dekryptere LEVEL til grader.\\\hline
+\end{tabular}
+\caption{Serveren klasser}
+\label{tabel:server-klasser}
+\end{table}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/Database/web_klasse}
 	\caption{Klassedigram for databasens webinterface}
 	\label{fig:serverKlassediagram}
 \end{figure}
-\fxnote{check med kim, beskriv <<html>> og <<php>>}
 
+\begin{table}[H]
+\centering
+\rowcolors{1}{white}{light-gray}
+\begin{tabular}{| p{3cm}  p{12.5cm}|}
+\multicolumn{2}{l}{{\Large Webinterfacets klasser}} \\\hline
+index:& Denne er første side brugeren kommer til. Includer shippas.\\\hline
+shippas:& Denne includeres i index og håndtere adgangskoden fra brugeren ved hjælp af pass\_form og godkend.\\\hline
+pass\_form: & Indtastningsblokken for adgangskode til databasen.\\\hline
+godkend:& Checker om brugeren har tastet korrekt adgangskode, og sender brugeren videre til logon ved korrekt password.\\\hline
+logon:& Er hovedsiden i databasen. Denne includere ship og bros. \\\hline
+ship:& Denne håndtere de skibe der er tilsluttet BROS database.\\\hline
+bros:& Denne gemmer ny data til MySQL databasen. Sletter den filen data var lagret i. Henter og viser alle data i MySQL databasen.\\\hline
+mysql:& Tager kontakt til MySQL databasen. opretter forbindelse. Danner en row til håndtering af de data, der skal vises for brugeren.\\\hline
+\end{tabular}
+\caption{Webinterfacets klasser}
+\label{tabel:web-klasser}
+\end{table}
 
 \subsection{Funktionsbeskrivelser}
 \subsubsection{Server}
