@@ -413,8 +413,8 @@ Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan de
 \centering
 \begin{tabular}{p{3cm} p{12.5cm}}
 \multicolumn{2}{l}{{\Large Webinterface beskrivelse}} \\\hline
-MainWindow (index) & index loader shippas ind som er en form som håndtere adgangskoder. Dette er siden brugeren kommer til som det første. Brugeren skal taste sin adgangskode for at få adgang til databasen\\
-Databasen (logon) & Denne side bliver kaldt efter at brugeren er logget på. Her vælger brugeren hvilket skib denne ønsker at få vidst data for.\\
+MainWindow \phantom{m}(index) & Index loader shippas ind som er en form som håndtere adgangskoder. Dette er siden brugeren kommer til som det første. Brugeren skal taste sin adgangskode for at få adgang til databasen\\
+Databasen  \phantom{m}(logon) & Denne side bliver kaldt efter at brugeren er logget på. Her vælger brugeren hvilket skib denne ønsker at få vidst data for.\\
 \end{tabular}
 \caption{Web sidens opbygning}
 \label{tabel:webside-simpel}
@@ -428,13 +428,13 @@ Et billed af hvordan data fremvises for brugeren. For de andre sider på website
 	\caption{Billed databasen BROS for skibet Martha}
 	\label{fig:web_database}
 \end{figure}
-\begin{table}[H]
-\begin{tabular}{l p{12.5cm}}
 
-\multicolumn{2}{l}{Data fra skib i databasen } \\
+\begin{table}[H]
+\begin{tabular}{p{5cm} p{10cm}}
+%\multicolumn{2}{l}{Data fra skib i databasen } \\
 \hline
-\textcolor{Turquoise}{\textbf{1: Skib og sidst opdateret}}
-&Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er opdateret.\\
+\textcolor{Turquoise}{\textbf{1: Skib er sidst opdateret}}
+&Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er opdateret.\\ 
 \textcolor{green}{\textbf{2: ID på skib}}
 &Skibets ID bliver vidst. Hvis at KI lukker tcp forbindelsen vil skibts ID skifte til "TERMINATED".\\
 \textcolor{blue}{\textbf{3: Styrbord vandtanksniveau}}
