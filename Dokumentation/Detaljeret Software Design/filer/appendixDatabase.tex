@@ -1,4 +1,4 @@
-\chapter*{AppendixB: Database}
+\chapter*{Appendix B: Database}
 \section*{Hovedvindue for serveren}
 \begin{figure}[htbp]
 	\centering
@@ -31,7 +31,7 @@ Serverens GUI giver mulighed for at brugeren kan se at serveren kører og hvilke
 \end{figure}
 
 
-\subsection*{Luk Severen}
+\subsection*{Luk Serveren}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{billeder/database/databaseLogOff}
@@ -70,7 +70,7 @@ Den webbaserede adgang til databasen.
 \hline
 \textcolor{green}{\textbf{1: Adgangskodekontrol}}
 &Når brugeren åbner databasen fra serveren eller fra en almindelig browser via internettet, vil denne komme til den webbaserede database. For at få adgang til databasen skal brugeren taste den adgangskode, som er blevet opgivet til denne.\\
-\textcolor{blue}{\textbf{1: Logpå/Log af}}
+\textcolor{blue}{\textbf{1: Log på/Log af}}
 &Når brugeren endnu ikke er logget på systemet, er disse tre knapper sat til Log på. Efter at brugeren er logget på vil disse knapper ændre sig til log af. Dette er brugerens bedste billede af hvor denne står på siden.
 \end{tabular}
 \end{table}
@@ -104,7 +104,7 @@ Efter at brugeren har valgt skib, kan denne følge med i tilstanden på skibet. 
 	\label{fig:web_database}
 \end{figure}
 \begin{table}[H]
-\begin{tabular}{l p{12.5cm}}
+\begin{tabular}{l  p{9.3cm}}
 
 \multicolumn{2}{l}{Data fra skib i databasen } \\
 \hline
@@ -147,7 +147,7 @@ MySQL understøtter følgende datatyper\footnote{Kilde mysql.com} \\
 \subsection*{Kommandoer for adgang og brug af mySQL i terminal}
 For at kunne benytte mySQL med password og username skal dette opsættes. Dette er blevet gjort fra terminalen ved at åbne terminalen og skrive mysql. Dette vil logge en på første gang. For oprettelse af bruger, f.eks. root, gøres følgende:\\
 mysql> use mysql;\\
-mysql> update user set password=PASSWOD("NEWPASSWORD") where User='root';\\
+mysql> update user set password=PASSWORD("NEWPASSWORD") where User='root';\\
 mysql> flush privileges;\\
 mysql> quit
 
