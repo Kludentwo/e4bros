@@ -186,11 +186,11 @@ Uden for PSoC'en er der lavet 2 hardwareblokke. Disse har til ansvar at omsætte
 	\end{minipage}
 	\begin{minipage}[t]{0.48\textwidth}
 	\caption{Hardwareblok for ventil}
-	\label{fig:SMHW1}
+	\label{fig:Ventilblok1}
 	\end{minipage}
 	\begin{minipage}[t]{0.48\textwidth}
 	\caption{Hardwareblok for transmitteren}
-	\label{fig:SMPSOC1}
+	\label{fig:transmitterblok1}
 	\end{minipage}
 \end{figure}
 \subsubsection{Ventilkreds}
@@ -274,13 +274,8 @@ SM software behandler den konverterede data fra ADC'en samt kommunikation med VB
 	\label{fig:SMKD}
 \end{figure}
 \textbf{SM funktionalitet}\\
-Funktionalitet af SM kan bedst beskrives med et state diagram. På \textit{figur~\ref{fig:SMSTM}} ses  state machine diagrammet for SM modulet. Diagrammet indeholder hældningsregulering state der beskriver den automatiske og manuelle regulering i systemet. Den automatiske regulering styres med et flag. Den manuelle styres med en værdi der bliver sat. Flaget bliver sat når SM opnår forbindelse med KI modulet i 'Afvent' statet. Flaget bliver nulstillet hvis KI sender besked til SM modulet om at det skal termineres, hvorefter SM går tilbage i 'Afvent' statet. Behandlingen af beskeder fra KI i 'Modtag besked fra KI' og 'Send svar til KI' states ses i følgende afsnit \textit{getFromKI}.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.8\textwidth]{billeder/stmSM}
-	\caption{State machine for SM}
-	\label{fig:SMSTM}
-\end{figure}
+Funktionalitet af SM kan bedst beskrives med et state diagram. På \textit{figur~\ref{fig:stm_sm}} ses  state machine diagrammet for SM modulet. Diagrammet indeholder hældningsregulering state der beskriver den automatiske og manuelle regulering i systemet. Den automatiske regulering styres med et flag. Den manuelle styres med en værdi der bliver sat. Flaget bliver sat når SM opnår forbindelse med KI modulet i 'Afvent' statet. Flaget bliver nulstillet hvis KI sender besked til SM modulet om at det skal termineres, hvorefter SM går tilbage i 'Afvent' statet. Behandlingen af beskeder fra KI i 'Modtag besked fra KI' og 'Send svar til KI' states ses i følgende afsnit \textit{getFromKI}.\\
+\\
 \textbf{getFromKI}\\
 Funktionen er bedst beskrevet med et flowdiagram:
 \begin{figure}[H]
@@ -316,7 +311,7 @@ Da strømforsyningen for leveret strøm fra en AC spændingskilde, skal AC signa
 \centering
 \includegraphics[scale=1]{billeder/DobbeltensretterBlok}
 \caption{Blok for dobbelt ensretter}
-\label{fig:DobbeltensretterBlok}
+\label{fig:DobbeltensretterBlok1}
 \end{figure}
 Dobbelt ensretteren en lavet som en diodebro bestående af 4 dioder, hvor to af dioderne samtiddig, hvilket betyder at der vil være positive halvperioder på udgangen "ensrettet DC" med en spidsværdi på ca. indgangsspænding * $\sqrt{2}$
 \subsubsection{Udglatning}
@@ -324,7 +319,7 @@ Dobbelt ensretteren en lavet som en diodebro bestående af 4 dioder, hvor to af 
 \centering
 \includegraphics[scale=1]{billeder/UdglatningsBlok}
 \caption{Blok for dobbelt ensretter}
-\label{fig:DobbeltensretterBlok}
+\label{fig:DobbeltensretterBlok2}
 \end{figure}
 Udglatningen er en elektrolyt kondensator som oplades og aflades i forhold til de positive halvperioder, da kondensator kun når at aflade lidt for hver nedadgående periode, vil der være en jævn og stabil DC.  
 \subsubsection{Regulator 12V og Regulator 5V}
