@@ -1,4 +1,5 @@
 \section{Resultater}
+\label{ch:Resultater}
 I dette afsnit samles der op på resultaterne gruppen har opnået gennem projektforløbet. Her vil der blive beskrevet resultater for de enkelte moduler gruppen har implementeret. Til sidst bliver der knyttet en kommentar til det samlerede resultat. Der vil i afsnittet blive henvist til testresultater dokumenteret i hhv. "Enhedstest", "Integrationstest" og "Accepttest".
 
 \subsection{KI}
@@ -12,12 +13,12 @@ Webinterfacet er fuldt implementeret og ved opstart af webinterfacet fungere bru
 SM modulet er fuldt implementeret, men ikke finjusteret. Forbindelsen til KI er fuldt funktionel. Forbindelsen til VBTE virker 95\% af tiden. Automatisk hældningsregulering er implementeret, men da niveaumålinger ikke modtages fra VBTE modulet er det ikke muligt at tømme tankene inden vi fylder i den anden tank. Prototypen er modulet er monteret med 7 LED's der bruges til fejlfinding. Prototypen er også lagt ud på print med indeholdende levelkonvertering og I2C pull-up modstande.
 
 \subsection{VBTE}
-VBTE modulet nåede aldrig at komme til at fungere optimalt. Efter at have implementeret ultralydsafstandsensoren fandt jeg ud af at det ikke fungerede ret godt over særligt lange afstande (i hvert fald i mit design). Men under kontrolerede forhold i laboratoriet lykkedes det at få flotte detektioner på ultralydsafstandssensoren som kan ses på \textit{figur \ref{res:ultraresultater}}.
+VBTE modulet nåede aldrig at komme til at fungere optimalt. Efter at have implementeret ultralydsafstandsensoren  og undersøgt/tweaket på parametrene viste det sig at det ikke fungerede ret godt over særligt lange afstande (i hvert fald i dette design). Dette kan skyldes at der blev anvendt for lav en spænding over transduceren eller at der skulle filtreres på det modtagede signal så det kunne forstærkes mere op. Under kontrolerede forhold i laboratoriet lykkedes det at få flotte detektioner på ultralydsafstandssensoren som kan ses på \textit{figur \ref{res:ultraresultater}}.
 \begin{figure}[H]
 \centering
 \includegraphics[width = .5\textwidth]{billeder/mixer2}
-\label{res:ultraresultater}
 \caption{Detektioner af ultralydsafstandssensoren med faste intervaller.}
+\label{res:ultraresultater}
 \end{figure}
 Derudover virkede I2C delen, dog med fejl på data i nogle transmissioner. Det vides ikke om det er et normalt problem ved I2C eller om det havde noget at gøre med vores system. Til sidst er der udlagt print til VBTE'en, en 2x16 LCD skærm til test samt dipswitches og knap til at skifte I2C adresse mens systemet kører. 
 
@@ -45,18 +46,18 @@ $\surd$		& $\times$		& $\div$ & $\diamond$	\\\hline
 \cmidrule(r){1-1} \cmidrule(r){2-8} 
 \textbf{Enhedstest software} & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
 \hline
-\phantom{mm}KI  		& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
-\phantom{mm}Database  	& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
-\phantom{mm}SM			& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ &  $\surd$ & $\surd$\\
-\phantom{mm}VBTE  		& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\ 
+\phantom{mm}KI  			& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+\phantom{mm}Database  		& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+\phantom{mm}SM				& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ &  $\surd$ & $\surd$\\
+\phantom{mm}VBTE  			& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\ 
 \textbf{Enhedstest hardware} \\
 \hline
-\phantom{mm}SM			& $\surd$ & $\surd$\\
-\phantom{mm}VBTE  		& $\surd$ & $\surd$ & $\times$ \\ 
-\phantom{mm}Strømforsyning & $\surd$ & $\surd$ & $\surd$\\
+\phantom{mm}SM				& $\surd$ & $\surd$\\
+\phantom{mm}VBTE  			& $\surd$ & $\surd$ & $\times$ \\ 
+\phantom{mm}Strømforsyning 	& $\surd$ & $\surd$ & $\surd$\\
 \hline
-\textbf{Integrationstest} & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$\\
-\textbf{Accepttest} & $\surd$ & $\times$ & $\times$ & $\surd$ & $\surd$ & $\surd$\\
+\textbf{Integrationstest} 	& $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$\\
+\textbf{Accepttest} 		& $\surd$ & $\times$ & $\times$ & $\surd$ & $\surd$ & $\surd$\\
 \hline
 \end{tabular}
 \caption{Samlet tabel med alle resultater}
