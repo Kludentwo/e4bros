@@ -221,7 +221,7 @@ Styringsmodulets software behandler den konverterede data fra ADC'en samt kommun
 \end{figure}
 \textbf{Styringmodulets funktionalitet}\\
 Funktionalitet af Styringsmodulet kan bedst beskrives med et state diagram. På figur \ref{fig:stm_sm} ses state machine diagrammet for Styringsmodulet. Diagrammet indeholder \textit{Hældningsregulering}-stadiet, der beskriver den automatiske og manuelle regulering i systemet. \\Den automatiske regulering styres med et flag. Den manuelle styres med en værdi, der bliver sat. Flaget bliver sat når Styringsmodulet opnår forbindelse med Kontrolinterfacet i \textit{Afvent}-stadiet. Flaget bliver nulstillet hvis Kontrolinterfacet sender besked til Styringsmodulet om at det skal termineres, hvorefter Styringsmodulet går tilbage i \textit{Afvent}-stadiet. Behandlingen af beskeder fra Kontrolinterfacet i \textit{Modtag besked fra KI}-stadiet og \textit{Send svar til KI}-stadiet ses i følgende afsnit \textit{getFromKI}.\\
-\\
+\\\\\\
 \textbf{getFromKI}\\
 Funktionen er bedst beskrevet med et flowdiagram:
 \begin{figure}[H]
