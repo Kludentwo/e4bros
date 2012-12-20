@@ -7,7 +7,7 @@ Systemarkitekturen starter med funktionaliteten beskrevet i use casene, og udvid
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{billeder/Systemarkitektur/DM_UC2}
+\includegraphics[width=0.7\textwidth]{billeder/Systemarkitektur/DM_UC2}
 \caption{Domænemodel for use case 2}
 \label{fig:dmuc2}
 \end{figure}
@@ -17,7 +17,7 @@ I domænemodellen på figur \ref{fig:dmuc2} beskrives relationen mellem systemet
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{billeder/Systemarkitektur/KD_UC2}
+\includegraphics[width=0.7\textwidth]{billeder/Systemarkitektur/KD_UC2}
 \caption{Klassediagram for use case 2}
 \label{fig:kduc2}
 \end{figure}
@@ -28,7 +28,7 @@ I sekvensdiagrammet (figur \ref{fig:sduc2}) beskrives kommunikationen og timinge
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{billeder/Systemarkitektur/SD_UC2}
+\includegraphics[width=0.8\textwidth]{billeder/Systemarkitektur/SD_UC2}
 \caption{Sekvensdiagram for Use Case 2}
 \label{fig:sduc2}
 \end{figure}
@@ -44,7 +44,7 @@ Når alle use cases er blevet bearbejdet som use case 2 er blevet i figur \ref{f
 \end{figure}
 
 Flowet i state machinen bygger på det beskrevne i sekvensdiagrammerne. Starten på use case 2 er et brugerinput til Kontrolinterfacet. Dette medfører en besked fra Kontrolinterfacet til Styringsmodulet. Styringsmodulet kan være i to forskellige stadier når den modtager beskeden:\\
-Hvis programmet er nyopstartet, vil beskeden få Styringsmodulet ud af \textit{Afvent}-stadiet og til at aktivere automatisk hældningsregulering. Hvis programmet befinder sig i \textit{Hældningsregulering}-stadiet med reguleringstypen \textit{manuel}, vil beskeden fra Kontrolinterfacet få Styringsmodulet over i stadiet \textit{Modtaget besked fra KI}. Styringsmodulet besvarer beskeden med en aktiveringsbekræftelse, og returerner derpå til \textit{Hældningsregulering}-stadiet - nu med reguleringstypen \textit{automatisk}.
+Hvis programmet er nyopstartet, vil beskeden få Styringsmodulet ud af \textit{Afvent}-stadiet og til at aktivere automatisk hældningsregulering. Hvis programmet befinder sig i \textit{Hældningsregulering}-stadiet med reguleringstypen \textit{Manuel}, vil beskeden fra Kontrolinterfacet få Styringsmodulet over i stadiet \textit{Modtaget besked fra KI}. Styringsmodulet besvarer beskeden med en aktiveringsbekræftelse, og returerner derpå til \textit{Hældningsregulering}-stadiet - nu med reguleringstypen \textit{Automatisk}.
 
 Dette var for use case 2. Styringsmodulets opførelse for alle use cases kan forudsiges på samme måde ud fra figur \ref{fig:stm_sm}. 
 
@@ -53,7 +53,7 @@ Næste trin er, at omdanne de konceptuelle klasser til et regulært system. Nogl
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.5]{billeder/Systemarkitektur/bdd_bros}
+\includegraphics[width=0.65\textwidth]{billeder/Systemarkitektur/bdd_bros}
 \caption{Blokdefinitionsdiagram for systemet}
 \label{fig:bdd_bros}
 \end{figure}
@@ -63,14 +63,14 @@ Herefter er opgaven to-delt. Kommunikationsvejene skal kortlægges både internt
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{billeder/Systemarkitektur/ibd_bros}
+\includegraphics[width=0.65\textwidth]{billeder/Systemarkitektur/ibd_bros}
 \caption{Internt blokdiagram for systemet}
 \label{fig:idb_bros}
 \end{figure}
 
 Som det kan ses i figur anvendes der en række protokoller til kommunikation mellem systemets interne blokke. Disse protokoller skal defineres inden design og implementering af systemets blokke kan begynde.
 
-Som eksempel vil der blive givet kommunikationsprotokollen mellem VBTE og Styringsmodulet som opskrevet i tabel \ref{tabel:protokoloversigt} med de indstillinger angivet \textit{\ref{tabel:forbindelsesindstillinger}}.
+Som eksempel vil der blive givet kommunikationsprotokollen mellem Vandballasttankenhederne og Styringsmodulet. Protokollen er beskrivet i tabel \ref{tabel:protokoloversigt} med indstillingerne angivet i tabel \ref{tabel:forbindelsesindstillinger}.
 
 
 \begin{table}[H]
@@ -101,7 +101,7 @@ LUKVENTIL&8&Sendes når VBTE skal lukke for begge ventiler.\\\hline
 \label{tabel:protokoloversigt}
 \end{table}
 
-Systemet er nu opdelt i fysiske blokke. For hver blok er der angivet et state machine. Kommunikationsprotokollen imellem blokkene er beskrivet. Designfasen kan påbegynde.
+Systemet er nu opdelt i fysiske blokke. For hver blok er der angivet en state machine og kommunikationsprotokollen imellem blokkene er beskrivet. Designfasen kan påbegynde.
 
 
 

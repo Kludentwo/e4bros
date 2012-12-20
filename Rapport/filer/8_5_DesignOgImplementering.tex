@@ -5,9 +5,9 @@
 %%%%%%%%%% KI   %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Kontrolinterfacet}
-I dette afsnit beskrives design og implementering af Kontrolinterfacet som lavet på baggrund af kravspecifikationen og systemarkitekturen. 
+I dette afsnit beskrives designet og implementeringen af Kontrolinterfacet som det er lavet på baggrund af kravspecifikationen og systemarkitekturen. 
 
-Opbygningen af Kontrolinterfacets design tager udgangspunkt i den state machine der er udarbejdet i systemarkitekturen, se figur \ref{fig:KI-stm}
+Opbygningen af Kontrolinterfacets design tager udgangspunkt i den state machine, der er udarbejdet i systemarkitekturen, se figur \ref{fig:KI-stm}.
 
 \begin{figure}[htbp]
 \centering
@@ -16,9 +16,9 @@ Opbygningen af Kontrolinterfacets design tager udgangspunkt i den state machine 
 \label{fig:KI-stm}
 \end{figure}
 
-State machinen er god til at få en forståelse for programmet, men for at komme videre må den uddybes væsentligt. Det første trin i designfasen har derfor været at udarbejde en mere detaljeret state machine. Resultatet kan ses i Kontrolinterface-afsnittet i dokumentationsdokumentet for Detaljeret Software Design.
+State machinen er god til at få en forståelse for programmet, men for at komme videre må den uddybes væsentligt. Det første trin i designfasen har derfor været at udarbejde en mere detaljeret state machine. Resultatet kan ses i Kontrolinterfacets afsnit i dokumentationsdokumentet \textit{Detaljeret Softwaredesign}.
 
-Det videre skridt er at udarbejde et klassediagram for programmet. Klassediagrammet er ligesom state machines først lavet i en simplificeret version og dernæst i en detaljeret. Det første kan ses på \textit{figur \ref{fig:kd_simpel}} med en beskrivelse af hver klasse i \textit{tabel \ref{tabel:ki-klasser}}.\\
+Det næste skridt er at udarbejde et klassediagram for programmet. Klassediagrammet er ligesom state machinen først lavet i en simplificeret version og dernæst i en detaljeret. Det første kan ses på figur \ref{fig:kd_simpel} med en beskrivelse af hver klasse i tabel \ref{tabel:ki-klasser}.\\
 
 \begin{figure}[htbp]
 \centering
@@ -45,50 +45,50 @@ manudialog:&Oprettes af MainWindow og styrer den dialog, der fremkommer når man
 \label{tabel:ki-klasser}
 \end{table}
 
-Klassediagrammet på \textit{figur \ref{fig:kd_simpel}} afspejler et program designet med forbillede i det samlede system. Dette er gjort for at trække på de løsninger der er fundet i forbindelse med det fulde system. \\
-Det ses hvordan hovedklassen er Kontrolinterfacet. Alt andet oprettes enten direkte af Kontrolinterface-klassen eller af en klasse oprettet af samme. Kontrolinterfacet har kun kontakt til brugergrænsefladen (MainWindow), Styringsmodulet og DataServer. Kommunikationen mellem Kontrolinterface-klassen og Styringsmodul spejler den kommunikation der er imellem de fysiske blokke Kontrolinterface og Styringsmodul i det samlede system.\\
+Klassediagrammet på figur \ref{fig:kd_simpel} afspejler et program designet med forbillede i det samlede system. Dette er gjort for at trække på de løsninger, der er fundet i forbindelse med det fulde system. \\
+Det ses hvordan hovedklassen er Kontrolinterfacet. Alt andet oprettes enten direkte af Kontrolinterface-klassen eller af en klasse oprettet af samme. Kontrolinterfacet har kun kontakt til brugergrænsefladen (MainWindow), Styringsmodulet og DataServer. Kommunikationen mellem Kontrolinterface-klassen og Styringsmodul spejler den kommunikation, der er imellem de fysiske blokke Kontrolinterfacet og Styringsmodulet i det samlede system.\\
 
-Det gælder for VBTE-, SM- og Sensor-klasserne at når der efterspørges en af de værdier, klassen har ansvaret for, så benyttes RS232-objektet til at fremskaffe disse værdier ved hjælp af den serielle kommunikationsprotokol. 
+Det gælder for VBTE-, Styringsmodul- og Sensor-klasserne at når der efterspørges en af de værdier, klassen har ansvaret for, så benyttes RS232-objektet til at fremskaffe disse værdier ved hjælp af den serielle kommunikationsprotokol. 
 
 
 \subsubsection{Grafisk brugergrænseflade}
-I denne sektion vil der kort blive gennemgået det vigtigste vindue i den grafiske brugergrænseflade; hovedvinduet. En gennemgang af de resterende vinduer vil kunne findes i Softwaredesign Appendix A: Kontrolinterface.
-På \textit{figur \ref{fig:hovedvindue}} er hovedvinduet vist. Her er vinduets elementer indrammet. Herefter vil hovedvinduets elementer blive beskrevet.
+I denne sektion vil der kort blive gennemgået det vigtigste vindue i den grafiske brugergrænseflade; hovedvinduet. En gennemgang af de resterende vinduer vil kunne findes i \textit{Softwaredesign Appendix A: Kontrolinterface}.
+På \ref{fig:hovedvindue} er hovedvinduet vist og vinduets elementer indrammet. Herefter vil hovedvinduets elementer blive beskrevet.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{billeder/KI/hovedvindue}
-\caption{På figuren ses hovedvinduet for Kontrolinterface-programmet}
+\caption{På figuren ses Kontrolinterfacets programs hovedvindue}
 \label{fig:hovedvindue}
 \end{figure}
 
 \textcolor{red}{\textbf{1: Forsinkelse i sekunder}}\\
 Det øverste tal fortæller tiden i sekunder siden serveren sidst er blevet opdateret succesfuldt.
-Nedenunder udskrives tiden i sekunder siden værdierne i boks tre og fire er blevet opdateret.
+Nedenunder udskrives tiden i sekunder siden værdierne i boks tre og fire er blevet opdateret. Hvis der er gået over 10 sekunder bliver tallet rødt.
 
 \textcolor{Orange}{\textbf{2: Nedlukningsknap}}\\
-Anvendes til at lukke programmet. Programmet åbner dialogen som kan ses i Designdokumentet, Appendix A.
+Anvendes til at lukke programmet. Programmet åbner en dialog som kan ses i \textit{Designdokumentet, Appendix A}.
 
 \textcolor{brown}{\textbf{3: Vandballasttankene}}\\
-Her kan status for vandballasttankene aflæses. Niveauet er hvor fyldt tanken er angivet i procent. Hvis niveauet er over 70\% skrives tallet med rødt.
+Her kan status for vandballasttankene aflæses. Niveauet fortæller hvor fyldt tanken er, angivet i procent. Hvis niveauet er over 70\% skrives tallet med rødt.
 Status angiver vandets flow i tanken: IND/UD/LUKKET.
 
 \textcolor{yellow}{\textbf{4: Hældningssensor}}\\
-Værdien for hældningen af skibet angives i antal grader og i hvilken side skibet hælder.
+Værdien for hældningen af skibet angives i antal grader og til hvilken side skibet hælder.
 
 \textcolor{green}{\textbf{5: Reguleringsstatus}}\\
-Her angives hvorvidt automatisk eller manuel hældningsregulering er aktiveret. Der vil altid kun være en og kun en af disse aktiveret. Derfor vil der altid være en rød og en grøn indikator tændt. I dette eksempel er den automatisk hældningsregulering aktiveret.
+Her angives hvorvidt automatisk eller manuel hældningsregulering er aktiveret. Der vil altid kun være én af disse aktiveret. Derfor vil der altid være en rød og en grøn indikator tændt. I dette eksempel er den automatisk hældningsregulering aktiveret.
 	
 \textcolor{pink}{\textbf{6: Forbindelser}}\\
-Indikerer hvorvidt der er forbindelse til Styringsmodulet og serveren. Dataforbindelse er rød hvis det ikke lykkedes at oprette forbindelse til serveren ved sidste forsøg.
+Indikerer hvorvidt der er forbindelse til Styringsmodulet og Server. Dataforbindelsens indikator er rød hvis det ikke lykkedes at oprette forbindelse til serveren ved sidste forsøg.\\
 SM-forbindelse er rød hvis det ikke lykkedes at få de ventede svar fra Styringsmodulet.
-I denne situation er der forbindelse til styringsmodulet, men ikke serveren.
+I denne situation er der forbindelse til Styringsmodulet, men ikke Serveren.
 
 \textcolor{blue}{\textbf{7: Automatisk reguleringsknap}}\\
-Ved tryk på denne knap vil man komme til en dialog hvor man beder bekræfte at man ønsker at gå væk fra manuel hældningsregulering. Hvis automatisk regulering allerede er aktiveret vil man få dette af vide i en dialog. Dialogerne kan ses i Designdokumentet, Appendix A.
+Ved tryk på denne knap vil man komme til en dialog, hvor man bedes bekræfte øsnket om at gå væk fra manuel hældningsregulering. Hvis automatisk regulering allerede er aktiveret vil man få dette af vide istedet. Dialogerne kan ses i \textit{Designdokumentet, Appendix A}
 
 \textcolor{BlueGreen}{\textbf{8: Manuel reguleringsknap}}\\
-Bringer dig til en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grader. Herefter vælges siden skibet skal hælde til. Dialogen kan ses i Designdokumentet, Appendix A.
+Frembringer en dialog hvori hældningen vælges fra 0.5 grader til 2.5 grader. Herefter vælges siden skibet skal hælde til. Dialogen kan ses i \textit{Designdokumentet, Appendix A}.
 
 \textcolor{purple}{\textbf{9: Aktivitetslog}}\\
 Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel kan det ses hvordan alarmer skrives med rødt og oprettede forbindelser skrives med grønt.
@@ -96,16 +96,16 @@ Her udskrives vigtige hændelser i programmet med farvekoder. I dette eksempel k
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% VBTE %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{VBTE}
-I dette afsnit beskrives design og implementering af VBTE for både software og hardware. 
+\subsection{Vandballasttankenhed}
+I dette afsnit beskrives design og implementering af Vandballasttankenhederne for både software og hardware. 
 \subsubsection{Hardware}
-Til VBTE'en er der blevet designet hardware til at styre de to ventiler samt den keramiske ultralydstransmitter og receiver. Hardware er blevet udfærdiget i to dele. Den ene er programmeret hardware på PSoC'en, den anden er hardware uden for PSoC'en. Hardware designprocessen til VBTE'en gik igennem 3 faser:
+Til VBTE'en er der blevet designet hardware til at styre de to ventiler samt den keramiske ultralydstransmitter og receiver. Hardware er blevet udfærdiget i to dele. Den ene er programmeret hardware på PSoC'en, den anden er hardware uden for PSoC'en. Designprocessen for hardwarehar gennemgået tre faser:
 \begin{enumerate}
 \item Overordnet design
 \item Nedbrydning af blokke
 \item Opbygning af design
 \end{enumerate}
-Gennem disse faser er designet blevet udfærdiget. Fremgangsmåden er anvendt for at overskueligtgøre systemet og lette arbejdet ved at dele systemet op i små dele. På \textit{figur \ref{fig:HWVBTE}} ses det overordnede design af VBTE'en. Der vil i rapporten tages udgangspunkt i ventilkredsen samt receiverdriveren på PSoC'en.
+Gennem disse faser er designet blevet udfærdiget. Fremgangsmåden er anvendt for at overskueliggøre systemet og lette arbejdet ved at dele systemet op i mindre dele. På figur \ref{fig:HWVBTE} ses det overordnede design af VBTE'en. Der vil i rapporten tages udgangspunkt i ventilkredsen samt receiverdriveren på PSoC'en.
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.9\textwidth]{billeder/HWVBTE}
@@ -113,7 +113,7 @@ Gennem disse faser er designet blevet udfærdiget. Fremgangsmåden er anvendt fo
 \label{fig:HWVBTE}
 \end{figure}
 \subsubsection{Hardware på PSoC'en}
-Hardware opbygget på PSoC'en kunne uden problemer være blevet designet uden for PSoC'en, men PSoC miljøet gør det meget nemt at arbejde med mange forskellige elementer. Der vil i rapporten ligges vægt på transmitterkredsen samt receiverkredsen. På figur \ref{fig:PSOCHW} ses hardware designet på PSoC'en.
+Hardware opbygget på PSoC'en kunne uden problemer være blevet designet uden for PSoC'en, men PSoC-miljøet gør det meget nemt at arbejde med mange forskellige elementer. Der vil i rapporten lægges vægt på transmitterkredsen samt receiverkredsen. På figur \ref{fig:PSOCHW} ses hardwaredesignet på PSoC'en.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{billeder/PSOC_Hardware}
@@ -121,14 +121,14 @@ Hardware opbygget på PSoC'en kunne uden problemer være blevet designet uden fo
 \label{fig:PSOCHW}
 \end{figure}
 \subsubsection{Transmitterkreds}
-Transmitterkredsen står for at sende burst samt at time hvert burst.  Dette opnåes med to clocks, en AND gate, en output pin samt et kontrol register. Transmitterclocken er indstillet til 40kHz da ultralydstransmitteren, ifølge databladet, opererede ved $\SI{40}{kHz}\pm\SI{1}{kHz}$. Clocken er blevet målt på oscilloskop til $\SI{40.3}{kHz}$. Burst kontrolregisteret er anvendt til at AND'e clocken ud på trans\_kontrol pinden.\\
-Clock\_dist interruptrutinen sørger for at tælle en variabel op der anvendes i main til at kalde burst funktionen. Dette gøres for at lave et nonblocking delay så andet kan køres på PSoC'en mens et burst er sendt afsted og der afventes detektion.
+Transmitterkredsen står for at sende burst samt at time hvert burst.  Dette opnåes med to clocks, en AND gate, en output pin samt et kontrolregister. Transmitterclocken er indstillet til 40kHz da ultralydstransmitteren, ifølge databladet\footnote{Se bilag/datablade/400SRT 160}, opererede ved $\SI{40}{kHz}\pm\SI{1}{kHz}$. Clocken er blevet målt på oscilloskop til $\SI{40.3}{kHz}$. Burst kontrolregisteret er anvendt til at AND'e clocken ud på trans\_kontrol pinden.\\
+Clock\_dist interruptrutinen sørger for at tælle en variabel op, der anvendes i main til at kalde burst funktionen. Dette gøres for at lave et nonblocking delay så andet kan køres på PSoC'en mens et burst er sendt afsted og der afventes detektion.
 \subsubsection{Receiverkreds}
 Receiverkredsen modtager signalet fra ultralydsreceiveren og omsætter det til en detektion. Dette sker efter følgende opskrift:\\
 Løfte signalet $\rightarrow$ Forstærkning $\rightarrow$ Mixning.\\
-Signalet bliver løftet på til $\frac{Vdda}{2}$ fordi PSoC'en ikke kan arbejde med værdier under Vssa (GND). Dette gøres ved hjælp af en kondensator, en modstand og en spændingsfølger med $\frac{Vdda}{2}$ på det positive ben.\\
-Efter signalet er løftet, bliver det forstærket op af en PGA. Den første forstærkning, fundet i teknologiundersøgelsen, viste sig at være for lav og forstærkningen blev justeret til 32. Problemet heri ligger at et meget klart signal vil kunne få systemet til at gå i mætning. Men dette ser ikke ud til at ske.\\
-Herefter bliver signalet mixet med $\SI{40}{kHz}$ og filtreret. Efter mixeren giver det, stort set, en DC og summen af de to signaler. Filteret er indbygget i Delta-Sigma ADC'en og har en knækfrekvens ved $\frac{Sample frekvens}{3}$. For at være sikker på at det meste af signalet er kommet over regnes der en opladningstid på filteret til $\SI{1/4}{ms}$. Efter undersøgelser af signalet ind på ADC'en blev en spænding på $\SI{0.3}{V}$ valgt til at representere en detektion.
+Signalet bliver løftet op til $\frac{Vdda}{2}$ fordi PSoC'en ikke kan arbejde med værdier under Vssa (GND). Dette gøres ved hjælp af en kondensator, en modstand og en spændingsfølger med $\frac{Vdda}{2}$ på det positive ben.\\
+Efter signalet er løftet, bliver det forstærket op af en PGA. Den første forstærkning, fundet i teknologiundersøgelsen, viste sig at være for lav og forstærkningen blev justeret til 32. Der ligger her et potentielt problem, da et meget klart signal vil kunne få systemet til at gå i mætning. Det ser dog ikke ud til at ske. Situationen virker også usandsynligt i vores opstilling da lyden bliver dæmpet af vandet.\\
+Herefter bliver signalet mixet med $\SI{40}{kHz}$ og filtreret. Efter mixeren giver det, stort set, en DC og summen af de to signaler. Filteret er indbygget i Delta-Sigma ADC'en og har en knækfrekvens ved $\frac{Sample frekvens}{3}$. For at være sikker på at det meste af signalet er kommet over regnes der en opladningstid på filteret til $\SI{1/4}{ms}$. Efter undersøgelser af signalet ind på ADC'en blev en spænding på $\SI{0.3}{V}$ valgt til at repræsentere en detektion.
 
 \subsubsection{Hardware uden for PSoC'en}
 Uden for PSoC'en er der lavet 2 hardwareblokke (Ventilkreds og transmitterkreds). Disse har til ansvar at omsætte et kontrolsignal til en større spænding over de respektive enheder. Herunder vil der blive fokuseret på ventilkredsen.
@@ -139,8 +139,8 @@ Uden for PSoC'en er der lavet 2 hardwareblokke (Ventilkreds og transmitterkreds)
 	\label{fig:Ventilblok1}
 \end{figure}
 \subsubsection{Ventilkreds}
-Ventilkredsen får to kontrolsignaler fra PSoC'en og disse skal styre de to ventiler. Ventilerne monteret på kredsen er fra Danfoss og er af modellerne EV210A-1.2 og EV210A-4.5. Disse ventiler drives ved 12V 0.4A. Der er valgt en BD139 transistor til at forstærke signalet op. Denne har en forstærkning mellem 40 og 160 (aflæst fra databladet\footnote{Se bilag/BD139.pdf}). IO's på PSoC'en kan maksimalt trække en strøm på $\SI{4}{mA}$ og det vil i værste tilfælde ikke være nok til at trække ventilerne.\\
-Der er derfor lavet en darlington kobling for at mindske belastningen af PSoC'en og for at sikre at der bliver lukket nok op for transistoren. Dette er gjort med en transistor af typen BC547. Transistorne er valgt ud fra pris og tilgængelighed. Der var først valgt en MOSFET IRLZ44n men denne var både for dyr og kunne klare en unødvendig stor effekt. Det smarte ved MOSFET'en er dog at den er spændingsstyret i forhold til de to andre transistorer. 
+Ventilkredsen får to kontrolsignaler fra PSoC'en og disse skal styre de to ventiler. Ventilerne monteret på kredsen er fra Danfoss og er af modellerne EV210A-1.2 og EV210A-4.5. Disse ventiler drives ved 12V 0.4A. Der er valgt en BD139 transistor til at forstærke signalet op. Denne har en forstærkning mellem 40 og 160 (aflæst fra databladet\footnote{Se bilag/datablade/BD139.pdf}). IO's på PSoC'en kan maksimalt trække en strøm på $\SI{4}{mA}$ og det vil i værste tilfælde ikke være nok til at trække ventilerne.\\
+Der er derfor lavet en darlingtonkobling for at mindske belastningen af PSoC'en og for at sikre, at der bliver lukket nok op for transistoren. Dette er gjort med en transistor af typen BC547. Transistorne er valgt ud fra pris og tilgængelighed. Der var først valgt en MOSFET IRLZ44n, men denne var både for dyr og kunne klare en unødvendig stor effekt. Det smarte ved MOSFET'en er dog at den er spændingsstyret i forhold til de to andre transistorer. 
 
 %\subsubsection{Transmitterkreds}
 %Transmitterkredsen anvender ultralydstranduceren som en højtaler. Denne er koblet over transistoren (Her anvendes også en BD139).\\
@@ -154,7 +154,7 @@ Der er derfor lavet en darlington kobling for at mindske belastningen af PSoC'en
 %For yderligere detaljer vedrørende hardware på VBTE henvises til \textit{Deltajeret hardware design}.
 
 \subsubsection{Software}
-Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kravspecifikationen samt arkitekturen i systemarkitekturen. Den er blevet designet til at passe til hardwaren så den kan kontrollere de enkelte elementer. I designfasen er der blevet udfærdiget et klassediagram samt en statemachine over funktionaliteten. På \textit{figur \ref{fig:VBTEklasse} } ses klassediagramet for VBTE modulets software.
+Softwaren til VBTE-modulet er blevet designet til at kunne opfylde kravene i kravspecifikationen samt arkitekturen i systemarkitekturen. Den er blevet designet til at passe til hardwaren så den kan kontrollere de enkelte elementer. I designfasen er der blevet udfærdiget et klassediagram samt en statemachine over funktionaliteten. På figur \ref{fig:VBTEklasse} ses klassediagramet for VBTE-modulets software.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/ClassVBTE}
@@ -162,31 +162,31 @@ Softwaren til VBTE modulet er blevet designet til at kunne opfylde kravene i kra
 \label{fig:VBTEklasse}
 \end{figure}
 Selvom softwaren er skrevet i C er der lavet klasser for alle h-filer for at gøre systemet overskueligt. For detaljerede metodebeskriveler henvises til detaljeret software design.\\
-For at overskueligtgøre funktionaliteten af softwaren anvendes statemachinediagrammet. Dette viser de forskellige tilstande programmet til enhver til kan befinde sig i.
+For at overskueligtgøre funktionaliteten af softwaren anvendes statemachinediagrammet. Dette viser de forskellige tilstande programmet til enhver tid kan befinde sig i.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/STMVBTE}
-\caption{Statemachine for VBTE software}
+\caption{State machine for software på VBTE'en}
 \end{figure}
 De forskellige betingelser der skal til for at skifte tilstand vil herefter blive beskrevet. \\
-Som nævnt i hardware anvendes et interrupt til at lave et nonblocking delay på 500ms. Dette håndteres på VBTE'en i main ved hjælp af en if sætning der tjekker op på variablen fra interruptet.\\
-Burst receivered bliver opnået når flaget hertil bliver sat. Dette flag bliver sat inde i ADC'ens interruptrutine når den måler en værdi der indikerer at et burst er modtaget.\\
-Read complete betingelsen bliver kontrolleret inde i I2C\_handle. Heri aflæses data fra SM og omsættes til et state for ventilerne. Herefter fyldes afstanden for tankene ind i readbufferen for I2C'en med henblik på at den sendes retur. Herefter ændres ventil tilstanden så den passer med den modtagede tilstand.\\
+Som nævnt i hardware anvendes et interrupt til at lave et nonblocking delay på 500ms. Dette håndteres på VBTE'en i main ved hjælp af en \textit{if}-sætning der tjekker op på variablen fra interruptet.\\
+\textit{Burst received} bliver opnået når flaget hertil bliver sat. Dette flag bliver sat inde i ADC'ens interruptrutine når den måler en værdi der indikerer at et burst er modtaget.\\
+\textit{Read complete}-betingelsen bliver kontrolleret inde i I2C\_handle. Heri aflæses data fra Styringsmodulet og omsættes til et state for ventilerne. Herefter fyldes afstanden for tankene ind i readbufferen for I2C'en med henblik på at skulle afhentes af Styringsmodulet. Herefter ændres ventiltilstanden så den passer med den modtagede tilstand.\\
 For yderligere detaljer om software for VBTE henvises til detaljeret design dokumentation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% SM %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{SM}
-I dette afsnit beskrives design og implementering af SM modulet. SM modulet består af både software og hardware.
+\subsection{Styringsmodulet}
+I dette afsnit beskrives design og implementering af Styringsmodulet. Styringsmodulet består af både software og hardware.
 \subsubsection{Hardware}
-SM modulets hardware består af en konverteringskreds og en PSoC. På PSoC'en er monteret et Kionix KXSC7-2050 accelerometer. Konverteringskredsen anvendes til at sende UART signaler fra PSoC til en KI modulet. Accelerometerets x-akse anvendes til hældningsmålinger for hældningssensorblokken.\\
-Designfasen til SM er delt op i 3 faser:
+Styringsmodulet hardware består af en konverteringskreds og en PSoC. På PSoC'en er monteret et Kionix KXSC7-2050 accelerometer. Konverteringskredsen anvendes til at sende UART signaler fra PSoC til Kontrolinterfacet. Accelerometerets x-akse anvendes til hældningsmålinger for hældningssensorblokken.\\
+Designfasen til Styringsmodulet er delt op i 3 faser:
 \begin{enumerate}
 \item Overordnet design
 \item Nedbrydning af blokke
 \item Opbygning af design
 \end{enumerate}
-Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i processen og at kunne implementere modulet så det kan opfylde de krav der er opstillet. Ligeledes gør fremgangsmåden det lettere at overskue flere løsninger til hvert problem. på \textit{Figur~\ref{fig:SMHW1}} ses det Overordnede design og på \textit{Figur~\ref{fig:SMPSOC1}} ses PSoC blokken i SM. Der bliver efterfølgende taget udgangspunkt i Hældningssensoren. \\
+Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i processen og at kunne implementere modulet så det kan opfylde de krav, der er opstillet. Ligeledes gør fremgangsmåden det lettere at overskue flere løsninger til hvert problem. På figur \ref{fig:SMHW1} ses det overordnede design og på figur \ref{fig:SMPSOC1} ses PSoC-blokken i Styringsmodulet. Der bliver efterfølgende taget udgangspunkt i hældningssensoren.\\
 \begin{figure}[H]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}\centering
@@ -204,7 +204,7 @@ Denne fremgangsmåde gør det muligt for en udefrakommende at følge med i proce
 	\label{fig:SMPSOC1}
 	\end{minipage}
 \end{figure}
-Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt en DelSig ADC internt i PSoC'en. Valget af accelerometer kommer af at have lavet en række prototyper der ikke mødte vores krav, hvilket accelerometeret i PSoC'en gjorde. Valget af ADC faldt på en DelSig da, den er meget støj immun grundet det indbyggede lavpas filter og har en høj opløsning. Valgte komponenter er illustret på \textit{figur~\ref{fig:levelsensor}}. ADC konverterer det analoge signal fra, en pin forbundet til, accelerometer til en digital værdi der så senere bliver anvendt i softwaren. For ADC og accelerometerets opsætning se da afsnit \ref{ch:DetajlDesign}~\textit{Detaljeret hardware design} i Bilag.
+Hældningssensoren består af to komponenter: det førnævnte accelerometer samt en DelSig ADC internt i PSoC'en. Valget af accelerometer kommer af at have lavet en række prototyper, der ikke opfyldte kravene, hvilket accelerometeret i PSoC'en gjorde. Valget af ADC faldt på en DelSig da den er meget støjimmun grundet det indbyggede lavpasfilter og den høje opløsning. Valgte komponenter er illustret på figur \ref{fig:levelsensor}. ADC konverterer det analoge signal fra, en pin forbundet til, accelerometer til en digital værdi der så senere bliver anvendt i softwaren. For ADC og accelerometerets opsætning se da \textit{Detaljeret hardwaredesign} i bilag.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.8]{billeder/levelsensor}
@@ -212,15 +212,15 @@ Hældningssensoren består af 2 komponenter: det førnævnte accelerometer samt 
 	\label{fig:levelsensor}
 \end{figure}
 \subsubsection{Software}
-SM software behandler den konverterede data fra ADC'en samt kommunikation med VBTE og KI modulernerne. Sofwarens udvikling har fulgt de samme faser som hardwaren, hvilket har ført til letforståelig og læselig kode. Softwaren er illustreret på \textit{figur~\ref{fig:SMKD}}. Der vil efterfølgende blive taget udgangspunkt i et statemachine samt funktionen getFromKI.
+Styringsmodulets software behandler den konverterede data fra ADC'en samt kommunikation med Vandballasttankenhederne og Kontrolinterfacet. Sofwarens udvikling har fulgt de samme faser som hardwaren, hvilket har ført til letforståelig og læselig kode. Softwaren er illustreret på figur \ref{fig:SMKD}. Der vil efterfølgende blive taget udgangspunkt i et state machine samt funktionen getFromKI.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{billeder/smKlassediagram}
 	\caption{Klassediagram for SM}
 	\label{fig:SMKD}
 \end{figure}
-\textbf{SM funktionalitet}\\
-Funktionalitet af SM kan bedst beskrives med et state diagram. På \textit{figur~\ref{fig:stm_sm}} ses  state machine diagrammet for SM modulet. Diagrammet indeholder hældningsregulering state der beskriver den automatiske og manuelle regulering i systemet. Den automatiske regulering styres med et flag. Den manuelle styres med en værdi der bliver sat. Flaget bliver sat når SM opnår forbindelse med KI modulet i 'Afvent' statet. Flaget bliver nulstillet hvis KI sender besked til SM modulet om at det skal termineres, hvorefter SM går tilbage i 'Afvent' statet. Behandlingen af beskeder fra KI i 'Modtag besked fra KI' og 'Send svar til KI' states ses i følgende afsnit \textit{getFromKI}.\\
+\textbf{Styringmodulets funktionalitet}\\
+Funktionalitet af Styringsmodulet kan bedst beskrives med et state diagram. På figur \ref{fig:stm_sm} ses state machine diagrammet for Styringsmodulet. Diagrammet indeholder \textit{Hældningsregulering}-stadiet, der beskriver den automatiske og manuelle regulering i systemet. \\Den automatiske regulering styres med et flag. Den manuelle styres med en værdi, der bliver sat. Flaget bliver sat når Styringsmodulet opnår forbindelse med Kontrolinterfacet i \textit{Afvent}-stadiet. Flaget bliver nulstillet hvis Kontrolinterfacet sender besked til Styringsmodulet om at det skal termineres, hvorefter Styringsmodulet går tilbage i \textit{Afvent}-stadiet. Behandlingen af beskeder fra Kontrolinterfacet i \textit{Modtag besked fra KI}-stadiet og \textit{Send svar til KI}-stadiet ses i følgende afsnit \textit{getFromKI}.\\
 \\
 \textbf{getFromKI}\\
 Funktionen er bedst beskrevet med et flowdiagram:
@@ -230,36 +230,41 @@ Funktionen er bedst beskrevet med et flowdiagram:
 	\caption{Flowdiagram for funktionen getFromKI}
 	\label{fig:gFKIfc}
 \end{figure}
-Funktionen har til ansvar at kommunikere med KI efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så KI modulet ved hvilken besked, SM har modtaget. Dette sikre pålidelig overførsel da KI modulet har mulighed for at validere på overførslen. getFromKI bliver kaldt ca. hver andet sekund for at se om KI har skrevet noget til bufferen. Hvis der ikke er noget i bufferen returnerer funktionen med det samme.\\
+Funktionen har til ansvar at kommunikere med Kontrolinterfacet efter de krav opsat i Kravspecifikation. Hver ACK er relateret til den besked, der er modtaget, så Kontrolinterfacet ved hvilken besked, Styringsmodulet har modtaget. Dette sikre pålidelig overførsel da Kontrolinterfacet har mulighed for at validere på overførslen. getFromKI bliver kaldt cirka hver andet sekund for at se om Kontrolinterfacet har skrevet noget til bufferen. Hvis der ikke er noget i bufferen returnerer funktionen med det samme.\\
+
 \subsection{Strømforsyning}
-I dette afsnit beskrives design og implementering af strømforsying. Strømforsyningen implementeres sammen med SM og VBTE.
+I dette afsnit beskrives design og implementering af strømforsyningen. Strømforsyningen implementeres til Styringsmodulet og Vandballasttankenhederne.
 \subsubsection{Hardware}
-Strømforsyning er designet til at levere to forsyningsspændinger: \textbf{12VDC 1A og 5VDC 0.5A} dette gøres fra en 24V AC forsyningskilde. 
-For at gøre designet af strømforsyning mere oversskuelig er designfasen delt op i 3 faser:
+Strømforsyning er designet til at levere to forsyningsspændinger: \textbf{12VDC 1A} og \textbf{5VDC 0.5A}. Dette gøres fra en 24V AC forsyningskilde. \\
+For at gøre designet af strømforsyning mere overskueligt er designfasen delt op i tre faser:
 \begin{enumerate}
 \item Overordnet design
 \item Nedbrydning af blokke
 \item Opbygning af design
 \end{enumerate}
-Igennem de tre faser er designet af strømforsyning blevet udarbejdet, dette er gjort ved at have startet med et overordnet blokdiagram, hvor efter hver enkel blok er blevet beskevet og designet. \textit{figur \ref{fig:PowerSupplyBlok}} viser det overordnet blokdiagram af strømforsyningen.\\
+Igennem de tre faser er designet af strømforsyning blevet udarbejdet. Dette er gjort ved at have startet med et overordnet blokdiagram, hvorefter hver enkel blok er blevet beskrevet og designet. Figur \ref{fig:PowerSupplyBlok} viser det overordnede blokdiagram for strømforsyningen.\\
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{billeder/PowerSupplyBlok}
 \caption{Illustrering af overordnet blokdiagram af strømforsyningen.}
 \label{fig:PowerSupplyBlok}
 \end{figure}
-\subsubsection{Beskrivelse af vitale hardware blokke}
+
+\subsubsection{Beskrivelse af vitale hardwareblokke}
 I dette afsnit vil der være en beskrivelse af de udvalgte blokke.
-\subsubsection{Dobbelt ensretter og udglatning}
-Da strømforsyningen for leveret strøm fra en AC spændingskilde, skal AC signalet ensrettes til DC, dette gøres med dobbelt ensretter blokken og udglatnings blokken. 
-\subsubsection{Dobbelt ensretter}
+
+\subsubsection{Dobbelt-ensretter og udglatning}
+Da strømforsyningen får leveret strøm fra en AC-spændingskilde skal AC-signalet ensrettes til DC. Dette gøres med dobbelt-ensretterblokken og udglatningsblokken. 
+
+\subsubsection{Dobbelt-ensretter}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{billeder/DobbeltensretterBlok}
-\caption{Blok for dobbelt ensretter}
+\caption{Blok for dobbelt-ensretter}
 \label{fig:DobbeltensretterBlok1}
 \end{figure}
-Dobbelt ensretteren en lavet som en diodebro bestående af 4 dioder, hvor to af dioderne samtiddig, hvilket betyder at der vil være positive halvperioder på udgangen "ensrettet DC" med en spidsværdi på ca. indgangsspænding * $\sqrt{2}$
+Dobbelt-ensretteren er lavet som en diodebro bestående af fire dioder, hvor to af dioderne leder samtidigt. Dette medfører at der vil være positive halvperioder på udgangen \textit{ensrettet DC} med en spidsværdi på cirka indgangsspændingen * $\sqrt{2}$
+
 \subsubsection{Udglatning}
 \begin{figure}[H]
 \centering
@@ -267,9 +272,10 @@ Dobbelt ensretteren en lavet som en diodebro bestående af 4 dioder, hvor to af 
 \caption{Blok for dobbelt ensretter}
 \label{fig:DobbeltensretterBlok2}
 \end{figure}
-Udglatningen er en elektrolyt kondensator som oplades og aflades i forhold til de positive halvperioder, da kondensator kun når at aflade lidt for hver nedadgående periode, vil der være en jævn og stabil DC.  
+Udglatningen er en elektrolytkondensator som oplades og aflades i forhold til de positive halvperioder. Da kondensatoren kun når at aflade lidt for hver nedadgående periode, vil der være en jævn og stabil DC.  
+
 \subsubsection{Regulator 12V og Regulator 5V}
-Da de enkle moduler bruger 12V og/eller 5V skal DC spænding fra Udglatningen reguleres ned til det pasende niveau, dette gøres i blokkene regulator 12V og regulator 5V.
+Da de enkle moduler bruger 12V og/eller 5V skal DC-spændingen fra udglatningen reguleres ned til et pasende niveau. Dette gøres i blokkene regulator 12V og regulator 5V.
 \begin{figure}[H]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}\centering
@@ -287,39 +293,38 @@ Da de enkle moduler bruger 12V og/eller 5V skal DC spænding fra Udglatningen re
 	\label{fig:Regulering_5VBlok}
 	\end{minipage}
 	\end{figure}
-For at regulatoren kan regulere spændingen ned til 12V og 5V, bruges et feedback fra udgangen, feedbacket er indstillet til 12V ved hjælp af to modstande. \\
-
-
-
+For at regulatoren kan regulere spændingen ned til 12V og 5V, bruges et feedback fra udgangen. Feedbacket er indstillet til 12V ved hjælp af to modstande. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% DA TAB ACE  %%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Database}
-Denne section beskriver design og implementering af database delen som er lavet på baggrund af kravspecifikationen og systemarkitekturen.\\
-Databasen er blevet opdelt i 2 dele som håndtere denne side. Databasen er opdelt i server og Webinterface.
+Denne section beskriver design og implementering af databasedelen. Fasen er lavet på baggrund af kravspecifikationen og systemarkitekturen.\\
+Databasen, som vi har defineret den, består af en MySQL-database, Server og Webinterface.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.5\textwidth]{billeder/database_to_mysql}
-\caption{Illustrere overordnet hvordan databasen fungere}
+\caption{Illustrerer overordnet hvordan databasen fungerer}
 \label{fig:server_to_mysql}
 \end{figure}
 
 \subsection{Serveren}
-Denne section beskriver design og implementering af serveren.
-Opbygningen af serveren er gjort sådan at hver element i serveren er implementeret som en klasse, hvilket er illustreret på \textit{figur \ref{fig:database_server}}. For forståelse af det program flow der sker på serveren er der udarbejdet en statemachine \textit{figur \ref{fig:stm_server}} der hviser dette flow
+Denne section beskriver design og implementering af serveren.\\
+Opbygningen af serveren er lavet så hvert element i serveren er implementeret som en klasse. Dette er illustreret på figur \ref{fig:database_server}. For at få forståelse for flowet i programet er der udarbejdet en state machine. State machinen kan ses på figur \ref{fig:stm_server}.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.5\textwidth]{billeder/Systemarkitektur/stm_server}
-\caption{Illustrere overordnet hvordan databasen fungere}
+\caption{Illustrerer overordnet hvordan databasen fungerer}
 \label{fig:stm_server}
 \end{figure}
 
-Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp som benytter sig af socket. Når tilslutningen er gjort kan der overføres data fra KI til databasen. Data bliver gemt i en tekst fil, der indlæses af Webinterface.
+Det gælder at når Kontrolinterfacet forsøger at kontakte databasen, tilsluttes denne via en TPC-socket. Når tilslutningen er gjort kan der overføres data fra Kontrolinterfacet til databasen. Data bliver gemt i en tekst fil, der indlæses af Webinterfacet.
 \begin{figure}[H]
 \centering
 \includegraphics[width = 0.5\textwidth]{billeder/database_server}
-\caption{Overordnet illustration af serveren funktionalitet}
+\caption{Overordnet illustration af serverens funktionalitet}
 \label{fig:database_server}
 \end{figure}
 
@@ -329,39 +334,39 @@ Det gælder at når KI forsøger at kontakte databasen, tilsluttes denne via tcp
 \begin{tabular}{| p{3cm}  p{12cm}|}
 \multicolumn{2}{l}{{\Large Serverens klasser}} \\\hline
 
-Server & Er hovedvinduet på serveren. Information til brugeren udskrives herfra og knapper er implementeret. \\\hline
-TCP forbindelse (tcp) & Opretter en mulig tcp forbindelse hvor skibet kan tilslutte sig og overføre data.\\\hline
-Gemme data (savedata) & Gemmer data til en tekst fil.\\\hline
-De kryptering (enumDeKrypteringskode) & Dekryptere level fra sm så data bliver i grader\\\hline
+Server & Er hovedvinduet på serveren. Information til brugeren skrives her og knapper er implementeret. \\\hline
+TCP forbindelse (tcp) & Åbner en port som Kontrolinterfacet har mulighed for at forbinde til databasen på.\\\hline
+Gemme data (savedata) & Gemmer data til en tekstfil.\\\hline
+Dekryptering (enumDeKrypteringskode) & Dekrypterer \textit{level} så værdien bliver i grader\\\hline
 \end{tabular}
 \caption{Serverens klasser}
 \label{tabel:server-klasser}
 \end{table}
 
 \section*{Hovedvindue for serveren}
-Dette giver et kort billed på hvordan serverens funktion ser ud. Den fulde model kan ses i appendix
+Dette giver et kort billed på hvordan serverens hovedvindue ser ud. Den fulde model kan ses i  \textit{Detaljeret Softwaredesign, Appendix B: Database}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.4\textwidth]{billeder/server}
-	\caption{Billed af serverens hovedvindue}
+	\caption{Billede af serverens hovedvindue}
 	\label{fig:server}
 \end{figure}
-Serverens GUI giver mulighed for at brugeren kan se at serveren køre og hvilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den web baserede database. Der er en mulighed for at lukke serveren. Denne er ment som en mulighed for at lukke serveren i tilfælde af fejl eller restart da det er meningen at serveren skal køre konstant. Serverens grafiske visning er ikke til brug for terminaloperatøren men ment for at man kan se at serveren køre i stedet for at få udskrifter i terminalen.
+Serverens hovedvindue giver mulighed for at brugeren kan se at serveren kører og hvilke kommandoer der er blevet udført. Fra serverens hovedmodul har brugeren mulighed for at vælge at åbne den web-baserede database. Der er en mulighed for at lukke serveren. Denne er ment som en mulighed for at lukke serveren i tilfælde af fejl eller restart. Ellers er det meningen at serveren skal køre konstant. Serverens grafiske visning er ikke til brug for terminaloperatøren, men ment for at man kan se at serveren køre i stedet for at få udskrifter i terminalen.
 
 \textcolor{green}{\textbf{1: Info}}\\
-Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om KI har tilsluttet sig og om der er blevet overført data desuden vil fejl meddelelser blive udskrevet her. Dialog boksen er lavet sådan at den nyeste besked altid står øverst se \ref{fig:server}.
+Brugeren får her udskrevet beskeder om serveren. Brugeren kan se om Kontrolinterfacet har tilsluttet sig og om der er blevet overført data. Desuden vil fejlmeddelelser blive udskrevet her. Dialogboksen er lavet sådan at den nyeste besked altid står øverst, se figur \ref{fig:server}.
 
 \textcolor{blue}{\textbf{2: Database}}\\
-Anvendes til at lade brugeren tilgå den web baserede database. Efter log in og valg af skib kommer brugeren til databasen for skibet som ses i \ref{fig:database_web}.
+Anvendes til at lade brugeren tilgå den web-baserede database. Efter login og valg af skib kommer brugeren til databasen for det valgte skib. Se \ref{fig:database_web}.
 
 \textcolor{red}{\textbf{2: Luk serveren}}\\
 Anvendes til at lukke programmet. Bruges til nedlukning\\
 
 
 \subsection{Webinterface}
-Denne section beskriver design og implementering af web siden.\\
-Opbygningen af Webinterface er gjort i php hvor dette gav mening. Desuden er html og styles (css) blevet benyttet til at sikre ens stil på hele web siden og for simpelt at kunne veligeholdes. For at sikre mindst data transmision imellem computer og server er princippet i ajax blevet benyttet.
-Til at fremvise et grafisk program flow benyttes der en statemaschine \textit{figur \ref{fig:stm_web}}
+Denne section beskriver design og implementering af web-siden.\\
+Opbygningen af Webinterface er gjort i php hvor dette gav mening. Desuden er html og styles (css) blevet benyttet til at sikre en identisk stil på hele web-siden og for simpelt at kunne vedligeholde siden. For at sikre mindst data transmission imellem computer og server er princippet i ajax blevet benyttet.
+Til at fremvise et grafisk program flow benyttes der en state machine figur \ref{fig:stm_web}
  
 \begin{figure}[H]
 \centering
@@ -370,7 +375,7 @@ Til at fremvise et grafisk program flow benyttes der en statemaschine \textit{fi
 \label{fig:stm_web}
 \end{figure}
 
-Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan denne tilgå disse via den web baserede database. Når serveren køre kan brugeren tilgå databasen via knappen "Database" ellers kan denne tilgås via ip adressen dette giver mulighed for at tilgå siden via internet hvorved at behovet for adgangskode ved log in er nødvendig for at sikre data imod uatorisret brug. Efter log ind på siden, kan brugeren vælge, hvilket skib der skal benyttes. Når skib er valgt kommer brugeren ind på den valgte database. Her kan brugeren se ID på skibet vandtilstand i ballast tanke, hældning og tid siden sidste opdatering (for nærmere se AppendixB). Webinterfacet checker hvert 5 secund om der er kommet ny data. Ved ny data vil et script sørge for at denne bliver gemt i MySQL databasen. Webinterfacet tilgår den angivne tabel i den angivne database. Til at håndtere wibinterfacet benyttes en apache server som er installeret på serveren. Apache serveren kan benyttes med de fleste operativ systemer.
+Når havneterminalen ønsker at se data om skibe, der er opkoblet på BROS kan denne tilgå disse via den web-baserede database. Når serveren kører kan brugeren tilgå databasen via knappen "Database" eller ip-adressen. Dette giver mulighed for at tilgå siden via Internettet hvorved behovet for adgangskode ved login bliver nødvendig for at sikre data imod uautoriseret brug. Efter login på siden, kan brugeren vælge, hvilket skib, der skal benyttes. Når skibet er valgt kommer brugeren ind på den valgte database. Her kan brugeren se ID på skibet vandtilstand i ballasttanke, hældning og tid siden sidste opdatering (for nærmere se \textit{Detaljeret Softwaredesign, Appendix B}). Webinterfacet checker hvert 5. sekund om der er kommet ny data. Ved ny data vil et script sørge for at dette bliver gemt i MySQL-databasen. Webinterfacet tilgår den angivne tabel i den angivne database. Til at håndtere wibinterfacet benyttes en Apache-server som er installeret på serveren. Apache-serveren kan benyttes med de fleste operative systemer.
 
 \begin{figure}[H]
 \centering
@@ -385,18 +390,18 @@ Når havneterminalen ønsker at se data om skibe der er opkoblet på BROS kan de
 \begin{tabular}{| p{3cm}  p{12cm}|}
 \multicolumn{2}{l}{{\Large Webinterface beskrivelse}} \\\hline
 MainWindow \phantom{m}(index) & Index loader shippas ind som er en form som håndtere adgangskoder. Dette er siden brugeren kommer til som det første. Brugeren skal taste sin adgangskode for at få adgang til databasen\\\hline
-Databasen  \phantom{m}(logon) & Denne side bliver kaldt efter at brugeren er logget på. Her vælger brugeren hvilket skib denne ønsker at få vidst data for.\\\hline
+Databasen  \phantom{m}(logon) & Denne side bliver kaldt efter at brugeren er logget på. Her vælger brugeren hvilket skib denne ønsker at få vist data for.\\\hline
 \end{tabular}
 \caption{Web sidens opbygning}
 \label{tabel:webside-simpel}
 \end{table}
 
 \subsection*{Skibs data i database}
-Et billed af hvordan data fremvises for brugeren. For de andre sider på websitet kan disse ses i apendix
+Et billed af hvordan data fremvises for brugeren. For de andre sider på websitet kan disse ses i \textit{Detaljeret Softwaredesign, Appendix B}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{billeder/web_database_new}
-	\caption{Billed databasen BROS for skibet Martha}
+	\caption{Billede af databasen for skibet Martha}
 	\label{fig:web_database}
 \end{figure}
 
@@ -407,18 +412,18 @@ Brugeren kan se hvilket skib denne er inde på og hvornår databasen sidst er op
 Skibets ID bliver vidst. Hvis at KI lukker tcp forbindelsen vil skibts ID skifte til "TERMINATED".
 
 \textcolor{blue}{\textbf{3: Styrbord vandtanksniveau}}\\
-Der vises hvor meget vand der er i styrbord ballasttank.
+Der vises hvor meget vand der er i styrbordets ballasttank.
 
 \textcolor{yellow}{\textbf{4: Bagbord vandtanksniveau}}\\
-Der vises hvor meget vand der er i bagbord ballasttank.
+Der vises hvor meget vand der er i bagbordets ballasttank.
 
 \textcolor{red}{\textbf{5: Hældning i grader}}\\
 Der vises hvor mange grader sibet hælder i forhold til styrbord.
 
 \textcolor{RoyalPurple}{\textbf{6: Skib tilsluttet}}\\
-Der vise hvor lang tid i secunder der er gået fra overførelsen før til denne.
+Der vises hvor lang tid i sekunder, der er gået fra seneste overførelse før til denne.
 
 
 \subsection{MySQL}
-Som database benyttes MySQL. Denne er en multitreading database som giver mulighed for at flere kan tilgå denne samtid. Det er et færdigt produkt der kan implementeres på de fleste styresystemer. Systemet giver mulighed for at oprette interne databaser med egne taballer til algring af data (se apendix for flere detaljer).
-MySQL giver desuden mulighed for at man ved hjælp af php direkte på et website kan oprette databaser og tabeller. Dette betyder at når et nyt skib som ikke har været koblet til systemet før tilkobler serveren. Kan serveren som normalt oprette en fil med dennes data. Når et website med dette implementeret loader filen kan denne se på om dette skib allerede findes, gør det ikke kan den oprette en intern database med tabeller til lagring af data og derefter gemme den nye data. Dette benyttes ikke i denne prototype men systemet er klargjort til det med få ændringer.
+Som database benyttes MySQL. Denne er en multithreading database som giver mulighed for at flere kan tilgå denne samtidigt. Det er et færdigt produkt, der kan implementeres på de fleste styresystemer. Systemet giver mulighed for at oprette interne databaser med egne taballer til lagring af data (se \textit{Detaljeret Softwaredesign, Appendix B}) for flere detaljer).
+MySQL giver desuden mulighed for at man ved hjælp af php direkte på et website kan oprette databaser og tabeller. Dette betyder at når et nyt skib, som ikke har været koblet til systemet før, tilkobler serveren, kan serveren oprette en fil med dennes data. Når et website med dette implementeret loader filen kan denne se på om dette skib allerede findes. Hvis det ikke gør, kan den oprette en intern database med tabeller til lagring af data og derefter gemme den nye data. Dette benyttes ikke i denne prototype, men systemet er klargjort til det med få ændringer.
